@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="332dp"
+            android:layout_height="67dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="23dp"
+            android:breakStrategy="high_quality"
+            android:gravity="center"
+            android:text="@string/voyagez_confortablement_et_au_prix_le_plus_bas"
+            android:textColor="#100C0C"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:autoSizeTextType="none"
+            app:layout_constraintBottom_toTopOf="@+id/secondaryText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/illustration" />
+
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="176dp"
+            android:layout_height="109dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/logo_de_l_application"
+            android:src="@drawable/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/appTitle"
+            android:layout_width="167dp"
+            android:layout_height="81dp"
+            android:layout_marginStart="8dp"
+            android:autoText="true"
+            android:fontFamily="@font/just_me_again_down_here"
+            android:gravity="center"
+            android:shadowColor="#000000"
+            android:shadowDx="7"
+            android:shadowDy="7"
+            android:shadowRadius="4"
+            android:text="@string/dini_m3ak"
+            android:textColor="#F39313"
+            android:textSize="55sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/logoImage"
+            app:layout_constraintStart_toEndOf="@id/logoImage"
+            app:layout_constraintTop_toTopOf="@id/logoImage"
+            app:layout_constraintVertical_bias="0.512"
+            tools:ignore="Deprecated,TextSizeCheck,TextViewEdits" />
+
+        <ImageView
+            android:id="@+id/illustration"
+            android:layout_width="0dp"
+            android:layout_height="253dp"
+            android:layout_marginTop="28dp"
+            android:contentDescription="@string/illustration_description"
+            android:scaleType="fitCenter"
+            android:src="@drawable/image1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logoImage" />
+
+        <TextView
+            android:id="@+id/secondaryText"
+            android:layout_width="375dp"
+            android:layout_height="63dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="132dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="38dp"
+            android:background="#E0E0E0"
+            android:fontFamily="sans-serif-medium"
+            android:padding="12dp"
+            android:text="@string/des_centaines_d_offres_de_covoiturage_publi_es_chaque_jour_votre_disposition"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:autoSizeTextType="none"
+            app:layout_constraintBottom_toTopOf="@+id/btnConnexion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/illustration" />
+
+        <Button
+            android:id="@+id/btnConnexion"
+            style="@style/OrangeButton"
+            android:layout_width="164dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="95dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/connexion"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnInscription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.285"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/secondaryText"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/btnInscription"
+            style="@style/OrangeButton"
+            android:layout_width="163dp"
+            android:layout_height="60dp"
+            android:text="@string/inscription"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.518"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnConnexion"
+            tools:ignore="TextContrastCheck" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="60dp"
+            android:layout_height="85dp"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="76dp"
+            android:layout_marginEnd="34dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/image"
+            android:src="@drawable/aa"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnInscription"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/secondaryText"
+            tools:ignore="ImageContrastCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
+
