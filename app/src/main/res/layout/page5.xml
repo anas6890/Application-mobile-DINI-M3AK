@@ -18,10 +18,11 @@
         android:orientation="vertical">
 
         <!-- Bande supérieure -->
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:padding="18dp">
 
             <!-- Avatar -->
             <ImageView
@@ -30,30 +31,40 @@
                 android:layout_height="40dp"
                 android:background="@drawable/circle_background"
                 android:padding="8dp"
-                android:src="@drawable/ic_person" />
+                android:src="@drawable/ic_person"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
             <!-- Bouton Aide -->
+
+            <!-- Notification -->
             <Button
                 android:id="@+id/btnHelp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="48dp"
+                android:layout_marginEnd="60dp"
                 android:background="@drawable/button_help_background"
-                android:text="⚠ Aide"
+                android:text="@string/aide"
                 android:textAllCaps="false"
                 android:textColor="#000000"
-                android:textSize="12sp" />
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- Notification -->
             <ImageView
                 android:id="@+id/notification"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/ic_notifications" />
-        </RelativeLayout>
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:contentDescription="@string/notif"
+                android:src="@drawable/ic_notifications"
+                app:layout_constraintBottom_toTopOf="@+id/btnHelp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/btnHelp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Texte principal -->
         <TextView
@@ -61,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="8dp"
-            android:text="xxx,où souhaites-tu voyager?"
+            android:text="@string/xxx_o_souhaites_tu_voyager"
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -69,131 +80,215 @@
         <!-- Recherche -->
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="16dp"
+            android:autofillHints=""
             android:background="@drawable/search_background"
-            android:hint="🔍 chercher parmi 398 offres"
+            android:hint="@string/chercher_parmi_398_offres"
+            android:inputType="text"
             android:padding="8dp"
-            android:textColorHint="#999999" />
+            android:textColorHint="#546E7A"
+            tools:ignore="VisualLintTextFieldSize" />
 
         <!-- Recherches récentes -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="8dp"
-            android:text="Recherches récentes"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/recherches_r_centes"
             android:textColor="#000000"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
-        <!-- Résultats -->
+        <!-- Recherches récentes affichées en liste -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="125dp"
             android:layout_marginHorizontal="16dp"
+            android:baselineAligned="false"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Casablanca > Rabat"
-                android:textColor="#000000" />
-
+            <!-- Élément 1 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_place" />
+                <!-- Icône dans fond rond -->
+                <FrameLayout
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/bg_icon_round"
+                    android:gravity="center">
 
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_place"
+                        tools:ignore="ContentDescription" />
+                </FrameLayout>
+
+                <!-- Texte de la recherche -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="Rabat > Settat"
-                    android:textColor="#000000" />
+                    android:text="@string/casablanca_rabat"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
             </LinearLayout>
 
+            <!-- Élément 2 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_place" />
+                <FrameLayout
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/bg_icon_round"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_place"
+                        tools:ignore="ContentDescription" />
+                </FrameLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="..."
-                    android:textColor="#000000" />
+                    android:text="@string/rabat_settat"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
+
+
     </LinearLayout>
 
+
     <!-- Barre de navigation inférieure -->
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:layout_alignParentBottom="true"
         android:background="@android:color/white"
-        android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.5">
+        android:gravity="center"
+        tools:ignore="DisableBaselineAlignment">
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="69dp"
-            android:layout_height="62dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="Passager"
-            android:src="@drawable/ic_person"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="6dp" />
+        <!-- Passager -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            tools:ignore="UseCompoundDrawables">
 
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="74dp"
-            android:layout_height="58dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="Conducteur"
-            android:src="@drawable/ic_drive_eta"
-            tools:layout_editor_absoluteX="131dp"
-            tools:layout_editor_absoluteY="14dp" />
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_passager" />
 
-        <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="61dp"
-            android:layout_height="62dp"
-            android:background="@drawable/circle_background"
-            android:contentDescription="Covoiturage"
-            android:padding="6dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_icon1_round"
-            tools:layout_editor_absoluteX="227dp"
-            tools:layout_editor_absoluteY="6dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="passager"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/imageButton4"
-            android:layout_width="68dp"
-            android:layout_height="61dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="Wallet"
-            android:src="@drawable/ic_account"
-            tools:layout_editor_absoluteX="327dp"
-            tools:layout_editor_absoluteY="6dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Conducteur -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/outline_directions_car_24"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="conducteur"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <!-- Covoiturage -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@mipmap/ic_icon1"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="covoiturage"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <!-- Wallet -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_account"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="wallet"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 </RelativeLayout>

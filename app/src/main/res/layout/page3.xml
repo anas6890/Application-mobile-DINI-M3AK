@@ -1,10 +1,11 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
-
+    android:padding="16dp"
+    >
     <ImageView
         android:id="@+id/logoImage"
         android:layout_width="176dp"
@@ -18,7 +19,7 @@
     <TextView
         android:id="@+id/appTitle"
         android:layout_width="0dp"
-        android:layout_height="81dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:fontFamily="@font/just_me_again_down_here"
         android:gravity="center"
@@ -70,7 +71,6 @@
         android:background="@drawable/border"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/subtitleApp">
 
@@ -78,7 +78,7 @@
             android:id="@+id/text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/connectez_vous_a_votre_compte"
+            android:text="@string/connectez_vous_votre_compte"
             android:textColor="#070707"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -88,11 +88,11 @@
 
         <TextView
             android:id="@+id/text1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="188dp"
+            android:layout_marginEnd="12dp"
             android:layout_marginBottom="8dp"
             android:text="@string/quel_est_votre_num_ro"
             android:textColor="#2C2222"
@@ -134,16 +134,15 @@
                     android:layout_width="0dp"
                     android:layout_height="55dp"
                     android:layout_weight="1"
-                    android:autofillHints=""
                     android:hint="@string/_00_00_00_00_00"
                     android:inputType="phone"
+                    android:importantForAutofill="no"
                     tools:ignore="VisualLintTextFieldSize" />
             </LinearLayout>
 
-
             <EditText
                 android:id="@+id/password_input"
-                android:layout_width="339dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:autofillHints="password"
@@ -152,7 +151,7 @@
                 android:inputType="textPassword"
                 android:minHeight="48dp"
                 android:paddingEnd="48dp"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry,VisualLintTextFieldSize" />
 
             <TextView
                 android:id="@+id/forgot_password"
@@ -176,11 +175,11 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="107dp"
-        android:layout_height="29dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="41dp"
         android:layout_marginBottom="10dp"
-        android:text="ou bien"
+        android:text="@string/ou_bien"
         android:textColor="#0D0C0C"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -192,22 +191,23 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/google_sign_in_button"
-        android:layout_width="238dp"
-        android:layout_height="56dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="109dp"
         android:backgroundTint="@color/white"
-        android:drawableEnd="@drawable/logo_google"
+        android:drawableEnd="@drawable/googleg_standard_color_18"
         android:padding="12dp"
         android:text="@string/connexion_avec_google"
         android:textAllCaps="false"
         android:textColor="@color/black"
+        android:textSize="16sp"
         app:cornerRadius="8dp"
         app:iconGravity="textEnd"
         app:iconPadding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
+        <!-- Logo -->
         <ImageView
             android:id="@+id/logoImage"
             android:layout_width="176dp"
@@ -22,12 +23,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Titre -->
+
+        <!-- Illustration principale -->
         <TextView
             android:id="@+id/appTitle"
-            android:layout_width="167dp"
-            android:layout_height="81dp"
-            android:layout_marginStart="8dp"
-            android:autoText="true"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             android:fontFamily="@font/just_me_again_down_here"
             android:gravity="center"
             android:shadowColor="#000000"
@@ -41,41 +44,38 @@
             app:layout_constraintBottom_toBottomOf="@id/logoImage"
             app:layout_constraintStart_toEndOf="@id/logoImage"
             app:layout_constraintTop_toTopOf="@id/logoImage"
-            app:layout_constraintVertical_bias="0.512"
+            app:layout_constraintVertical_bias="0.481"
             tools:ignore="Deprecated,TextSizeCheck,TextViewEdits" />
 
-        <!-- Illustration principale -->
-
-        <!-- Sous-titre (voyagez confortablement) -->
         <ImageView
             android:id="@+id/illustration"
-            android:layout_width="400dp"
+            android:layout_width="0dp"
             android:layout_height="251dp"
             android:layout_marginTop="20dp"
             android:contentDescription="@string/illustration_description"
             android:scaleType="fitCenter"
             android:src="@drawable/image2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.523"
+            app:layout_constraintTop_toBottomOf="@id/logoImage"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/logoImage" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
+        <!-- Sous-titre -->
         <TextView
             android:id="@+id/subTitle"
-            android:layout_width="290dp"
-            android:layout_height="48dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="@string/voyagez_confortablement_net_au_prix_le_plus_bas"
+            android:text="@string/voyagez_confortablement_et_au_prix_le_plus_bas"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/illustration"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="TextSizeCheck" />
 
-        <!-- Description (expérience sans précédent) -->
+        <!-- Description -->
         <TextView
             android:id="@+id/description"
             android:layout_width="0dp"
@@ -84,49 +84,48 @@
             android:background="#E0E0E0"
             android:fontFamily="sans-serif-medium"
             android:padding="12dp"
-            android:text="@string/une_exp_rience_sans_pr_c_dent_nune_application_simple_et_intuitive_nr_imagin_e_pour_vous_faciliter_la_vie"
+            android:text="@string/une_experience_sans_precedent_une_application_simple_et_intuitive_imaginee_pour_vous_faciliter_la_vie"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/subTitle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/subTitle" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Bouton inscription (orange) -->
+        <!-- Bouton Inscription -->
         <Button
             android:id="@+id/btnSignup"
             style="@style/OrangeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="@string/cr_er_un_nouveau_compte"
+            android:text="@string/creer_un_nouveau_compte"
             android:textColor="#4E342E"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/description" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
+        <!-- Connexion Google -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/google_sign_in_button"
-            android:layout_width="238dp"
-            android:layout_height="56dp"
-            android:layout_marginStart="73dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="84dp"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="@color/white"
-            android:drawableEnd="@drawable/logo_google"
             android:padding="12dp"
             android:text="@string/connexion_avec_google"
             android:textAllCaps="false"
             android:textColor="@color/black"
+            android:textSize="16sp"
             app:cornerRadius="8dp"
-            app:iconGravity="textEnd"
+            app:icon="@drawable/googleg_standard_color_18"
+            app:iconGravity="textStart"
             app:iconPadding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnSignup" />
-
+            app:layout_constraintTop_toBottomOf="@id/btnSignup" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.core.widget.NestedScrollView>

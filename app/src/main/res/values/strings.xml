@@ -2,17 +2,12 @@
     <string name="app_name">Dini m3ak</string>
     <string name="logo_de_l_application">Logo de l\'application</string>
     <string name="dini_m3ak">Dini M3ak</string>
-    <string name="todo">TODO</string>
     <string name="illustration_description">Illustration principale de l\'application</string>
     <string name="des_centaines_d_offres_de_covoiturage_publi_es_chaque_jour_votre_disposition">Des centaines d’offres de covoiturage publiées chaque jour à votre disposition.</string>
     <string name="connexion">Connexion</string>
     <string name="inscription">Inscription</string>
     <string name="image">image</string>
-    <string name="voyagez_confortablement_et_au_prix_le_plus_bas">Voyagez confortablement et au prix le plus bas!</string>
     <string name="connexion_avec_google">Connexion avec Google</string>
-    <string name="cr_er_un_nouveau_compte">Créer un nouveau compte</string>
-    <string name="voyagez_confortablement_net_au_prix_le_plus_bas">Voyagez confortablement\net au prix le plus bas!</string>
-    <string name="une_exp_rience_sans_pr_c_dent_nune_application_simple_et_intuitive_nr_imagin_e_pour_vous_faciliter_la_vie">Une expérience sans précédent !\nUne application simple et intuitive,\nréimaginée pour vous faciliter la vie.</string>
     <string name="bienvenue_dini_m3ak">Bienvenue à Dini M3ak!</string>
     <string name="l_application_qui_vous_m_ne_o_vous_voulez_nen_toute_confiance">L’application qui vous mène où vous voulez,\nen toute confiance.</string>
     <string name="continuer">CONTINUER</string>
@@ -20,7 +15,6 @@
     <string name="quel_est_votre_num_ro">Quel est votre numéro?</string>
     <string name="connectez_vous_votre_compte">Connectez-vous à votre compte:</string>
     <string name="mot_de_passe_oubli">mot de passe oublié?</string>
-    <string name="connectez_vous_a_votre_compte">Connectez-vous a votre compte</string>
     <string name="_00_00_00_00_00">00 00 00 00 00</string>
     <string name="mot_de_passe">Mot de passe</string>
     <string name="formulaire_d_inscription">Formulaire d’inscription</string>
@@ -35,5 +29,21 @@
     <string name="homme">Homme</string>
     <string name="femme">Femme</string>
     <string name="_0_00_00_00_00">0 00 00 00 00</string>
+    <string name="passager" />
+    <string name="conducteur" />
+    <string name="covoiturage" />
+    <string name="wallet" />
+    <string name="notif">notif</string>
+    <string name="voyagez_confortablement_et_au_prix_le_plus_bas">Voyagez confortablement et au prix le plus bas</string>
+    <string name="une_experience_sans_precedent_une_application_simple_et_intuitive_imaginee_pour_vous_faciliter_la_vie">
+    Une expérience sans précédent. Une application simple et intuitive, imaginée pour vous faciliter la vie.</string>
+    <string name="creer_un_nouveau_compte">Créer un nouveau compte</string>
+    <string name="chercher_parmi_398_offres">🔍 chercher parmi 398 offres</string>
+    <string name="xxx_o_souhaites_tu_voyager">xxx,où souhaites-tu voyager?</string>
+    <string name="casablanca_rabat"><![CDATA[Casablanca > Rabat]]></string>
+    <string name="recherches_r_centes">Recherches récentes</string>
+    <string name="rabat_settat"><![CDATA[Rabat > Settat]]></string>
+    <string name="aide">⚠ Aide</string>
+
 
 </resources>

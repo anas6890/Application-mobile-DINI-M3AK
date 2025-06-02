@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,24 +13,31 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <!-- Logo et titre -->
-
+        <!-- Logo -->
         <ImageView
             android:layout_width="120dp"
             android:layout_height="80dp"
             android:contentDescription="@string/logo_de_l_application"
             android:src="@drawable/logo" />
 
+        <!-- Titre -->
         <TextView
+            android:id="@+id/appTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/just_me_again_down_here"
+            android:gravity="center"
+            android:shadowColor="#000000"
+            android:shadowDx="7"
+            android:shadowDy="7"
+            android:shadowRadius="4"
             android:text="@string/dini_m3ak"
-            android:textColor="#EF6C00"
-            android:textSize="32sp"
+            android:textColor="#F39313"
+            android:textSize="55sp"
             android:textStyle="bold" />
 
-        <!-- Titre du formulaire -->
+        <!-- Titre formulaire -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,7 +52,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:gravity="center_vertical"
             android:orientation="horizontal"
             android:weightSum="2">
 
@@ -52,27 +59,26 @@
                 android:layout_width="0dp"
                 android:layout_height="58dp"
                 android:layout_weight="1"
-                android:autofillHints="54dp"
+                android:autofillHints="familyName"
                 android:background="@drawable/edittext_background"
                 android:hint="@string/votre_nom"
                 android:inputType="textPersonName"
-                android:padding="10dp" />
+                android:padding="10dp"
+                tools:ignore="VisualLintTextFieldSize" />
 
-            <View
+            <Space
                 android:layout_width="8dp"
-                android:layout_height="0dp"
-                android:autofillHints="54dp"
-                android:inputType="textPersonName" />
+                android:layout_height="58dp" />
 
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="58dp"
                 android:layout_weight="1"
-                android:autofillHints="54dp"
+                android:autofillHints="givenName"
                 android:background="@drawable/edittext_background"
                 android:hint="@string/votre_pr_nom"
-                android:padding="10dp"
-                tools:ignore="TextFields" />
+                android:inputType="textPersonName"
+                android:padding="10dp" />
         </LinearLayout>
 
         <TextView
@@ -84,7 +90,6 @@
             android:textSize="12sp" />
 
         <!-- Date de naissance -->
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -95,20 +100,23 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/dateEditText"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:autofillHints="4"
+            android:autofillHints=""
             android:background="@drawable/edittext_background"
+            android:clickable="true"
+            android:focusable="true"
             android:hint="@string/dd_mm_yyyy"
-            android:inputType="date"
-            android:padding="10dp" />
+            android:inputType="datetime|date"
+            android:padding="10dp"
+            tools:ignore="VisualLintTextFieldSize" />
 
         <!-- Email -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:autofillHints="54dp"
             android:text="@string/email"
             android:textColor="#000000"
             android:textSize="16sp"
@@ -117,7 +125,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="54dp"
-            android:autofillHints="54dp"
+            android:autofillHints="emailAddress"
             android:background="@drawable/edittext_background"
             android:hint="@string/usermail_gmail_com"
             android:inputType="textEmailAddress"
@@ -133,35 +141,25 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/radioGroup"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/radio_homme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="183dp"
                 android:checked="true"
-                android:text="@string/homme"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:text="@string/homme" />
 
             <RadioButton
                 android:id="@+id/radio_femme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="104dp"
-                android:layout_marginEnd="1dp"
-                android:text="@string/femme"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/radio_homme"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_marginStart="32dp"
+                android:text="@string/femme" />
+        </LinearLayout>
 
         <!-- Numéro de téléphone -->
         <TextView
@@ -196,24 +194,27 @@
                 android:layout_height="56dp"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:autofillHints=""
+                android:maxWidth="488dp"
+                android:autofillHints="phone"
                 android:background="@drawable/edittext_background"
                 android:hint="@string/_0_00_00_00_00"
                 android:inputType="phone"
-                android:padding="10dp" />
+                android:padding="10dp"
+                tools:ignore="VisualLintTextFieldSize" />
         </LinearLayout>
 
-        <!-- Bouton CONTINUER -->
+        <!-- Bouton Continuer -->
         <Button
             android:id="@+id/continue_button"
-            android:layout_width="399dp"
-            android:layout_height="51dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:maxWidth="488dp"
             android:background="@drawable/orange_button"
+            android:gravity="center"
             android:text="@string/continuer"
             android:textColor="#616161"
             android:textStyle="bold"
             tools:ignore="VisualLintButtonSize" />
-
     </LinearLayout>
 </ScrollView>
