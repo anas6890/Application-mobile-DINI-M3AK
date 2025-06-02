@@ -1,303 +1,202 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     android:background="@android:color/white">
 
-    <!-- Back Button -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <!-- Wallet Title -->
+        <!-- Bouton Retour -->
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="50dp"
+            android:layout_height="37dp"
+            android:background="@drawable/go_back_button"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Wallet Amount Box -->
+        <!-- Définir l’heure de départ -->
 
-    <!-- Wallet Actions -->
+        <TextView
+            android:id="@+id/text_heure_depart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Définir l’heure de départ"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_back" />
 
-    <!-- Transactions Title Row -->
+        <EditText
+            android:id="@+id/edit_heure_depart"
+            android:layout_width="119dp"
+            android:layout_height="40dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#FDECCF"
+            android:hint="xx:yy"
+            android:inputType="time"
+            android:padding="8dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/text_heure_depart"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Transaction List -->
+        <!-- Nombre de places -->
 
-    <!-- Back Button -->
+        <TextView
+            android:id="@+id/text_nombre_places"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="Nombre de places disponibles"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_heure_depart" />
 
-    <!-- Profile Title -->
+        <EditText
+            android:id="@+id/edit_nombre_places"
+            android:layout_width="92dp"
+            android:layout_height="39dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#FDECCF"
+            android:hint="1 place"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/text_nombre_places"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Profile Section Background -->
+        <!-- Marque de voiture -->
 
-    <TextView
-        android:id="@+id/profileTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Wallet"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
-        app:layout_constraintStart_toEndOf="@+id/backButton"
-        app:layout_constraintTop_toTopOf="parent" />
+        <!-- Covoiturage direct -->
 
-    <ImageButton
-        android:id="@+id/backButton"
-        android:contentDescription="Go back"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/ic_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/text_marque_voiture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="52dp"
+            android:text="Marque de voiture"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_nombre_places" />
 
-    <LinearLayout
-        android:id="@+id/walletAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        <EditText
+            android:id="@+id/edit_marque_voiture"
+            android:layout_width="271dp"
+            android:layout_height="54dp"
+            android:layout_marginEnd="44dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#FDECCF"
+            android:hint="Dacia Duster"
+            android:padding="16dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="282dp" />
+
+        <TextView
+            android:id="@+id/text_covoiturage_direct"
+            android:layout_width="183dp"
+            android:layout_height="32dp"
+            android:text="Covoiturage direct"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="370dp" />
+
+        <RadioGroup
+            android:id="@+id/radio_group_covoiturage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/text_covoiturage_direct"
+            app:layout_constraintStart_toStartOf="parent">
+
+        </RadioGroup>
+
+        <!-- Prix total -->
+
+
+        <TextView
+            android:id="@+id/text_prix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="76dp"
+            android:text="Prix total pour un passager"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radio_group_covoiturage" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="113dp"
+            android:layout_height="33dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#FDECCF"
+            android:text="      45.82 "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#757373"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="133dp"
+            tools:layout_editor_absoluteY="535dp" />
+
+        <Button
+            android:id="@+id/button_confirmer"
+            android:layout_width="283dp"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#88D1BD"
+            android:text="Confirmer"
+            android:textColor="#050505"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="50dp"
+            tools:layout_editor_absoluteY="619dp" />
+
+        <RadioButton
+            android:id="@+id/radio_non"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Non"
+            tools:layout_editor_absoluteX="220dp"
+            tools:layout_editor_absoluteY="422dp" />
+
+        <RadioButton
+            android:id="@+id/radio_oui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#9C27B0"
+            android:checked="true"
+            android:text="Oui"
+            tools:layout_editor_absoluteX="147dp"
+            tools:layout_editor_absoluteY="422dp" />
 
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/logo" />
+            android:id="@+id/imageView9"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:src="@drawable/car"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="293dp" />
 
         <TextView
-            android:id="@+id/amountText"
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="0 DHS"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+            android:text="MAD"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            tools:layout_editor_absoluteX="261dp"
+            tools:layout_editor_absoluteY="535dp" />
 
-    <LinearLayout
-        android:id="@+id/walletActions"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/walletAmount">
-
-        <!-- Recharge Wallet Button -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_gray_background"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="12dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_recharge_wallet" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:text="Recharger ma wallet"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <!-- Add RIB Button -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_gray_background"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="12dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_add_rib" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:text="Ajouter mon \nRIB"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <!-- Withdraw Money Button -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_gray_background"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="12dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_withdraw_money" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:text="Recuperer mon argent"
-                android:textSize="12sp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/transactionsTitleRow"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:orientation="horizontal"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/walletActions">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Listes des transactions"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <ScrollView
-        android:id="@+id/transactionScroll"
-        android:contentDescription="Transaction history"
-        android:layout_width="381dp"
-        android:layout_height="524dp"
-        android:layout_margin="16dp"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/transactionsTitleRow">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-        </LinearLayout>
-    </ScrollView>
-
-    <!-- Bottom Navigation Bar -->
-    <LinearLayout
-        android:id="@+id/bottomNavBar"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:background="@android:color/white"
-        android:orientation="horizontal"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <!-- Passenger -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_passager" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="passager"
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-        </LinearLayout>
-
-        <!-- Driver Button -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/outline_directions_car_24" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="conducteur"
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-        </LinearLayout>
-
-        <!-- Carpool Button -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@mipmap/ic_icon1_round" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="covoiturage"
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-        </LinearLayout>
-
-        <!-- Wallet Button -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_account" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="wallet"
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-        </LinearLayout>
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

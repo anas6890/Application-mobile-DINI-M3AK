@@ -7,6 +7,6 @@ public class Page16Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page16);
+        setContentView(R.layout.page19);
     }
 }
