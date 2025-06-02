@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Flèche retour -->
+
+    <!-- Bouton Suivant -->
+
+    <!-- Le reste contenu dans ScrollView -->
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="400dp"
+        android:layout_height="659dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFDFD"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Trajet -->
+
+            <!-- Titre principal -->
+            <TextView
+                android:id="@+id/tripText"
+                android:layout_width="191dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Casablanca > Rabat"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/mainTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="Quand souhaites-tu partir ?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <!-- Jours de la semaine -->
+            <TableLayout
+                android:id="@+id/daysOfWeek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:stretchColumns="*">
+
+                <TableRow>
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="Lun" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="Mar" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="Mer" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="Jeu" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="Ven" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="Sam" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="Dim" />
+                </TableRow>
+            </TableLayout>
+
+            <!-- Mois Janvier -->
+            <TextView
+                android:id="@+id/januaryLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="janvier 2025"
+                android:textColor="#6A6969"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!-- Calendrier Janvier -->
+            <TableLayout
+                android:id="@+id/calendarJanuary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*">
+
+                <!-- Ligne vide -->
+                <TableRow>
+
+                    <TextView />
+
+                    <TextView />
+
+                    <TextView />
+
+                    <TextView />
+
+                    <TextView />
+
+                    <TextView />
+
+                    <TextView />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="6"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="7"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="8"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    <TextView
+                        android:gravity="center"
+                        android:text="9"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="10"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="11"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="12"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="13"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="14"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="15"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="16"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#009688" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="17"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="18"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="19"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="20"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="21"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="22"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="23"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="24"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="25"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="26"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="27"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="28"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="29"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="30"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="31"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView />
+
+                    <TextView />
+                </TableRow>
+
+            </TableLayout>
+
+            <!-- Mois Février -->
+            <TextView
+                android:id="@+id/februaryLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"
+                android:text="février 2025"
+                android:textColor="#6A6969"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!-- Calendrier Février -->
+            <TableLayout
+                android:id="@+id/calendarFebruary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*">
+
+                <TableRow>
+
+                    <TextView />
+
+                    <TextView />
+
+                    <TextView />
+
+                    <TextView />
+
+                    <TextView />
+
+                    <TextView />
+
+                    <TextView />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="3"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="4"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="5"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="6"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="7"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="8"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="9"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="10"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="11"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="12"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="13"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="14"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="15"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="16"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="17"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="18"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="19"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="20"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="21"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="22"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="23"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="24"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="25"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="26"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="27"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="28"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#101010" />
+
+                    <TextView />
+
+                    <TextView />
+                </TableRow>
+
+            </TableLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="74dp"
+        android:layout_height="38dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:drawableBottom="@drawable/go_back_button"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="5dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FFFFFF"
+        android:text="suivant"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="26sp"
+        tools:layout_editor_absoluteX="288dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
