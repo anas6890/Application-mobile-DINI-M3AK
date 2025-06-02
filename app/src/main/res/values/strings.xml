@@ -1,4 +1,21 @@
 <resources>
+    <string name="bouton_retour">  </string>
+    <string name="ville_depart">Ville de départ</string>
+    <string name="ville_arrivee">Ville d arrivée</string>
+    <string name="ville_de_depart_hint">Choisissez votre ville de départ</string>
+    <string name="ville_d_arrivee_hint">Choisissez votre ville d arrivée </string>
+    <string name="villes_suggerees">Villes suggérées</string>
+    <string name="casablanca">Casablanca</string>
+    <string name="fes">Fes</string>
+    <string name="sale">Salé</string>
+    <string name="rabat">Rabat</string>
+    <string name="tanger">Tanger</string>
+    <string name="retour">Retour</string>
+    <string name="fermer">Fermer</string>
+    <string name="recherche">Recherche</string>
+    <string name="localisation">Icône localisation</string>
+    <string name="chevron">></string>
+    <string name="uytyr">uytyr</string>
     <string name="app_name">Dini m3ak</string>
     <string name="logo_de_l_application">Logo de l\'application</string>
     <string name="dini_m3ak">Dini M3ak</string>

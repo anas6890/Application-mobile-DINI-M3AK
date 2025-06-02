@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#141212"
+        android:backgroundTint="#0D0C0C"
+        android:src="@drawable/abc_vector_test"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="31dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3 total"
+        android:textColor="#898484"
+        android:textSize="13sp"
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="336dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Black"
+        android:textColor="#898484"
+        android:textSize="13sp"
+        tools:layout_editor_absoluteX="277dp"
+        tools:layout_editor_absoluteY="336dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="79dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_location"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="71dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView22"
+        android:layout_width="79dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_location"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="198dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView21"
+        android:layout_width="25dp"
+        android:layout_height="47dp"
+        android:src="@drawable/img_18"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="103dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="25dp"
+        android:layout_height="47dp"
+        android:src="@drawable/img_18"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="230dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="96dp"
+        android:layout_height="28dp"
+        android:text="Casablanca"
+        android:textColor="#050505"
+        android:textSize="15sp"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="71dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="96dp"
+        android:layout_height="28dp"
+        android:text="Rabat"
+        android:textColor="#1B1818"
+        android:textSize="15sp"
+        tools:layout_editor_absoluteX="78dp"
+        tools:layout_editor_absoluteY="198dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="14:00"
+        android:textColor="#009688"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="116dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="15:04"
+        android:textColor="#009688"
+        tools:layout_editor_absoluteX="78dp"
+        tools:layout_editor_absoluteY="243dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Les hopitaux"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="95dp"
+        tools:layout_editor_absoluteY="87dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Autre"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="95dp"
+        tools:layout_editor_absoluteY="214dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView26"
+        android:layout_width="48dp"
+        android:layout_height="50dp"
+        android:src="@drawable/img_20"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="316dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView27"
+        android:layout_width="52dp"
+        android:layout_height="44dp"
+        android:src="@drawable/img_21"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="406dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView28"
+        android:layout_width="55dp"
+        android:layout_height="48dp"
+        android:src="@drawable/img_22"
+        tools:layout_editor_absoluteX="214dp"
+        tools:layout_editor_absoluteY="318dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView29"
+        android:layout_width="54dp"
+        android:layout_height="45dp"
+        android:src="@drawable/img_23"
+        tools:layout_editor_absoluteX="214dp"
+        tools:layout_editor_absoluteY="406dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView30"
+        android:layout_width="477dp"
+        android:layout_height="54dp"
+        android:src="@drawable/img_24"
+        tools:layout_editor_absoluteX="-24dp"
+        tools:layout_editor_absoluteY="625dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3 restant(s)"
+        android:textColor="#1B1A1A"
+        android:textSize="13sp"
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="316dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="103dp"
+        android:layout_height="37dp"
+        android:text="Covoiturage direct"
+        android:textColor="#1B1A1A"
+        android:textSize="13sp"
+        tools:layout_editor_absoluteX="277dp"
+        tools:layout_editor_absoluteY="413dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Moyen"
+        android:textColor="#1B1A1A"
+        android:textSize="13sp"
+        tools:layout_editor_absoluteX="95dp"
+        tools:layout_editor_absoluteY="413dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VOLKSWAGEN"
+        android:textColor="#1B1A1A"
+        android:textSize="13sp"
+        tools:layout_editor_absoluteX="277dp"
+        tools:layout_editor_absoluteY="318dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="217dp"
+        android:layout_height="0dp"
+        android:src="@drawable/img_8"
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="591dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prix total pour 1 passager(s)"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="517dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="35.84 Dhs"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="546dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="122dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/rounded_bg"
+        android:backgroundTint="#FF9800"
+        android:text="     Réserver"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="144dp" />
+
+    <ImageView
+        android:id="@+id/imageView24"
+        android:layout_width="15dp"
+        android:layout_height="156dp"
+        android:src="@drawable/imgg"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="70dp"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
