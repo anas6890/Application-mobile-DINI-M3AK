@@ -70,7 +70,6 @@
     </LinearLayout>
 
 
-
     <!-- Sous-titre -->
     <TextView
         android:id="@+id/suggestedCities"
@@ -102,7 +101,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_location"
-                android:contentDescription="@string/localisation"/>
+                android:contentDescription="@string/localisation" />
 
             <TextView
                 android:layout_width="0dp"
@@ -195,7 +194,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_location"
-                android:contentDescription="@string/localisation"/>
+                android:contentDescription="@string/localisation" />
 
             <TextView
                 android:layout_width="0dp"
