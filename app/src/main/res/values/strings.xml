@@ -61,6 +61,9 @@
     <string name="recherches_r_centes">Recherches récentes</string>
     <string name="rabat_settat"><![CDATA[Rabat > Settat]]></string>
     <string name="aide">⚠ Aide</string>
+    <string name="fleche"><![CDATA[>]]></string>
+    <string name="settat">Settat</string>
+    <string name="ligne">ligne</string>
 
 
 </resources>

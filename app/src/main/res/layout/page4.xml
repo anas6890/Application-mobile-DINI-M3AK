@@ -10,32 +10,41 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
-        <!-- Logo -->
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="80dp"
-            android:contentDescription="@string/logo_de_l_application"
-            android:src="@drawable/logo" />
-
-        <!-- Titre -->
-        <TextView
-            android:id="@+id/appTitle"
-            android:layout_width="wrap_content"
+        <!-- Logo et Titre côte à côte -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/just_me_again_down_here"
-            android:gravity="center"
-            android:shadowColor="#000000"
-            android:shadowDx="7"
-            android:shadowDy="7"
-            android:shadowRadius="4"
-            android:text="@string/dini_m3ak"
-            android:textColor="#F39313"
-            android:textSize="55sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="176dp"
+                android:layout_height="109dp"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/logo_de_l_application"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:id="@+id/appTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/just_me_again_down_here"
+                android:gravity="center_vertical"
+                android:shadowColor="#000000"
+                android:shadowDx="7"
+                android:shadowDy="7"
+                android:shadowRadius="4"
+                android:text="@string/dini_m3ak"
+                android:textColor="#F39313"
+                android:textSize="55sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <!-- Titre formulaire -->
         <TextView
@@ -78,7 +87,8 @@
                 android:background="@drawable/edittext_background"
                 android:hint="@string/votre_pr_nom"
                 android:inputType="textPersonName"
-                android:padding="10dp" />
+                android:padding="10dp"
+                tools:ignore="VisualLintTextFieldSize" />
         </LinearLayout>
 
         <TextView
@@ -129,7 +139,8 @@
             android:background="@drawable/edittext_background"
             android:hint="@string/usermail_gmail_com"
             android:inputType="textEmailAddress"
-            android:padding="10dp" />
+            android:padding="10dp"
+            tools:ignore="VisualLintTextFieldSize" />
 
         <!-- Genre -->
         <TextView

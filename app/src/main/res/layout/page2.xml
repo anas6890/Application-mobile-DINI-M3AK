@@ -101,9 +101,9 @@
             android:layout_marginTop="24dp"
             android:text="@string/creer_un_nouveau_compte"
             android:textColor="#4E342E"
-            app:layout_constraintTop_toBottomOf="@id/description"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/description" />
 
         <!-- Connexion Google -->
         <com.google.android.material.button.MaterialButton

@@ -13,7 +13,6 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="72dp"
         android:background="@android:color/white"
         android:orientation="vertical">
 
@@ -27,8 +26,8 @@
             <!-- Avatar -->
             <ImageView
                 android:id="@+id/avatar"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="47dp"
+                android:layout_height="47dp"
                 android:background="@drawable/circle_background"
                 android:padding="8dp"
                 android:src="@drawable/ic_person"
@@ -36,31 +35,30 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="ContentDescription" />
 
-            <!-- Bouton Aide -->
 
             <!-- Notification -->
+
             <Button
                 android:id="@+id/btnHelp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="60dp"
+                android:layout_marginEnd="44dp"
                 android:background="@drawable/button_help_background"
                 android:text="@string/aide"
                 android:textAllCaps="false"
                 android:textColor="#000000"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/notification"
-                android:layout_width="0dp"
-                android:layout_height="46dp"
+                android:layout_width="43dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="5dp"
                 android:contentDescription="@string/notif"
-                android:src="@drawable/ic_notifications"
+                android:src="@drawable/notif_24"
                 app:layout_constraintBottom_toTopOf="@+id/btnHelp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/btnHelp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
@@ -74,24 +72,27 @@
             android:layout_marginBottom="8dp"
             android:text="@string/xxx_o_souhaites_tu_voyager"
             android:textColor="#000000"
-            android:textSize="16sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <!-- Recherche -->
+
+        <!-- Recherches récentes -->
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_width="347dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="16dp"
             android:autofillHints=""
             android:background="@drawable/search_background"
             android:hint="@string/chercher_parmi_398_offres"
             android:inputType="text"
+            android:minHeight="48dp"
             android:padding="8dp"
             android:textColorHint="#546E7A"
             tools:ignore="VisualLintTextFieldSize" />
 
-        <!-- Recherches récentes -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,26 +100,29 @@
             android:layout_marginBottom="10dp"
             android:text="@string/recherches_r_centes"
             android:textColor="#000000"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
-        <!-- Recherches récentes affichées en liste -->
+
+        <!-- Liste des recherches récentes -->
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="125dp"
+            android:layout_width="399dp"
+            android:layout_height="514dp"
+            android:layout_gravity="center"
             android:layout_marginHorizontal="16dp"
-            android:baselineAligned="false"
             android:orientation="vertical">
 
             <!-- Élément 1 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="clip_horizontal"
                 android:layout_marginBottom="12dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <!-- Icône dans fond rond -->
+                <!-- Icône -->
                 <FrameLayout
                     android:layout_width="36dp"
                     android:layout_height="36dp"
@@ -129,17 +133,42 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_place"
+                        android:background="#FFFFFF"
+                        android:src="@drawable/ic_location"
                         tools:ignore="ContentDescription" />
                 </FrameLayout>
 
-                <!-- Texte de la recherche -->
+                <!-- Ville de départ -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/casablanca_rabat"
+                    android:gravity="center"
+                    android:text="@string/casablanca"
                     android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <!-- Flèche -->
+                <TextView
+                    android:layout_width="92dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:foregroundGravity="center"
+                    android:gravity="center"
+                    android:text="@string/fleche"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <!-- Ville d'arrivée -->
+                <TextView
+                    android:layout_width="98dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/rabat"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <!-- Élément 2 -->
@@ -150,6 +179,7 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
+                <!-- Icône -->
                 <FrameLayout
                     android:layout_width="36dp"
                     android:layout_height="36dp"
@@ -160,22 +190,55 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_place"
+                        android:background="#FFFFFF"
+                        android:src="@drawable/ic_location"
                         tools:ignore="ContentDescription" />
                 </FrameLayout>
 
+                <!-- Ville de départ -->
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="102dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/rabat_settat"
+                    android:gravity="center"
+                    android:text="@string/rabat"
                     android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <!-- Flèche -->
+
+                <!-- Ville d'arrivée -->
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:gravity="center"
+                    android:text="@string/fleche"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="93dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/settat"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/imageView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/ligne"
+            android:src="@drawable/img_14"
+            tools:ignore="MissingConstraints" />
+
 
     </LinearLayout>
-
 
     <!-- Barre de navigation inférieure -->
     <LinearLayout
