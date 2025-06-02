@@ -5,17 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/btnConnexion2"
+        style="@style/OrangeButton"
+        android:layout_width="234dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginBottom="24dp"
+        android:text="Réserver"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/secondaryText"
+        tools:ignore="TextContrastCheck" />
+
     <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:background="#141212"
-        android:backgroundTint="#0D0C0C"
-        android:src="@drawable/abc_vector_test"
+        android:id="@+id/backButton4"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:contentDescription="Go back"
+        android:src="@drawable/ic_back"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="31dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="16dp" />
 
     <TextView
         android:id="@+id/textView35"
@@ -81,10 +92,11 @@
         android:layout_height="28dp"
         android:text="Casablanca"
         android:textColor="#050505"
-        android:textSize="15sp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="71dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="71dp" />
 
     <TextView
         android:id="@+id/textView25"
@@ -92,10 +104,11 @@
         android:layout_height="28dp"
         android:text="Rabat"
         android:textColor="#1B1818"
-        android:textSize="15sp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="198dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="198dp" />
 
     <TextView
         android:id="@+id/textView26"
@@ -103,9 +116,11 @@
         android:layout_height="wrap_content"
         android:text="14:00"
         android:textColor="#009688"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="116dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="116dp" />
 
     <TextView
         android:id="@+id/textView27"
@@ -113,29 +128,33 @@
         android:layout_height="wrap_content"
         android:text="15:04"
         android:textColor="#009688"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="243dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="243dp" />
 
     <TextView
         android:id="@+id/textView29"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="76dp"
+        android:layout_height="24dp"
         android:text="Les hopitaux"
         android:textSize="12sp"
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="87dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.113"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="103dp" />
 
     <TextView
         android:id="@+id/textView30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="37dp"
+        android:layout_height="24dp"
         android:text="Autre"
         android:textSize="12sp"
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="214dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="219dp" />
 
     <ImageView
         android:id="@+id/imageView26"
@@ -188,10 +207,11 @@
         android:layout_height="wrap_content"
         android:text="3 restant(s)"
         android:textColor="#1B1A1A"
-        android:textSize="13sp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="316dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="316dp" />
 
     <TextView
         android:id="@+id/textView34"
@@ -199,10 +219,11 @@
         android:layout_height="37dp"
         android:text="Covoiturage direct"
         android:textColor="#1B1A1A"
-        android:textSize="13sp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="277dp"
-        tools:layout_editor_absoluteY="413dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="413dp" />
 
     <TextView
         android:id="@+id/textView32"
@@ -210,10 +231,11 @@
         android:layout_height="wrap_content"
         android:text="Moyen"
         android:textColor="#1B1A1A"
-        android:textSize="13sp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="413dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="413dp" />
 
     <TextView
         android:id="@+id/textView33"
@@ -221,10 +243,11 @@
         android:layout_height="wrap_content"
         android:text="VOLKSWAGEN"
         android:textColor="#1B1A1A"
-        android:textSize="13sp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="277dp"
-        tools:layout_editor_absoluteY="318dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="318dp" />
 
     <ImageView
         android:id="@+id/imageView20"
@@ -241,34 +264,21 @@
         android:layout_height="wrap_content"
         android:text="Prix total pour 1 passager(s)"
         android:textSize="16sp"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="517dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="496dp" />
 
     <TextView
         android:id="@+id/textView37"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="35.84 Dhs"
+        android:textColor="#141212"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="546dp"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textView38"
-        android:layout_width="122dp"
-        android:layout_height="32dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/rounded_bg"
-        android:backgroundTint="#FF9800"
-        android:text="     Réserver"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="144dp" />
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="525dp" />
 
     <ImageView
         android:id="@+id/imageView24"
