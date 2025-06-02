@@ -37,6 +37,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.play.services.ads)
     implementation ("com.hbb20:ccp:2.5.0")
+    implementation(libs.activity)
+    implementation(libs.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
