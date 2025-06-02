@@ -1,0 +1,202 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Bouton Retour -->
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="50dp"
+            android:layout_height="37dp"
+            android:background="@drawable/go_back_button"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Définir l’heure de départ -->
+
+        <TextView
+            android:id="@+id/text_heure_depart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Définir l’heure de départ"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_back" />
+
+        <EditText
+            android:id="@+id/edit_heure_depart"
+            android:layout_width="119dp"
+            android:layout_height="40dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#FDECCF"
+            android:hint="xx:yy"
+            android:inputType="time"
+            android:padding="8dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/text_heure_depart"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Nombre de places -->
+
+        <TextView
+            android:id="@+id/text_nombre_places"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="Nombre de places disponibles"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_heure_depart" />
+
+        <EditText
+            android:id="@+id/edit_nombre_places"
+            android:layout_width="92dp"
+            android:layout_height="39dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#FDECCF"
+            android:hint="1 place"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/text_nombre_places"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Marque de voiture -->
+
+        <!-- Covoiturage direct -->
+
+        <TextView
+            android:id="@+id/text_marque_voiture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="52dp"
+            android:text="Marque de voiture"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_nombre_places" />
+
+        <EditText
+            android:id="@+id/edit_marque_voiture"
+            android:layout_width="271dp"
+            android:layout_height="54dp"
+            android:layout_marginEnd="44dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#FDECCF"
+            android:hint="Dacia Duster"
+            android:padding="16dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="282dp" />
+
+        <TextView
+            android:id="@+id/text_covoiturage_direct"
+            android:layout_width="183dp"
+            android:layout_height="32dp"
+            android:text="Covoiturage direct"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="370dp" />
+
+        <RadioGroup
+            android:id="@+id/radio_group_covoiturage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/text_covoiturage_direct"
+            app:layout_constraintStart_toStartOf="parent">
+
+        </RadioGroup>
+
+        <!-- Prix total -->
+
+
+        <TextView
+            android:id="@+id/text_prix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="76dp"
+            android:text="Prix total pour un passager"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radio_group_covoiturage" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="113dp"
+            android:layout_height="33dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#FDECCF"
+            android:text="      45.82 "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#757373"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="133dp"
+            tools:layout_editor_absoluteY="535dp" />
+
+        <Button
+            android:id="@+id/button_confirmer"
+            android:layout_width="283dp"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#88D1BD"
+            android:text="Confirmer"
+            android:textColor="#050505"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="50dp"
+            tools:layout_editor_absoluteY="619dp" />
+
+        <RadioButton
+            android:id="@+id/radio_non"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Non"
+            tools:layout_editor_absoluteX="220dp"
+            tools:layout_editor_absoluteY="422dp" />
+
+        <RadioButton
+            android:id="@+id/radio_oui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#9C27B0"
+            android:checked="true"
+            android:text="Oui"
+            tools:layout_editor_absoluteX="147dp"
+            tools:layout_editor_absoluteY="422dp" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:src="@drawable/car"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="293dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MAD"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            tools:layout_editor_absoluteX="261dp"
+            tools:layout_editor_absoluteY="535dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
