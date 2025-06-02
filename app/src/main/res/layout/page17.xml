@@ -507,25 +507,23 @@
 
     </ScrollView>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="74dp"
-        android:layout_height="38dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#FFFFFF"
-        android:drawableBottom="@drawable/go_back_button"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="5dp" />
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Go back"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FFFFFF"
-        android:text="suivant"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="26sp"
-        tools:layout_editor_absoluteX="288dp"
-        tools:layout_editor_absoluteY="16dp" />
+    <ImageView
+        android:id="@+id/imageView25"
+        android:layout_width="40dp"
+        android:layout_height="32dp"
+        app:srcCompat="@drawable/cancel"
+        tools:layout_editor_absoluteX="325dp"
+        tools:layout_editor_absoluteY="40dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
