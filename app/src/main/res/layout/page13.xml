@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="⚠ Aide"
-        android:backgroundTint="@android:color/holo_orange_light"
+        android:background="@drawable/orange_button"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"/>
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="+ Publier un covoiturage"
-        android:backgroundTint="@android:color/holo_orange_light"
+        android:background="@drawable/orange_button"
         android:textColor="@android:color/black"
         android:layout_below="@id/welcomeText"
         android:layout_marginTop="16dp"
@@ -77,14 +77,16 @@
             android:orientation="vertical"
             android:gravity="center">
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_person" />
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_passager" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="passager"
-                android:textSize="12sp"/>
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <!-- Driver Button -->
@@ -95,14 +97,16 @@
             android:orientation="vertical"
             android:gravity="center">
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_drive_eta" />
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/outline_directions_car_24" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="conducteur"
-                android:textSize="12sp"/>
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <!-- Carpool Button -->
@@ -113,14 +117,16 @@
             android:orientation="vertical"
             android:gravity="center">
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@mipmap/ic_icon1_round" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="covoiturage"
-                android:textSize="12sp"/>
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <!-- Wallet Button -->
@@ -131,14 +137,16 @@
             android:orientation="vertical"
             android:gravity="center">
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/ic_account" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="wallet"
-                android:textSize="12sp"/>
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
         </LinearLayout>
 
     </LinearLayout>
