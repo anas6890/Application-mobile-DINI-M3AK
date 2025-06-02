@@ -3,10 +3,10 @@ package com.example.dinim3ak;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PublierCovoiturageActivity extends AppCompatActivity {
+public class Page12Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_publier_covoiturage);
+        setContentView(R.layout.page12);
     }
 }
