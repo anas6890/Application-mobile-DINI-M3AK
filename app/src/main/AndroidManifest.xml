@@ -17,7 +17,7 @@
             android:name=".Page20Activity"
             android:exported="false" />
         <activity
-            android:name=".page18Activity"
+            android:name=".Page18Activity"
             android:exported="false" />
         <activity
             android:name=".Page17Activity"
@@ -27,6 +27,9 @@
             android:exported="false" />
         <activity
             android:name=".Page15Activity"
+            android:exported="false" />
+        <activity
+            android:name=".page18Activity"
             android:exported="false" /> <!-- Activité principale -->
         <activity
             android:name=".Page1Activity"
