@@ -19,6 +19,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/ic_back"
+            android:onClick="goBack"
             android:contentDescription="Go back" />
 
         <TextView
@@ -396,7 +397,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:onClick="goToPassager">
 
             <ImageView
                 android:layout_width="40dp"
@@ -418,7 +420,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:onClick="goToConducteur">
 
             <ImageView
                 android:layout_width="40dp"
@@ -440,7 +443,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:onClick="goToCovoiturage">
 
             <ImageView
                 android:layout_width="40dp"
@@ -462,7 +466,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:onClick="goToWallet">
 
             <ImageView
                 android:layout_width="40dp"
