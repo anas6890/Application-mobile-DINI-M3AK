@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="ccp" type="id">ccp</item>
-    <item name="inputContainer" type="id">inputContainer</item>
+    <item name="ccp" type="id"/>
+    <item name="inputContainer" type="id"/>
     <item name="casablancaLayout" type="id"/>
     <item name="FesLayout" type="id"/>
-    <item name="backIcon7" type="id" />
-    <item name="searchIcon2" type="id" />
-
+    <item name="backIcon7" type="id"/>
+    <item name="searchIcon2" type="id"/>
 </resources>

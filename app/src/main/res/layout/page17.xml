@@ -522,12 +522,10 @@
         android:id="@+id/buttonNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
         android:text="Suivant"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintMarginEnd="16dp"
-        app:layout_constraintMarginTop="40dp"
         app:layout_constraintTop_toTopOf="parent" />
 
 
