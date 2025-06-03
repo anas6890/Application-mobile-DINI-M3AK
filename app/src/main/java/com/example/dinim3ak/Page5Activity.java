@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Page5Activity extends AppCompatActivity {
@@ -13,21 +16,55 @@ public class Page5Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page5);
 
-        Button btnContinuer = findViewById(R.id.btnContinuer);         // ID dans page3.xml
-        Button btnConnexionGoogle = findViewById(R.id.btnGoogleSignup); // ID aussi dans page3.xml
+        ImageView btn_profil = findViewById(R.id.btn_profil);
+        EditText btn_rech = findViewById(R.id.btn_rech);
+        ImageView btn_passager = findViewById(R.id.btn_passager);
+        ImageView btn_covoiturage = findViewById(R.id.btn_covoiturage);
+        ImageView btn_conducteur = findViewById(R.id.btn_conducteur);
+        ImageView btn_wallet = findViewById(R.id.btn_wallet);
 
-        btnContinuer.setOnClickListener(new View.OnClickListener() {
+
+        btn_profil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Page5Activity.this, Page22Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_rech.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Page5Activity.this, Page6Activity.class);
+                startActivity(intent);
+            }
+        });
+        btn_passager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Page5Activity.this, Page5Activity.class);
                 startActivity(intent);
             }
         });
-
-        btnConnexionGoogle.setOnClickListener(new View.OnClickListener() {
+        btn_conducteur.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Code de connexion Google à ajouter plus tard
+                Intent intent = new Intent(Page5Activity.this, Page14Activity.class);
+                startActivity(intent);
+            }
+        });
+        btn_covoiturage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Page5Activity.this, Page19Activity.class);
+                startActivity(intent);
+            }
+        });
+        btn_wallet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Page5Activity.this, Page21Activity.class);
+                startActivity(intent);
             }
         });
     }
