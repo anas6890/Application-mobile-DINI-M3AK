@@ -47,7 +47,8 @@
         android:background="@android:color/transparent"
         android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="goBack"/>
 
     <LinearLayout
         android:id="@+id/walletAmount"
@@ -224,7 +225,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:onClick="goToPassager">
 
             <ImageView
                 android:layout_width="40dp"
@@ -246,7 +248,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:onClick="goToConducteur">
 
             <ImageView
                 android:layout_width="40dp"
@@ -268,7 +271,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:onClick="goToCovoiturage">
 
             <ImageView
                 android:layout_width="40dp"
@@ -290,7 +294,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:onClick="goToWallet">
 
             <ImageView
                 android:layout_width="40dp"
