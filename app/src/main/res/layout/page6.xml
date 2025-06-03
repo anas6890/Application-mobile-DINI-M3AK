@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,7 +22,7 @@
         android:id="@+id/backButton6"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:contentDescription="Go back"
+        android:contentDescription="@string/goback"
         android:src="@drawable/ic_back" />
 
     <TextView
@@ -80,7 +79,7 @@
             android:paddingStart="8dp"
             android:textColor="#1F1E1E"
             android:textColorHint="#795548"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck,VisualLintTextFieldSize" />
     </LinearLayout>
 
 

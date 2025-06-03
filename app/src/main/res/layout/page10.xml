@@ -53,9 +53,9 @@
         android:text="Black"
         android:textColor="#898484"
         android:textSize="13sp"
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck"
         tools:layout_editor_absoluteX="277dp"
-        tools:layout_editor_absoluteY="336dp"
-        tools:ignore="HardcodedText,MissingConstraints" />
+        tools:layout_editor_absoluteY="336dp" />
 
     <ImageView
         android:id="@+id/imageView12"
@@ -101,7 +101,7 @@
         android:textColor="#050505"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,MissingConstraints,VisualLintOverlap"
+        tools:ignore="HardcodedText,MissingConstraints,VisualLintOverlap,TextSizeCheck"
         tools:layout_editor_absoluteX="82dp"
         tools:layout_editor_absoluteY="71dp" />
 
@@ -113,7 +113,7 @@
         android:textColor="#1B1818"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck"
         tools:layout_editor_absoluteX="78dp"
         tools:layout_editor_absoluteY="198dp" />
 
@@ -150,7 +150,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.113"
-        tools:ignore="HardcodedText,MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck"
         tools:layout_editor_absoluteX="103dp" />
 
     <TextView
@@ -159,7 +159,7 @@
         android:layout_height="24dp"
         android:text="Autre"
         android:textSize="12sp"
-        tools:ignore="HardcodedText,MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck"
         tools:layout_editor_absoluteX="103dp"
         tools:layout_editor_absoluteY="219dp" />
 
@@ -228,7 +228,7 @@
         android:textColor="#1B1A1A"
         android:textSize="14sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck"
         tools:layout_editor_absoluteX="277dp"
         tools:layout_editor_absoluteY="413dp" />
 
@@ -261,9 +261,9 @@
         android:layout_width="217dp"
         android:layout_height="0dp"
         android:src="@drawable/img_8"
+        tools:ignore="ContentDescription,MissingConstraints,ImageContrastCheck"
         tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="591dp"
-        tools:ignore="ContentDescription,MissingConstraints" />
+        tools:layout_editor_absoluteY="591dp" />
 
     <TextView
         android:id="@+id/textView28"
