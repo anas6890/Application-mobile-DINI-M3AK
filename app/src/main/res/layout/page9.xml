@@ -177,7 +177,7 @@
         android:textColor="#EF6C00"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="110dp"
         tools:layout_editor_absoluteY="101dp" />
 
@@ -189,7 +189,7 @@
         android:textColor="#EF6C00"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="126dp"
         tools:layout_editor_absoluteY="617dp" />
 
@@ -200,7 +200,7 @@
         android:layout_marginEnd="84dp"
         android:src="@drawable/img_8"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="ContentDescription,MissingConstraints"
+        tools:ignore="ContentDescription,MissingConstraints,ImageContrastCheck"
         tools:layout_editor_absoluteY="376dp" />
 
     <ImageView
@@ -208,7 +208,7 @@
         android:layout_width="437dp"
         android:layout_height="22dp"
         android:src="@drawable/img_14"
-        tools:ignore="ContentDescription,MissingConstraints,VisualLintBounds"
+        tools:ignore="ContentDescription,MissingConstraints,VisualLintBounds,ImageContrastCheck"
         tools:layout_editor_absoluteX="-13dp"
         tools:layout_editor_absoluteY="735dp" />
 
@@ -228,7 +228,7 @@
         android:text="Rabat"
         android:textColor="#0B0A0A"
         android:textSize="16sp"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="51dp"
         tools:layout_editor_absoluteY="469dp" />
 
@@ -249,7 +249,7 @@
         android:text="2"
         android:textColor="#1D1B1B"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck"
         tools:layout_editor_absoluteX="280dp" />
 
     <TextView
@@ -260,7 +260,7 @@
         android:textColor="#958383"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="283dp"
         tools:layout_editor_absoluteY="409dp" />
 
@@ -272,7 +272,7 @@
         android:textColor="#EF6C00"
         android:textSize="15sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="304dp"
         tools:layout_editor_absoluteY="521dp" />
 
@@ -284,7 +284,7 @@
         android:textColor="#948282"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="283dp"
         tools:layout_editor_absoluteY="469dp" />
 
@@ -295,7 +295,7 @@
         android:text="4.5/5 -5avis"
         android:textSize="13sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="529dp" />
 
@@ -306,7 +306,7 @@
         android:text="Amine"
         android:textColor="#121111"
         android:textSize="13sp"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck"
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="509dp" />
 
@@ -315,7 +315,7 @@
         android:layout_width="26dp"
         android:layout_height="41dp"
         android:src="@drawable/img_6"
-        tools:ignore="ContentDescription,MissingConstraints"
+        tools:ignore="ContentDescription,MissingConstraints,ImageContrastCheck"
         tools:layout_editor_absoluteX="51dp"
         tools:layout_editor_absoluteY="428dp" />
 
@@ -326,7 +326,7 @@
         android:text="Casablanca"
         android:textColor="#0B0A0A"
         android:textSize="16sp"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="44dp"
         tools:layout_editor_absoluteY="409dp" />
 
@@ -344,7 +344,7 @@
         android:layout_width="26dp"
         android:layout_height="41dp"
         android:src="@drawable/img_6"
-        tools:ignore="ContentDescription,MissingConstraints"
+        tools:ignore="ContentDescription,MissingConstraints,ImageContrastCheck"
         tools:layout_editor_absoluteX="46dp"
         tools:layout_editor_absoluteY="210dp" />
 
@@ -356,7 +356,7 @@
         android:textColor="#948282"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="279dp"
         tools:layout_editor_absoluteY="248dp" />
 
@@ -367,7 +367,7 @@
         android:text="Casablanca"
         android:textColor="#0B0A0A"
         android:textSize="16sp"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="46dp"
         tools:layout_editor_absoluteY="191dp" />
 
@@ -388,7 +388,7 @@
         android:text="3"
         android:textColor="#1D1B1B"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck"
         tools:layout_editor_absoluteX="278dp" />
 
     <TextView
@@ -399,7 +399,7 @@
         android:textColor="#EF6C00"
         android:textSize="15sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="295dp"
         tools:layout_editor_absoluteY="295dp" />
 
@@ -410,7 +410,7 @@
         android:text="4.2/5 -3avis"
         android:textSize="13sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="97dp"
         tools:layout_editor_absoluteY="303dp" />
 
@@ -433,7 +433,7 @@
         android:text="Rabat"
         android:textColor="#0B0A0A"
         android:textSize="16sp"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="46dp"
         tools:layout_editor_absoluteY="248dp" />
 
@@ -444,7 +444,7 @@
         android:text="hicham"
         android:textColor="#121111"
         android:textSize="13sp"
-        tools:ignore="MissingConstraints,TextSizeCheck"
+        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck"
         tools:layout_editor_absoluteX="97dp"
         tools:layout_editor_absoluteY="285dp" />
 
@@ -455,7 +455,7 @@
         android:text="Offre 2"
         android:textColor="#5D4037"
         android:textSize="12sp"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="145dp"
         tools:layout_editor_absoluteY="547dp" />
 
@@ -467,7 +467,7 @@
         android:text="Offre 1"
         android:textColor="#424242"
         android:textSize="12sp"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="145dp"
         tools:layout_editor_absoluteY="330dp" />
 

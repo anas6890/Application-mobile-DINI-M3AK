@@ -66,6 +66,18 @@
     <string name="ligne">ligne</string>
     <string name="title_activity_page3_actvity">Page3Actvity</string>
     <string name="title_activity_page1">Page1Activity</string>
+    <string name="goback">Go Back</string>
+    <string name="lundi">Lun</string>
+    <string name="mardi">Mar</string>
+    <string name="mercredi">Mer</string>
+    <string name="jeudi">Jeu</string>
+    <string name="vendredi">Ven</string>
+    <string name="samedi">Sam</string>
+    <string name="dimanche">Dim</string>
+    <string name="janvier2025">janvier 2025</string>
+    <string name="février2025">février 2025</string>
+    <string name="qst">Quand souhaites-tu partir?</string>
+    <string name="tiret">____________________________</string>
 
 
 </resources>
