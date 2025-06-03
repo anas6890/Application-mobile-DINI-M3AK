@@ -27,6 +27,9 @@
         </activity>
 
         <!-- AUTRES ACTIVITÉS -->
+        <activity android:name=".Page2Activity" android:exported="false" />
+        <activity android:name=".Page3Activity" android:exported="false" />
+        <activity android:name=".Page5Activity" android:exported="false" />
         <activity android:name=".Page12Activity" android:exported="false" />
         <activity android:name=".MainActivity" android:exported="false" />
         <activity android:name=".SplashActivity" android:exported="false" />
