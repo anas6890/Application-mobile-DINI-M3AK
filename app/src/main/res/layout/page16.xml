@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:gravity="space_between"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
 
     </LinearLayout>
 
@@ -35,7 +36,8 @@
         android:textSize="26sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="75dp" />
+        tools:layout_editor_absoluteY="75dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:layout_width="204dp"
@@ -44,7 +46,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="21sp"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="203dp" />
+        tools:layout_editor_absoluteY="203dp"
+        tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:layout_width="379dp"
@@ -97,7 +100,8 @@
         android:orientation="horizontal"
         android:paddingVertical="8dp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="393dp">
+        tools:layout_editor_absoluteY="393dp"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -137,7 +141,8 @@
         android:orientation="horizontal"
         android:paddingVertical="8dp"
         tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="321dp">
+        tools:layout_editor_absoluteY="321dp"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -177,7 +182,8 @@
         android:hint="        Ville d'arrivée"
         android:padding="12dp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="128dp" />
+        tools:layout_editor_absoluteY="128dp"
+        tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -187,7 +193,8 @@
         android:orientation="horizontal"
         android:paddingVertical="8dp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="250dp">
+        tools:layout_editor_absoluteY="250dp"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -225,7 +232,8 @@
         android:layout_height="wrap_content"
         android:src="@drawable/search"
         tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="137dp" />
+        tools:layout_editor_absoluteY="137dp"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/backButton"

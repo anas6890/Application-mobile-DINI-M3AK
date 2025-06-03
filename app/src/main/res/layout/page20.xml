@@ -54,7 +54,8 @@
         android:textSize="14sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="57dp" />
+        tools:layout_editor_absoluteY="57dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tab_offers"
@@ -67,7 +68,8 @@
         android:textSize="14sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="186dp"
-        tools:layout_editor_absoluteY="57dp" />
+        tools:layout_editor_absoluteY="57dp"
+        tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:id="@+id/card"
@@ -102,7 +104,7 @@
             <Button
                 android:id="@+id/acceptButton"
                 android:layout_width="123dp"
-                android:layout_height="41dp"
+                android:layout_height="48dp"
                 android:layout_marginStart="224dp"
                 android:layout_marginBottom="100dp"
                 android:backgroundTint="#FBFBFB"
@@ -115,11 +117,10 @@
                 android:id="@+id/imageView3"
                 android:layout_width="47dp"
                 android:layout_height="46dp"
-                android:layout_marginEnd="8dp"
                 android:layout_marginBottom="100dp"
                 android:src="@drawable/resource_true"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/refuseButton" />
+                app:layout_constraintEnd_toStartOf="@+id/refuseButton" />
 
             <ImageView
                 android:id="@+id/imageView4"
@@ -127,17 +128,19 @@
                 android:layout_height="51dp"
                 android:src="@drawable/resource_false"
                 tools:layout_editor_absoluteX="174dp"
-                tools:layout_editor_absoluteY="227dp" />
+                tools:layout_editor_absoluteY="227dp"
+                tools:ignore="MissingConstraints" />
 
             <Button
                 android:id="@+id/refuseButton"
                 android:layout_width="119dp"
-                android:layout_height="39dp"
+                android:layout_height="48dp"
                 android:backgroundTint="#FBFBFB"
                 android:text="accepter"
                 android:textColor="#0B0B0B"
+                tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="55dp"
-                tools:layout_editor_absoluteY="235dp" />
+                tools:layout_editor_absoluteY="233dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
