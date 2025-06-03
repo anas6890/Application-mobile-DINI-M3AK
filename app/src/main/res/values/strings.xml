@@ -64,6 +64,9 @@
     <string name="fleche"><![CDATA[>]]></string>
     <string name="settat">Settat</string>
     <string name="ligne">ligne</string>
+    <string name="title_activity_page1_activity.java">page1Activity.java</string>
+    <string name="title_activity_page3_actvity">Page3Actvity</string>
+    <string name="title_activity_page1">Page1Activity</string>
 
 
 </resources>
