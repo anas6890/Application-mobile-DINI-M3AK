@@ -30,7 +30,7 @@
             android:layout_marginBottom="8dp"
             android:stretchColumns="*">
 
-            <TableRow>
+            <TableRow tools:ignore="UselessParent">
 
                 <TextView
                     android:gravity="center"
@@ -390,7 +390,7 @@
                     android:textColor="#101010" />
             </TableRow>
 
-            <TableRow>
+            <TableRow tools:ignore="TooManyViews">
 
                 <TextView
                     android:gravity="center"
@@ -499,7 +499,7 @@
         android:textColorHighlight="#141212"
         android:textSize="22sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
+        tools:ignore="MissingConstraints,VisualLintBounds"
         tools:layout_editor_absoluteX="59dp"
         tools:layout_editor_absoluteY="151dp" />
 
@@ -525,11 +525,13 @@
 
     <Button
         android:id="@+id/button8"
-        android:layout_width="97dp"
-        android:layout_height="38dp"
+        android:layout_width="93dp"
+        android:layout_height="39dp"
         android:background="#FDFDFD"
         android:text="Sauter"
-        tools:layout_editor_absoluteX="298dp"
-        tools:layout_editor_absoluteY="16dp"
-        tools:ignore="MissingConstraints" />
+        android:textColor="#757575"
+        android:textSize="12sp"
+        tools:ignore="MissingConstraints,TouchTargetSizeCheck"
+        tools:layout_editor_absoluteX="300dp"
+        tools:layout_editor_absoluteY="18dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

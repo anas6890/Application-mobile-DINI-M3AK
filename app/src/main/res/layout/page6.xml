@@ -20,7 +20,7 @@
 
 
     <ImageView
-        android:id="@+id/backButton2"
+        android:id="@+id/backButton6"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:contentDescription="Go back"
