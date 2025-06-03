@@ -477,17 +477,15 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/backButton5"
+        android:id="@+id/backButton8"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="280dp"
         android:layout_marginBottom="39dp"
         android:contentDescription="Go back"
         android:src="@drawable/ic_back"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -517,17 +515,6 @@
         tools:layout_editor_absoluteY="87dp" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sauter"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="328dp"
-        tools:layout_editor_absoluteY="24dp" />
-
-    <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -535,4 +522,14 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="95dp" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="97dp"
+        android:layout_height="38dp"
+        android:background="#FDFDFD"
+        android:text="Sauter"
+        tools:layout_editor_absoluteX="298dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,7 +15,7 @@
     android:layout_alignParentEnd="true" />
 
     <ImageView
-        android:id="@+id/backButton3"
+        android:id="@+id/backButton7"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:contentDescription="Go back"
@@ -57,14 +57,14 @@
         android:padding="8dp">
 
         <ImageView
-            android:id="@+id/searchIcon"
+            android:id="@+id/searchIcon2"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@string/recherche"
             android:src="?android:attr/actionModeWebSearchDrawable" />
 
         <EditText
-            android:id="@+id/searchField"
+            android:id="@+id/searchField2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints=""
@@ -97,8 +97,9 @@
         android:layout_marginTop="16dp"
         android:orientation="vertical">
 
-        <!-- Une ville : Casablanca -->
+        <!-- Une ville : Rabat -->
         <LinearLayout
+            android:id="@+id/rabatLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -130,6 +131,7 @@
 
         <!-- Fes -->
         <LinearLayout
+            android:id="@+id/Fes2Layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -161,6 +163,7 @@
 
         <!-- Salé -->
         <LinearLayout
+            android:id="@+id/Sale2Layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -192,6 +195,7 @@
 
         <!-- Tanger -->
         <LinearLayout
+            android:id="@+id/Tanger2Layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
