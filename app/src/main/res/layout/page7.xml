@@ -67,12 +67,14 @@
             android:id="@+id/searchField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:background="@android:color/transparent"
             android:hint="@string/ville_d_arrivee_hint"
+            android:inputType="text|textAutoComplete"
             android:minHeight="48dp"
             android:paddingStart="8dp"
             android:textColor="#1F1E1E"
-            android:textColorHint="#999999"
+            android:textColorHint="#795548"
             tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 

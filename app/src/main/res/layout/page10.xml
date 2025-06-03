@@ -23,21 +23,27 @@
         android:id="@+id/backButton4"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="363dp"
+        android:layout_marginBottom="22dp"
         android:contentDescription="Go back"
         android:src="@drawable/ic_back"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="3 total"
-        android:textColor="#898484"
+        android:textColor="#757575"
         android:textSize="13sp"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="336dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="336dp" />
 
     <TextView
         android:id="@+id/textView36"

@@ -9,85 +9,117 @@
         android:id="@+id/textView49"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="9dp"
         android:text="wallet"
         android:textColor="#000000"
         android:textSize="14sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText"
-        tools:layout_editor_absoluteX="327dp"
-        tools:layout_editor_absoluteY="807dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView48"
+        app:layout_constraintTop_toBottomOf="@+id/imageView40"
+        tools:ignore="HardcodedText" />
 
     <ImageView
         android:id="@+id/imageView37"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="58dp"
         android:importantForAccessibility="no"
         android:src="@drawable/ic_passager"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="765dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView46"
+        app:layout_constraintEnd_toStartOf="@+id/imageView38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView18" />
 
     <TextView
         android:id="@+id/textView46"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginBottom="11dp"
         android:text="passager"
         android:textColor="#000000"
         android:textSize="14sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText"
-        tools:layout_editor_absoluteX="19dp"
-        tools:layout_editor_absoluteY="805dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView37"
+        tools:ignore="HardcodedText" />
 
     <ImageView
         android:id="@+id/imageView38"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="2dp"
         android:src="@drawable/outline_directions_car_24"
-        tools:ignore="ContentDescription"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="767dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView47"
+        app:layout_constraintStart_toEndOf="@+id/imageView37"
+        app:layout_constraintTop_toBottomOf="@+id/imageView18"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/textView47"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="11dp"
         android:text="conducteur"
         android:textColor="#000000"
         android:textSize="14sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText"
-        tools:layout_editor_absoluteX="110dp"
-        tools:layout_editor_absoluteY="805dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView46"
+        app:layout_constraintTop_toBottomOf="@+id/imageView38"
+        tools:ignore="HardcodedText" />
 
     <ImageView
         android:id="@+id/imageView39"
         android:layout_width="42dp"
         android:layout_height="42dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
         android:src="@mipmap/ic_icon1"
-        tools:ignore="ContentDescription"
-        tools:layout_editor_absoluteX="232dp"
-        tools:layout_editor_absoluteY="765dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView48"
+        app:layout_constraintStart_toEndOf="@+id/textView47"
+        app:layout_constraintTop_toBottomOf="@+id/imageView18"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/textView48"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginBottom="9dp"
         android:text="covoiturage"
         android:textColor="#000000"
         android:textSize="14sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText"
-        tools:layout_editor_absoluteX="216dp"
-        tools:layout_editor_absoluteY="807dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView47"
+        app:layout_constraintTop_toBottomOf="@+id/imageView39"
+        tools:ignore="HardcodedText" />
 
     <ImageView
         android:id="@+id/imageView40"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="2dp"
         android:src="@drawable/ic_account"
-        tools:ignore="ContentDescription"
-        tools:layout_editor_absoluteX="327dp"
-        tools:layout_editor_absoluteY="765dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView49"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView39"
+        app:layout_constraintTop_toBottomOf="@+id/imageView18"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/avatar2"
@@ -140,7 +172,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="99 offres disponibles"
-        android:textColor="#FF9800"
+        android:textColor="#EF6C00"
         android:textSize="18sp"
         android:textStyle="bold"
         tools:ignore="MissingConstraints"
@@ -152,7 +184,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Toutes les offres"
-        android:textColor="#FF9800"
+        android:textColor="#EF6C00"
         android:textSize="18sp"
         android:textStyle="bold"
         tools:ignore="MissingConstraints"
