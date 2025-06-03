@@ -88,6 +88,7 @@
                 android:src="@drawable/localisation" />
 
             <TextView
+                android:id="@+id/layoutTanger"
                 android:layout_width="242dp"
                 android:layout_height="wrap_content"
                 android:text="Tanger"
@@ -128,6 +129,7 @@
                 android:src="@drawable/localisation" />
 
             <TextView
+                android:id="@+id/layoutSale"
                 android:layout_width="247dp"
                 android:layout_height="wrap_content"
                 android:text="Salé"
@@ -175,6 +177,7 @@
                 android:src="@drawable/localisation" />
 
             <TextView
+                android:id="@+id/layoutFes"
                 android:layout_width="247dp"
                 android:layout_height="wrap_content"
                 android:text="Fes"
@@ -226,6 +229,7 @@
                 android:src="@drawable/localisation" />
 
             <TextView
+                android:id="@+id/layoutCasablanca"
                 android:layout_width="246dp"
                 android:layout_height="wrap_content"
                 android:text="Casablanca"
