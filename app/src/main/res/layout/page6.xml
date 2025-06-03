@@ -5,18 +5,19 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:background="#FAFAFA"
-    tools:ignore="ExtraText"><![CDATA[
+    android:id="@+id/main"
+    tools:ignore="ExtraText">
 
-    android:contentDescription="@string/retour"
-    android:background="@android:color/transparent" />
+    android:contentDescription=&quot;@string/retour&quot;
+    android:background=&quot;@android:color/transparent&quot; /&gt;
 
-    android:contentDescription="@string/fermer"
-    android:background="@android:color/transparent"
-    android:layout_alignParentEnd="true" />
+    android:contentDescription=&quot;@string/fermer&quot;
+    android:background=&quot;@android:color/transparent&quot;
+    android:layout_alignParentEnd=&quot;true&quot; /&gt;
 
 
 
-    ]]>
+
 
     <ImageView
         android:id="@+id/backButton2"
@@ -61,14 +62,14 @@
         android:padding="8dp">
 
         <ImageView
-            android:id="@+id/searchIcon"
+            android:id="@+id/searchIcon1"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@string/recherche"
             android:src="?android:attr/actionModeWebSearchDrawable" />
 
         <EditText
-            android:id="@+id/searchField"
+            android:id="@+id/searchField1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints=""
@@ -105,6 +106,7 @@
 
         <!-- Une ville : Casablanca -->
         <LinearLayout
+            android:id="@+id/casablanca1Layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -136,6 +138,7 @@
 
         <!-- Fes -->
         <LinearLayout
+            android:id="@+id/Fes1Layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -167,6 +170,7 @@
 
         <!-- Salé -->
         <LinearLayout
+            android:id="@+id/Sale1Layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -198,6 +202,7 @@
 
         <!-- Tanger -->
         <LinearLayout
+            android:id="@+id/Tanger1Layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
