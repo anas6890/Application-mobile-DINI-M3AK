@@ -14,6 +14,6 @@ public class Page22Activity extends AppCompatActivity {
     }
 
     public void goBack(View view){
-        finish();
+        finish() ;
     }
 }
