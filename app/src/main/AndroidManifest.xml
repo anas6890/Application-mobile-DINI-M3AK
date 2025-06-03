@@ -8,7 +8,7 @@
     android:supportsRtl="true"
     android:theme="@style/Theme.DiniM3ak"
     tools:targetApi="31">
-
+  
     <!-- Activités Page1 à Page22, sauf 11 et 12 -->
     <activity android:name=".Page1Activity" android:exported="true" android:label="@string/title_activity_page1" android:theme="@style/Theme.DiniM3ak">
         <intent-filter>
@@ -41,6 +41,7 @@
     <!-- Autres activités -->
     <activity android:name=".MainActivity" android:exported="false" />
     <activity android:name=".SplashActivity" android:exported="false" />
+
 
     <!-- META-DATA -->
     <meta-data

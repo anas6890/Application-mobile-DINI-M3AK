@@ -18,7 +18,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnHelp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="UnknownIdInLayout" />
 
     <TextView
         android:id="@+id/textView49"
@@ -34,7 +35,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView48"
         app:layout_constraintTop_toBottomOf="@+id/imageView40"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText,VisualLintBounds" />
 
     <ImageView
         android:id="@+id/imageView37"
@@ -48,7 +49,8 @@
         app:layout_constraintBottom_toTopOf="@+id/textView46"
         app:layout_constraintEnd_toStartOf="@+id/imageView38"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView18" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView18"
+        tools:ignore="VisualLintBounds" />
 
     <TextView
         android:id="@+id/textView46"
@@ -63,7 +65,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView37"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText,VisualLintBounds" />
 
     <ImageView
         android:id="@+id/imageView38"
@@ -76,7 +78,7 @@
         app:layout_constraintBottom_toTopOf="@+id/textView47"
         app:layout_constraintStart_toEndOf="@+id/imageView37"
         app:layout_constraintTop_toBottomOf="@+id/imageView18"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription,VisualLintBounds" />
 
     <TextView
         android:id="@+id/textView47"
@@ -92,7 +94,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView46"
         app:layout_constraintTop_toBottomOf="@+id/imageView38"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText,VisualLintBounds" />
 
     <ImageView
         android:id="@+id/imageView39"
@@ -104,7 +106,7 @@
         app:layout_constraintBottom_toTopOf="@+id/textView48"
         app:layout_constraintStart_toEndOf="@+id/textView47"
         app:layout_constraintTop_toBottomOf="@+id/imageView18"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription,VisualLintBounds" />
 
     <TextView
         android:id="@+id/textView48"
@@ -119,7 +121,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView47"
         app:layout_constraintTop_toBottomOf="@+id/imageView39"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText,VisualLintBounds" />
 
     <ImageView
         android:id="@+id/imageView40"
@@ -134,10 +136,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView39"
         app:layout_constraintTop_toBottomOf="@+id/imageView18"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription,VisualLintBounds" />
 
     <ImageView
-        android:id="@+id/avatar2"
+        android:id="@+id/avatar9"
         android:layout_width="40dp"
         android:layout_height="42dp"
         android:layout_marginStart="3dp"
@@ -147,10 +149,10 @@
         android:src="@drawable/ic_person"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02"
+        app:layout_constraintVertical_bias="0.021"
         tools:ignore="ContentDescription" />
 
     <Button
@@ -189,7 +191,7 @@
         android:textStyle="bold"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="593dp" />
+        tools:layout_editor_absoluteY="617dp" />
 
     <ImageView
         android:id="@+id/imageView14"
@@ -198,15 +200,15 @@
         android:layout_marginEnd="84dp"
         android:src="@drawable/img_8"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="342dp" />
+        tools:ignore="ContentDescription,MissingConstraints"
+        tools:layout_editor_absoluteY="376dp" />
 
     <ImageView
         android:id="@+id/imageView18"
         android:layout_width="437dp"
         android:layout_height="22dp"
         android:src="@drawable/img_14"
-        tools:ignore="MissingConstraints"
+        tools:ignore="ContentDescription,MissingConstraints,VisualLintBounds"
         tools:layout_editor_absoluteX="-13dp"
         tools:layout_editor_absoluteY="735dp" />
 
@@ -215,7 +217,7 @@
         android:layout_width="46dp"
         android:layout_height="49dp"
         android:src="@drawable/img_15"
-        tools:ignore="MissingConstraints"
+        tools:ignore="ContentDescription,MissingConstraints"
         tools:layout_editor_absoluteX="42dp"
         tools:layout_editor_absoluteY="494dp" />
 
@@ -235,7 +237,7 @@
         android:layout_width="27dp"
         android:layout_height="26dp"
         android:src="@drawable/img_4"
-        tools:ignore="MissingConstraints"
+        tools:ignore="ContentDescription,MissingConstraints"
         tools:layout_editor_absoluteX="253dp"
         tools:layout_editor_absoluteY="517dp" />
 
@@ -267,7 +269,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="26 Dhs"
-        android:textColor="#FF9800"
+        android:textColor="#EF6C00"
         android:textSize="15sp"
         android:textStyle="bold"
         tools:ignore="MissingConstraints"
@@ -313,7 +315,7 @@
         android:layout_width="26dp"
         android:layout_height="41dp"
         android:src="@drawable/img_6"
-        tools:ignore="MissingConstraints"
+        tools:ignore="ContentDescription,MissingConstraints"
         tools:layout_editor_absoluteX="51dp"
         tools:layout_editor_absoluteY="428dp" />
 
@@ -333,7 +335,7 @@
         android:layout_width="48dp"
         android:layout_height="51dp"
         android:src="@drawable/img_16"
-        tools:ignore="MissingConstraints"
+        tools:ignore="ContentDescription,MissingConstraints"
         tools:layout_editor_absoluteX="42dp"
         tools:layout_editor_absoluteY="269dp" />
 
@@ -342,7 +344,7 @@
         android:layout_width="26dp"
         android:layout_height="41dp"
         android:src="@drawable/img_6"
-        tools:ignore="MissingConstraints"
+        tools:ignore="ContentDescription,MissingConstraints"
         tools:layout_editor_absoluteX="46dp"
         tools:layout_editor_absoluteY="210dp" />
 
@@ -374,7 +376,7 @@
         android:layout_width="27dp"
         android:layout_height="26dp"
         android:src="@drawable/img_4"
-        tools:ignore="MissingConstraints"
+        tools:ignore="ContentDescription,MissingConstraints"
         tools:layout_editor_absoluteX="251dp"
         tools:layout_editor_absoluteY="294dp" />
 
@@ -394,7 +396,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="35.84 Dhs"
-        android:textColor="#FF9800"
+        android:textColor="#EF6C00"
         android:textSize="15sp"
         android:textStyle="bold"
         tools:ignore="MissingConstraints"
@@ -420,7 +422,7 @@
         android:textColor="#958383"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="279dp"
         tools:layout_editor_absoluteY="191dp" />
 
@@ -442,27 +444,31 @@
         android:text="hicham"
         android:textColor="#121111"
         android:textSize="13sp"
-        tools:ignore="MissingConstraints"
+        tools:ignore="MissingConstraints,TextSizeCheck"
         tools:layout_editor_absoluteX="97dp"
         tools:layout_editor_absoluteY="285dp" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="106dp"
-        android:layout_height="33dp"
-        android:text="Offre 2:"
+        android:layout_height="48dp"
+        android:text="Offre 2"
+        android:textColor="#5D4037"
         android:textSize="12sp"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="376dp" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="547dp" />
 
     <Button
         android:id="@+id/buttonoffre1"
         android:layout_width="106dp"
-        android:layout_height="33dp"
+        android:layout_height="48dp"
         android:backgroundTint="#FF9800"
-        android:text="Offre 1:"
+        android:text="Offre 1"
+        android:textColor="#424242"
         android:textSize="12sp"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="158dp" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="330dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

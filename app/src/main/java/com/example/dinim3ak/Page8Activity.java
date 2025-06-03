@@ -22,9 +22,9 @@ public class Page8Activity extends AppCompatActivity {
             finish(); // facultatif : empêche de revenir à Page7 avec le bouton retour
         });
 
-        Button boutonPage9 = findViewById(R.id.button8);
+        Button boutonsauter = findViewById(R.id.button8);
 
-        boutonPage9.setOnClickListener(v -> {
+        boutonsauter.setOnClickListener(v -> {
             Intent intent = new Intent(Page8Activity.this, Page9Activity.class);
             startActivity(intent);
         });

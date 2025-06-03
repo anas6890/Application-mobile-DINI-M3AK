@@ -17,25 +17,25 @@ public class Page7Activity extends AppCompatActivity {
         LinearLayout rabatLayout = findViewById(R.id.rabatLayout);
         rabatLayout.setOnClickListener(v -> {
             Toast.makeText(Page7Activity.this, "Layout cliqué", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(), Page8Activity.class);
+            Intent intent = new Intent(Page7Activity.this, Page8Activity.class);
             startActivity(intent);
         });
         LinearLayout FesLayout2 = findViewById(R.id.Fes2Layout);
         FesLayout2.setOnClickListener(v -> {
             Toast.makeText(Page7Activity.this, "Layout cliqué", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(), Page8Activity.class);
+            Intent intent = new Intent(Page7Activity.this, Page8Activity.class);
             startActivity(intent);
         });
         LinearLayout SaleLayout2 = findViewById(R.id.Sale2Layout);
         SaleLayout2.setOnClickListener(v -> {
             Toast.makeText(Page7Activity.this, "Layout cliqué", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(), Page8Activity.class);
+            Intent intent = new Intent(Page7Activity.this, Page8Activity.class);
             startActivity(intent);
         });
         LinearLayout TangerLayout2 = findViewById(R.id.Tanger2Layout);
         TangerLayout2.setOnClickListener(v -> {
             Toast.makeText(Page7Activity.this, "Layout cliqué", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(), Page8Activity.class);
+            Intent intent = new Intent(Page7Activity.this, Page8Activity.class);
             startActivity(intent);
         });
 
