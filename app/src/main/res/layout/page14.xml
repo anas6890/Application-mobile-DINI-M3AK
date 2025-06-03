@@ -6,13 +6,15 @@
     android:background="@android:color/white">
 
     <!-- User Icon -->
-    <ImageView
+    <ImageButton
         android:id="@+id/userIcon"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_margin="16dp"
         android:src="@drawable/ic_person"
-        android:background="@drawable/circle_background" />
+        android:background="@drawable/circle_background"
+        android:onClick="goToProfile"
+        android:contentDescription="Go to profile"/>
 
     <!-- Help Button -->
     <Button
@@ -48,6 +50,7 @@
         android:layout_below="@id/welcomeText"
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
+        android:onClick="on_publier_covoiturage_click"
         />
 
     <!-- Car Illustration -->
@@ -76,7 +79,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:onClick="goToPassager">
 
             <ImageView
                 android:layout_width="40dp"
@@ -98,7 +102,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:onClick="goToConducteur">
 
             <ImageView
                 android:layout_width="40dp"
@@ -120,7 +125,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:onClick="goToCovoiturage">
 
             <ImageView
                 android:layout_width="40dp"
@@ -142,7 +148,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:onClick="goToWallet">
 
             <ImageView
                 android:layout_width="40dp"
