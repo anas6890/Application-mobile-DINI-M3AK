@@ -47,27 +47,39 @@
         android:id="@+id/tab_reservations"
         android:layout_width="147dp"
         android:layout_height="44dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="34dp"
         android:layout_weight="1"
         android:gravity="center"
         android:text="RESERVATIONS"
         android:textColor="#666666"
         android:textSize="14sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="57dp" />
+        app:layout_constraintBottom_toTopOf="@+id/card"
+        app:layout_constraintEnd_toStartOf="@+id/tab_offers"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <TextView
         android:id="@+id/tab_offers"
         android:layout_width="141dp"
         android:layout_height="44dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="34dp"
         android:layout_weight="1"
         android:gravity="center"
         android:text="OFFRES"
         android:textColor="#666666"
         android:textSize="14sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="186dp"
-        tools:layout_editor_absoluteY="57dp" />
+        app:layout_constraintBottom_toTopOf="@+id/card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tab_reservations"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <LinearLayout
         android:id="@+id/card"
@@ -102,7 +114,7 @@
             <Button
                 android:id="@+id/acceptButton"
                 android:layout_width="123dp"
-                android:layout_height="41dp"
+                android:layout_height="48dp"
                 android:layout_marginStart="224dp"
                 android:layout_marginBottom="100dp"
                 android:backgroundTint="#FBFBFB"
@@ -125,19 +137,29 @@
                 android:id="@+id/imageView4"
                 android:layout_width="51dp"
                 android:layout_height="51dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="219dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="96dp"
                 android:src="@drawable/resource_false"
-                tools:layout_editor_absoluteX="174dp"
-                tools:layout_editor_absoluteY="227dp" />
+                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                app:layout_constraintEnd_toStartOf="@+id/acceptButton"
+                app:layout_constraintStart_toEndOf="@+id/refuseButton"
+                app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
             <Button
                 android:id="@+id/refuseButton"
                 android:layout_width="119dp"
-                android:layout_height="39dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="227dp"
+                android:layout_marginBottom="100dp"
                 android:backgroundTint="#FBFBFB"
                 android:text="accepter"
                 android:textColor="#0B0B0B"
-                tools:layout_editor_absoluteX="55dp"
-                tools:layout_editor_absoluteY="235dp" />
+                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                app:layout_constraintStart_toStartOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
