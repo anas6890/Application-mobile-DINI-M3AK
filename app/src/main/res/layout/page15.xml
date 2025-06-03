@@ -14,7 +14,6 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="379dp"
         android:layout_marginBottom="787dp"
-        android:gravity="space_between"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,14 +36,19 @@
         android:id="@+id/title"
         android:layout_width="224dp"
         android:layout_height="37dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="171dp"
         android:text="Ville de départ"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="26sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="75dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
 
     <TextView
+        android:id="@+id/textView5"
         android:layout_width="204dp"
         android:layout_height="35dp"
         android:layout_marginStart="17dp"
@@ -60,6 +64,7 @@
         app:layout_constraintTop_toBottomOf="@+id/search_input" />
 
     <LinearLayout
+        android:id="@+id/linearLayout7"
         android:layout_width="379dp"
         android:layout_height="61dp"
         android:layout_marginStart="2dp"
@@ -67,7 +72,7 @@
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="295dp"
         android:background="#FFFFFF"
-        android:gravity="space_between"
+        android:gravity="center"
         android:orientation="horizontal"
         android:paddingVertical="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -107,14 +112,18 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="355dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
         android:background="#FFFFFF"
-        android:gravity="space_between"
+        android:gravity="center"
         android:orientation="horizontal"
         android:paddingVertical="8dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="393dp">
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -147,6 +156,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -154,7 +164,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="10dp"
         android:background="#FFFFFF"
-        android:gravity="space_between"
+        android:gravity="center"
         android:orientation="horizontal"
         android:paddingVertical="8dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -197,19 +207,23 @@
         android:id="@+id/search_input"
         android:layout_width="330dp"
         android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="49dp"
         android:background="@drawable/search_box_background"
         android:backgroundTint="#FDECCF"
         android:hint="        Ville de départ"
         android:padding="12dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="128dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="346dp"
+        android:layout_height="57dp"
         android:background="#FFFFFF"
-        android:gravity="space_between"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingVertical="8dp"
         tools:ignore="MissingConstraints"
@@ -219,7 +233,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
@@ -250,19 +264,24 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="286dp"
+        android:layout_marginBottom="13dp"
         android:src="@drawable/search"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="137dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/search_input"
+        app:layout_constraintEnd_toEndOf="@+id/search_input"
+        app:layout_constraintTop_toTopOf="@+id/search_input" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="46dp"
-        android:layout_height="39dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginStart="21dp"
         android:layout_marginTop="23dp"
         android:layout_marginEnd="246dp"
         android:layout_marginBottom="13dp"
         android:background="@drawable/go_back_button"
+        android:contentDescription="@string/retour"
         app:layout_constraintBottom_toTopOf="@+id/title"
         app:layout_constraintEnd_toStartOf="@+id/button5"
         app:layout_constraintStart_toStartOf="parent"
@@ -270,11 +289,13 @@
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="41dp"
-        android:layout_height="39dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginStart="252dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/cancel"
+        android:contentDescription="@string/aide"
         app:layout_constraintStart_toEndOf="@+id/button4"
-        tools:layout_editor_absoluteY="25dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

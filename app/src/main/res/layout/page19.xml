@@ -16,11 +16,12 @@
 
         <ImageButton
             android:id="@+id/backButton19"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/ic_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="#FFFFFF"
+            android:contentDescription="Go back"
             android:onClick="goBack"
-            android:contentDescription="Go back" />
+            android:src="@drawable/ic_back" />
 
         <TextView
             android:layout_width="0dp"

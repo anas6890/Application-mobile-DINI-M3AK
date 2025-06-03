@@ -10,9 +10,15 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="395dp"
+        android:layout_marginBottom="787dp"
         android:gravity="space_between"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
     </LinearLayout>
 
@@ -30,32 +36,48 @@
         android:id="@+id/title"
         android:layout_width="224dp"
         android:layout_height="37dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:text="Ville d'arrivée"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="26sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="75dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backButton" />
 
     <TextView
+        android:id="@+id/textView38"
         android:layout_width="204dp"
         android:layout_height="35dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="190dp"
+        android:layout_marginBottom="12dp"
         android:text=" Villes suggérées"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="21sp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="203dp" />
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.187"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_input"
+        app:layout_constraintVertical_bias="1.0" />
 
     <LinearLayout
-        android:layout_width="379dp"
-        android:layout_height="61dp"
+        android:id="@+id/linearLayout5"
+        android:layout_width="367dp"
+        android:layout_height="60dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="270dp"
         android:background="#FFFFFF"
         android:gravity="space_between"
         android:orientation="horizontal"
         android:paddingVertical="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:layout_editor_absoluteX="1dp"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
@@ -92,12 +114,17 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:background="#FFFFFF"
         android:gravity="space_between"
         android:orientation="horizontal"
         android:paddingVertical="8dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="393dp">
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -130,14 +157,20 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:background="#FFFFFF"
         android:gravity="space_between"
         android:orientation="horizontal"
         android:paddingVertical="8dp"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="321dp">
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -176,18 +209,25 @@
         android:backgroundTint="#FDECCF"
         android:hint="        Ville d'arrivée"
         android:padding="12dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="128dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:background="#FFFFFF"
         android:gravity="space_between"
         android:orientation="horizontal"
         android:paddingVertical="8dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="250dp">
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -223,17 +263,28 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="13dp"
         android:src="@drawable/search"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="137dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/search_input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/search_input"
+        app:layout_constraintVertical_bias="0.708" />
 
     <ImageView
         android:id="@+id/backButton"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:src="@drawable/ic_back"
+        android:layout_marginEnd="363dp"
+        android:layout_marginBottom="43dp"
         android:contentDescription="Go back"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toTopOf="@+id/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
