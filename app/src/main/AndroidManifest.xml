@@ -13,7 +13,7 @@
         android:theme="@style/Theme.DiniM3ak"
         tools:targetApi="31">
         <activity
-            android:name=".Page12Activity"
+            android:name=".Page13Activity"
             android:exported="false" />
 
         <meta-data

@@ -34,11 +34,11 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.042"
-        app:layout_constraintStart_toEndOf="@+id/backButton"
+        app:layout_constraintStart_toEndOf="@+id/backButton21"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/backButton"
+        android:id="@+id/backButton21"
         android:contentDescription="Go back"
         android:layout_width="48dp"
         android:layout_height="48dp"
