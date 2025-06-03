@@ -16,20 +16,14 @@ public class Page1Activity extends AppCompatActivity {
         Button btnConnexion = findViewById(R.id.btnConnexion);
         Button btnInscription = findViewById(R.id.btnInscription);
 
-        btnConnexion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Page1Activity.this, Page3Activity.class);
-                startActivity(intent);
-            }
+        btnConnexion.setOnClickListener(v -> {
+            Intent intent = new Intent(Page1Activity.this, Page3Activity.class);
+            startActivity(intent);
         });
 
-        btnInscription.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Page1Activity.this, Page2Activity.class);
-                startActivity(intent);
-            }
+        btnInscription.setOnClickListener(v -> {
+            Intent intent = new Intent(Page1Activity.this, Page2Activity.class);
+            startActivity(intent);
         });
     }
 }
