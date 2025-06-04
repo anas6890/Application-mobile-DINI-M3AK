@@ -40,7 +40,7 @@ dependencies {
 
     implementation(libs.appcompat)
     implementation(libs.material)
-    implementation(libs.play.services.ads)
+    //implementation(libs.play.services.ads)
     implementation("com.hbb20:ccp:2.5.0")
     implementation(libs.activity)
     implementation(libs.constraintlayout)
