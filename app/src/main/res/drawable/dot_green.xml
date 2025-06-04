@@ -1,0 +1,6 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"> <!-- Defines the shape as an oval. When width and height are equal, it forms a perfect circle. -->
+    <solid android:color="#4CAF50"/> <!-- Sets the solid fill color of the circle to a shade of green. -->
+    <size
+        android:width="24dp" /> <!-- Sets the width of the circle. Adjust this value to change the size. -->
+</shape>
