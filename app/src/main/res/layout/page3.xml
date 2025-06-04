@@ -195,7 +195,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="109dp"
         android:backgroundTint="@color/white"
-        android:drawableEnd="@drawable/googleg_standard_color_18"
+        android:drawableEnd="@drawable/google_icon_logo"
         android:padding="12dp"
         android:text="@string/connexion_avec_google"
         android:textAllCaps="false"
