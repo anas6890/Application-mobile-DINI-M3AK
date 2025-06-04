@@ -16,14 +16,16 @@ public class Page21Activity extends AppCompatActivity {
         finish();
     }
     public void goToPassager(View view){
-
+        Intent i = new Intent(this, Page5Activity.class);
+        this.startActivity(i);
     }
     public void goToConducteur(View view){
         Intent i = new Intent(this, Page14Activity.class);
         this.startActivity(i);
     }
     public void goToCovoiturage(View view){
-
+        Intent i = new Intent(this, Page19Activity.class);
+        this.startActivity(i);
     }
     public void goToWallet(View view){
 
