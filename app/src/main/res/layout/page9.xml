@@ -284,12 +284,14 @@
         android:id="@+id/textView18"
         android:layout_width="9dp"
         android:layout_height="19dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="32dp"
         android:text="2"
         android:textColor="#1D1B1B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.699"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15"
-        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck"
-        tools:layout_editor_absoluteX="280dp" />
+        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck" />
 
     <TextView
         android:id="@+id/textView20"
@@ -317,6 +319,8 @@
         android:textColor="#EF6C00"
         android:textSize="15sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView18"
         app:layout_constraintTop_toBottomOf="@+id/textView15"
         tools:ignore="HardcodedText,MissingConstraints" />
@@ -484,11 +488,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="27dp"
         android:text="35.84 Dhs"
         android:textColor="#EF6C00"
         android:textSize="15sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toEndOf="@+id/textView11"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
         tools:ignore="HardcodedText,MissingConstraints" />
