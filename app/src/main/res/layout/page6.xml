@@ -77,6 +77,7 @@
             android:inputType="text|textAutoComplete"
             android:minHeight="48dp"
             android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             android:textColor="#1F1E1E"
             android:textColorHint="#795548"
             tools:ignore="TouchTargetSizeCheck,VisualLintTextFieldSize" />

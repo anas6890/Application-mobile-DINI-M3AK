@@ -8,14 +8,17 @@
     tools:ignore="ExtraText">
 
     <LinearLayout
+        android:id="@+id/linearLayout8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="235dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="211dp"
         android:background="#FFFDFD"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
@@ -535,56 +538,77 @@
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="39dp"
         android:contentDescription="@string/goback"
         android:src="@drawable/ic_back"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="361dp"
         android:layout_height="57dp"
+        android:layout_marginTop="159dp"
+        android:layout_marginBottom="619dp"
+        android:gravity="center|start"
         android:shadowColor="#0D0C0C"
         android:text="@string/qst"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColorHighlight="#141212"
         android:textSize="22sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints,VisualLintBounds,TextSizeCheck"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="151dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints,VisualLintBounds,TextSizeCheck" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="188dp"
         android:layout_height="38dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="207dp"
+        android:layout_marginBottom="26dp"
         android:text="Casablanca > Rabat"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#181717"
-        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="87dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backButton8"
+        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="65dp"
         android:text="@string/tiret"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="95dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button8"
         android:layout_width="93dp"
         android:layout_height="39dp"
+        android:layout_marginStart="252dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="94dp"
         android:background="#FDFDFD"
         android:text="Sauter"
         android:textColor="#757575"
         android:textSize="12sp"
-        tools:ignore="HardcodedText,MissingConstraints,TouchTargetSizeCheck"
-        tools:layout_editor_absoluteX="300dp"
-        tools:layout_editor_absoluteY="18dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/backButton8"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText,MissingConstraints,TouchTargetSizeCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

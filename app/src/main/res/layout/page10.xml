@@ -24,13 +24,14 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="363dp"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="16dp"
         android:contentDescription="Go back"
         android:src="@drawable/ic_back"
         app:layout_constraintBottom_toTopOf="@+id/imageView24"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
@@ -39,261 +40,343 @@
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="90dp"
+        android:layout_marginBottom="58dp"
         android:text="3 total"
         android:textColor="#757575"
         android:textSize="13sp"
-        tools:ignore="HardcodedText,MissingConstraints"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="336dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView32"
+        app:layout_constraintEnd_toStartOf="@+id/imageView28"
+        app:layout_constraintStart_toEndOf="@+id/imageView26"
+        app:layout_constraintTop_toBottomOf="@+id/textView31"
+        tools:ignore="HardcodedText,MissingConstraints" />
 
     <TextView
         android:id="@+id/textView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginBottom="57dp"
         android:text="Black"
         android:textColor="#898484"
         android:textSize="13sp"
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck"
-        tools:layout_editor_absoluteX="277dp"
-        tools:layout_editor_absoluteY="336dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView34"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView28"
+        app:layout_constraintTop_toBottomOf="@+id/textView33"
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck" />
 
     <ImageView
         android:id="@+id/imageView12"
-        android:layout_width="79dp"
-        android:layout_height="32dp"
+        android:layout_width="38dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/ic_location"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="71dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView24"
+        app:layout_constraintStart_toEndOf="@+id/imageView24"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ContentDescription,MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView22"
-        android:layout_width="79dp"
-        android:layout_height="32dp"
+        android:layout_width="38dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="11dp"
         android:src="@drawable/ic_location"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="198dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView23"
+        app:layout_constraintEnd_toStartOf="@+id/textView25"
+        app:layout_constraintStart_toEndOf="@+id/imageView24"
         tools:ignore="ContentDescription,MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView21"
-        android:layout_width="25dp"
-        android:layout_height="47dp"
+        android:layout_width="38dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="74dp"
         android:src="@drawable/img_18"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="103dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView22"
+        app:layout_constraintEnd_toStartOf="@+id/textView26"
+        app:layout_constraintStart_toEndOf="@+id/imageView24"
+        app:layout_constraintTop_toBottomOf="@+id/imageView12"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="ContentDescription,MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView23"
-        android:layout_width="25dp"
-        android:layout_height="47dp"
+        android:layout_width="38dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="206dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="595dp"
         android:src="@drawable/img_18"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="230dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView27"
+        app:layout_constraintStart_toEndOf="@+id/imageView24"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ContentDescription,MissingConstraints" />
 
     <TextView
         android:id="@+id/textView24"
-        android:layout_width="96dp"
-        android:layout_height="28dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="217dp"
         android:text="Casablanca"
         android:textColor="#050505"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,MissingConstraints,VisualLintOverlap,TextSizeCheck"
-        tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="71dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView12"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText,MissingConstraints,VisualLintOverlap,TextSizeCheck" />
 
     <TextView
         android:id="@+id/textView25"
-        android:layout_width="96dp"
-        android:layout_height="28dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="258dp"
         android:text="Rabat"
         android:textColor="#1B1818"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView22"
         tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="198dp" />
+        tools:layout_editor_absoluteY="180dp" />
 
     <TextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="259dp"
         android:text="14:00"
         android:textColor="#009688"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,MissingConstraints"
-        tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="116dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView21"
+        app:layout_constraintTop_toBottomOf="@+id/textView24"
+        tools:ignore="HardcodedText,MissingConstraints" />
 
     <TextView
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="259dp"
+        android:layout_marginBottom="78dp"
         android:text="15:04"
         android:textColor="#009688"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,MissingConstraints"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="243dp" />
-
-    <TextView
-        android:id="@+id/textView29"
-        android:layout_width="76dp"
-        android:layout_height="24dp"
-        android:text="Les hopitaux"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.113"
-        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck"
-        tools:layout_editor_absoluteX="103dp" />
-
-    <TextView
-        android:id="@+id/textView30"
-        android:layout_width="37dp"
-        android:layout_height="24dp"
-        android:text="Autre"
-        android:textSize="12sp"
-        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck"
-        tools:layout_editor_absoluteX="103dp"
-        tools:layout_editor_absoluteY="219dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView31"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView23"
+        app:layout_constraintTop_toBottomOf="@+id/textView25"
+        tools:ignore="HardcodedText,MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView26"
         android:layout_width="48dp"
         android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="40dp"
         android:src="@drawable/img_20"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="316dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView27"
+        app:layout_constraintEnd_toStartOf="@+id/textView35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView23"
         tools:ignore="ContentDescription,MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView27"
         android:layout_width="52dp"
         android:layout_height="44dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="46dp"
         android:src="@drawable/img_21"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="406dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView28"
+        app:layout_constraintEnd_toStartOf="@+id/textView32"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView26"
         tools:ignore="ContentDescription,MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView28"
         android:layout_width="55dp"
         android:layout_height="48dp"
+        android:layout_marginTop="318dp"
+        android:layout_marginBottom="40dp"
         android:src="@drawable/img_22"
-        tools:layout_editor_absoluteX="214dp"
-        tools:layout_editor_absoluteY="318dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView29"
+        app:layout_constraintEnd_toStartOf="@+id/textView33"
+        app:layout_constraintStart_toEndOf="@+id/textView31"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ContentDescription,MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView29"
         android:layout_width="54dp"
         android:layout_height="45dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="45dp"
         android:src="@drawable/img_23"
-        tools:layout_editor_absoluteX="214dp"
-        tools:layout_editor_absoluteY="406dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView28"
+        app:layout_constraintEnd_toStartOf="@+id/textView34"
+        app:layout_constraintStart_toEndOf="@+id/textView32"
+        app:layout_constraintTop_toBottomOf="@+id/imageView28"
         tools:ignore="ContentDescription,MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView30"
         android:layout_width="477dp"
         android:layout_height="54dp"
+        android:layout_marginBottom="70dp"
         android:src="@drawable/img_24"
-        tools:layout_editor_absoluteX="-24dp"
-        tools:layout_editor_absoluteY="625dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnreserver10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="ContentDescription,MissingConstraints,VisualLintBounds" />
 
     <TextView
         android:id="@+id/textView31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="2dp"
         android:text="3 restant(s)"
         android:textColor="#1B1A1A"
         android:textSize="14sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,MissingConstraints"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="316dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView35"
+        app:layout_constraintEnd_toStartOf="@+id/imageView28"
+        app:layout_constraintStart_toEndOf="@+id/imageView26"
+        app:layout_constraintTop_toBottomOf="@+id/imageView23"
+        tools:ignore="HardcodedText,MissingConstraints" />
 
     <TextView
         android:id="@+id/textView34"
         android:layout_width="103dp"
         android:layout_height="37dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="142dp"
         android:text="Covoiturage direct"
         android:textColor="#1B1A1A"
         android:textSize="14sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck"
-        tools:layout_editor_absoluteX="277dp"
-        tools:layout_editor_absoluteY="413dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView20"
+        app:layout_constraintStart_toEndOf="@+id/imageView29"
+        app:layout_constraintTop_toBottomOf="@+id/textView36"
+        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck" />
 
     <TextView
         android:id="@+id/textView32"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginBottom="64dp"
         android:text="Moyen"
         android:textColor="#1B1A1A"
         android:textSize="14sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,MissingConstraints"
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="413dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView28"
+        app:layout_constraintStart_toEndOf="@+id/imageView27"
+        app:layout_constraintTop_toBottomOf="@+id/textView35"
+        tools:ignore="HardcodedText,MissingConstraints" />
 
     <TextView
         android:id="@+id/textView33"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="318dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="1dp"
         android:text="VOLKSWAGEN"
         android:textColor="#1B1A1A"
         android:textSize="14sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,MissingConstraints"
-        tools:layout_editor_absoluteX="277dp"
-        tools:layout_editor_absoluteY="318dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView36"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView28"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText,MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView20"
-        android:layout_width="217dp"
-        android:layout_height="0dp"
+        android:layout_width="429dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginEnd="106dp"
         android:src="@drawable/img_8"
-        tools:ignore="ContentDescription,MissingConstraints,ImageContrastCheck"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="591dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.41"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="ContentDescription,MissingConstraints,ImageContrastCheck" />
 
     <TextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="178dp"
+        android:layout_marginBottom="7dp"
         android:text="Prix total pour 1 passager(s)"
         android:textSize="16sp"
-        tools:ignore="HardcodedText,MissingConstraints"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="496dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView37"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText,MissingConstraints" />
 
     <TextView
         android:id="@+id/textView37"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="308dp"
+        android:layout_marginBottom="44dp"
         android:text="35.84 Dhs"
         android:textColor="#141212"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,MissingConstraints"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="525dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText,MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView24"
-        android:layout_width="15dp"
-        android:layout_height="156dp"
+        android:layout_width="18dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="4dp"
         android:src="@drawable/imgg"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="70dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView22"
+        app:layout_constraintEnd_toStartOf="@+id/imageView12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backButton10"
         tools:ignore="ContentDescription,MissingConstraints" />
 
 

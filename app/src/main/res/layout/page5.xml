@@ -110,7 +110,7 @@
 
         <LinearLayout
             android:layout_width="399dp"
-            android:layout_height="407dp"
+            android:layout_height="395dp"
             android:layout_gravity="center"
             android:layout_marginHorizontal="30dp"
             android:orientation="vertical">
@@ -237,7 +237,7 @@
 
         <ImageView
             android:id="@+id/imageView18"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:contentDescription="@string/ligne"
             android:src="@drawable/img_14"
