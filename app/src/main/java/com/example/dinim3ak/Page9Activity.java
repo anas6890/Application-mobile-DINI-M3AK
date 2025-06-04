@@ -3,7 +3,6 @@ package com.example.dinim3ak;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +20,7 @@ public class Page9Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page9);
+        setContentView(R.layout.newpage9);
 
         ImageView profil = findViewById(R.id.avatar9);
         profil.setOnClickListener(v -> {
@@ -34,8 +33,8 @@ public class Page9Activity extends AppCompatActivity {
 
         // Sample data
         offreList = new ArrayList<>();
-        offreList.add(new OffreItem("Hicham", "demain 17 janv.", "Casablanca", "14:00", "Rabat", "15:04", "30.50", "4"));
-        offreList.add(new OffreItem("Yassine", "vendredi 19 janv.", "Rabat", "08:30", "Kenitra", "09:15", "41.30", "2"));
+        offreList.add(new OffreItem("Hicham", "demain 17 janv.", "Casablanca", "14:00", "Rabat", "15:04", "30.50", "4 passagers"));
+        offreList.add(new OffreItem("Yassine", "vendredi 19 janv.", "Rabat", "08:30", "Kenitra", "09:15", "41.30", "2 passagers"));
 
         adapter = new OffreItemAdapter(offreList, new OffreItemAdapter.OnItemClickListener() {
             @Override
