@@ -97,14 +97,14 @@
         android:layout_width="38dp"
         android:layout_height="34dp"
         android:layout_marginStart="11dp"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginBottom="74dp"
+        android:layout_marginBottom="42dp"
         android:src="@drawable/img_18"
         app:layout_constraintBottom_toTopOf="@+id/imageView22"
         app:layout_constraintEnd_toStartOf="@+id/textView26"
         app:layout_constraintStart_toEndOf="@+id/imageView24"
         app:layout_constraintTop_toBottomOf="@+id/imageView12"
-        app:layout_constraintVertical_bias="0.0"
         tools:ignore="ContentDescription,MissingConstraints" />
 
     <ImageView

@@ -11,20 +11,29 @@
         android:id="@+id/linearLayout8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="211dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginBottom="192dp"
         android:background="#FFFDFD"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
         <!-- Trajet -->
 
         <!-- Titre principal -->
+
+        <TextView
+            android:id="@+id/mainTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="Quand souhaites-tu partir ?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="26sp"
+            android:textStyle="bold" />
 
         <!-- Jours de la semaine -->
         <TableLayout
@@ -34,35 +43,35 @@
             android:layout_marginBottom="8dp"
             android:stretchColumns="*">
 
-            <TableRow tools:ignore="UselessParent">
+            <TableRow>
 
                 <TextView
                     android:gravity="center"
-                    android:text="@string/lundi" />
+                    android:text="Lun" />
 
                 <TextView
                     android:gravity="center"
-                    android:text="@string/mardi" />
+                    android:text="Mar" />
 
                 <TextView
                     android:gravity="center"
-                    android:text="@string/mercredi" />
+                    android:text="Mer" />
 
                 <TextView
                     android:gravity="center"
-                    android:text="@string/jeudi" />
+                    android:text="Jeu" />
 
                 <TextView
                     android:gravity="center"
-                    android:text="@string/vendredi" />
+                    android:text="Ven" />
 
                 <TextView
                     android:gravity="center"
-                    android:text="@string/samedi" />
+                    android:text="Sam" />
 
                 <TextView
                     android:gravity="center"
-                    android:text="@string/dimanche" />
+                    android:text="Dim" />
             </TableRow>
         </TableLayout>
 
@@ -73,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/janvier2025"
+            android:text="janvier 2025"
             android:textColor="#6A6969"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -108,44 +117,37 @@
                 <TextView
                     android:gravity="center"
                     android:text="6"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    tools:ignore="HardcodedText" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                 <TextView
                     android:gravity="center"
                     android:text="7"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    tools:ignore="HardcodedText" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                 <TextView
                     android:gravity="center"
                     android:text="8"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    tools:ignore="HardcodedText" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                 <TextView
                     android:gravity="center"
                     android:text="9"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    tools:ignore="HardcodedText" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                 <TextView
                     android:gravity="center"
                     android:text="10"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    tools:ignore="HardcodedText" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                 <TextView
                     android:gravity="center"
                     android:text="11"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    tools:ignore="HardcodedText" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                 <TextView
                     android:gravity="center"
                     android:text="12"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    tools:ignore="HardcodedText" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
             </TableRow>
 
             <TableRow>
@@ -153,49 +155,41 @@
                 <TextView
                     android:gravity="center"
                     android:text="13"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    tools:ignore="HardcodedText" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                 <TextView
                     android:gravity="center"
                     android:text="14"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    tools:ignore="HardcodedText" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                 <TextView
                     android:gravity="center"
                     android:text="15"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    tools:ignore="HardcodedText" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                 <TextView
                     android:gravity="center"
                     android:text="16"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#009688"
-                    android:textStyle="bold"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#009688" />
 
                 <TextView
                     android:gravity="center"
                     android:text="17"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="18"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="19"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
             </TableRow>
 
             <TableRow>
@@ -204,50 +198,43 @@
                     android:gravity="center"
                     android:text="20"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="21"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="22"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="23"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="24"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="25"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="26"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
             </TableRow>
 
             <TableRow>
@@ -256,36 +243,31 @@
                     android:gravity="center"
                     android:text="27"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="28"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="29"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="30"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="31"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView />
 
@@ -301,7 +283,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/février2025"
+            android:text="février 2025"
             android:textColor="#6A6969"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -336,50 +318,43 @@
                     android:gravity="center"
                     android:text="3"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="4"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="5"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="6"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="7"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="8"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="9"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
             </TableRow>
 
             <TableRow>
@@ -388,102 +363,88 @@
                     android:gravity="center"
                     android:text="10"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="11"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="12"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="13"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="14"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="15"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="16"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
             </TableRow>
 
-            <TableRow tools:ignore="TooManyViews">
+            <TableRow>
 
                 <TextView
                     android:gravity="center"
                     android:text="17"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="18"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="19"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="20"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="21"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="22"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="23"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
             </TableRow>
 
             <TableRow>
@@ -492,36 +453,31 @@
                     android:gravity="center"
                     android:text="24"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="25"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="26"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="27"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView
                     android:gravity="center"
                     android:text="28"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#101010"
-                    tools:ignore="HardcodedText" />
+                    android:textColor="#101010" />
 
                 <TextView />
 
@@ -540,58 +496,19 @@
         android:layout_marginTop="16dp"
         android:contentDescription="@string/goback"
         android:src="@drawable/ic_back"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="361dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="159dp"
-        android:layout_marginBottom="619dp"
-        android:gravity="center|start"
-        android:shadowColor="#0D0C0C"
-        android:text="@string/qst"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColorHighlight="#141212"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints,VisualLintBounds,TextSizeCheck" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="188dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="207dp"
-        android:layout_marginBottom="26dp"
-        android:text="Casablanca > Rabat"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#181717"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backButton8"
-        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginBottom="60dp"
         android:text="@string/tiret"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/tripText"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -601,14 +518,29 @@
         android:layout_marginStart="252dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="18dp"
-        android:layout_marginBottom="94dp"
         android:background="#FDFDFD"
         android:text="Sauter"
         android:textColor="#757575"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/backButton8"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText,MissingConstraints,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/tripText"
+        android:layout_width="191dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="211dp"
+        android:text="Casablanca > Rabat"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backButton8" />
 </androidx.constraintlayout.widget.ConstraintLayout>
