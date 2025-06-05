@@ -10,11 +10,12 @@
         android:layout_width="46dp"
         android:layout_height="52dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="767dp"
         android:contentDescription="@string/notif"
         android:src="@drawable/notif_24"
-        app:layout_constraintBottom_toTopOf="@+id/btnHelp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnHelp"
         app:layout_constraintTop_toTopOf="parent"
@@ -151,10 +152,10 @@
         android:src="@drawable/ic_person"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.021"
+        app:layout_constraintVertical_bias="0.054"
         tools:ignore="ContentDescription" />
 
     <Button
@@ -162,9 +163,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="175dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="75dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="14dp"
         android:background="@drawable/button_help_background"
         android:text="@string/aide"
         android:textAllCaps="false"
@@ -181,7 +182,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="110dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="140dp"
         android:layout_marginEnd="131dp"
         android:layout_marginBottom="66dp"
         android:text="99 offres disponibles"
@@ -190,8 +191,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView16"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnHelp2"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText,MissingConstraints" />
 
     <TextView
@@ -284,12 +286,14 @@
         android:id="@+id/textView18"
         android:layout_width="9dp"
         android:layout_height="19dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="32dp"
         android:text="2"
         android:textColor="#1D1B1B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.699"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15"
-        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck"
-        tools:layout_editor_absoluteX="280dp" />
+        tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck" />
 
     <TextView
         android:id="@+id/textView20"
@@ -317,6 +321,8 @@
         android:textColor="#EF6C00"
         android:textSize="15sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView18"
         app:layout_constraintTop_toBottomOf="@+id/textView15"
         tools:ignore="HardcodedText,MissingConstraints" />
@@ -484,11 +490,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="27dp"
         android:text="35.84 Dhs"
         android:textColor="#EF6C00"
         android:textSize="15sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toEndOf="@+id/textView11"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
         tools:ignore="HardcodedText,MissingConstraints" />
