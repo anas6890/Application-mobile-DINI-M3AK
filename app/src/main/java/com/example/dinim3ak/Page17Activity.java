@@ -2,6 +2,7 @@ package com.example.dinim3ak;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TableLayout;
@@ -24,15 +25,15 @@ public class Page17Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page17); // Assure-toi que ce layout existe
+        setContentView(R.layout.newpage17); // Assure-toi que ce layout existe
 
 
 
         Button nextButton;
         nextButton = findViewById(R.id.buttonNext);
-        TableLayout calendar = findViewById(R.id.calendarJanuary);
+        //TableLayout calendar = findViewById(R.id.calendarJanuary);
         ImageView backButton = findViewById(R.id.backButton);
-
+        /*
         // Parcours du tableau de janvier
         for (int i = 0; i < calendar.getChildCount(); i++) {
             TableRow row = (TableRow) calendar.getChildAt(i);
@@ -47,7 +48,26 @@ public class Page17Activity extends AppCompatActivity {
                 }
             }
         }
+        */
 
+        Button selectDate = findViewById(R.id.selectDate);
+        selectDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MaterialDatePicker<Long> datePicker = MaterialDatePicker.Builder.datePicker()
+                        .setTitleText("Quand souhaites-tu partir ?")
+                        .build();
+
+                // Show the picker
+                datePicker.show(getSupportFragmentManager(), "DATE_PICKER");
+
+                // Handle the result
+                datePicker.addOnPositiveButtonClickListener(selection -> {
+                    String selectedDate = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
+                            .format(new Date(selection));
+                });
+            }
+        });
         // Clic sur "Suivant"
         nextButton.setOnClickListener(v -> {
             if (selectedDate != null) {
