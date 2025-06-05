@@ -216,8 +216,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Confirmé"
+                        android:textColor="#43A047"
                         android:textSize="14sp"
-                        android:textColor="#4CAF50"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -373,8 +373,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Terminé"
+                        android:textColor="#A1887F"
                         android:textSize="14sp"
-                        android:textColor="#CCCCCC"
                         android:textStyle="bold" />
 
                 </LinearLayout>

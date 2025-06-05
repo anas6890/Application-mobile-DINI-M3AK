@@ -7,6 +7,19 @@
     android:background="#FFFFFF"
     android:padding="16dp">
 
+    <ImageButton
+        android:id="@+id/backButton2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="#FBF7F7"
+        android:contentDescription="Go back"
+        android:onClick="goBack"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,7 +50,6 @@
         android:layout_width="224dp"
         android:layout_height="37dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="9dp"
         android:layout_marginEnd="171dp"
         android:text="Ville de départ"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -45,7 +57,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        tools:layout_editor_absoluteY="83dp" />
 
     <TextView
         android:id="@+id/textView5"
@@ -277,31 +289,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/search_input"
         app:layout_constraintEnd_toEndOf="@+id/search_input"
         app:layout_constraintTop_toTopOf="@+id/search_input" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="246dp"
-        android:layout_marginBottom="13dp"
-        android:background="@drawable/go_back_button"
-        android:contentDescription="@string/retour"
-        app:layout_constraintBottom_toTopOf="@+id/title"
-        app:layout_constraintEnd_toStartOf="@+id/button5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="252dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/cancel"
-        android:contentDescription="@string/aide"
-        app:layout_constraintStart_toEndOf="@+id/button4"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
