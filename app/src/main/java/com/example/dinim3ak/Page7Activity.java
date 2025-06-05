@@ -66,4 +66,6 @@ public class Page7Activity extends AppCompatActivity {
 
 
     }
+
+
 }
