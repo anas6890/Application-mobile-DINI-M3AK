@@ -66,6 +66,7 @@ public class Page5Activity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         // Ne rien faire, bloque le bouton retour
+        super.onBackPressed();
     }
 
 }

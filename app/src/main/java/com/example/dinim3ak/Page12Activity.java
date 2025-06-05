@@ -13,7 +13,7 @@ public class Page12Activity extends AppCompatActivity {
         Log.i("confirmation_error", "This is a message to see if this bit gets executed..");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page12);
-        /*Button statut_de_reservation = findViewById(R.id.button);
+        Button statut_de_reservation = findViewById(R.id.button);
         statut_de_reservation.setOnClickListener(v -> {
             Intent intent = new Intent(Page12Activity.this, Page19Activity.class);
             startActivity(intent);
@@ -22,7 +22,7 @@ public class Page12Activity extends AppCompatActivity {
         retour_a_la_recherche.setOnClickListener(v -> {
             Intent intent = new Intent(Page12Activity.this, Page5Activity.class);
             startActivity(intent);
-        });*/
+        });
 
     }
 }
