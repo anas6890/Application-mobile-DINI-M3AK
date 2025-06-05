@@ -15,9 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DiniM3ak"
         tools:targetApi="31">
-        <activity
-            android:name=".Page11Activity"
-            android:exported="false" />
+
         <!-- Activités Page1 à Page22, sauf 11 et 12 -->
         <activity
             android:name=".Page1Activity"
@@ -56,8 +54,13 @@
             android:exported="false" />
         <activity
             android:name=".Page10Activity"
-            android:exported="false" /> <!-- Page11Activity absente -->
-        <!-- Page12Activity absente -->
+            android:exported="false" />
+        <activity
+            android:name=".Page11Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Page12Activity"
+            android:exported="false" />
         <activity
             android:name=".Page13Activity"
             android:exported="false" />
