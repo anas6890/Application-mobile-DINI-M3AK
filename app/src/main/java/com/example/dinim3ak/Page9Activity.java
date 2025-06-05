@@ -3,7 +3,9 @@ package com.example.dinim3ak;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,12 +22,23 @@ public class Page9Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.newpage9);
+        setContentView(R.layout.page9);
 
         ImageView profil = findViewById(R.id.avatar9);
         profil.setOnClickListener(v -> {
             Intent intent = new Intent(Page9Activity.this, Page22Activity.class);
             startActivity(intent);
+        });
+
+        Button btnhelp2=findViewById(R.id.btnHelp2);
+        btnhelp2.setOnClickListener(v -> {
+            Toast.makeText(this, "Fonctionnalité indisponible", Toast.LENGTH_SHORT).show();
+        });
+
+        ImageView notification2 = findViewById(R.id.notification2);
+        profil.setOnClickListener(v -> {
+            Toast.makeText(this, "Fonctionnalité indisponible", Toast.LENGTH_SHORT).show();
+
         });
 
         recyclerView = findViewById(R.id.offreView);

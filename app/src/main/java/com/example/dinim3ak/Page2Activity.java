@@ -2,8 +2,9 @@ package com.example.dinim3ak;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Page2Activity extends AppCompatActivity {
@@ -15,21 +16,22 @@ public class Page2Activity extends AppCompatActivity {
 
         Button btnGoogleSignup = findViewById(R.id.btnGoogleSignup);
         Button btnCreateAccount = findViewById(R.id.btnCreateAccount);
+        ImageView backButton = findViewById(R.id.backButton2);
 
-        btnGoogleSignup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // À implémenter plus tard : authentification Google avec Firebase, etc.
-                // Exemple temporaire : afficher un message ou rester inactif
-            }
+        backButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Page2Activity.this, Page1Activity.class);
+            startActivity(intent);
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         });
 
-        btnCreateAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Page2Activity.this, Page4Activity.class);
-                startActivity(intent);
-            }
+        btnGoogleSignup.setOnClickListener(v -> {
+            Toast.makeText(this, "Fonctionnalité indisponible", Toast.LENGTH_SHORT).show();
+        });
+
+
+        btnCreateAccount.setOnClickListener(v -> {
+            Intent intent = new Intent(Page2Activity.this, Page4Activity.class);
+            startActivity(intent);
         });
     }
 }

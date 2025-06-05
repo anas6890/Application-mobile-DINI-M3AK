@@ -79,6 +79,7 @@
     <string name="qst">Quand souhaites-tu partir?</string>
     <string name="tiret">____________________________</string>
     <string name="ville_exemple">Exemple</string>
+    <string name="location_icon">Location Icon</string>
 
 
 </resources>
