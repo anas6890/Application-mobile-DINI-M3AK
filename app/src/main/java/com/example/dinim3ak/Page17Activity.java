@@ -63,8 +63,9 @@ public class Page17Activity extends AppCompatActivity {
 
                 // Handle the result
                 datePicker.addOnPositiveButtonClickListener(selection -> {
-                    String selectedDate = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
+                     selectedDate = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
                             .format(new Date(selection));
+
                 });
             }
         });
