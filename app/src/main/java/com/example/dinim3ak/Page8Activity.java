@@ -19,7 +19,7 @@ public class Page8Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.newpage8);
+        setContentView(R.layout.page8);
 
         Button selectDate = findViewById(R.id.selectDate);
         selectDate.setOnClickListener(new View.OnClickListener() {

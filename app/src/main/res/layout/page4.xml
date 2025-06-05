@@ -14,26 +14,35 @@
         android:gravity="center_horizontal">
 
         <!-- Logo et Titre côte à côte -->
-        <LinearLayout
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
             android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
+                android:id="@+id/imageView8"
                 android:layout_width="176dp"
                 android:layout_height="109dp"
-                android:layout_gravity="center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
                 android:contentDescription="@string/logo_de_l_application"
-                android:src="@drawable/logo" />
+                android:src="@drawable/logo"
+                app:layout_constraintEnd_toStartOf="@+id/appTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/appTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="11dp"
                 android:fontFamily="@font/just_me_again_down_here"
                 android:gravity="center_vertical"
                 android:shadowColor="#000000"
@@ -43,8 +52,22 @@
                 android:text="@string/dini_m3ak"
                 android:textColor="#F39313"
                 android:textSize="55sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView8"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/backButton4"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:contentDescription="@string/goback"
+                android:src="@drawable/ic_back"
+                app:layout_constraintBottom_toTopOf="@+id/logoImage"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Titre formulaire -->
         <TextView
@@ -218,11 +241,11 @@
         <Button
             android:id="@+id/btnContinuer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="24dp"
-            android:maxWidth="488dp"
             android:background="@drawable/orange_button"
             android:gravity="center"
+            android:maxWidth="488dp"
             android:text="@string/continuer"
             android:textColor="#616161"
             android:textStyle="bold"
