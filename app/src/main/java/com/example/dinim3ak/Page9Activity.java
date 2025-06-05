@@ -22,7 +22,7 @@ public class Page9Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page9);
+        setContentView(R.layout.newpage9);
 
         ImageView profil = findViewById(R.id.avatar9);
         profil.setOnClickListener(v -> {
