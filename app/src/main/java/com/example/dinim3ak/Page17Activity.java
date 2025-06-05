@@ -11,6 +11,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.datepicker.MaterialDatePicker;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class Page17Activity extends AppCompatActivity {
 
     private String selectedDate = null;
@@ -19,6 +25,8 @@ public class Page17Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page17); // Assure-toi que ce layout existe
+
+
 
         Button nextButton;
         nextButton = findViewById(R.id.buttonNext);
