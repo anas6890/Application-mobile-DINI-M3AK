@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp"
+    android:background="@color/gray_background"
+    android:elevation="4dp">
+
+    <!-- Driver Image -->
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_person"
+        android:contentDescription="Profile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/from_city"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Driver Name -->
+    <TextView
+        android:id="@+id/driver_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hicham"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        app:layout_constraintTop_toTopOf="@+id/profile_image"
+        app:layout_constraintStart_toEndOf="@+id/profile_image"
+        app:layout_constraintBottom_toTopOf="@+id/from_city"
+        android:layout_marginStart="8dp"/>
+
+    <!-- Date -->
+    <TextView
+        android:id="@+id/ride_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="demain 17 janv."
+        android:textSize="12sp"
+        android:textColor="#666"
+        app:layout_constraintTop_toTopOf="@+id/profile_image"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- From City -->
+    <TextView
+        android:id="@+id/from_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Casablanca"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- From Time -->
+    <TextView
+        android:id="@+id/from_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="14:00"
+        android:textSize="14sp"
+        app:layout_constraintTop_toTopOf="@+id/from_city"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- To City -->
+    <TextView
+        android:id="@+id/to_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rabat"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/from_city"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="4dp"/>
+
+    <!-- To Time -->
+    <TextView
+        android:id="@+id/to_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="15:04"
+        android:textSize="14sp"
+        app:layout_constraintTop_toTopOf="@+id/to_city"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Price -->
+    <TextView
+        android:id="@+id/ride_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="35.84 DHS"
+        android:textStyle="bold"
+        android:textColor="#000"
+        app:layout_constraintTop_toBottomOf="@+id/to_city"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Passengers -->
+    <TextView
+        android:id="@+id/passenger_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="nb passagers"
+        android:textColor="#666"
+        app:layout_constraintTop_toBottomOf="@+id/ride_price"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="4dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

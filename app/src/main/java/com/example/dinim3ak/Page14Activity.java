@@ -14,7 +14,7 @@ public class Page14Activity extends AppCompatActivity {
     }
 
     public void on_publier_covoiturage_click(View view){
-        Intent i = new Intent(this, Page15Activity.class);
+        Intent i = new Intent(this, Page5Activity.class);
         this.startActivity(i);
     }
 
@@ -25,7 +25,8 @@ public class Page14Activity extends AppCompatActivity {
 
     }
     public void goToCovoiturage(View view){
-
+        Intent i = new Intent(this, Page19Activity.class);
+        this.startActivity(i);
     }
     public void goToWallet(View view){
         Intent i = new Intent(this, Page21Activity.class);

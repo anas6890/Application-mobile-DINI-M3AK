@@ -13,8 +13,9 @@
         android:layout_height="32dp"
         android:src="@drawable/ic_back"
         android:contentDescription="Go back"
+        android:onClick="goBack"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/title"
