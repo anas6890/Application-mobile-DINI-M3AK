@@ -52,7 +52,8 @@ public class Page19Activity extends AppCompatActivity {
 
     }
     public void goToWallet(View view){
-
+        Intent i = new Intent(this, Page22Activity.class);
+        this.startActivity(i);
     }
 
     public void goToOffres(View view){

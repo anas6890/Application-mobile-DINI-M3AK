@@ -31,15 +31,11 @@ public class Page9Activity extends AppCompatActivity {
         });
 
         Button btnhelp2=findViewById(R.id.btnHelp2);
-        btnhelp2.setOnClickListener(v -> {
-            Toast.makeText(this, "Fonctionnalité indisponible", Toast.LENGTH_SHORT).show();
-        });
-
+        btnhelp2.setOnClickListener(v -> Toast.makeText(this, "Fonctionnalité indisponible", Toast.LENGTH_SHORT).show());
         ImageView notification2 = findViewById(R.id.notification2);
-        profil.setOnClickListener(v -> {
-            Toast.makeText(this, "Fonctionnalité indisponible", Toast.LENGTH_SHORT).show();
+        notification2.setOnClickListener(v -> Toast.makeText(this, "Fonctionnalité indisponible", Toast.LENGTH_SHORT).show());
 
-        });
+        profil.setOnClickListener(v -> Toast.makeText(this, "Fonctionnalité indisponible", Toast.LENGTH_SHORT).show());
 
         recyclerView = findViewById(R.id.offreView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -49,12 +45,9 @@ public class Page9Activity extends AppCompatActivity {
         offreList.add(new OffreItem("Hicham", "demain 17 janv.", "Casablanca", "14:00", "Rabat", "15:04", "30.50", "4 passagers"));
         offreList.add(new OffreItem("Yassine", "vendredi 19 janv.", "Rabat", "08:30", "Kenitra", "09:15", "41.30", "2 passagers"));
 
-        adapter = new OffreItemAdapter(offreList, new OffreItemAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(OffreItem offreItem) {
-                Intent i = new Intent(Page9Activity.this, Page10Activity.class);
-                startActivity(i);
-            }
+        adapter = new OffreItemAdapter(offreList, offreItem -> {
+            Intent i = new Intent(Page9Activity.this, Page10Activity.class);
+            startActivity(i);
         });
         recyclerView.setAdapter(adapter);
 

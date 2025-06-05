@@ -2,33 +2,80 @@ package com.example.dinim3ak;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.KeyEvent;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Page15Activity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page15);
 
-        TextView layoutCasablanca = findViewById(R.id.layoutCasablanca);
-        TextView layoutFes = findViewById(R.id.layoutFes);
-        TextView layoutSale = findViewById(R.id.layoutSale);
-        TextView layoutTanger = findViewById(R.id.layoutTanger);
+        LinearLayout casablancaLayout1 = findViewById(R.id.casablanca1Layout);
+        casablancaLayout1.setOnClickListener(v -> {
+            Intent intent = new Intent(Page15Activity.this, Page16Activity.class);
+            startActivity(intent);
+        });
 
-        layoutCasablanca.setOnClickListener(v -> goToNextPage("Casablanca"));
-        layoutFes.setOnClickListener(v -> goToNextPage("Fès"));
-        layoutSale.setOnClickListener(v -> goToNextPage("Salé"));
-        layoutTanger.setOnClickListener(v -> goToNextPage("Tanger"));
+        LinearLayout FesLayout1 = findViewById(R.id.Fes1Layout);
+        FesLayout1.setOnClickListener(v -> {
+            Intent intent = new Intent(Page15Activity.this, Page16Activity.class);
+            startActivity(intent);
+        });
+
+        LinearLayout SaleLayout1 = findViewById(R.id.Sale1Layout);
+        SaleLayout1.setOnClickListener(v -> {
+            Intent intent = new Intent(Page15Activity.this, Page16Activity.class);
+            startActivity(intent);
+        });
+
+        LinearLayout TangerLayout1 = findViewById(R.id.Tanger1Layout);
+        TangerLayout1.setOnClickListener(v -> {
+            Intent intent = new Intent(Page15Activity.this, Page16Activity.class);
+            startActivity(intent);
+        });
+
+        ImageView backButton = findViewById(R.id.backButton6);
+        backButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Page15Activity.this, Page14Activity.class);
+            startActivity(intent);
+        });
+
+        EditText editTextVille1 = findViewById(R.id.searchField1);
+        ImageView searchIcon1 = findViewById(R.id.searchIcon1);
+
+        // Clic sur l’icône
+        searchIcon1.setOnClickListener(v -> {
+            lancerRecherche(editTextVille1);
+        });
+
+        // Clic sur le bouton OK (Enter) du clavier
+        editTextVille1.setOnEditorActionListener((TextView v, int actionId, KeyEvent event) -> {
+            if (actionId == EditorInfo.IME_ACTION_DONE
+                    || (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN)) {
+                lancerRecherche(editTextVille1);
+                return true;
+            }
+            return false;
+        });
     }
 
-    private void goToNextPage(String villeDepart) {
-        Intent intent = new Intent(Page15Activity.this, Page16Activity.class);
-        intent.putExtra("ville_depart", villeDepart);
-        startActivity(intent);
+    // Méthode de lancement de la recherche
+    private void lancerRecherche(EditText editText) {
+        String ville = editText.getText().toString().trim();
+        if (!ville.isEmpty()) {
+            Intent intent = new Intent(Page15Activity.this, Page16Activity.class);
+            intent.putExtra("ville", ville); // facultatif
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "Veuillez entrer une ville", Toast.LENGTH_SHORT).show();
+        }
     }
 }

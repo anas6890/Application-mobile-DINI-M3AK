@@ -22,5 +22,11 @@ public class Page10Activity extends AppCompatActivity {
             Intent intent = new Intent(Page10Activity.this, Page11Activity.class);
             startActivity(intent);
         });
+        ImageView imageView30=findViewById(R.id.imageView30);
+        imageView30.setOnClickListener(v -> {
+            Intent intent = new Intent(Page10Activity.this, Page13Activity.class);
+            startActivity(intent);
+        });
+
     }
 }

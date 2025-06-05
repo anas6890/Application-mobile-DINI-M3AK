@@ -80,6 +80,7 @@
     <string name="tiret">____________________________</string>
     <string name="ville_exemple">Exemple</string>
     <string name="location_icon">Location Icon</string>
+    <string name="ville_de_d_part">Ville de départ</string>
 
 
 </resources>

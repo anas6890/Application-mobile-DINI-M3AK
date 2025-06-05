@@ -74,6 +74,7 @@
             android:autofillHints=""
             android:background="@android:color/transparent"
             android:hint="@string/ville_de_depart_hint"
+            android:imeOptions="actionDone"
             android:inputType="text|textAutoComplete"
             android:minHeight="48dp"
             android:paddingStart="8dp"
