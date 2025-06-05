@@ -2,6 +2,7 @@ package com.example.dinim3ak;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -18,11 +19,12 @@ public class Page11Activity extends AppCompatActivity {
             Intent intent = new Intent(Page11Activity.this, Page10Activity.class);
             startActivity(intent);
         });
-            Button confirm_button = findViewById(R.id.confirm_button);
-            confirm_button.setOnClickListener(v -> {
-                Intent intent = new Intent(Page11Activity.this, Page12Activity.class);
-                startActivity(intent);
-            });
+
+        Button confirm_button = findViewById(R.id.confirm_button);
+        confirm_button.setOnClickListener(v -> {
+            Intent intent = new Intent(Page11Activity.this, Page12Activity.class);
+            startActivity(intent);
+        });
 
     }
 }
