@@ -9,15 +9,70 @@ import java.util.List;
 
 @Entity
 public class Wallet {
-    @PrimaryKey(autoGenerate = true)
-    public int id;
-    public float solde;
-    public int utilisateurId;
-    @Ignore
-    public List<Transaction> transactions = new ArrayList<>();
 
-    public void recharger(float montant) { this.solde += montant; }
-    public void recupererArgent() {}
-    public void ajouterRib() {}
-    public List<Transaction> consulterHistorique() { return transactions; }
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+    private float solde;
+    private int utilisateurId;
+
+    @Ignore
+    private List<Transaction> transactions = new ArrayList<>();
+
+
+
+    // Constructeur avec champs principaux (sauf ID auto-généré et transactions ignoré par Room)
+    public Wallet(float solde, int utilisateurId) {
+        this.solde = solde;
+        this.utilisateurId = utilisateurId;
+    }
+
+    // Getters et Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public float getSolde() {
+        return solde;
+    }
+
+    public void setSolde(float solde) {
+        this.solde = solde;
+    }
+
+    public int getUtilisateurId() {
+        return utilisateurId;
+    }
+
+    public void setUtilisateurId(int utilisateurId) {
+        this.utilisateurId = utilisateurId;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
+    }
+
+    // Méthodes existantes
+    public void recharger(float montant) {
+        this.solde += montant;
+    }
+
+    public void recupererArgent() {
+        // Implémentation à ajouter
+    }
+
+    public void ajouterRib() {
+        // Implémentation à ajouter
+    }
+
+    public List<Transaction> consulterHistorique() {
+        return transactions;
+    }
 }

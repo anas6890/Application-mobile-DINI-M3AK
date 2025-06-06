@@ -5,15 +5,91 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class Vehicule {
-    @PrimaryKey(autoGenerate = true)
-    public int id;
-    public int conducteurId;
-    public String marque;
-    public String modele;
-    public String couleur;
-    public int nombrePlaces;
-    public String immatriculation;
 
-    public void ajouterVehicule() {}
-    public void modifierVehicule() {}
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+    private int conducteurId;
+    private String marque;
+    private String modele;
+    private String couleur;
+    private int nombrePlaces;
+    private String immatriculation;
+
+
+
+    // Constructeur avec les champs principaux (hors ID auto-généré)
+    public Vehicule(int conducteurId, String marque, String modele, String couleur, int nombrePlaces, String immatriculation) {
+        this.conducteurId = conducteurId;
+        this.marque = marque;
+        this.modele = modele;
+        this.couleur = couleur;
+        this.nombrePlaces = nombrePlaces;
+        this.immatriculation = immatriculation;
+    }
+
+    // Getters et Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getConducteurId() {
+        return conducteurId;
+    }
+
+    public void setConducteurId(int conducteurId) {
+        this.conducteurId = conducteurId;
+    }
+
+    public String getMarque() {
+        return marque;
+    }
+
+    public void setMarque(String marque) {
+        this.marque = marque;
+    }
+
+    public String getModele() {
+        return modele;
+    }
+
+    public void setModele(String modele) {
+        this.modele = modele;
+    }
+
+    public String getCouleur() {
+        return couleur;
+    }
+
+    public void setCouleur(String couleur) {
+        this.couleur = couleur;
+    }
+
+    public int getNombrePlaces() {
+        return nombrePlaces;
+    }
+
+    public void setNombrePlaces(int nombrePlaces) {
+        this.nombrePlaces = nombrePlaces;
+    }
+
+    public String getImmatriculation() {
+        return immatriculation;
+    }
+
+    public void setImmatriculation(String immatriculation) {
+        this.immatriculation = immatriculation;
+    }
+
+    // Méthodes existantes
+    public void ajouterVehicule() {
+        // Implémentation à ajouter
+    }
+
+    public void modifierVehicule() {
+        // Implémentation à ajouter
+    }
 }
