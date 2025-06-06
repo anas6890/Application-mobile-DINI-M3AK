@@ -9,7 +9,7 @@ import java.util.List;
 @Dao
 public interface UtilisateurDao {
     @Insert
-    default void insert(Utilisateur utilisateur) {
+    default long insert(Utilisateur utilisateur) {
     }
 
     @Update
@@ -20,6 +20,9 @@ public interface UtilisateurDao {
 
     @Query("SELECT * FROM Utilisateur WHERE id = :id")
     Utilisateur getById(int id);
+
+    @Query("SELECT * FROM Utilisateur WHERE email = :email")
+    Utilisateur getByEmail(String email);
 
     @Query("SELECT * FROM Utilisateur")
     List<Utilisateur> getAll();

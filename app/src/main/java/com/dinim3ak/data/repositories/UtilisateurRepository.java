@@ -21,7 +21,14 @@ public class UtilisateurRepository {
     }
 
     public void insert(Utilisateur utilisateur) {
-        Executors.newSingleThreadExecutor().execute(() -> utilisateurDao.insert(utilisateur));
+        Executors.newSingleThreadExecutor().execute(() -> {
+            long generatedId = utilisateurDao.insert(utilisateur);
+            utilisateur.setId(generatedId);
+        });
+    }
+
+    public Utilisateur getByEmail(String email){
+        return utilisateurDao.getByEmail(email);
     }
 
     public List<Utilisateur> getAll() {
