@@ -19,7 +19,8 @@ public class Evaluation {
     @TypeConverters(DateConverter.class)
     private Date date;
 
-
+    // Constructeur sans argument
+    public Evaluation() {}
 
     // Constructeur avec champs principaux (hors ID auto-généré)
     public Evaluation(int auteurId, int cibleId, float note, String texte, Date date) {

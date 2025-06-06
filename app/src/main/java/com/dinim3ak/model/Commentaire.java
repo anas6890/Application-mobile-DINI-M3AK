@@ -18,7 +18,8 @@ public class Commentaire {
     @TypeConverters(DateConverter.class)
     private Date date;
 
-
+    // Constructeur sans argument
+    public Commentaire() {}
 
     // Constructeur avec champs (hors id auto-généré)
     public Commentaire(int auteurId, int covoiturageId, String texte, Date date) {

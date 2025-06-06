@@ -20,7 +20,8 @@ public class Notification {
 
     private boolean lu;
 
-
+    // Constructeur sans argument
+    public Notification() {}
 
     // Constructeur avec champs (hors id auto-généré)
     public Notification(int utilisateurId, String contenu, TypeNotification type, Date dateEnvoi, boolean lu) {

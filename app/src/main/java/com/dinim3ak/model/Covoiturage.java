@@ -32,7 +32,8 @@ public class Covoiturage {
     @Ignore
     private List<Commentaire> commentaires = new ArrayList<>();
 
-
+    // Constructeur sans argument
+    public Covoiturage() {}
 
     // Constructeur avec les principaux champs (hors ID auto-généré, arrets et commentaires)
     public Covoiturage(int conducteurId, String villeDepart, String villeArrivee, Date dateHeureDepart,

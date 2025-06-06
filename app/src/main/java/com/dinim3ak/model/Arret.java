@@ -11,7 +11,8 @@ public class Arret {
     private String ville;
     private int covoiturageId;
 
-
+    // Constructeur sans argument
+    public Arret() {}
 
     // Constructeur avec champs (hors id auto-généré)
     public Arret(String ville, int covoiturageId) {

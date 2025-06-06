@@ -21,7 +21,8 @@ public class Paiement {
     private PaiementStatus statut;
     private MethodePaiement methode;
 
-
+    // Constructeur sans argument
+    public Paiement() {}
 
     // Constructeur avec les champs principaux (hors ID auto-généré)
     public Paiement(int utilisateurId, int trajetId, float montant, Date datePaiement, PaiementStatus statut, MethodePaiement methode) {

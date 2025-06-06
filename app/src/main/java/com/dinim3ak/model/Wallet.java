@@ -18,7 +18,8 @@ public class Wallet {
     @Ignore
     private List<Transaction> transactions = new ArrayList<>();
 
-
+    // Constructeur sans argument
+    public Wallet() {}
 
     // Constructeur avec champs principaux (sauf ID auto-généré et transactions ignoré par Room)
     public Wallet(float solde, int utilisateurId) {

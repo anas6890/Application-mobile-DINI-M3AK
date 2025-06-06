@@ -17,7 +17,8 @@ public class Transaction {
     @TypeConverters(DateConverter.class)
     private Date date;
 
-
+    // Constructeur sans argument
+    public Transaction() {}
 
     // Constructeur avec tous les champs sauf ID (auto-généré)
     public Transaction(float montant, String description, Date date) {
