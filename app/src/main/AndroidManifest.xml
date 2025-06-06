@@ -15,8 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DiniM3ak"
         tools:targetApi="31">
-
-        <!-- Activités Page1 à Page22, sauf 11 et 12 -->
+        <activity
+            android:name="com.dinim3ak.model.Profil"
+            android:exported="false" />
+        <activity
+            android:name="com.dinim3ak.model.Wallet"
+            android:exported="false" /> <!-- Activités Page1 à Page22, sauf 11 et 12 -->
         <activity
             android:name=".Page1Activity"
             android:exported="true"
