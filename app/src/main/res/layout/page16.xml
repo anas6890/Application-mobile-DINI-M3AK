@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -21,15 +20,6 @@
         android:contentDescription="@string/goback"
         android:src="@drawable/ic_back" />
 
-    <TextView
-        android:id="@+id/retour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/bouton_retour"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
 
     <!-- Champ de recherche -->
 
@@ -37,7 +27,6 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/retour"
         android:layout_marginTop="53dp"
         android:text="@string/ville_arrivee"
         android:textColor="#0B0B0B"

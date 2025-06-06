@@ -20,7 +20,7 @@ public class Page3Activity extends AppCompatActivity {
         ImageView backButton = findViewById(R.id.backButton3);
 
         backButton.setOnClickListener(v -> {
-            Intent intent = new Intent(Page3Activity.this, Page2Activity.class);
+            Intent intent = new Intent(Page3Activity.this, Page1Activity.class);
             startActivity(intent);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         });
