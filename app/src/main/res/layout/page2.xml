@@ -71,9 +71,9 @@
             android:contentDescription="@string/illustration_description"
             android:scaleType="fitCenter"
             android:src="@drawable/image2"
-            app:layout_constraintTop_toBottomOf="@id/logoImage"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/logoImage" />
 
         <!-- Sous-titre -->
         <TextView
@@ -86,9 +86,9 @@
             android:textColor="#000000"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/illustration"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/illustration"
             tools:ignore="TextSizeCheck" />
 
         <!-- Description -->
@@ -104,19 +104,23 @@
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/subTitle"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/subTitle" />
 
         <!-- Bouton Inscription -->
         <Button
             android:id="@+id/btnCreateAccount"
             style="@style/OrangeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
             android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:padding="12dp"
             android:text="@string/creer_un_nouveau_compte"
+
             android:textColor="#4E342E"
+            app:cornerRadius="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/description" />
@@ -124,11 +128,12 @@
         <!-- Connexion Google -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnGoogleSignup"
-            android:layout_width="240dp"
-            android:layout_height="54dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="@color/white"
+            android:drawableStart="@drawable/google_icon_logo"
             android:gravity="center"
             android:padding="12dp"
             android:text="@string/connexion_avec_google"
@@ -136,11 +141,19 @@
             android:textColor="@color/black"
             android:textSize="16sp"
             app:cornerRadius="8dp"
+            app:icon="@drawable/google_icon_logo"
+            app:iconGravity="textStart"
             app:iconPadding="8dp"
+            app:iconTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnCreateAccount" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -39,7 +39,7 @@
                 android:src="@drawable/ic_person"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription,VisualLintBounds" />
 
             <Button
                 android:id="@+id/btnHelp"
@@ -131,77 +131,64 @@
             android:id="@+id/recyclerRecentSearch"
             android:layout_width="392dp"
             android:layout_height="209dp"
-            android:layout_marginTop="17dp"
-            android:layout_marginBottom="193dp"
+            android:layout_marginBottom="292dp"
             android:padding="16dp"
             android:scrollbars="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/imageView18"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView40" />
-
-        <ImageView
-            android:id="@+id/imageView18"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="75dp"
-            android:contentDescription="@string/ligne"
-            android:src="@drawable/img_14"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Barre de navigation inférieure -->
     <LinearLayout
-        android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:layout_alignParentBottom="true"
-        android:background="@android:color/white"
-        android:orientation="horizontal"
-        android:gravity="center"
-        tools:ignore="DisableBaselineAlignment">
+        android:layout_marginTop="753dp"
+        android:background="#FFFFFF"
+        android:baselineAligned="false"
+        android:elevation="8dp"
+        android:orientation="horizontal">
 
         <!-- Passager -->
         <LinearLayout
+            android:id="@+id/btn_passager"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_weight="1"
+            android:baselineAligned="true"
             android:gravity="center"
+            android:orientation="vertical"
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:id="@+id/btn_passager"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:importantForAccessibility="no"
-                android:src="@drawable/ic_passager" />
+                android:src="@drawable/ic_passager"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="passager"
+                android:text="@string/passager"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Conducteur -->
         <LinearLayout
+            android:id="@+id/btn_conducteur"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_weight="1"
             android:gravity="center"
+            android:orientation="vertical"
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:id="@+id/btn_conducteur"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/outline_directions_car_24"
@@ -210,50 +197,48 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="conducteur"
+                android:text="@string/conducteur"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Covoiturage -->
         <LinearLayout
+            android:id="@+id/btn_covoiturage"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_weight="1"
             android:gravity="center"
+            android:orientation="vertical"
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:id="@+id/btn_covoiturage"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                android:src="@mipmap/ic_icon1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/ic_icon1_round"
                 tools:ignore="ContentDescription" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="covoiturage"
+                android:text="@string/covoiturage"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Wallet -->
         <LinearLayout
+            android:id="@+id/btn_wallet"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_weight="1"
             android:gravity="center"
+            android:orientation="vertical"
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:id="@+id/btn_wallet"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_account"
@@ -262,13 +247,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="wallet"
+                android:text="@string/wallet"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:textStyle="bold" />
         </LinearLayout>
-
     </LinearLayout>
 
 

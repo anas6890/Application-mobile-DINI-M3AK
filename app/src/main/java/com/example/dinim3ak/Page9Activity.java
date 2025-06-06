@@ -22,10 +22,10 @@ public class Page9Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.newpage9);
+        setContentView(R.layout.page9);
 
-        ImageView profil = findViewById(R.id.avatar9);
-        profil.setOnClickListener(v -> {
+        ImageView profil1 = findViewById(R.id.avatar10);
+        profil1.setOnClickListener(v -> {
             Intent intent = new Intent(Page9Activity.this, Page22Activity.class);
             startActivity(intent);
         });
@@ -34,8 +34,6 @@ public class Page9Activity extends AppCompatActivity {
         btnhelp2.setOnClickListener(v -> Toast.makeText(this, "Fonctionnalité indisponible", Toast.LENGTH_SHORT).show());
         ImageView notification2 = findViewById(R.id.notification2);
         notification2.setOnClickListener(v -> Toast.makeText(this, "Fonctionnalité indisponible", Toast.LENGTH_SHORT).show());
-
-        profil.setOnClickListener(v -> Toast.makeText(this, "Fonctionnalité indisponible", Toast.LENGTH_SHORT).show());
 
         recyclerView = findViewById(R.id.offreView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -54,7 +52,8 @@ public class Page9Activity extends AppCompatActivity {
     }
 
     public void goToPassager(View view){
-
+        Intent i = new Intent(this, Page5Activity.class);
+        this.startActivity(i);
     }
     public void goToConducteur(View view){
         Intent i = new Intent(this, Page14Activity.class);
@@ -65,6 +64,7 @@ public class Page9Activity extends AppCompatActivity {
         this.startActivity(i);
     }
     public void goToWallet(View view){
-
+        Intent i = new Intent(this, Page21Activity.class);
+        this.startActivity(i);
     }
 }

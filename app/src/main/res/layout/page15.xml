@@ -25,15 +25,6 @@
         android:contentDescription="@string/goback"
         android:src="@drawable/ic_back" />
 
-    <TextView
-        android:id="@+id/retour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/bouton_retour"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
 
     <!-- Champ de recherche -->
 
@@ -41,7 +32,6 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/retour"
         android:layout_marginTop="53dp"
         android:text="@string/ville_depart"
         android:textColor="#0B0B0B"

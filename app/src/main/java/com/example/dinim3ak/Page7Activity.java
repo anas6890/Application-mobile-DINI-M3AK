@@ -46,9 +46,7 @@ public class Page7Activity extends AppCompatActivity {
         ImageView searchIcon2 = findViewById(R.id.searchIcon2);
 
         // Clic sur l'icône
-        searchIcon2.setOnClickListener(v -> {
-            lancerRecherche(editTextVille2);
-        });
+        searchIcon2.setOnClickListener(v -> lancerRecherche(editTextVille2));
 
         // Clic sur le bouton OK (Enter) du clavier
         editTextVille2.setOnEditorActionListener((TextView v, int actionId, KeyEvent event) -> {
