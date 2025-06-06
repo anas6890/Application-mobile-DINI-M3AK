@@ -1,72 +1,81 @@
 <resources>
-    <string name="bouton_retour">  </string>
+    <string name="bouton_retour">Retour</string>
     <string name="ville_depart">Ville de départ</string>
-    <string name="ville_arrivee">Ville d arrivée</string>
+    <string name="ville_arrivee">Ville d\'arrivée</string>
     <string name="ville_de_depart_hint">Choisissez votre ville de départ</string>
-    <string name="ville_d_arrivee_hint">Choisissez votre ville d arrivée </string>
+    <string name="ville_d_arrivee_hint">Choisissez votre ville d\'arrivée</string>
     <string name="villes_suggerees">Villes suggérées</string>
     <string name="casablanca">Casablanca</string>
-    <string name="fes">Fes</string>
+    <string name="fes">Fès</string>
     <string name="sale">Salé</string>
     <string name="rabat">Rabat</string>
     <string name="tanger">Tanger</string>
     <string name="retour">Retour</string>
     <string name="fermer">Fermer</string>
     <string name="recherche">Recherche</string>
-    <string name="localisation">Icône localisation</string>
+    <string name="localisation">Icône de localisation</string>
     <string name="chevron">></string>
-    <string name="uytyr">uytyr</string>
-    <string name="app_name">Dini m3ak</string>
+    <string name="uytyr">uytyr</string> <!-- Pas clair, laissé tel quel -->
+    <string name="app_name">Dini M3ak</string>
     <string name="logo_de_l_application">Logo de l\'application</string>
     <string name="dini_m3ak">Dini M3ak</string>
     <string name="illustration_description">Illustration principale de l\'application</string>
-    <string name="des_centaines_d_offres_de_covoiturage_publi_es_chaque_jour_votre_disposition">Des centaines d offres de covoiturage publiees chaque jour a votre disposition.</string>
+    <string name="des_centaines_d_offres_de_covoiturage_publi_es_chaque_jour_votre_disposition">
+        Des centaines d\'offres de covoiturage publiées chaque jour à votre disposition.
+    </string>
     <string name="connexion">Connexion</string>
     <string name="inscription">Inscription</string>
-    <string name="image">image</string>
+    <string name="image">Image</string>
     <string name="connexion_avec_google">Connexion avec Google</string>
-    <string name="bienvenue_dini_m3ak">Bienvenue à Dini M3ak!</string>
-    <string name="l_application_qui_vous_m_ne_o_vous_voulez_nen_toute_confiance">L application qui vous mene ou vous voulez,\nen toute confiance.</string>
+    <string name="bienvenue_dini_m3ak">Bienvenue à Dini M3ak !</string>
+    <string name="l_application_qui_vous_m_ne_o_vous_voulez_nen_toute_confiance">
+        L\'application qui vous mène où vous voulez, en toute confiance.
+    </string>
     <string name="continuer">CONTINUER</string>
-    <string name="ou_bien">OU BIEN</string>
-    <string name="quel_est_votre_num_ro">Quel est votre numéro?</string>
-    <string name="connectez_vous_votre_compte">Connectez-vous à votre compte:</string>
-    <string name="mot_de_passe_oubli">mot de passe oublié?</string>
+    <string name="ou_bien">ou</string>
+    <string name="quel_est_votre_num_ro">Quel est votre numéro ?</string>
+    <string name="connectez_vous_votre_compte">Connectez-vous à votre compte :</string>
+    <string name="mot_de_passe_oubli">Mot de passe oublié ?</string>
     <string name="_00_00_00_00_00">00 00 00 00 00</string>
     <string name="mot_de_passe">Mot de passe</string>
-    <string name="formulaire_d_inscription">Formulaire d inscription</string>
-    <string name="votre_nom">Votre Nom</string>
-    <string name="votre_pr_nom">Votre Prénom</string>
-    <string name="rassure_toi_qu_il_correspond_ta_cin">Rassure toi qu il correspond a ta CIN</string>
+    <string name="formulaire_d_inscription">Formulaire d\'inscription</string>
+    <string name="votre_nom">Votre nom</string>
+    <string name="votre_pr_nom">Votre prénom</string>
+    <string name="rassure_toi_qu_il_correspond_ta_cin">
+        Rassure-toi qu\'il correspond à ta CIN
+    </string>
     <string name="date_de_naissance">Date de naissance</string>
-    <string name="dd_mm_yyyy">dd/mm/YYYY</string>
+    <string name="dd_mm_yyyy">dd/mm/yyyy</string>
     <string name="email">Email</string>
     <string name="usermail_gmail_com">usermail@gmail.com</string>
     <string name="genre">Genre</string>
     <string name="homme">Homme</string>
     <string name="femme">Femme</string>
     <string name="_0_00_00_00_00">0 00 00 00 00</string>
-    <string name="passager"></string>
-    <string name="conducteur"></string>
-    <string name="covoiturage"></string>
-    <string name="wallet"></string>
-    <string name="notif">notif</string>
-    <string name="voyagez_confortablement_et_au_prix_le_plus_bas">Voyagez confortablement et au prix le plus bas</string>
+    <string name="passager">Passager</string>
+    <string name="conducteur">Conducteur</string>
+    <string name="covoiturage">Covoiturage</string>
+    <string name="wallet">Portefeuille</string>
+    <string name="notif">Notification</string>
+    <string name="voyagez_confortablement_et_au_prix_le_plus_bas">
+        Voyagez confortablement et au prix le plus bas
+    </string>
     <string name="une_experience_sans_precedent_une_application_simple_et_intuitive_imaginee_pour_vous_faciliter_la_vie">
-    Une expérience sans précédent. Une application simple et intuitive, imaginée pour vous faciliter la vie.</string>
+        Une expérience sans précédent. Une application simple et intuitive, imaginée pour vous faciliter la vie.
+    </string>
     <string name="creer_un_nouveau_compte">Créer un nouveau compte</string>
-    <string name="chercher_parmi_398_offres">🔍 chercher parmi 398 offres</string>
-    <string name="xxx_o_souhaites_tu_voyager">xxx,où souhaites-tu voyager?</string>
+    <string name="chercher_parmi_398_offres">🔍 Chercher parmi 398 offres</string>
+    <string name="xxx_o_souhaites_tu_voyager">xxx, où souhaites-tu voyager ?</string>
     <string name="casablanca_rabat"><![CDATA[Casablanca > Rabat]]></string>
     <string name="recherches_r_centes">Recherches récentes</string>
     <string name="rabat_settat"><![CDATA[Rabat > Settat]]></string>
     <string name="aide">⚠ Aide</string>
     <string name="fleche"><![CDATA[>]]></string>
     <string name="settat">Settat</string>
-    <string name="ligne">ligne</string>
-    <string name="title_activity_page3_actvity">Page3Actvity</string>
+    <string name="ligne">Ligne</string>
+    <string name="title_activity_page3_actvity">Page3Activity</string> <!-- Corrigé : Activity -->
     <string name="title_activity_page1">Page1Activity</string>
-    <string name="goback">Go Back</string>
+    <string name="goback">Retour</string>
     <string name="lundi">Lun</string>
     <string name="mardi">Mar</string>
     <string name="mercredi">Mer</string>
@@ -74,13 +83,15 @@
     <string name="vendredi">Ven</string>
     <string name="samedi">Sam</string>
     <string name="dimanche">Dim</string>
-    <string name="janvier2025">janvier 2025</string>
-    <string name="février2025">février 2025</string>
-    <string name="qst">Quand souhaites-tu partir?</string>
+    <string name="janvier2025">Janvier 2025</string>
+    <string name="février2025">Février 2025</string>
+    <string name="qst">Quand souhaites-tu partir ?</string>
     <string name="tiret">____________________________</string>
     <string name="ville_exemple">Exemple</string>
-    <string name="location_icon">Location Icon</string>
+    <string name="location_icon">Icône de localisation</string>
     <string name="ville_de_d_part">Ville de départ</string>
-
-
+    <string name="offres_disponibles">Offres disponibles</string>
+    <string name="quand_souhaites_tu_partir">Quand souhaites-tu partir ?</string>
+    <string name="sauter">Sauter</string>
+    <string name="choisir_une_date">Choisir une date</string>
 </resources>

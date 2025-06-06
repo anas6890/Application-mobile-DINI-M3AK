@@ -147,8 +147,8 @@
                     android:layout_height="55dp"
                     android:layout_weight="1"
                     android:hint="@string/_00_00_00_00_00"
-                    android:inputType="phone"
                     android:importantForAutofill="no"
+                    android:inputType="phone"
                     tools:ignore="VisualLintTextFieldSize" />
             </LinearLayout>
 
@@ -181,45 +181,68 @@
                 android:layout_marginTop="12dp"
                 android:text="@string/continuer"
                 android:textColor="#5D4037"
+                android:textSize="16sp"
+                app:cornerRadius="8dp"
                 tools:ignore="VisualLintButtonSize" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="41dp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/ou_bien"
-        android:textColor="#0D0C0C"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnGoogleSignup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        tools:ignore="TextSizeCheck" />
+        tools:layout_editor_absoluteX="16dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:text="@string/ou_bien"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="@color/black" />
+    </LinearLayout>
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnGoogleSignup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="109dp"
-        android:backgroundTint="@color/white"
-        android:drawableEnd="@drawable/google_icon_logo"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="280dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
+        android:drawableStart="@drawable/google_icon_logo"
+        android:gravity="center"
         android:padding="12dp"
         android:text="@string/connexion_avec_google"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:cornerRadius="8dp"
-        app:iconGravity="textEnd"
+        app:icon="@drawable/google_icon_logo"
+        app:iconGravity="textStart"
         app:iconPadding="8dp"
+        app:iconTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
