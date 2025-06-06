@@ -18,7 +18,8 @@ public class Reservation {
     @TypeConverters(DateConverter.class)
     private Date dateReservation;
 
-
+    // Constructeur sans argument
+    public Reservation() {}
 
     // Constructeur avec champs principaux (hors ID auto-généré)
     public Reservation(int passagerId, int trajetId, ReservationStatus statut, Date dateReservation) {

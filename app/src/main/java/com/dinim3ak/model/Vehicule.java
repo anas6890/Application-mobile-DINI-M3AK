@@ -15,7 +15,8 @@ public class Vehicule {
     private int nombrePlaces;
     private String immatriculation;
 
-
+    // Constructeur sans argument
+    public Vehicule() {}
 
     // Constructeur avec les champs principaux (hors ID auto-généré)
     public Vehicule(int conducteurId, String marque, String modele, String couleur, int nombrePlaces, String immatriculation) {

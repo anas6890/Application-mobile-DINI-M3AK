@@ -19,7 +19,8 @@ public class Message {
     @TypeConverters(DateConverter.class)
     private Date dateEnvoi;
 
-
+    // Constructeur sans argument
+    public Message() {}
 
     // Constructeur avec les champs principaux (hors ID auto-généré)
     public Message(int expediteurId, int destinataireId, int trajetId, String contenu, Date dateEnvoi) {
