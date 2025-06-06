@@ -140,7 +140,7 @@
             android:clickable="true"
             android:focusable="true"
             android:hint="@string/dd_mm_yyyy"
-            android:inputType="datetime|date"
+            android:inputType="number"
             android:padding="10dp"
             tools:ignore="VisualLintTextFieldSize" />
 

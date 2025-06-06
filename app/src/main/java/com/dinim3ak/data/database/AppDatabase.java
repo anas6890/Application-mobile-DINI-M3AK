@@ -26,8 +26,9 @@ import java.util.concurrent.Executors;
         Evaluation.class,
         Wallet.class,
         Profil.class
-}, version = 1)
+}, version = 1,exportSchema = true)
 @TypeConverters({SexConverter.class, ReservationStatusConverter.class, PaiementStatusConverter.class, DateConverter.class, StringListConverter.class})
+
 public abstract class AppDatabase extends RoomDatabase {
     public abstract UtilisateurDao utilisateurDao();
     public abstract CovoiturageDao covoiturageDao();
