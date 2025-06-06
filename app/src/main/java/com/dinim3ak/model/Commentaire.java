@@ -7,15 +7,12 @@ import androidx.room.TypeConverters;
 import java.util.Date;
 
 @Entity
-public class Evaluation {
+public class Commentaire {
     @PrimaryKey(autoGenerate = true)
     public int id;
     public int auteurId;
-    public int cibleId;
-    public float note;
+    public int covoiturageId;
     public String texte;
     @TypeConverters(DateConverter.class)
     public Date date;
-
-    public void publier() {}
 }
