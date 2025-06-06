@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 public class Utilisateur {
     @PrimaryKey(autoGenerate = true)
-    public int id;
+    private int id;
     public String nom;
     public String prenom;
     public String email;
