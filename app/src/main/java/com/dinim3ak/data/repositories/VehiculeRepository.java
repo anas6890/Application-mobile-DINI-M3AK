@@ -20,6 +20,9 @@ public class VehiculeRepository {
     }
 
     public void insert(Vehicule vehicle) {
-        Executors.newSingleThreadExecutor().execute(() -> vehiculeDao.insert(vehicle));
+        Executors.newSingleThreadExecutor().execute(() -> {
+            long generatedId = vehiculeDao.insert(vehicle);
+        vehicle.setId(generatedId);
+        });
     }
 }

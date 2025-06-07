@@ -12,10 +12,10 @@ import java.util.Date;
 public class Message {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
-    private int expediteurId;
-    private int destinataireId;
-    private int trajetId;
+    private long id;
+    private long expediteurId;
+    private long destinataireId;
+    private long trajetId;
     private String contenu;
 
     @TypeConverters(DateConverter.class)
@@ -25,7 +25,7 @@ public class Message {
     public Message() {}
 
     // Constructeur avec les champs principaux (hors ID auto-généré)
-    public Message(int expediteurId, int destinataireId, int trajetId, String contenu, Date dateEnvoi) {
+    public Message(long expediteurId, long destinataireId, long trajetId, String contenu, Date dateEnvoi) {
         this.expediteurId = expediteurId;
         this.destinataireId = destinataireId;
         this.trajetId = trajetId;
@@ -34,35 +34,35 @@ public class Message {
     }
 
     // Getters et Setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public int getExpediteurId() {
+    public long getExpediteurId() {
         return expediteurId;
     }
 
-    public void setExpediteurId(int expediteurId) {
+    public void setExpediteurId(long expediteurId) {
         this.expediteurId = expediteurId;
     }
 
-    public int getDestinataireId() {
+    public long getDestinataireId() {
         return destinataireId;
     }
 
-    public void setDestinataireId(int destinataireId) {
+    public void setDestinataireId(long destinataireId) {
         this.destinataireId = destinataireId;
     }
 
-    public int getTrajetId() {
+    public long getTrajetId() {
         return trajetId;
     }
 
-    public void setTrajetId(int trajetId) {
+    public void setTrajetId(long trajetId) {
         this.trajetId = trajetId;
     }
 

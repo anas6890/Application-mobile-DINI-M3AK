@@ -13,9 +13,9 @@ import java.util.List;
 public class Wallet {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private long id;
     private float solde;
-    private int utilisateurId;
+    private long utilisateurId;
 
     @Ignore
     private List<Transaction> transactions = new ArrayList<>();
@@ -24,17 +24,17 @@ public class Wallet {
     public Wallet() {}
 
     // Constructeur avec champs principaux (sauf ID auto-généré et transactions ignoré par Room)
-    public Wallet(float solde, int utilisateurId) {
+    public Wallet(float solde, long utilisateurId) {
         this.solde = solde;
         this.utilisateurId = utilisateurId;
     }
 
     // Getters et Setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -46,11 +46,11 @@ public class Wallet {
         this.solde = solde;
     }
 
-    public int getUtilisateurId() {
+    public long getUtilisateurId() {
         return utilisateurId;
     }
 
-    public void setUtilisateurId(int utilisateurId) {
+    public void setUtilisateurId(long utilisateurId) {
         this.utilisateurId = utilisateurId;
     }
 

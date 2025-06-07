@@ -7,7 +7,7 @@ import java.util.List;
 @Dao
 public interface ReservationDao {
     @Insert
-    void insert(Reservation reservation);
+    long insert(Reservation reservation);
 
     @Update
     void update(Reservation reservation);

@@ -21,7 +21,7 @@ public interface UtilisateurDao {
     Utilisateur getById(int id);
 
     @Query("SELECT * FROM Utilisateur WHERE email = :email")
-    Utilisateur getByEmail(String email);
+    Utilisateur findByEmail(String email);
 
     @Query("SELECT * FROM Utilisateur")
     List<Utilisateur> getAll();

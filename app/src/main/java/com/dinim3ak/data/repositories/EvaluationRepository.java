@@ -20,7 +20,10 @@ public class EvaluationRepository {
     }
 
     public void insert(Evaluation evaluation) {
-        Executors.newSingleThreadExecutor().execute(() -> evaluationDao.insert(evaluation));
+        Executors.newSingleThreadExecutor().execute(() -> {
+            long generatedId = evaluationDao.insert(evaluation);
+        evaluation.setId(generatedId);
+        });
     }
 
 }

@@ -7,7 +7,7 @@ import java.util.List;
 @Dao
 public interface VehiculeDao {
     @Insert
-    void insert(Vehicule vehicule);
+    long insert(Vehicule vehicule);
 
     @Update
     void update(Vehicule vehicule);

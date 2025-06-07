@@ -4,13 +4,14 @@ import androidx.room.TypeConverter;
 import com.dinim3ak.model.MethodePaiement;
 
 public class MethodePaiementConverter {
+
     @TypeConverter
-    public static MethodePaiement toEnum(String value) {
-        return value == null ? null : MethodePaiement.valueOf(value);
+    public static MethodePaiement toMethodePaiement(String methodePaiement) {
+        return methodePaiement == null ? null : MethodePaiement.valueOf(methodePaiement);
     }
 
     @TypeConverter
-    public static String fromEnum(MethodePaiement value) {
-        return value == null ? null : value.name();
+    public static String fromMethodePaiement(MethodePaiement methodePaiement) {
+        return methodePaiement == null ? null : methodePaiement.name();
     }
 }
