@@ -72,33 +72,5 @@ public class Reservation {
         this.dateReservation = dateReservation;
     }
 
-    // Méthodes existantes
-    public boolean reserver() {
-        if (this.statut == null || this.statut == ReservationStatus.ANNULEE || this.statut == ReservationStatus.REFUSEE) {
-            this.statut = ReservationStatus.EN_ATTENTE;
-            this.dateReservation = new Date(); // met la date du jour
-            return true;
-        }
-        return false;
-    }
 
-    public void annuler() {
-        if (this.statut == ReservationStatus.EN_ATTENTE || this.statut == ReservationStatus.ACCEPTEE) {
-            this.statut = ReservationStatus.ANNULEE;
-        }
-    }
-
-
-    public void accepter() {
-        if (this.statut == ReservationStatus.EN_ATTENTE) {
-            this.statut = ReservationStatus.ACCEPTEE;
-        }
-    }
-
-
-    public void refuser() {
-        if (this.statut == ReservationStatus.EN_ATTENTE) {
-            this.statut = ReservationStatus.REFUSEE;
-        }
-    }
 }
