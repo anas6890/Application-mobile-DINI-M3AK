@@ -20,6 +20,8 @@ public class Profil {
     private float noteMoyenne;
     @TypeConverters(DateConverter.class)
     private Date dateNaissance;
+
+    @TypeConverters(SexConverter.class)
     private Sex sexe;
     @TypeConverters(DateConverter.class)
     private Date membreDepuis;

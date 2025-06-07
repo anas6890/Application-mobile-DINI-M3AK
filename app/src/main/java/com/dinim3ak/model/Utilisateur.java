@@ -5,6 +5,7 @@ import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
 import com.dinim3ak.data.converter.DateConverter;
+import com.dinim3ak.data.converter.SexConverter;
 import com.dinim3ak.data.dao.WalletDao;
 
 import java.util.ArrayList;
@@ -21,7 +22,11 @@ public class Utilisateur {
     private String email;
     private String motDePasse;
     private String numeroTelephone;
+
+    @TypeConverters(DateConverter.class)
     private Date dateNaissance;
+
+    @TypeConverters(SexConverter.class)
     private Sex sexe;
     private String photoProfil;
     private float noteMoyenne;

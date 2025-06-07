@@ -5,6 +5,7 @@ import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
 import com.dinim3ak.data.converter.DateConverter;
+import com.dinim3ak.data.converter.TypeNotificationConverter;
 
 import java.util.Date;
 
@@ -15,6 +16,8 @@ public class Notification {
     private long id;
     private long utilisateurId;
     private String contenu;
+
+    @TypeConverters(TypeNotificationConverter.class)
     private TypeNotification type;
 
     @TypeConverters(DateConverter.class)

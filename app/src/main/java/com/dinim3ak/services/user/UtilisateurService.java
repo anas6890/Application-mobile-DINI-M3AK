@@ -5,10 +5,12 @@ import android.util.Base64;
 
 import com.dinim3ak.data.repositories.UtilisateurRepository;
 import com.dinim3ak.data.session.UtilisateurSession;
+import com.dinim3ak.model.Sex;
 import com.dinim3ak.model.Utilisateur;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,7 +24,7 @@ public class UtilisateurService {
     }
 
     public boolean loginUser(String email, String password) {
-        Utilisateur user = utilisateurRepository.getByEmail(email);
+        Utilisateur user = utilisateurRepository.findByEmail(email);
         if (user != null && validatePassword(password, user.getMotDePasse())) {
             utilisateurSession.setCurrentUser(user);
             return true;
@@ -30,20 +32,31 @@ public class UtilisateurService {
         return false;
     }
 
-    public void registerUser(String nom, String email, String password) {
+    public boolean registerUser(String nom, String prenom, Date dateNaissance, String email, String password, Sex sex, String tel) {
         if (isEmailValid(email)) {
+            if(utilisateurRepository.findByEmail(email) != null) return false;
             Utilisateur newUser = new Utilisateur();
             newUser.setNom(nom);
+            newUser.setPrenom(prenom);
             newUser.setEmail(email);
             newUser.setMotDePasse(hashPassword(password));
+            newUser.setDateNaissance(dateNaissance);
+            newUser.setSexe(sex);
+            newUser.setNumeroTelephone(tel);
+            newUser.setDateInscription(new Date());
 
             utilisateurRepository.insert(newUser);
 
             // Auto-login after registration
             utilisateurSession.setCurrentUser(newUser);
+            return true;
         }
+        return false;
     }
 
+    public boolean isLoggedIn(){
+        return utilisateurSession.isLoggedIn();
+    }
     public void logout() {
         utilisateurSession.logout();
     }

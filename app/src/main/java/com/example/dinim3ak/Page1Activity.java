@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.dinim3ak.data.session.UtilisateurSession;
+
 public class Page1Activity extends AppCompatActivity {
 
     @Override

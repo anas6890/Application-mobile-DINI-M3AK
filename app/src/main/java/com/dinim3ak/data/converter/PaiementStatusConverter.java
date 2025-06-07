@@ -6,12 +6,20 @@ import com.dinim3ak.model.PaiementStatus;
 
 public class PaiementStatusConverter {
     @TypeConverter
-    public static PaiementStatus toPaiementStatus(String paiementStatus) {
-        return paiementStatus == null ? null : PaiementStatus.valueOf(paiementStatus);
+    public static String fromPaiementStatus(PaiementStatus paiementStatus) {
+        return paiementStatus == null ? null : paiementStatus.name();
     }
 
     @TypeConverter
-    public static String fromPaiementStatus(PaiementStatus paiementStatus) {
-        return paiementStatus == null ? null : paiementStatus.name();
+    public static PaiementStatus toPaiementStatus(String paiementStatus) {
+        if (paiementStatus == null || paiementStatus.isEmpty()) {
+            return null;
+        }
+        try {
+            return PaiementStatus.valueOf(paiementStatus);
+        } catch (IllegalArgumentException e) {
+            System.err.println("Invalid PaiementStatus string from DB: " + paiementStatus + ". Error: " + e.getMessage());
+            return null;
+        }
     }
 }
