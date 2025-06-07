@@ -10,24 +10,25 @@ import java.util.List;
 
 @Entity
 public class Utilisateur {
-    @PrimaryKey(autoGenerate = true)
-    public int id;
-    public String nom;
-    public String prenom;
-    public String email;
-    public String motDePasse;
-    public String numeroTelephone;
-    @TypeConverters(DateConverter.class)
-    public Date dateNaissance;
-    public Sex sexe;
-    public String photoProfil;
-    public float noteMoyenne;
-    public int walletId;
-    @TypeConverters(DateConverter.class)
-    public Date dateInscription;
-    public int profilId;
 
-    // Constructeur vide requis pour Room ou autres bibliothèques
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+    private String nom;
+    private String prenom;
+    private String email;
+    private String motDePasse;
+    private String numeroTelephone;
+    @TypeConverters(DateConverter.class)
+    private Date dateNaissance;
+    private Sex sexe;
+    private String photoProfil;
+    private float noteMoyenne;
+    private int walletId;
+    @TypeConverters(DateConverter.class)
+    private Date dateInscription;
+    private int profilId;
+
+    // Constructeur vide requis pour Room
     public Utilisateur() {}
 
     // Constructeur complet
@@ -89,7 +90,7 @@ public class Utilisateur {
     public int getProfilId() { return profilId; }
     public void setProfilId(int profilId) { this.profilId = profilId; }
 
-    // Méthodes existantes
+    // Méthodes métier
     public void inscrire() {}
 
     public boolean seConnecter(String email, String motDePasse) {
