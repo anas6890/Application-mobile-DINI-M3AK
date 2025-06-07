@@ -4,6 +4,8 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import com.dinim3ak.data.dao.WalletDao;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,13 +67,26 @@ public class Wallet {
         this.solde += montant;
     }
 
-    public void recupererArgent() {
-        // Implémentation à ajouter
+    public void recupererArgent(float montant, WalletDao walletDao) {
+        if (montant <= 0 || montant > solde) {
+            throw new IllegalArgumentException("Montant invalide");
+        }
+        // Soustraire le montant du solde
+        this.solde -= montant;
+
+        // Mettre à jour le wallet en BD dans un thread
+        new Thread(() -> walletDao.update(this)).start();
     }
 
-    public void ajouterRib() {
-        // Implémentation à ajouter
+    public void ajouterRib(String rib, WalletDao walletDao) {
+        // Exemple d’ajout RIB (stockage externe ou autre)
+        // Ici, on pourrait imaginer un champ rib (à ajouter dans Wallet)
+        // ou une table RIB séparée liée au wallet.
+        // En attendant, on peut juste log ou simuler.
+        System.out.println("RIB ajouté : " + rib);
+        // Pas de changement en BD pour l’instant
     }
+
 
     public List<Transaction> consulterHistorique() {
         return transactions;

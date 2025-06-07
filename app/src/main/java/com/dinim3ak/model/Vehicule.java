@@ -3,6 +3,8 @@ package com.dinim3ak.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.dinim3ak.data.dao.VehiculeDao;
+
 @Entity
 public class Vehicule {
 
@@ -86,11 +88,18 @@ public class Vehicule {
     }
 
     // Méthodes existantes
-    public void ajouterVehicule() {
-        // Implémentation à ajouter
+    public void ajouterVehicule(VehiculeDao vehiculeDao) {
+        // Attention : appel en thread séparé nécessaire en vrai usage Android
+        new Thread(() -> {
+            vehiculeDao.insert(this);
+        }).start();
     }
 
-    public void modifierVehicule() {
-        // Implémentation à ajouter
+    public void modifierVehicule(VehiculeDao vehiculeDao) {
+        // Même remarque thread
+        new Thread(() -> {
+            vehiculeDao.update(this);
+        }).start();
     }
+
 }

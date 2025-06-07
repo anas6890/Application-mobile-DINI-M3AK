@@ -1,3 +1,3 @@
 package com.dinim3ak.model;
 
-public enum MethodePaiement { Wallet, Carte, PayPal }
+public enum MethodePaiement { CARTE_BANCAIRE, PAYPAL, WALLET, ESPECES }

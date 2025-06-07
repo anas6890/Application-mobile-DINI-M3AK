@@ -9,8 +9,7 @@ import java.util.List;
 @Dao
 public interface UtilisateurDao {
     @Insert
-    default long insert(Utilisateur utilisateur) {
-    }
+    long insert(Utilisateur utilisateur);
 
     @Update
     void update(Utilisateur utilisateur);

@@ -10,7 +10,6 @@ import androidx.room.TypeConverters;
 import com.dinim3ak.data.converter.*;
 import com.dinim3ak.data.dao.*;
 import com.dinim3ak.model.*;
-import com.dinim3ak.model.DateConverter;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -27,7 +26,16 @@ import java.util.concurrent.Executors;
         Wallet.class,
         Profil.class
 }, version = 1,exportSchema = true)
-@TypeConverters({SexConverter.class, ReservationStatusConverter.class, PaiementStatusConverter.class, DateConverter.class, StringListConverter.class})
+@TypeConverters({
+        SexConverter.class,
+        ReservationStatusConverter.class,
+        PaiementStatusConverter.class,
+        DateConverter.class,
+        StringListConverter.class,
+        CovoiturageConverter.class,
+        MethodePaiementConverter.class,
+        TypeNotificationConverter.class
+})
 
 public abstract class AppDatabase extends RoomDatabase {
     public abstract UtilisateurDao utilisateurDao();

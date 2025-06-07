@@ -5,6 +5,9 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
+import com.dinim3ak.data.converter.CovoiturageConverter;
+import com.dinim3ak.data.converter.DateConverter;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,6 +26,7 @@ public class Covoiturage {
     private float prixParPassager;
     private int nombrePlaces;
     private int vehiculeId;
+    @TypeConverters(CovoiturageConverter.class)
     private StatutCovoiturage statut;
     private TypeCovoiturage type;
 
@@ -33,7 +37,8 @@ public class Covoiturage {
     private List<Commentaire> commentaires = new ArrayList<>();
 
     // Constructeur sans argument
-    public Covoiturage() {}
+    public Covoiturage() {
+    }
 
     // Constructeur avec les principaux champs (hors ID auto-généré, arrets et commentaires)
     public Covoiturage(int conducteurId, String villeDepart, String villeArrivee, Date dateHeureDepart,
@@ -158,18 +163,44 @@ public class Covoiturage {
 
     // Méthodes existantes
     public void publierTrajet() {
-        // Implémentation à ajouter
+        if (statut != StatutCovoiturage.annule) {
+            this.statut = StatutCovoiturage.Disponible;
+            System.out.println("Trajet publié : " + afficherDetails());
+        } else {
+            System.out.println("Impossible de publier un trajet annulé.");
+        }
     }
 
     public void modifierTrajet() {
-        // Implémentation à ajouter
+        if (statut != StatutCovoiturage.annule) {
+            // Tu peux ajouter ici des modifications sur les champs
+            System.out.println("Trajet modifié : " + afficherDetails());
+        } else {
+            System.out.println("Impossible de modifier un trajet annulé.");
+        }
     }
 
     public void annulerTrajet() {
-        // Implémentation à ajouter
+        this.statut = StatutCovoiturage.annule;
+        System.out.println("Trajet annulé : " + afficherDetails());
     }
 
     public String afficherDetails() {
-        return villeDepart + " → " + villeArrivee;
+        return "Trajet de " + villeDepart + " à " + villeArrivee +
+                " le " + (dateHeureDepart != null ? dateHeureDepart.toString() : "non défini") +
+                " | Prix: " + prixParPassager + "€ | Places: " + nombrePlaces +
+                " | Statut: " + (statut != null ? statut.name() : "non défini");
     }
+    public void reserverPlace() {
+        if (statut == StatutCovoiturage.Disponible && nombrePlaces > 0) {
+            nombrePlaces--;
+            if (nombrePlaces == 0) {
+                statut = StatutCovoiturage.Complet;
+            }
+            System.out.println("Place réservée. " + nombrePlaces + " places restantes.");
+        } else {
+            System.out.println("Impossible de réserver : plus de places ou trajet non disponible.");
+        }
+    }
+
 }

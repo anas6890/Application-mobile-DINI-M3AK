@@ -4,7 +4,10 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
+import com.dinim3ak.data.converter.DateConverter;
+
 import java.util.Date;
+@TypeConverters({DateConverter.class,PaiementStatus.class,MethodePaiement.class})
 
 @Entity
 public class Paiement {
@@ -15,7 +18,6 @@ public class Paiement {
     private int trajetId;
     private float montant;
 
-    @TypeConverters(DateConverter.class)
     private Date datePaiement;
 
     private PaiementStatus statut;
@@ -93,10 +95,32 @@ public class Paiement {
 
     // Méthodes existantes
     public boolean effectuerPaiement() {
+        if (this.statut == PaiementStatus.EFFECTUE) {
+            System.out.println("Le paiement a déjà été effectué.");
+            return false;
+        }
+
+        // Simuler le traitement du paiement
+        this.datePaiement = new Date();
+        this.statut = PaiementStatus.EFFECTUE;
+
+        System.out.println("Paiement de " + montant + "€ effectué par l'utilisateur " + utilisateurId +
+                " pour le trajet " + trajetId + " via " + methode +
+                " le " + datePaiement);
+
         return true;
     }
 
     public void rembourser() {
-        // Implémentation à ajouter
+        if (this.statut != PaiementStatus.EFFECTUE) {
+            System.out.println("Le paiement ne peut pas être remboursé car il n'a pas été effectué.");
+            return;
+        }
+
+        this.statut = PaiementStatus.REMBOURSE;
+
+        System.out.println("Paiement de " + montant + "€ remboursé à l'utilisateur " + utilisateurId +
+                " pour le trajet " + trajetId);
     }
+
 }
