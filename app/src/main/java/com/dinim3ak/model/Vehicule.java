@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey;
 public class Vehicule {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
-    private int conducteurId;
+    private long id;
+    private long conducteurId;
     private String marque;
     private String modele;
     private String couleur;
@@ -19,7 +19,7 @@ public class Vehicule {
     public Vehicule() {}
 
     // Constructeur avec les champs principaux (hors ID auto-généré)
-    public Vehicule(int conducteurId, String marque, String modele, String couleur, int nombrePlaces, String immatriculation) {
+    public Vehicule(long conducteurId, String marque, String modele, String couleur, int nombrePlaces, String immatriculation) {
         this.conducteurId = conducteurId;
         this.marque = marque;
         this.modele = modele;
@@ -29,19 +29,19 @@ public class Vehicule {
     }
 
     // Getters et Setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public int getConducteurId() {
+    public long getConducteurId() {
         return conducteurId;
     }
 
-    public void setConducteurId(int conducteurId) {
+    public void setConducteurId(long conducteurId) {
         this.conducteurId = conducteurId;
     }
 

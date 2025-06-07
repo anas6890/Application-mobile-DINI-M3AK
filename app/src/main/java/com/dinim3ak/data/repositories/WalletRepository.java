@@ -20,7 +20,10 @@ public class WalletRepository {
     }
 
     public void insert(Wallet wallet) {
-        Executors.newSingleThreadExecutor().execute(() -> walletDao.insert(wallet));
+        Executors.newSingleThreadExecutor().execute(() -> {
+            long generatedId = walletDao.insert(wallet);
+        wallet.setId(generatedId);
+        });
     }
 
 }

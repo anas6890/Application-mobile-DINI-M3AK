@@ -20,7 +20,10 @@ public class NotificationRepository {
     }
 
     public void insert(Notification notification) {
-        Executors.newSingleThreadExecutor().execute(() -> notificationDao.insert(notification));
+        Executors.newSingleThreadExecutor().execute(() -> {
+            long generatedId = notificationDao.insert(notification);
+        notification.setId(generatedId);
+        });
     }
 
 }

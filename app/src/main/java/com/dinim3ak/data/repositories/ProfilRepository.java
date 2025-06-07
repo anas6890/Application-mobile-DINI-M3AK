@@ -21,7 +21,10 @@ public class ProfilRepository {
     }
 
     public void insert(Profil profil) {
-        Executors.newSingleThreadExecutor().execute(() -> profilDao.insert(profil));
+        Executors.newSingleThreadExecutor().execute(() -> {
+            long generatedId = profilDao.insert(profil);
+        profil.setId(generatedId);
+        });
     }
 
 }

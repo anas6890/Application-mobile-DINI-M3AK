@@ -10,8 +10,8 @@ import java.util.Date;
 public class Notification {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
-    private int utilisateurId;
+    private long id;
+    private long utilisateurId;
     private String contenu;
     private TypeNotification type;
 
@@ -24,7 +24,7 @@ public class Notification {
     public Notification() {}
 
     // Constructeur avec champs (hors id auto-généré)
-    public Notification(int utilisateurId, String contenu, TypeNotification type, Date dateEnvoi, boolean lu) {
+    public Notification(long utilisateurId, String contenu, TypeNotification type, Date dateEnvoi, boolean lu) {
         this.utilisateurId = utilisateurId;
         this.contenu = contenu;
         this.type = type;
@@ -33,19 +33,19 @@ public class Notification {
     }
 
     // Getters et setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public int getUtilisateurId() {
+    public long getUtilisateurId() {
         return utilisateurId;
     }
 
-    public void setUtilisateurId(int utilisateurId) {
+    public void setUtilisateurId(long utilisateurId) {
         this.utilisateurId = utilisateurId;
     }
 

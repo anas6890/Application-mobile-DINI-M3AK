@@ -12,7 +12,7 @@ import java.util.List;
 public class Utilisateur {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private long id;
     private String nom;
     private String prenom;
     private String email;
@@ -23,18 +23,18 @@ public class Utilisateur {
     private Sex sexe;
     private String photoProfil;
     private float noteMoyenne;
-    private int walletId;
+    private long walletId;
     @TypeConverters(DateConverter.class)
     private Date dateInscription;
-    private int profilId;
+    private long profilId;
 
     // Constructeur vide requis pour Room
     public Utilisateur() {}
 
     // Constructeur complet
-    public Utilisateur(int id, String nom, String prenom, String email, String motDePasse, String numeroTelephone,
-                       Date dateNaissance, Sex sexe, String photoProfil, float noteMoyenne, int walletId,
-                       Date dateInscription, int profilId) {
+    public Utilisateur(long id, String nom, String prenom, String email, String motDePasse, String numeroTelephone,
+                       Date dateNaissance, Sex sexe, String photoProfil, float noteMoyenne, long walletId,
+                       Date dateInscription, long profilId) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -51,8 +51,8 @@ public class Utilisateur {
     }
 
     // Getters et Setters
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public long getId() { return id; }
+    public void setId(long id) { this.id = id; }
 
     public String getNom() { return nom; }
     public void setNom(String nom) { this.nom = nom; }
@@ -81,14 +81,14 @@ public class Utilisateur {
     public float getNoteMoyenne() { return noteMoyenne; }
     public void setNoteMoyenne(float noteMoyenne) { this.noteMoyenne = noteMoyenne; }
 
-    public int getWalletId() { return walletId; }
-    public void setWalletId(int walletId) { this.walletId = walletId; }
+    public long getWalletId() { return walletId; }
+    public void setWalletId(long walletId) { this.walletId = walletId; }
 
     public Date getDateInscription() { return dateInscription; }
     public void setDateInscription(Date dateInscription) { this.dateInscription = dateInscription; }
 
-    public int getProfilId() { return profilId; }
-    public void setProfilId(int profilId) { this.profilId = profilId; }
+    public long getProfilId() { return profilId; }
+    public void setProfilId(long profilId) { this.profilId = profilId; }
 
     // Méthodes métier
     public void inscrire() {}

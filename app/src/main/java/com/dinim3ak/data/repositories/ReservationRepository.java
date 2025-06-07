@@ -20,7 +20,24 @@ public class ReservationRepository {
     }
 
     public void insert(Reservation reservation) {
-        Executors.newSingleThreadExecutor().execute(() -> reservationDao.insert(reservation));
+        Executors.newSingleThreadExecutor().execute(() -> {
+            long generatedId = reservationDao.insert(reservation);
+        reservation.setId(generatedId);
+        });
     }
 
+    public List<Reservation> getReservationsByUserId(long id) {
+    }
+
+    public void update(Reservation reservation) {
+    }
+
+    public Reservation findById(long reservationId) {
+    }
+
+    public List<Reservation> getReservationsByCovoiturageId(long tripId) {
+    }
+
+    public void delete(long reservationId) {
+    }
 }

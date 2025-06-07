@@ -10,9 +10,9 @@ import java.util.Date;
 public class Commentaire {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
-    private int auteurId;
-    private int covoiturageId;
+    private long id;
+    private long auteurId;
+    private long covoiturageId;
     private String texte;
 
     @TypeConverters(DateConverter.class)
@@ -22,7 +22,7 @@ public class Commentaire {
     public Commentaire() {}
 
     // Constructeur avec champs (hors id auto-généré)
-    public Commentaire(int auteurId, int covoiturageId, String texte, Date date) {
+    public Commentaire(long auteurId, int covoiturageId, String texte, Date date) {
         this.auteurId = auteurId;
         this.covoiturageId = covoiturageId;
         this.texte = texte;
@@ -30,27 +30,27 @@ public class Commentaire {
     }
 
     // Getters et setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public int getAuteurId() {
+    public long getAuteurId() {
         return auteurId;
     }
 
-    public void setAuteurId(int auteurId) {
+    public void setAuteurId(long auteurId) {
         this.auteurId = auteurId;
     }
 
-    public int getCovoiturageId() {
+    public long getCovoiturageId() {
         return covoiturageId;
     }
 
-    public void setCovoiturageId(int covoiturageId) {
+    public void setCovoiturageId(long covoiturageId) {
         this.covoiturageId = covoiturageId;
     }
 

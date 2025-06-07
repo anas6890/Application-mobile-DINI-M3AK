@@ -6,12 +6,12 @@ import com.dinim3ak.model.Sex;
 
 public class SexConverter {
     @TypeConverter
-    public static Sex toRole(String sex) {
+    public static Sex toSex(String sex) {
         return sex == null ? null : Sex.valueOf(sex);
     }
 
     @TypeConverter
-    public static String fromRole(Sex sex) {
+    public static String fromSex(Sex sex) {
         return sex == null ? null : sex.name();
     }
 }

@@ -20,7 +20,10 @@ public class MessageRepository {
     }
 
     public void insert(Message message) {
-        Executors.newSingleThreadExecutor().execute(() -> messageDao.insert(message));
+        Executors.newSingleThreadExecutor().execute(() -> {
+            long generatedId = messageDao.insert(message);
+        message.setId(generatedId);
+        });
     }
 
 

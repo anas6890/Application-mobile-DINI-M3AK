@@ -10,9 +10,9 @@ import java.util.Date;
 public class Paiement {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
-    private int utilisateurId;
-    private int trajetId;
+    private long id;
+    private long utilisateurId;
+    private long trajetId;
     private float montant;
 
     @TypeConverters(DateConverter.class)
@@ -25,7 +25,7 @@ public class Paiement {
     public Paiement() {}
 
     // Constructeur avec les champs principaux (hors ID auto-généré)
-    public Paiement(int utilisateurId, int trajetId, float montant, Date datePaiement, PaiementStatus statut, MethodePaiement methode) {
+    public Paiement(long utilisateurId, int trajetId, float montant, Date datePaiement, PaiementStatus statut, MethodePaiement methode) {
         this.utilisateurId = utilisateurId;
         this.trajetId = trajetId;
         this.montant = montant;
@@ -35,27 +35,27 @@ public class Paiement {
     }
 
     // Getters et Setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public int getUtilisateurId() {
+    public long getUtilisateurId() {
         return utilisateurId;
     }
 
-    public void setUtilisateurId(int utilisateurId) {
+    public void setUtilisateurId(long utilisateurId) {
         this.utilisateurId = utilisateurId;
     }
 
-    public int getTrajetId() {
+    public long getTrajetId() {
         return trajetId;
     }
 
-    public void setTrajetId(int trajetId) {
+    public void setTrajetId(long trajetId) {
         this.trajetId = trajetId;
     }
 

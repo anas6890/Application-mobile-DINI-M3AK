@@ -8,7 +8,7 @@ import java.util.List;
 @Dao
 public interface CovoiturageDao {
     @Insert
-    void insert(Covoiturage covoiturage);
+    long insert(Covoiturage covoiturage);
 
     @Update
     void update(Covoiturage covoiturage);

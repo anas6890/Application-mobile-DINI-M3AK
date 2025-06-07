@@ -7,25 +7,25 @@ import androidx.room.PrimaryKey;
 public class Arret {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private long id;
     private String ville;
-    private int covoiturageId;
+    private long covoiturageId;
 
     // Constructeur sans argument
     public Arret() {}
 
     // Constructeur avec champs (hors id auto-généré)
-    public Arret(String ville, int covoiturageId) {
+    public Arret(String ville, long covoiturageId) {
         this.ville = ville;
         this.covoiturageId = covoiturageId;
     }
 
     // Getters et setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -37,11 +37,11 @@ public class Arret {
         this.ville = ville;
     }
 
-    public int getCovoiturageId() {
+    public long getCovoiturageId() {
         return covoiturageId;
     }
 
-    public void setCovoiturageId(int covoiturageId) {
+    public void setCovoiturageId(long covoiturageId) {
         this.covoiturageId = covoiturageId;
     }
 }
