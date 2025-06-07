@@ -4,6 +4,8 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
+import com.dinim3ak.data.converter.DateConverter;
+
 import java.util.Date;
 
 @Entity
@@ -72,18 +74,31 @@ public class Reservation {
 
     // Méthodes existantes
     public boolean reserver() {
-        return true;
+        if (this.statut == null || this.statut == ReservationStatus.ANNULEE || this.statut == ReservationStatus.REFUSEE) {
+            this.statut = ReservationStatus.EN_ATTENTE;
+            this.dateReservation = new Date(); // met la date du jour
+            return true;
+        }
+        return false;
     }
 
     public void annuler() {
-        // Implémentation à ajouter
+        if (this.statut == ReservationStatus.EN_ATTENTE || this.statut == ReservationStatus.ACCEPTEE) {
+            this.statut = ReservationStatus.ANNULEE;
+        }
     }
+
 
     public void accepter() {
-        // Implémentation à ajouter
+        if (this.statut == ReservationStatus.EN_ATTENTE) {
+            this.statut = ReservationStatus.ACCEPTEE;
+        }
     }
 
+
     public void refuser() {
-        // Implémentation à ajouter
+        if (this.statut == ReservationStatus.EN_ATTENTE) {
+            this.statut = ReservationStatus.REFUSEE;
+        }
     }
 }

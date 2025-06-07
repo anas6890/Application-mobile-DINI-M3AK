@@ -4,6 +4,8 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
+import com.dinim3ak.data.converter.DateConverter;
+
 import java.util.Date;
 
 @Entity
@@ -84,5 +86,17 @@ public class Notification {
     // Méthode existante
     public void marquerCommeLue() {
         this.lu = true;
+        System.out.println("Notification " + id + " marquée comme lue pour l'utilisateur " + utilisateurId);
     }
+    public void envoyer() {
+        if (this.dateEnvoi == null) {
+            this.dateEnvoi = new Date();
+        }
+        this.lu = false;
+
+        System.out.println("Notification envoyée à l'utilisateur " + utilisateurId +
+                " [" + type + "] : \"" + contenu + "\" le " + dateEnvoi.toString());
+    }
+
+
 }

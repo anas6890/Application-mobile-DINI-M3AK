@@ -4,6 +4,8 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
+import com.dinim3ak.data.converter.DateConverter;
+
 import java.util.Date;
 
 @Entity
@@ -82,6 +84,17 @@ public class Message {
 
     // Méthode existante
     public void envoyer() {
-        // Implémentation à ajouter
+        // Si aucune date n’est définie, on utilise la date actuelle
+        if (this.dateEnvoi == null) {
+            this.dateEnvoi = new Date();
+        }
+
+        // Affichage (à remplacer par une logique réelle si besoin)
+        System.out.println("Message envoyé de l'utilisateur " + expediteurId +
+                " à l'utilisateur " + destinataireId +
+                " pour le trajet " + trajetId +
+                " le " + dateEnvoi.toString() +
+                " : \"" + contenu + "\"");
     }
+
 }

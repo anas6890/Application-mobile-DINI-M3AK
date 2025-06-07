@@ -4,9 +4,13 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
-import java.util.Date;
+import com.dinim3ak.data.converter.DateConverter;
+import com.dinim3ak.data.converter.SexConverter;
 
+import java.util.Date;
+@TypeConverters({DateConverter.class, SexConverter.class})
 @Entity
+
 public class Profil {
 
     @PrimaryKey(autoGenerate = true)
@@ -90,9 +94,31 @@ public class Profil {
     }
 
     // Méthodes existantes
-    public void modifierPhoto() {}
-    public void modifierInfos() {}
-    public String afficherPublic() {
-        return bio;
+    public void modifierPhoto(String nouvellePhoto) {
+        if (nouvellePhoto != null && !nouvellePhoto.isEmpty()) {
+            this.photoProfil = nouvellePhoto;
+            System.out.println("Photo de profil mise à jour : " + nouvellePhoto);
+        } else {
+            System.out.println("La nouvelle photo de profil est invalide.");
+        }
     }
+    public void modifierInfos(String nouvelleBio, Date nouvelleDateNaissance, Sex nouveauSexe) {
+        if (nouvelleBio != null) {
+            this.bio = nouvelleBio;
+        }
+        if (nouvelleDateNaissance != null) {
+            this.dateNaissance = nouvelleDateNaissance;
+        }
+        if (nouveauSexe != null) {
+            this.sexe = nouveauSexe;
+        }
+
+        System.out.println("Informations du profil mises à jour.");
+    }
+    public String afficherPublic() {
+        return "Bio : " + bio + "\n"
+                + "Note : " + noteMoyenne + "\n"
+                + "Sexe : " + (sexe != null ? sexe.toString() : "Non précisé");
+    }
+
 }

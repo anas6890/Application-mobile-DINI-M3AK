@@ -4,6 +4,8 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
+import com.dinim3ak.data.converter.DateConverter;
+
 import java.util.Date;
 
 @Entity
@@ -82,6 +84,17 @@ public class Evaluation {
 
     // Méthode existante
     public void publier() {
-        // Implémentation à ajouter
+        // Si aucune date n'est fournie, on utilise la date du jour
+        if (this.date == null) {
+            this.date = new Date();
+        }
+
+        // Exemple de message de publication
+        System.out.println("Évaluation publiée par l'utilisateur " + auteurId +
+                " sur l'utilisateur " + cibleId +
+                " avec la note de " + note +
+                " le " + date.toString() +
+                (texte != null && !texte.isEmpty() ? " : \"" + texte + "\"" : ""));
     }
+
 }

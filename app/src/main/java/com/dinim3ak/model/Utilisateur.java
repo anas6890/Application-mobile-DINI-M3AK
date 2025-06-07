@@ -4,6 +4,9 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
+import com.dinim3ak.data.converter.DateConverter;
+import com.dinim3ak.data.dao.WalletDao;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,7 +21,6 @@ public class Utilisateur {
     private String email;
     private String motDePasse;
     private String numeroTelephone;
-    @TypeConverters(DateConverter.class)
     private Date dateNaissance;
     private Sex sexe;
     private String photoProfil;
@@ -91,15 +93,45 @@ public class Utilisateur {
     public void setProfilId(long profilId) { this.profilId = profilId; }
 
     // Méthodes métier
-    public void inscrire() {}
+    public void inscrire() {
+        if (this.dateInscription == null) {
+            this.dateInscription = new Date(); // date actuelle
+        }
+        // Logique supplémentaire si nécessaire (vérification unicité email, etc.)
+    }
 
     public boolean seConnecter(String email, String motDePasse) {
         return this.email.equals(email) && this.motDePasse.equals(motDePasse);
     }
 
-    public void modifierProfil(String choix) {}
+    public void modifierProfil(String champ, String nouvelleValeur) {
+        switch (champ.toLowerCase()) {
+            case "nom":
+                setNom(nouvelleValeur);
+                break;
+            case "prenom":
+                setPrenom(nouvelleValeur);
+                break;
+            case "email":
+                setEmail(nouvelleValeur);
+                break;
+            case "photo":
+                setPhotoProfil(nouvelleValeur);
+                break;
+            // autres cas...
+        }
+    }
 
-    public void rechargerWallet(float montant) {}
+    public void rechargerWallet(float montant, WalletDao walletDao) {
+        if (montant <= 0) return; // Ignore recharge négative ou nulle
+
+        Wallet wallet = walletDao.getById(this.walletId);
+        if (wallet != null) {
+            wallet.recharger(montant);  // ajoute le montant au solde
+            walletDao.update(wallet);   // sauvegarde la mise à jour
+        }
+    }
+
 
     public List<Covoiturage> consulterHistorique() {
         return new ArrayList<>();
