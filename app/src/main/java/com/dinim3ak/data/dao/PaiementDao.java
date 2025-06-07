@@ -7,7 +7,7 @@ import java.util.List;
 @Dao
 public interface PaiementDao {
     @Insert
-    void insert(Paiement paiement);
+    long insert(Paiement paiement);
 
     @Update
     void update(Paiement paiement);

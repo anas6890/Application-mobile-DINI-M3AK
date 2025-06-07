@@ -9,8 +9,7 @@ import java.util.List;
 @Dao
 public interface UtilisateurDao {
     @Insert
-    default long insert(Utilisateur utilisateur) {
-    }
+    long insert(Utilisateur utilisateur);
 
     @Update
     void update(Utilisateur utilisateur);
@@ -22,7 +21,7 @@ public interface UtilisateurDao {
     Utilisateur getById(int id);
 
     @Query("SELECT * FROM Utilisateur WHERE email = :email")
-    Utilisateur getByEmail(String email);
+    Utilisateur findByEmail(String email);
 
     @Query("SELECT * FROM Utilisateur")
     List<Utilisateur> getAll();

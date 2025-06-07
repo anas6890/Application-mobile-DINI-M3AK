@@ -7,7 +7,7 @@ import java.util.List;
 @Dao
 public interface ProfilDao {
     @Insert
-    void insert(Profil profil);
+    long insert(Profil profil);
 
     @Update
     void update(Profil profil);

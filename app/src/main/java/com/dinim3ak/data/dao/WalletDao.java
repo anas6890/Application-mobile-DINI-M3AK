@@ -7,7 +7,7 @@ import java.util.List;
 @Dao
 public interface WalletDao {
     @Insert
-    void insert(Wallet wallet);
+    long insert(Wallet wallet);
 
     @Update
     void update(Wallet wallet);

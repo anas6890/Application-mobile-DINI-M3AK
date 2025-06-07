@@ -13,8 +13,8 @@ import java.util.List;
 public class Covoiturage {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
-    private int conducteurId;
+    private long id;
+    private long conducteurId;
     private String villeDepart;
     private String villeArrivee;
     @TypeConverters(DateConverter.class)
@@ -22,8 +22,8 @@ public class Covoiturage {
     private float dureeEstimee;
     private float prixParPassager;
     private int nombrePlaces;
-    private int vehiculeId;
-    private StatutCovoiturage statut;
+    private long vehiculeId;
+    private CovoiturageStatus statut;
     private TypeCovoiturage type;
 
     @Ignore
@@ -36,9 +36,9 @@ public class Covoiturage {
     public Covoiturage() {}
 
     // Constructeur avec les principaux champs (hors ID auto-généré, arrets et commentaires)
-    public Covoiturage(int conducteurId, String villeDepart, String villeArrivee, Date dateHeureDepart,
-                       float dureeEstimee, float prixParPassager, int nombrePlaces, int vehiculeId,
-                       StatutCovoiturage statut, TypeCovoiturage type) {
+    public Covoiturage(long conducteurId, String villeDepart, String villeArrivee, Date dateHeureDepart,
+                       float dureeEstimee, float prixParPassager, int nombrePlaces, long vehiculeId,
+                       CovoiturageStatus statut, TypeCovoiturage type) {
         this.conducteurId = conducteurId;
         this.villeDepart = villeDepart;
         this.villeArrivee = villeArrivee;
@@ -52,19 +52,19 @@ public class Covoiturage {
     }
 
     // Getters et Setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public int getConducteurId() {
+    public long getConducteurId() {
         return conducteurId;
     }
 
-    public void setConducteurId(int conducteurId) {
+    public void setConducteurId(long conducteurId) {
         this.conducteurId = conducteurId;
     }
 
@@ -116,19 +116,19 @@ public class Covoiturage {
         this.nombrePlaces = nombrePlaces;
     }
 
-    public int getVehiculeId() {
+    public long getVehiculeId() {
         return vehiculeId;
     }
 
-    public void setVehiculeId(int vehiculeId) {
+    public void setVehiculeId(long vehiculeId) {
         this.vehiculeId = vehiculeId;
     }
 
-    public StatutCovoiturage getStatut() {
+    public CovoiturageStatus getStatut() {
         return statut;
     }
 
-    public void setStatut(StatutCovoiturage statut) {
+    public void setStatut(CovoiturageStatus statut) {
         this.statut = statut;
     }
 

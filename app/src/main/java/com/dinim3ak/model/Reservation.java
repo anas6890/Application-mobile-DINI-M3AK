@@ -10,9 +10,9 @@ import java.util.Date;
 public class Reservation {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
-    private int passagerId;
-    private int trajetId;
+    private long id;
+    private long passagerId;
+    private long trajetId;
     private ReservationStatus statut;
 
     @TypeConverters(DateConverter.class)
@@ -30,27 +30,27 @@ public class Reservation {
     }
 
     // Getters et Setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public int getPassagerId() {
+    public long getPassagerId() {
         return passagerId;
     }
 
-    public void setPassagerId(int passagerId) {
+    public void setPassagerId(long passagerId) {
         this.passagerId = passagerId;
     }
 
-    public int getTrajetId() {
+    public long getTrajetId() {
         return trajetId;
     }
 
-    public void setTrajetId(int trajetId) {
+    public void setTrajetId(long trajetId) {
         this.trajetId = trajetId;
     }
 

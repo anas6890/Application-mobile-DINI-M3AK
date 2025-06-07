@@ -20,7 +20,10 @@ public class PaiementRepository {
     }
 
     public void insert(Paiement paiement) {
-        Executors.newSingleThreadExecutor().execute(() -> paiementDao.insert(paiement));
+        Executors.newSingleThreadExecutor().execute(() -> {
+            long generatedId = paiementDao.insert(paiement);
+        paiement.setId(generatedId);
+        });
     }
 
 }

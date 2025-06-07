@@ -27,7 +27,7 @@ public class UtilisateurRepository {
         });
     }
 
-    public Utilisateur getByEmail(String email){
+    public Utilisateur findByEmail(String email){
         return utilisateurDao.getByEmail(email);
     }
 

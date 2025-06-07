@@ -10,7 +10,7 @@ import java.util.Date;
 public class Transaction {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private long id;
     private float montant;
     private String description;
 
@@ -28,11 +28,11 @@ public class Transaction {
     }
 
     // Getters et Setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

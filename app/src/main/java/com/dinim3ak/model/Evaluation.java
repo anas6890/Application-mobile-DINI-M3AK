@@ -10,9 +10,9 @@ import java.util.Date;
 public class Evaluation {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
-    private int auteurId;
-    private int cibleId;
+    private long id;
+    private long auteurId;
+    private long cibleId;
     private float note;
     private String texte;
 
@@ -23,7 +23,7 @@ public class Evaluation {
     public Evaluation() {}
 
     // Constructeur avec champs principaux (hors ID auto-généré)
-    public Evaluation(int auteurId, int cibleId, float note, String texte, Date date) {
+    public Evaluation(long auteurId, long cibleId, float note, String texte, Date date) {
         this.auteurId = auteurId;
         this.cibleId = cibleId;
         this.note = note;
@@ -32,27 +32,27 @@ public class Evaluation {
     }
 
     // Getters et Setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public int getAuteurId() {
+    public long getAuteurId() {
         return auteurId;
     }
 
-    public void setAuteurId(int auteurId) {
+    public void setAuteurId(long auteurId) {
         this.auteurId = auteurId;
     }
 
-    public int getCibleId() {
+    public long getCibleId() {
         return cibleId;
     }
 
-    public void setCibleId(int cibleId) {
+    public void setCibleId(long cibleId) {
         this.cibleId = cibleId;
     }
 

@@ -7,7 +7,7 @@ import java.util.List;
 @Dao
 public interface EvaluationDao {
     @Insert
-    void insert(Evaluation evaluation);
+    long insert(Evaluation evaluation);
 
     @Update
     void update(Evaluation evaluation);
