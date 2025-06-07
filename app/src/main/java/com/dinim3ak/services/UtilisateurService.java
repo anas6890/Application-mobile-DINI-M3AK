@@ -18,8 +18,8 @@ public class UtilisateurService {
     }
 
     public boolean loginUser(String email, String password) {
-        Utilisateur user = utilisateurRepository.findByEmail(email);
-        if (user != null && validatePassword(password, user.getPassword())) {
+        Utilisateur user = utilisateurRepository.getByEmail(email);
+        if (user != null && validatePassword(password, user.getMotDePasse())) {
             utilisateurSession.setCurrentUser(user);
             return true;
         }
@@ -31,7 +31,7 @@ public class UtilisateurService {
             Utilisateur newUser = new Utilisateur();
             newUser.setNom(nom);
             newUser.setEmail(email);
-            newUser.setPassword(hashPassword(password));
+            newUser.setMotDePasse(hashPassword(password));
 
             utilisateurRepository.insert(newUser);
 
