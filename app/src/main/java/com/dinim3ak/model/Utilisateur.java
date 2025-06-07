@@ -125,7 +125,7 @@ public class Utilisateur {
     public void rechargerWallet(float montant, WalletDao walletDao) {
         if (montant <= 0) return; // Ignore recharge négative ou nulle
 
-        Wallet wallet = walletDao.getById(this.walletId);
+        Wallet wallet = walletDao.getById((int) this.walletId);
         if (wallet != null) {
             wallet.recharger(montant);  // ajoute le montant au solde
             walletDao.update(wallet);   // sauvegarde la mise à jour
