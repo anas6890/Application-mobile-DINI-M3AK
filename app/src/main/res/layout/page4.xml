@@ -87,6 +87,7 @@
             android:weightSum="2">
 
             <EditText
+                android:id="@+id/nom_input"
                 android:layout_width="0dp"
                 android:layout_height="58dp"
                 android:layout_weight="1"
@@ -102,6 +103,7 @@
                 android:layout_height="58dp" />
 
             <EditText
+                android:id="@+id/prenom_input"
                 android:layout_width="0dp"
                 android:layout_height="58dp"
                 android:layout_weight="1"
@@ -155,6 +157,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/email_input"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:autofillHints="emailAddress"
@@ -174,7 +177,8 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <LinearLayout
+        <RadioGroup
+            android:id="@+id/radio_button_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -192,7 +196,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:text="@string/femme" />
-        </LinearLayout>
+        </RadioGroup>
 
         <!-- Numéro de téléphone -->
         <TextView

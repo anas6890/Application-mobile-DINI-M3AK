@@ -28,7 +28,7 @@ public class UtilisateurRepository {
     }
 
     public Utilisateur findByEmail(String email){
-        return utilisateurDao.getByEmail(email);
+        return utilisateurDao.findByEmail(email);
     }
 
     public List<Utilisateur> getAll() {

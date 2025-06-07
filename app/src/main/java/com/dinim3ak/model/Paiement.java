@@ -5,6 +5,8 @@ import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
 import com.dinim3ak.data.converter.DateConverter;
+import com.dinim3ak.data.converter.MethodePaiementConverter;
+import com.dinim3ak.data.converter.PaiementStatusConverter;
 
 import java.util.Date;
 @TypeConverters({DateConverter.class,PaiementStatus.class,MethodePaiement.class})
@@ -18,9 +20,13 @@ public class Paiement {
     private long trajetId;
     private float montant;
 
+    @TypeConverters(DateConverter.class)
     private Date datePaiement;
 
+    @TypeConverters(PaiementStatusConverter.class)
     private PaiementStatus statut;
+
+    @TypeConverters(MethodePaiementConverter.class)
     private MethodePaiement methode;
 
     // Constructeur sans argument

@@ -5,6 +5,7 @@ import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
 import com.dinim3ak.data.converter.DateConverter;
+import com.dinim3ak.data.converter.ReservationStatusConverter;
 
 import java.util.Date;
 
@@ -15,6 +16,8 @@ public class Reservation {
     private long id;
     private long passagerId;
     private long trajetId;
+
+    @TypeConverters(ReservationStatusConverter.class)
     private ReservationStatus statut;
 
     @TypeConverters(DateConverter.class)

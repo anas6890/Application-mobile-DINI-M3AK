@@ -153,6 +153,19 @@
             </LinearLayout>
 
             <EditText
+                android:id="@+id/email_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:autofillHints="password"
+                android:hint="@string/email"
+                android:importantForAutofill="yes"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:paddingEnd="48dp"
+                tools:ignore="RtlSymmetry,VisualLintTextFieldSize" />
+
+            <EditText
                 android:id="@+id/password_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

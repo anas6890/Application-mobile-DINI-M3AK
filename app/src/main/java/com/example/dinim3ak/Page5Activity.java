@@ -14,14 +14,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class Page5Activity extends AppCompatActivity {
+import com.dinim3ak.data.session.UtilisateurSession;
+import com.dinim3ak.model.Utilisateur;
+import com.dinim3ak.services.user.UtilisateurService;
 
+public class Page5Activity extends AppCompatActivity {
+    private UtilisateurService utilisateurService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page5);
 
+        utilisateurService = new UtilisateurService(this);
+
+        if (!utilisateurService.isLoggedIn()) {
+            // Redirect to login
+            startActivity(new Intent(this, Page1Activity.class));
+            finish();
+        } else {
+            // User is logged in
+            Utilisateur currentUser = utilisateurService.getCurrentUser();
+            // Use currentUser data
+        }
 
         // Initialisation des vues
         ImageView btn_profil = findViewById(R.id.btn_profil);

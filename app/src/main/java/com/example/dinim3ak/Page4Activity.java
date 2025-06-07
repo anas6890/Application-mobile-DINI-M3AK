@@ -7,12 +7,22 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.dinim3ak.model.Sex;
+import com.dinim3ak.services.user.UtilisateurService;
+
 import java.util.Calendar;
+import java.util.Date;
 
 public class Page4Activity extends AppCompatActivity {
+
+    private UtilisateurService utilisateurService;
 
     private EditText dateEditText;
     private Calendar calendar;
@@ -22,6 +32,7 @@ public class Page4Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page4);
 
+        utilisateurService = new UtilisateurService(this);
         Button btnContinuer = findViewById(R.id.btnContinuer);
         ImageView backButton = findViewById(R.id.backButton4);
 
@@ -32,8 +43,19 @@ public class Page4Activity extends AppCompatActivity {
         });
 
         btnContinuer.setOnClickListener(v -> {
-            Intent intent = new Intent(Page4Activity.this, Page5Activity.class);
-            startActivity(intent);
+            String email = ((TextView)findViewById(R.id.email_input)).getText().toString();
+            String password = ((TextView)findViewById(R.id.password_input)).getText().toString();
+            String nom = ((TextView)findViewById(R.id.nom_input)).getText().toString();
+            String prenom = ((TextView)findViewById(R.id.prenom_input)).getText().toString();
+            Date dateNaissance = new Date(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+            String tel = ((TextView)findViewById(R.id.phone_input)).getText().toString();
+            String sexstr = ((RadioButton)findViewById(((RadioGroup)findViewById(R.id.radio_button_group)).getCheckedRadioButtonId())).getText().toString();
+            Sex sex = sexstr.equals("homme") ? Sex.HOMME : Sex.FEMME;
+            if(!utilisateurService.registerUser(nom, prenom, dateNaissance, email, password, sex, tel)){
+                Toast.makeText(this, "Email invalide!", Toast.LENGTH_SHORT).show();
+            }else{
+                startActivity(new Intent(this, Page5Activity.class));
+            }
         });
 
         dateEditText = findViewById(R.id.dateEditText);
