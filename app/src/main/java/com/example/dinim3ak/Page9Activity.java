@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dinim3ak.services.trip.CovoiturageService;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +20,8 @@ public class Page9Activity extends AppCompatActivity {
     RecyclerView recyclerView;
     OffreItemAdapter adapter;
     List<OffreItem> offreList;
+
+    CovoiturageService covoiturageService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,7 @@ public class Page9Activity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.offreView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
 
         // Sample data
         offreList = new ArrayList<>();

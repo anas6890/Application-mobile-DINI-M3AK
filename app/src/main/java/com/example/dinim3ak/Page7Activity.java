@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Objects;
+
 public class Page7Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,10 +71,20 @@ public class Page7Activity extends AppCompatActivity {
     // Méthode de lancement de recherche
     private void lancerRecherche(EditText editTextVille2) {
         String ville2 = editTextVille2.getText().toString().trim();
+        String ville1 = "";
+        Intent startingIntent = getIntent();
 
         if (!ville2.isEmpty()) {
+            // Check if the startingIntent has extras before trying to retrieve them
+            if (startingIntent != null && startingIntent.getExtras() != null) {
+                ville1 = startingIntent.getStringExtra("ville1");
+
+            } else {
+                Toast.makeText(this, "No data received", Toast.LENGTH_SHORT).show();
+            }
             Intent intent = new Intent(Page7Activity.this, Page8Activity.class);
-            intent.putExtra("ville", ville2); // facultatif
+            intent.putExtra("ville2", ville2);
+            intent.putExtra("ville1", ville1);
             startActivity(intent);
         } else {
             Toast.makeText(this, "Veuillez entrer une ville", Toast.LENGTH_SHORT).show();

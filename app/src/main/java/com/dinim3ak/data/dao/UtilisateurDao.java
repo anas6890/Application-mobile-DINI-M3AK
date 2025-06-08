@@ -1,5 +1,6 @@
 package com.dinim3ak.data.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.*;
 
 import com.dinim3ak.model.Utilisateur;
@@ -18,11 +19,14 @@ public interface UtilisateurDao {
     void delete(Utilisateur utilisateur);
 
     @Query("SELECT * FROM Utilisateur WHERE id = :id")
-    Utilisateur getById(int id);
+    LiveData<Utilisateur> findById(long id);
 
     @Query("SELECT * FROM Utilisateur WHERE email = :email")
-    Utilisateur findByEmail(String email);
+    LiveData<Utilisateur> findByEmail(String email);
 
     @Query("SELECT * FROM Utilisateur")
-    List<Utilisateur> getAll();
+    LiveData<List<Utilisateur>> getAll();
+
+    @Query("SELECT * FROM Utilisateur WHERE numeroTelephone = :tel")
+    LiveData<Utilisateur> findByTel(String tel);
 }

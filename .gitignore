@@ -15,3 +15,8 @@
 local.properties
 /.idea/deploymentTargetSelector.xml
 /.idea/
+# Ignore Room database files
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
