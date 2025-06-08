@@ -6,7 +6,8 @@ import androidx.room.TypeConverters;
 
 import com.dinim3ak.data.converter.DateConverter;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 public class Commentaire {
@@ -18,17 +19,21 @@ public class Commentaire {
     private String texte;
 
     @TypeConverters(DateConverter.class)
-    private Date date;
+    private LocalDate date;
+
+    @TypeConverters(DateConverter.class)
+    private LocalTime heure;
 
     // Constructeur sans argument
     public Commentaire() {}
 
     // Constructeur avec champs (hors id auto-généré)
-    public Commentaire(long auteurId, int covoiturageId, String texte, Date date) {
+    public Commentaire(long auteurId, long covoiturageId, String texte, LocalDate date, LocalTime heure) {
         this.auteurId = auteurId;
         this.covoiturageId = covoiturageId;
         this.texte = texte;
         this.date = date;
+        this.heure = heure;
     }
 
     // Getters et setters
@@ -64,11 +69,19 @@ public class Commentaire {
         this.texte = texte;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public LocalTime getHeure() {
+        return heure;
+    }
+
+    public void setHeure(LocalTime heure) {
+        this.heure = heure;
     }
 }

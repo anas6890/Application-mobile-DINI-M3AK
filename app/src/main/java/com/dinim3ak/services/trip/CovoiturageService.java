@@ -7,6 +7,8 @@ import com.dinim3ak.data.session.UtilisateurSession;
 import com.dinim3ak.model.Covoiturage;
 import com.dinim3ak.model.Utilisateur;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
@@ -19,7 +21,7 @@ public class CovoiturageService {
         userSession = UtilisateurSession.getInstance(context);
     }
 
-    public Covoiturage createCovoiturage(String departure, String destination, Date dateTime,
+    public Covoiturage createCovoiturage(String departure, String destination, LocalTime heureDepart,LocalDate date ,
                                          int availableSeats, float price) {
         Utilisateur currentUser = userSession.getCurrentUser();
         if (currentUser == null) {
@@ -29,7 +31,8 @@ public class CovoiturageService {
         Covoiturage trip = new Covoiturage();
         trip.setVilleDepart(departure);
         trip.setVilleArrivee(destination);
-        trip.setDateHeureDepart(dateTime);
+        trip.setHeureDepart(heureDepart);
+        trip.setDateDepart(date);
         trip.setNombrePlaces(availableSeats);
         trip.setPrixParPassager(price);
         trip.setConducteurId(currentUser.getId());

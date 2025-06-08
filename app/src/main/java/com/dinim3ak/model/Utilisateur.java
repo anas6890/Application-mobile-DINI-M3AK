@@ -4,15 +4,18 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
+
 import com.dinim3ak.data.converter.DateConverter;
 import com.dinim3ak.data.converter.SexConverter;
 import com.dinim3ak.data.dao.WalletDao;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
+@TypeConverters({DateConverter.class, SexConverter.class})
 public class Utilisateur {
 
     @PrimaryKey(autoGenerate = true)
@@ -22,26 +25,22 @@ public class Utilisateur {
     private String email;
     private String motDePasse;
     private String numeroTelephone;
-
-    @TypeConverters(DateConverter.class)
-    private Date dateNaissance;
-
-    @TypeConverters(SexConverter.class)
+    private LocalDate dateNaissance;
     private Sex sexe;
     private String photoProfil;
     private float noteMoyenne;
     private long walletId;
-    @TypeConverters(DateConverter.class)
-    private Date dateInscription;
+    private LocalDate dateInscription;
+    private LocalTime heureInscription;
     private long profilId;
 
-    // Constructeur vide requis pour Room
+    // Constructeur vide requis par Room
     public Utilisateur() {}
 
     // Constructeur complet
     public Utilisateur(long id, String nom, String prenom, String email, String motDePasse, String numeroTelephone,
-                       Date dateNaissance, Sex sexe, String photoProfil, float noteMoyenne, long walletId,
-                       Date dateInscription, long profilId) {
+                       LocalDate dateNaissance, Sex sexe, String photoProfil, float noteMoyenne, long walletId,
+                       LocalDate dateInscription, LocalTime heureInscription, long profilId) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -54,10 +53,12 @@ public class Utilisateur {
         this.noteMoyenne = noteMoyenne;
         this.walletId = walletId;
         this.dateInscription = dateInscription;
+        this.heureInscription = heureInscription;
         this.profilId = profilId;
     }
 
     // Getters et Setters
+
     public long getId() { return id; }
     public void setId(long id) { this.id = id; }
 
@@ -76,8 +77,8 @@ public class Utilisateur {
     public String getNumeroTelephone() { return numeroTelephone; }
     public void setNumeroTelephone(String numeroTelephone) { this.numeroTelephone = numeroTelephone; }
 
-    public Date getDateNaissance() { return dateNaissance; }
-    public void setDateNaissance(Date dateNaissance) { this.dateNaissance = dateNaissance; }
+    public LocalDate getDateNaissance() { return dateNaissance; }
+    public void setDateNaissance(LocalDate dateNaissance) { this.dateNaissance = dateNaissance; }
 
     public Sex getSexe() { return sexe; }
     public void setSexe(Sex sexe) { this.sexe = sexe; }
@@ -91,18 +92,22 @@ public class Utilisateur {
     public long getWalletId() { return walletId; }
     public void setWalletId(long walletId) { this.walletId = walletId; }
 
-    public Date getDateInscription() { return dateInscription; }
-    public void setDateInscription(Date dateInscription) { this.dateInscription = dateInscription; }
+    public LocalDate getDateInscription() { return dateInscription; }
+    public void setDateInscription(LocalDate dateInscription) { this.dateInscription = dateInscription; }
+
+    public LocalTime getHeureInscription() { return heureInscription; }
+    public void setHeureInscription(LocalTime heureInscription) { this.heureInscription = heureInscription; }
 
     public long getProfilId() { return profilId; }
     public void setProfilId(long profilId) { this.profilId = profilId; }
 
     // Méthodes métier
+
     public void inscrire() {
         if (this.dateInscription == null) {
-            this.dateInscription = new Date(); // date actuelle
+            this.dateInscription = LocalDate.now();
+            this.heureInscription = LocalTime.now();
         }
-        // Logique supplémentaire si nécessaire (vérification unicité email, etc.)
     }
 
     public boolean seConnecter(String email, String motDePasse) {
@@ -128,15 +133,14 @@ public class Utilisateur {
     }
 
     public void rechargerWallet(float montant, WalletDao walletDao) {
-        if (montant <= 0) return; // Ignore recharge négative ou nulle
+        if (montant <= 0) return;
 
         Wallet wallet = walletDao.getById((int) this.walletId);
         if (wallet != null) {
-            wallet.recharger(montant);  // ajoute le montant au solde
-            walletDao.update(wallet);   // sauvegarde la mise à jour
+            wallet.recharger(montant);
+            walletDao.update(wallet);
         }
     }
-
 
     public List<Covoiturage> consulterHistorique() {
         return new ArrayList<>();

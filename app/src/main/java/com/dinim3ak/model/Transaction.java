@@ -5,10 +5,11 @@ import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
 import com.dinim3ak.data.converter.DateConverter;
-
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
+@TypeConverters({DateConverter.class})
 public class Transaction {
 
     @PrimaryKey(autoGenerate = true)
@@ -16,17 +17,18 @@ public class Transaction {
     private float montant;
     private String description;
 
-    @TypeConverters(DateConverter.class)
-    private Date date;
+    private LocalDate date;
+    private LocalTime heure;
 
     // Constructeur sans argument
     public Transaction() {}
 
     // Constructeur avec tous les champs sauf ID (auto-généré)
-    public Transaction(float montant, String description, Date date) {
+    public Transaction(float montant, String description, LocalDate date, LocalTime heure) {
         this.montant = montant;
         this.description = description;
         this.date = date;
+        this.heure = heure;
     }
 
     // Getters et Setters
@@ -54,11 +56,19 @@ public class Transaction {
         this.description = description;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public LocalTime getHeure() {
+        return heure;
+    }
+
+    public void setHeure(LocalTime heure) {
+        this.heure = heure;
     }
 }

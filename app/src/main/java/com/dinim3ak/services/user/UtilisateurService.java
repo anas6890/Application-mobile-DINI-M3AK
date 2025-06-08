@@ -8,15 +8,17 @@ import com.dinim3ak.data.session.UtilisateurSession;
 import com.dinim3ak.model.Sex;
 import com.dinim3ak.model.Utilisateur;
 
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UtilisateurService {
-    private UtilisateurRepository utilisateurRepository;
-    private UtilisateurSession utilisateurSession;
+    private final UtilisateurRepository utilisateurRepository;
+    private final UtilisateurSession utilisateurSession;
 
     public UtilisateurService(Context context) {
         utilisateurRepository = new UtilisateurRepository(context);
@@ -32,9 +34,10 @@ public class UtilisateurService {
         return false;
     }
 
-    public boolean registerUser(String nom, String prenom, Date dateNaissance, String email, String password, Sex sex, String tel) {
+    public boolean registerUser(String nom, String prenom, LocalDate dateNaissance, String email, String password, Sex sex, String tel) {
         if (isEmailValid(email)) {
-            if(utilisateurRepository.findByEmail(email) != null) return false;
+            if (utilisateurRepository.findByEmail(email) != null) return false;
+
             Utilisateur newUser = new Utilisateur();
             newUser.setNom(nom);
             newUser.setPrenom(prenom);
@@ -43,7 +46,7 @@ public class UtilisateurService {
             newUser.setDateNaissance(dateNaissance);
             newUser.setSexe(sex);
             newUser.setNumeroTelephone(tel);
-            newUser.setDateInscription(new Date());
+            newUser.setDateInscription(LocalDate.now()); // Remplace new Date()
 
             utilisateurRepository.insert(newUser);
 
@@ -54,9 +57,10 @@ public class UtilisateurService {
         return false;
     }
 
-    public boolean isLoggedIn(){
+    public boolean isLoggedIn() {
         return utilisateurSession.isLoggedIn();
     }
+
     public void logout() {
         utilisateurSession.logout();
     }
@@ -65,7 +69,7 @@ public class UtilisateurService {
         return utilisateurSession.getCurrentUser();
     }
 
-    public boolean validatePassword(String password, String userPassword){
+    public boolean validatePassword(String password, String userPassword) {
         return hashPassword(password).equals(userPassword);
     }
 
@@ -74,10 +78,6 @@ public class UtilisateurService {
             return false;
         }
 
-        // Regex for a common email pattern.
-        // It allows letters, digits, dots, underscores, percents, plus, and hyphens before the @.
-        // It requires at least one character, followed by @, then domain name (letters, digits, hyphens)
-        // and finally a dot followed by 2 to 6 characters for the TLD.
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
         Pattern pattern = Pattern.compile(emailRegex);
         Matcher matcher = pattern.matcher(email);
@@ -90,24 +90,11 @@ public class UtilisateurService {
         }
 
         try {
-            // Get an instance of the SHA-256 MessageDigest
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
-
-            // Compute the hash
-            byte[] hash = digest.digest(password.getBytes("UTF-8"));
-
-            // Encode the hash bytes to a Base64 string for easier storage and display.
-            // Using android.util.Base64 for API Level 24 compatibility.
-            // NO_WRAP flag ensures the output is not wrapped with newline characters.
+            byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
             return Base64.encodeToString(hash, Base64.NO_WRAP);
-
         } catch (NoSuchAlgorithmException e) {
             System.err.println("SHA-256 algorithm not found: " + e.getMessage());
-            // Log the exception properly in a real application
-            return null;
-        } catch (java.io.UnsupportedEncodingException e) {
-            System.err.println("UTF-8 encoding not supported: " + e.getMessage());
-            // Log the exception properly in a real application
             return null;
         }
     }
