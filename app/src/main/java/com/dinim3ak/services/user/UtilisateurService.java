@@ -42,7 +42,7 @@ public class UtilisateurService {
                     utilisateurSession.setCurrentUser(user);
                     callback.onResult(true);
                 }
-                callback.onResult(false);
+                else{callback.onResult(false);}
             });
         }else{
             utilisateurRepository.findByEmail(login).observe(lifecycleOwner, (user) ->{
@@ -50,7 +50,7 @@ public class UtilisateurService {
                     utilisateurSession.setCurrentUser(user);
                     callback.onResult(true);
                 }
-                callback.onResult(false);
+                else{callback.onResult(false);}
             });
         }
     }
@@ -73,13 +73,15 @@ public class UtilisateurService {
                             newUser.setDateNaissance(dateNaissance);
                             newUser.setSexe(sex);
                             newUser.setNumeroTelephone(tel);
-                            newUser.setDateInscription(LocalDate.now()); // Remplace new Date()
+                            newUser.setDateInscription(LocalDate.now());
 
                             utilisateurRepository.insert(newUser);
 
                             // Auto-login after registration
                             utilisateurSession.setCurrentUser(newUser);
                             callback.onResult(true);
+                        }else{
+                            callback.onResult(false);
                         }
                     }
                 });
