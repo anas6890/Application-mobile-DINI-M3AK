@@ -55,11 +55,14 @@ public class Page4Activity extends AppCompatActivity {
             String tel = ((TextView)findViewById(R.id.phone_input)).getText().toString();
             String sexstr = ((RadioButton)findViewById(((RadioGroup)findViewById(R.id.radio_button_group)).getCheckedRadioButtonId())).getText().toString();
             Sex sex = sexstr.equals("homme") ? Sex.HOMME : Sex.FEMME;
-            if(!utilisateurService.registerUser(nom, prenom, dateNaissance, email, password, sex, tel)){
-                Toast.makeText(this, "Email invalide!", Toast.LENGTH_SHORT).show();
-            }else{
-                startActivity(new Intent(this, Page5Activity.class));
-            }
+            utilisateurService.registerUser(this, nom, prenom, dateNaissance, email, password, sex, tel, isOperationValid -> {
+                if(!isOperationValid){
+                    Toast.makeText(this, "Email invalide!", Toast.LENGTH_SHORT).show();
+                }else{
+                    startActivity(new Intent(this, Page5Activity.class));
+                }
+            });
+
         });
 
         dateEditText = findViewById(R.id.dateEditText);

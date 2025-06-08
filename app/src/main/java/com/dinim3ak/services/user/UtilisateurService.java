@@ -3,10 +3,14 @@ package com.dinim3ak.services.user;
 import android.content.Context;
 import android.util.Base64;
 
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
+
 import com.dinim3ak.data.repositories.UtilisateurRepository;
 import com.dinim3ak.data.session.UtilisateurSession;
 import com.dinim3ak.model.Sex;
 import com.dinim3ak.model.Utilisateur;
+import com.dinim3ak.services.Callback;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -25,36 +29,63 @@ public class UtilisateurService {
         utilisateurSession = UtilisateurSession.getInstance(context);
     }
 
-    public boolean loginUser(String email, String password) {
-        Utilisateur user = utilisateurRepository.findByEmail(email);
-        if (user != null && validatePassword(password, user.getMotDePasse())) {
-            utilisateurSession.setCurrentUser(user);
-            return true;
+    public boolean isLoginTel(String login){
+        for(char c : login.toCharArray()){
+            if(!Character.isDigit(c)) return false;
         }
-        return false;
+        return true;
+    }
+    public void loginUser(LifecycleOwner lifecycleOwner, String login, String password, Callback<Boolean> callback) {
+        if(isLoginTel(login)){
+            utilisateurRepository.findByTel(login).observe(lifecycleOwner, (user) ->{
+                if (user != null && validatePassword(password, user.getMotDePasse())) {
+                    utilisateurSession.setCurrentUser(user);
+                    callback.onResult(true);
+                }
+                callback.onResult(false);
+            });
+        }else{
+            utilisateurRepository.findByEmail(login).observe(lifecycleOwner, (user) ->{
+                if (user != null && validatePassword(password, user.getMotDePasse())) {
+                    utilisateurSession.setCurrentUser(user);
+                    callback.onResult(true);
+                }
+                callback.onResult(false);
+            });
+        }
     }
 
-    public boolean registerUser(String nom, String prenom, LocalDate dateNaissance, String email, String password, Sex sex, String tel) {
-        if (isEmailValid(email)) {
-            if (utilisateurRepository.findByEmail(email) != null) return false;
+    public void registerUser(LifecycleOwner lifecycleOwner, String nom, String prenom, LocalDate dateNaissance, String email,
+                                String password, Sex sex, String tel, Callback<Boolean> callback) {
 
-            Utilisateur newUser = new Utilisateur();
-            newUser.setNom(nom);
-            newUser.setPrenom(prenom);
-            newUser.setEmail(email);
-            newUser.setMotDePasse(hashPassword(password));
-            newUser.setDateNaissance(dateNaissance);
-            newUser.setSexe(sex);
-            newUser.setNumeroTelephone(tel);
-            newUser.setDateInscription(LocalDate.now()); // Remplace new Date()
+        utilisateurRepository.findByEmail(email).observe(lifecycleOwner, utilisateur_ -> {
+            if(utilisateur_ != null) callback.onResult(false);
+            else {
+                utilisateurRepository.findByTel(tel).observe(lifecycleOwner, utilisateur -> {
+                    if(utilisateur != null) callback.onResult(false);
+                    else{
+                        if (isEmailValid(email)) {
+                            Utilisateur newUser = new Utilisateur();
+                            newUser.setNom(nom);
+                            newUser.setPrenom(prenom);
+                            newUser.setEmail(email);
+                            newUser.setMotDePasse(hashPassword(password));
+                            newUser.setDateNaissance(dateNaissance);
+                            newUser.setSexe(sex);
+                            newUser.setNumeroTelephone(tel);
+                            newUser.setDateInscription(LocalDate.now()); // Remplace new Date()
 
-            utilisateurRepository.insert(newUser);
+                            utilisateurRepository.insert(newUser);
 
-            // Auto-login after registration
-            utilisateurSession.setCurrentUser(newUser);
-            return true;
-        }
-        return false;
+                            // Auto-login after registration
+                            utilisateurSession.setCurrentUser(newUser);
+                            callback.onResult(true);
+                        }
+                    }
+                });
+
+            }
+        });
     }
 
     public boolean isLoggedIn() {

@@ -47,6 +47,7 @@
     <string name="date_de_naissance">Date de naissance</string>
     <string name="dd_mm_yyyy">dd/mm/yyyy</string>
     <string name="email">Email</string>
+    <string name="email_ou_tel">Email ou Tel</string>
     <string name="usermail_gmail_com">usermail@gmail.com</string>
     <string name="genre">Genre</string>
     <string name="homme">Homme</string>

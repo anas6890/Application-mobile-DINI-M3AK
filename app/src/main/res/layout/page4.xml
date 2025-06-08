@@ -167,6 +167,26 @@
             android:padding="10dp"
             tools:ignore="VisualLintTextFieldSize" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/mot_de_passe"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/password_input"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/edittext_background"
+            android:hint="@string/mot_de_passe"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            tools:ignore="VisualLintTextFieldSize" />
+
         <!-- Genre -->
         <TextView
             android:layout_width="wrap_content"

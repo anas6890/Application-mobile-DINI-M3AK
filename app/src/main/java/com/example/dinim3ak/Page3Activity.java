@@ -2,6 +2,7 @@ package com.example.dinim3ak;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,15 +32,17 @@ public class Page3Activity extends AppCompatActivity {
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         });
         btnContinuer.setOnClickListener(v -> {
-            String email = ((TextView)findViewById(R.id.email_input)).getText().toString();
+            String login = ((TextView)findViewById(R.id.email_tel_input)).getText().toString();
             String password = ((TextView)findViewById(R.id.password_input)).getText().toString();
-            if(email.isBlank() || password.isBlank()) Toast.makeText(this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
+            if(login.isBlank() || password.isBlank()) Toast.makeText(this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
             else{
-                if(!utilisateurService.loginUser(email, password)){
-                    Toast.makeText(this, "Email ou mot de passe incorrect!", Toast.LENGTH_SHORT).show();
-                }else{
-                    startActivity(new Intent(this, Page5Activity.class));
-                }
+                utilisateurService.loginUser(this, login, password, isLoggedIn -> {
+                    if(!isLoggedIn){
+                        Toast.makeText(this, "Email ou mot de passe incorrect!", Toast.LENGTH_SHORT).show();
+                    }else{
+                        startActivity(new Intent(this, Page5Activity.class));
+                    }
+                });
             }
 
         });

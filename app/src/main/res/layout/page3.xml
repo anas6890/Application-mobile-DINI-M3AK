@@ -126,39 +126,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text1">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <com.hbb20.CountryCodePicker
-                    android:id="@+id/ccp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:ccp_defaultNameCode="MA"
-                    app:ccp_showFlag="true"
-                    app:ccp_showNameCode="false"
-                    app:ccp_showPhoneCode="true" />
-
-                <EditText
-                    android:id="@+id/phone_input"
-                    android:layout_width="0dp"
-                    android:layout_height="55dp"
-                    android:layout_weight="1"
-                    android:hint="@string/_00_00_00_00_00"
-                    android:importantForAutofill="no"
-                    android:inputType="phone"
-                    tools:ignore="VisualLintTextFieldSize" />
-            </LinearLayout>
-
             <EditText
-                android:id="@+id/email_input"
+                android:id="@+id/email_tel_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:autofillHints="password"
-                android:hint="@string/email"
+                android:hint="@string/email_ou_tel"
                 android:importantForAutofill="yes"
                 android:inputType="text|textWebEmailAddress|textAutoCorrect"
                 android:minHeight="48dp"

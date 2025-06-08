@@ -73,7 +73,7 @@ public class Page6Activity extends AppCompatActivity {
 
         if (!ville1.isEmpty()) {
             Intent intent = new Intent(Page6Activity.this, Page7Activity.class);
-            intent.putExtra("ville", ville1); // facultatif, si tu veux transmettre la ville
+            intent.putExtra("ville1", ville1); // facultatif, si tu veux transmettre la ville
             startActivity(intent);
         } else {
             Toast.makeText(this, "Veuillez entrer une ville", Toast.LENGTH_SHORT).show();

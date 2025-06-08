@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,8 +33,19 @@ public class Page8Activity extends AppCompatActivity {
             datePicker.addOnPositiveButtonClickListener(selection -> {
                 String selectedDate = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
                         .format(new Date(selection));
-
+                Intent startingIntent = getIntent();
+                String ville1 = "", ville2 = "";
+                // Check if the intent has extras before trying to retrieve them
+                if (startingIntent != null && startingIntent.getExtras() != null) {
+                    ville1 = startingIntent.getStringExtra("ville1");
+                    ville2 = startingIntent.getStringExtra("ville2");
+                } else {
+                    Toast.makeText(this, "No data received", Toast.LENGTH_SHORT).show();
+                }
                 Intent i = new Intent(Page8Activity.this, Page9Activity.class);
+                i.putExtra("ville1", ville1);
+                i.putExtra("ville2", ville2);
+                i.putExtra("date", selectedDate);
                 startActivity(i);
             });
         });
@@ -52,7 +64,18 @@ public class Page8Activity extends AppCompatActivity {
         Button boutonsauter = findViewById(R.id.button8);
 
         boutonsauter.setOnClickListener(v -> {
+            Intent startingIntent = getIntent();
+            String ville1 = "", ville2 = "";
+            // Check if the intent has extras before trying to retrieve them
+            if (startingIntent != null && startingIntent.getExtras() != null) {
+                ville1 = startingIntent.getStringExtra("ville1");
+                ville2 = startingIntent.getStringExtra("ville2");
+            } else {
+                Toast.makeText(this, "No data received", Toast.LENGTH_SHORT).show();
+            }
             Intent intent = new Intent(Page8Activity.this, Page9Activity.class);
+            intent.putExtra("ville1", ville1);
+            intent.putExtra("ville2", ville2);
             startActivity(intent);
         });
 

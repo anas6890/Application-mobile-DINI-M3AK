@@ -3,10 +3,14 @@ package com.dinim3ak.services.trip;
 import android.content.Context;
 
 import com.dinim3ak.data.repositories.CovoiturageRepository;
+import com.dinim3ak.data.repositories.UtilisateurRepository;
 import com.dinim3ak.data.session.UtilisateurSession;
 import com.dinim3ak.model.Covoiturage;
 import com.dinim3ak.model.Utilisateur;
+import com.dinim3ak.services.user.UtilisateurService;
+import com.example.dinim3ak.OffreItem;
 
+import java.util.ArrayList;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
@@ -14,14 +18,16 @@ import java.util.List;
 
 public class CovoiturageService {
     private CovoiturageRepository covoiturageRepository;
+    private UtilisateurRepository utilisateurRepository;
     private UtilisateurSession userSession;
 
     public CovoiturageService(Context context) {
         covoiturageRepository = new CovoiturageRepository(context);
+        utilisateurRepository = new UtilisateurRepository(context);
         userSession = UtilisateurSession.getInstance(context);
     }
 
-    public Covoiturage createCovoiturage(String departure, String destination, LocalTime heureDepart,LocalDate date ,
+    public Covoiturage createCovoiturage(String departure, String destination, LocalDate date, LocalTime heureDepart,
                                          int availableSeats, float price) {
         Utilisateur currentUser = userSession.getCurrentUser();
         if (currentUser == null) {
@@ -42,8 +48,18 @@ public class CovoiturageService {
         return trip;
     }
 
-    public List<Covoiturage> searchTrips(String departure, String destination, Date date) {
-        return covoiturageRepository.searchCovoiturage(departure, destination, date);
+    public OffreItem covoiturageToOffre(Covoiturage covoiturage){
+        //Utilisateur driver = utilisateurRepository.findById(covoiturage.getConducteurId());
+        //String driverName = driver.getNom() + " " + driver.getPrenom();
+
+        return null;
+    }
+    public List<OffreItem> searchTrips(String departure, String destination, Date date) {
+        List<Covoiturage> matchingCovoiturages = covoiturageRepository.searchCovoiturage(departure, destination, date);
+        List<OffreItem> matchingOffres = new ArrayList<>();
+        for(Covoiturage covoiturage : matchingCovoiturages){
+        }
+        return matchingOffres;
     }
 
     public List<Covoiturage> getMyTrips() {
@@ -76,7 +92,9 @@ public class CovoiturageService {
         covoiturageRepository.delete(tripId);
     }
 
-    public Covoiturage getTripById(long tripId) {
+    public Covoiturage findTripById(long tripId) {
         return covoiturageRepository.findById(tripId);
     }
+
+
 }

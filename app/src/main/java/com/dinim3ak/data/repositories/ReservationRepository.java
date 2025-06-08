@@ -2,6 +2,7 @@ package com.dinim3ak.data.repositories;
 
 import android.content.Context;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Room;
 
 import com.dinim3ak.data.dao.ReservationDao;

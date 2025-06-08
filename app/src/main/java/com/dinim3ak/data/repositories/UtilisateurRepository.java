@@ -2,6 +2,7 @@ package com.dinim3ak.data.repositories;
 
 import android.content.Context;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Room;
 
 import com.dinim3ak.data.dao.UtilisateurDao;
@@ -27,11 +28,17 @@ public class UtilisateurRepository {
         });
     }
 
-    public Utilisateur findByEmail(String email){
+    public LiveData<Utilisateur> findByTel(String tel){
+        return utilisateurDao.findByTel(tel);
+    }
+    public LiveData<Utilisateur> findById(long id){
+        return utilisateurDao.findById(id);
+    }
+    public LiveData<Utilisateur> findByEmail(String email){
         return utilisateurDao.findByEmail(email);
     }
 
-    public List<Utilisateur> getAll() {
+    public LiveData<List<Utilisateur>> getAll() {
         return utilisateurDao.getAll();
     }
 }

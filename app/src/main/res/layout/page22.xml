@@ -202,9 +202,10 @@
             android:paddingVertical="12dp" />
 
         <TextView
+            android:id="@+id/logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Paramètres"
+            android:text="Deconnexion"
             android:paddingVertical="12dp" />
 
         <TextView
