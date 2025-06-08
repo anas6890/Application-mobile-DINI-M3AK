@@ -7,31 +7,34 @@ import androidx.room.TypeConverters;
 import com.dinim3ak.data.converter.DateConverter;
 import com.dinim3ak.data.converter.ReservationStatusConverter;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
+@TypeConverters({ReservationStatusConverter.class, DateConverter.class})
 public class Reservation {
 
     @PrimaryKey(autoGenerate = true)
     private long id;
+
     private long passagerId;
     private long trajetId;
-
-    @TypeConverters(ReservationStatusConverter.class)
     private ReservationStatus statut;
 
-    @TypeConverters(DateConverter.class)
-    private Date dateReservation;
+    private LocalDate dateReservation;
+    private LocalTime heureReservation;
 
     // Constructeur sans argument
     public Reservation() {}
 
-    // Constructeur avec champs principaux (hors ID auto-généré)
-    public Reservation(int passagerId, int trajetId, ReservationStatus statut, Date dateReservation) {
+    // Constructeur avec champs principaux
+    public Reservation(long passagerId, long trajetId, ReservationStatus statut,
+                       LocalDate dateReservation, LocalTime heureReservation) {
         this.passagerId = passagerId;
         this.trajetId = trajetId;
         this.statut = statut;
         this.dateReservation = dateReservation;
+        this.heureReservation = heureReservation;
     }
 
     // Getters et Setters
@@ -67,13 +70,19 @@ public class Reservation {
         this.statut = statut;
     }
 
-    public Date getDateReservation() {
+    public LocalDate getDateReservation() {
         return dateReservation;
     }
 
-    public void setDateReservation(Date dateReservation) {
+    public void setDateReservation(LocalDate dateReservation) {
         this.dateReservation = dateReservation;
     }
 
+    public LocalTime getHeureReservation() {
+        return heureReservation;
+    }
 
+    public void setHeureReservation(LocalTime heureReservation) {
+        this.heureReservation = heureReservation;
+    }
 }

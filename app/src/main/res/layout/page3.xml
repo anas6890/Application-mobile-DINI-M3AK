@@ -160,7 +160,7 @@
                 android:autofillHints="password"
                 android:hint="@string/email"
                 android:importantForAutofill="yes"
-                android:inputType="textPassword"
+                android:inputType="text|textWebEmailAddress|textAutoCorrect"
                 android:minHeight="48dp"
                 android:paddingEnd="48dp"
                 tools:ignore="RtlSymmetry,VisualLintTextFieldSize" />

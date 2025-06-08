@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "8c6e150c397528027e307d000704e1f1",
+    "identityHash": "cbc856471b7991bed48ea80fb0103a7c",
     "entities": [
       {
         "tableName": "Utilisateur",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nom` TEXT, `prenom` TEXT, `email` TEXT, `motDePasse` TEXT, `numeroTelephone` TEXT, `dateNaissance` INTEGER, `sexe` TEXT, `photoProfil` TEXT, `noteMoyenne` REAL NOT NULL, `walletId` INTEGER NOT NULL, `dateInscription` INTEGER, `profilId` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nom` TEXT, `prenom` TEXT, `email` TEXT, `motDePasse` TEXT, `numeroTelephone` TEXT, `dateNaissance` TEXT, `sexe` TEXT, `photoProfil` TEXT, `noteMoyenne` REAL NOT NULL, `walletId` INTEGER NOT NULL, `dateInscription` TEXT, `heureInscription` TEXT, `profilId` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -47,7 +47,7 @@
           {
             "fieldPath": "dateNaissance",
             "columnName": "dateNaissance",
-            "affinity": "INTEGER",
+            "affinity": "TEXT",
             "notNull": false
           },
           {
@@ -77,7 +77,13 @@
           {
             "fieldPath": "dateInscription",
             "columnName": "dateInscription",
-            "affinity": "INTEGER",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "heureInscription",
+            "columnName": "heureInscription",
+            "affinity": "TEXT",
             "notNull": false
           },
           {
@@ -98,7 +104,7 @@
       },
       {
         "tableName": "Covoiturage",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `conducteurId` INTEGER NOT NULL, `villeDepart` TEXT, `villeArrivee` TEXT, `dateHeureDepart` INTEGER, `dureeEstimee` REAL NOT NULL, `prixParPassager` REAL NOT NULL, `nombrePlaces` INTEGER NOT NULL, `vehiculeId` INTEGER NOT NULL, `statut` TEXT, `type` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `conducteurId` INTEGER NOT NULL, `villeDepart` TEXT, `villeArrivee` TEXT, `dateDepart` TEXT, `heureDepart` TEXT, `dureeEstimee` REAL NOT NULL, `prixParPassager` REAL NOT NULL, `nombrePlaces` INTEGER NOT NULL, `vehiculeId` INTEGER NOT NULL, `statut` TEXT, `type` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -125,9 +131,15 @@
             "notNull": false
           },
           {
-            "fieldPath": "dateHeureDepart",
-            "columnName": "dateHeureDepart",
-            "affinity": "INTEGER",
+            "fieldPath": "dateDepart",
+            "columnName": "dateDepart",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "heureDepart",
+            "columnName": "heureDepart",
+            "affinity": "TEXT",
             "notNull": false
           },
           {
@@ -234,7 +246,7 @@
       },
       {
         "tableName": "Reservation",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `passagerId` INTEGER NOT NULL, `trajetId` INTEGER NOT NULL, `statut` TEXT, `dateReservation` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `passagerId` INTEGER NOT NULL, `trajetId` INTEGER NOT NULL, `statut` TEXT, `dateReservation` TEXT, `heureReservation` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -263,7 +275,13 @@
           {
             "fieldPath": "dateReservation",
             "columnName": "dateReservation",
-            "affinity": "INTEGER",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "heureReservation",
+            "columnName": "heureReservation",
+            "affinity": "TEXT",
             "notNull": false
           }
         ],
@@ -278,7 +296,7 @@
       },
       {
         "tableName": "Notification",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `utilisateurId` INTEGER NOT NULL, `contenu` TEXT, `type` TEXT, `dateEnvoi` INTEGER, `lu` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `utilisateurId` INTEGER NOT NULL, `contenu` TEXT, `type` TEXT, `dateEnvoi` TEXT, `heureEnvoi` TEXT, `lu` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -307,7 +325,13 @@
           {
             "fieldPath": "dateEnvoi",
             "columnName": "dateEnvoi",
-            "affinity": "INTEGER",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "heureEnvoi",
+            "columnName": "heureEnvoi",
+            "affinity": "TEXT",
             "notNull": false
           },
           {
@@ -328,7 +352,7 @@
       },
       {
         "tableName": "Message",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `expediteurId` INTEGER NOT NULL, `destinataireId` INTEGER NOT NULL, `trajetId` INTEGER NOT NULL, `contenu` TEXT, `dateEnvoi` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `expediteurId` INTEGER NOT NULL, `destinataireId` INTEGER NOT NULL, `trajetId` INTEGER NOT NULL, `contenu` TEXT, `dateEnvoi` TEXT, `heureEnvoi` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -363,7 +387,13 @@
           {
             "fieldPath": "dateEnvoi",
             "columnName": "dateEnvoi",
-            "affinity": "INTEGER",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "heureEnvoi",
+            "columnName": "heureEnvoi",
+            "affinity": "TEXT",
             "notNull": false
           }
         ],
@@ -378,7 +408,7 @@
       },
       {
         "tableName": "Paiement",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `utilisateurId` INTEGER NOT NULL, `trajetId` INTEGER NOT NULL, `montant` REAL NOT NULL, `datePaiement` INTEGER, `statut` TEXT, `methode` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `utilisateurId` INTEGER NOT NULL, `trajetId` INTEGER NOT NULL, `montant` REAL NOT NULL, `datePaiement` TEXT, `heurePaiement` TEXT, `statut` TEXT, `methode` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -407,7 +437,13 @@
           {
             "fieldPath": "datePaiement",
             "columnName": "datePaiement",
-            "affinity": "INTEGER",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "heurePaiement",
+            "columnName": "heurePaiement",
+            "affinity": "TEXT",
             "notNull": false
           },
           {
@@ -434,7 +470,7 @@
       },
       {
         "tableName": "Evaluation",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `auteurId` INTEGER NOT NULL, `cibleId` INTEGER NOT NULL, `note` REAL NOT NULL, `texte` TEXT, `date` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `auteurId` INTEGER NOT NULL, `cibleId` INTEGER NOT NULL, `note` REAL NOT NULL, `texte` TEXT, `date` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -469,7 +505,7 @@
           {
             "fieldPath": "date",
             "columnName": "date",
-            "affinity": "INTEGER",
+            "affinity": "TEXT",
             "notNull": false
           }
         ],
@@ -516,7 +552,7 @@
       },
       {
         "tableName": "Profil",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `photoProfil` TEXT, `bio` TEXT, `noteMoyenne` REAL NOT NULL, `dateNaissance` INTEGER, `sexe` TEXT, `membreDepuis` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `photoProfil` TEXT, `bio` TEXT, `noteMoyenne` REAL NOT NULL, `dateNaissance` TEXT, `membreDepuis` TEXT, `sexe` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -545,19 +581,19 @@
           {
             "fieldPath": "dateNaissance",
             "columnName": "dateNaissance",
-            "affinity": "INTEGER",
-            "notNull": false
-          },
-          {
-            "fieldPath": "sexe",
-            "columnName": "sexe",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "membreDepuis",
             "columnName": "membreDepuis",
-            "affinity": "INTEGER",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sexe",
+            "columnName": "sexe",
+            "affinity": "TEXT",
             "notNull": false
           }
         ],
@@ -574,7 +610,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8c6e150c397528027e307d000704e1f1')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'cbc856471b7991bed48ea80fb0103a7c')"
     ]
   }
 }

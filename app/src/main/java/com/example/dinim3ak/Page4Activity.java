@@ -1,5 +1,6 @@
 package com.example.dinim3ak;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,9 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.dinim3ak.model.Sex;
 import com.dinim3ak.services.user.UtilisateurService;
 
+import java.time.LocalDate;
 import java.util.Calendar;
-import java.util.Date;
-
 public class Page4Activity extends AppCompatActivity {
 
     private UtilisateurService utilisateurService;
@@ -47,7 +47,11 @@ public class Page4Activity extends AppCompatActivity {
             String password = ((TextView)findViewById(R.id.password_input)).getText().toString();
             String nom = ((TextView)findViewById(R.id.nom_input)).getText().toString();
             String prenom = ((TextView)findViewById(R.id.prenom_input)).getText().toString();
-            Date dateNaissance = new Date(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+            LocalDate dateNaissance = LocalDate.of(
+                    calendar.get(Calendar.YEAR),
+                    calendar.get(Calendar.MONTH) + 1, // ⚠️ Ajouter 1 car Calendar.MONTH commence à 0
+                    calendar.get(Calendar.DAY_OF_MONTH)
+            );
             String tel = ((TextView)findViewById(R.id.phone_input)).getText().toString();
             String sexstr = ((RadioButton)findViewById(((RadioGroup)findViewById(R.id.radio_button_group)).getCheckedRadioButtonId())).getText().toString();
             Sex sex = sexstr.equals("homme") ? Sex.HOMME : Sex.FEMME;
@@ -83,7 +87,7 @@ public class Page4Activity extends AppCompatActivity {
                 this,
                 (DatePicker view, int selectedYear, int selectedMonth, int selectedDay) -> {
                     // Met à jour la date choisie dans l'EditText au format jj/MM/aaaa
-                    String dateStr = String.format("%02d/%02d/%04d", selectedDay, selectedMonth + 1, selectedYear);
+                    @SuppressLint("DefaultLocale") String dateStr = String.format("%02d/%02d/%04d", selectedDay, selectedMonth + 1, selectedYear);
                     dateEditText.setText(dateStr);
 
                     // Met à jour le calendrier interne

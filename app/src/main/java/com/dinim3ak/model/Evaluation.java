@@ -6,7 +6,7 @@ import androidx.room.TypeConverters;
 
 import com.dinim3ak.data.converter.DateConverter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 public class Evaluation {
@@ -19,13 +19,13 @@ public class Evaluation {
     private String texte;
 
     @TypeConverters(DateConverter.class)
-    private Date date;
+    private LocalDate date;
 
     // Constructeur sans argument
     public Evaluation() {}
 
     // Constructeur avec champs principaux (hors ID auto-généré)
-    public Evaluation(long auteurId, long cibleId, float note, String texte, Date date) {
+    public Evaluation(long auteurId, long cibleId, float note, String texte, LocalDate date) {
         this.auteurId = auteurId;
         this.cibleId = cibleId;
         this.note = note;
@@ -34,67 +34,34 @@ public class Evaluation {
     }
 
     // Getters et Setters
-    public long getId() {
-        return id;
-    }
+    public long getId() { return id; }
+    public void setId(long id) { this.id = id; }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    public long getAuteurId() { return auteurId; }
+    public void setAuteurId(long auteurId) { this.auteurId = auteurId; }
 
-    public long getAuteurId() {
-        return auteurId;
-    }
+    public long getCibleId() { return cibleId; }
+    public void setCibleId(long cibleId) { this.cibleId = cibleId; }
 
-    public void setAuteurId(long auteurId) {
-        this.auteurId = auteurId;
-    }
+    public float getNote() { return note; }
+    public void setNote(float note) { this.note = note; }
 
-    public long getCibleId() {
-        return cibleId;
-    }
+    public String getTexte() { return texte; }
+    public void setTexte(String texte) { this.texte = texte; }
 
-    public void setCibleId(long cibleId) {
-        this.cibleId = cibleId;
-    }
-
-    public float getNote() {
-        return note;
-    }
-
-    public void setNote(float note) {
-        this.note = note;
-    }
-
-    public String getTexte() {
-        return texte;
-    }
-
-    public void setTexte(String texte) {
-        this.texte = texte;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
+    public LocalDate getDate() { return date; }
+    public void setDate(LocalDate date) { this.date = date; }
 
     // Méthode existante
     public void publier() {
-        // Si aucune date n'est fournie, on utilise la date du jour
         if (this.date == null) {
-            this.date = new Date();
+            this.date = LocalDate.now();
         }
 
-        // Exemple de message de publication
         System.out.println("Évaluation publiée par l'utilisateur " + auteurId +
                 " sur l'utilisateur " + cibleId +
                 " avec la note de " + note +
                 " le " + date.toString() +
                 (texte != null && !texte.isEmpty() ? " : \"" + texte + "\"" : ""));
     }
-
 }

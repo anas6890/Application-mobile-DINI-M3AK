@@ -8,8 +8,9 @@ import androidx.room.TypeConverters;
 import com.dinim3ak.data.converter.CovoiturageConverter;
 import com.dinim3ak.data.converter.DateConverter;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -22,12 +23,14 @@ public class Covoiturage {
     private String villeArrivee;
 
     @TypeConverters(DateConverter.class)
-    private Date dateHeureDepart;
+    private LocalDate dateDepart;
+
+    @TypeConverters(DateConverter.class)
+    private LocalTime heureDepart;
 
     private float dureeEstimee;
     private float prixParPassager;
     private int nombrePlaces;
-
     private long vehiculeId;
 
     @TypeConverters(CovoiturageConverter.class)
@@ -42,16 +45,16 @@ public class Covoiturage {
     private List<Commentaire> commentaires = new ArrayList<>();
 
     // Constructors
-    public Covoiturage() {
-    }
+    public Covoiturage() {}
 
-    public Covoiturage(long conducteurId, String villeDepart, String villeArrivee, Date dateHeureDepart,
-                       float dureeEstimee, float prixParPassager, int nombrePlaces, long vehiculeId,
-                       CovoiturageStatus statut, TypeCovoiturage type) {
+    public Covoiturage(long conducteurId, String villeDepart, String villeArrivee, LocalDate dateDepart,
+                       LocalTime heureDepart, float dureeEstimee, float prixParPassager, int nombrePlaces,
+                       long vehiculeId, CovoiturageStatus statut, TypeCovoiturage type) {
         this.conducteurId = conducteurId;
         this.villeDepart = villeDepart;
         this.villeArrivee = villeArrivee;
-        this.dateHeureDepart = dateHeureDepart;
+        this.dateDepart = dateDepart;
+        this.heureDepart = heureDepart;
         this.dureeEstimee = dureeEstimee;
         this.prixParPassager = prixParPassager;
         this.nombrePlaces = nombrePlaces;
@@ -61,86 +64,49 @@ public class Covoiturage {
     }
 
     // Getters and Setters
-    public long getId() {
-        return id;
-    }
-    public void setId(long id) {
-        this.id = id;
-    }
-    public long getConducteurId() {
-        return conducteurId;
-    }
-    public void setConducteurId(long conducteurId) {
-        this.conducteurId = conducteurId;
-    }
-    public String getVilleDepart() {
-        return villeDepart;
-    }
-    public void setVilleDepart(String villeDepart) {
-        this.villeDepart = villeDepart;
-    }
-    public String getVilleArrivee() {
-        return villeArrivee;
-    }
-    public void setVilleArrivee(String villeArrivee) {
-        this.villeArrivee = villeArrivee;
-    }
-    public Date getDateHeureDepart() {
-        return dateHeureDepart;
-    }
-    public void setDateHeureDepart(Date dateHeureDepart) {
-        this.dateHeureDepart = dateHeureDepart;
-    }
-    public float getDureeEstimee() {
-        return dureeEstimee;
-    }
-    public void setDureeEstimee(float dureeEstimee) {
-        this.dureeEstimee = dureeEstimee;
-    }
-    public float getPrixParPassager() {
-        return prixParPassager;
-    }
-    public void setPrixParPassager(float prixParPassager) {
-        this.prixParPassager = prixParPassager;
-    }
-    public int getNombrePlaces() {
-        return nombrePlaces;
-    }
-    public void setNombrePlaces(int nombrePlaces) {
-        this.nombrePlaces = nombrePlaces;
-    }
-    public long getVehiculeId() {
-        return vehiculeId;
-    }
-    public void setVehiculeId(long vehiculeId) {
-        this.vehiculeId = vehiculeId;
-    }
-    public CovoiturageStatus getStatut() {
-        return statut;
-    }
-    public void setStatut(CovoiturageStatus statut) {
-        this.statut = statut;
-    }
-    public TypeCovoiturage getType() {
-        return type;
-    }
-    public void setType(TypeCovoiturage type) {
-        this.type = type;
-    }
-    public List<Arret> getArrets() {
-        return arrets;
-    }
-    public void setArrets(List<Arret> arrets) {
-        this.arrets = arrets;
-    }
-    public List<Commentaire> getCommentaires() {
-        return commentaires;
-    }
-    public void setCommentaires(List<Commentaire> commentaires) {
-        this.commentaires = commentaires;
-    }
+    public long getId() { return id; }
+    public void setId(long id) { this.id = id; }
 
-    // Business logic methods
+    public long getConducteurId() { return conducteurId; }
+    public void setConducteurId(long conducteurId) { this.conducteurId = conducteurId; }
+
+    public String getVilleDepart() { return villeDepart; }
+    public void setVilleDepart(String villeDepart) { this.villeDepart = villeDepart; }
+
+    public String getVilleArrivee() { return villeArrivee; }
+    public void setVilleArrivee(String villeArrivee) { this.villeArrivee = villeArrivee; }
+
+    public LocalDate getDateDepart() { return dateDepart; }
+    public void setDateDepart(LocalDate dateDepart) { this.dateDepart = dateDepart; }
+
+    public LocalTime getHeureDepart() { return heureDepart; }
+    public void setHeureDepart(LocalTime heureDepart) { this.heureDepart = heureDepart; }
+
+    public float getDureeEstimee() { return dureeEstimee; }
+    public void setDureeEstimee(float dureeEstimee) { this.dureeEstimee = dureeEstimee; }
+
+    public float getPrixParPassager() { return prixParPassager; }
+    public void setPrixParPassager(float prixParPassager) { this.prixParPassager = prixParPassager; }
+
+    public int getNombrePlaces() { return nombrePlaces; }
+    public void setNombrePlaces(int nombrePlaces) { this.nombrePlaces = nombrePlaces; }
+
+    public long getVehiculeId() { return vehiculeId; }
+    public void setVehiculeId(long vehiculeId) { this.vehiculeId = vehiculeId; }
+
+    public CovoiturageStatus getStatut() { return statut; }
+    public void setStatut(CovoiturageStatus statut) { this.statut = statut; }
+
+    public TypeCovoiturage getType() { return type; }
+    public void setType(TypeCovoiturage type) { this.type = type; }
+
+    public List<Arret> getArrets() { return arrets; }
+    public void setArrets(List<Arret> arrets) { this.arrets = arrets; }
+
+    public List<Commentaire> getCommentaires() { return commentaires; }
+    public void setCommentaires(List<Commentaire> commentaires) { this.commentaires = commentaires; }
+
+    // Business logic
     public void publierTrajet() {
         if (statut != CovoiturageStatus.annule) {
             this.statut = CovoiturageStatus.Disponible;
@@ -152,7 +118,6 @@ public class Covoiturage {
 
     public void modifierTrajet() {
         if (statut != CovoiturageStatus.annule) {
-            // Add modification logic here if needed
             System.out.println("Trajet modifié : " + afficherDetails());
         } else {
             System.out.println("Impossible de modifier un trajet annulé.");
@@ -166,9 +131,10 @@ public class Covoiturage {
 
     public String afficherDetails() {
         return "Trajet de " + villeDepart + " à " + villeArrivee +
-               " le " + (dateHeureDepart != null ? dateHeureDepart.toString() : "non défini") +
-               " | Prix: " + prixParPassager + "€ | Places: " + nombrePlaces +
-               " | Statut: " + (statut != null ? statut.name() : "non défini");
+                " le " + (dateDepart != null ? dateDepart.toString() : "non défini") +
+                " à " + (heureDepart != null ? heureDepart.toString() : "non définie") +
+                " | Prix: " + prixParPassager + "€ | Places: " + nombrePlaces +
+                " | Statut: " + (statut != null ? statut.name() : "non défini");
     }
 
     public void reserverPlace() {

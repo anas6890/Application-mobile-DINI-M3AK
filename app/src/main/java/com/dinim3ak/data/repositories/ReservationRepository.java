@@ -27,15 +27,18 @@ public class ReservationRepository {
     }
 
     public List<Reservation> getReservationsByUserId(long id) {
+        return java.util.Collections.emptyList();
     }
 
     public void update(Reservation reservation) {
     }
 
     public Reservation findById(long reservationId) {
+        return null;
     }
 
     public List<Reservation> getReservationsByCovoiturageId(long tripId) {
+        return java.util.Collections.emptyList();
     }
 
     public void delete(long reservationId) {

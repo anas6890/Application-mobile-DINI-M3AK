@@ -10,7 +10,7 @@ import com.dinim3ak.model.Reservation;
 import com.dinim3ak.model.ReservationStatus;
 import com.dinim3ak.model.Utilisateur;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class ReservationService {
@@ -38,7 +38,7 @@ public class ReservationService {
         Reservation reservation = new Reservation();
         reservation.setId(tripId);
         reservation.setPassagerId(currentUser.getId());
-        reservation.setDateReservation(new Date());
+        reservation.setDateReservation(LocalDate.now());
         reservation.setStatut(ReservationStatus.EN_ATTENTE);
 
         reservationRepository.insert(reservation);
