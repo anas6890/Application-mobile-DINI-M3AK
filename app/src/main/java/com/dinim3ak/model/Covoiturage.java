@@ -152,6 +152,6 @@ public class Covoiturage {
 
     public void setMarqueVoiture(String marqueVoiture) {
         this.marqueVoiture = marqueVoiture;
-
     }
 }
+

@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 public class CovoiturageService {
-    private CovoiturageRepository covoiturageRepository;
+    private static CovoiturageRepository covoiturageRepository;
     private UtilisateurRepository utilisateurRepository;
     private UtilisateurSession userSession;
 
@@ -95,6 +95,10 @@ public class CovoiturageService {
     public Covoiturage findTripById(long tripId) {
         return covoiturageRepository.findById(tripId);
     }
-
+    public static List<Utilisateur> getPassagersPourCovoiturage(long tripId) {
+        return covoiturageRepository.getPassagersByCovoiturageId(tripId);
+    }
 
 }
+
+
