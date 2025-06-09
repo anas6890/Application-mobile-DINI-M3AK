@@ -95,4 +95,5 @@
     <string name="quand_souhaites_tu_partir">Quand souhaites-tu partir ?</string>
     <string name="sauter">Sauter</string>
     <string name="choisir_une_date">Choisir une date</string>
+    <string name="publier_un_covoiturage">+ Publier un covoiturage</string>
 </resources>

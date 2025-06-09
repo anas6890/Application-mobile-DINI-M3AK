@@ -6,8 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -127,7 +126,7 @@ public class Page18Activity extends AppCompatActivity {
                 new Thread(() -> {
                     try {
                         Covoiturage created = covoiturageService.createCovoiturage(
-                                villeDepart, villeDestination, finalDate, finalHeureDepart, nombrePlaces, prix
+                                villeDepart, villeDestination, finalDate, finalHeureDepart, nombrePlaces, prix,marqueVoiture
                         );
 
                         runOnUiThread(() -> {

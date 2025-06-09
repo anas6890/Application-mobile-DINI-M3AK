@@ -1,5 +1,6 @@
 package com.example.dinim3ak;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -48,6 +49,7 @@ public class Page17Activity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void displayTrajet() {
         // Afficher le trajet complet (ajustez l'ID selon votre layout)
         TextView trajetTextView = findViewById(R.id.trajetTextView);

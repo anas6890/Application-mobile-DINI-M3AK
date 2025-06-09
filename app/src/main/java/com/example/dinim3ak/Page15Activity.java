@@ -1,14 +1,13 @@
 package com.example.dinim3ak;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
-import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +25,7 @@ public class Page15Activity extends AppCompatActivity {
     private LinearLayout citiesList;
 
     // Liste simplifiée des villes du Maroc
-    private List<String> villesMaroc = Arrays.asList(
+    private final List<String> villesMaroc = Arrays.asList(
             "Casablanca", "Rabat", "Fes", "Marrakech", "Agadir", "Tanger", "Meknes",
             "Oujda", "Kenitra", "Tetouan", "Safi", "Mohammedia", "Khouribga",
             "Beni Mellal", "El Jadida", "Nador", "Taza", "Settat", "Berrechid",
@@ -82,7 +81,7 @@ public class Page15Activity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String query = s.toString().trim();
-                if (query.length() > 0) {
+                if (!query.isEmpty()) {
                     updateCitiesList(query);
                 } else {
                     resetCitiesList();
@@ -103,6 +102,7 @@ public class Page15Activity extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("SetTextI18n")
     private void updateCitiesList(String query) {
         if (citiesList == null || suggestedCities == null) return;
 
@@ -140,6 +140,7 @@ public class Page15Activity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void resetCitiesList() {
         if (suggestedCities == null || citiesList == null) return;
 

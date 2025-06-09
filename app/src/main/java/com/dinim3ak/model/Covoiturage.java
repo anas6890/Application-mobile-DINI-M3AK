@@ -32,6 +32,7 @@ public class Covoiturage {
     private float prixParPassager;
     private int nombrePlaces;
     private long vehiculeId;
+    String marqueVoiture;
 
     @TypeConverters(CovoiturageConverter.class)
     private CovoiturageStatus statut;
@@ -149,5 +150,8 @@ public class Covoiturage {
         }
     }
 
+    public void setMarqueVoiture(String marqueVoiture) {
+        this.marqueVoiture = marqueVoiture;
+    }
 }
 

@@ -7,7 +7,6 @@ import com.dinim3ak.data.repositories.UtilisateurRepository;
 import com.dinim3ak.data.session.UtilisateurSession;
 import com.dinim3ak.model.Covoiturage;
 import com.dinim3ak.model.Utilisateur;
-import com.dinim3ak.services.user.UtilisateurService;
 import com.example.dinim3ak.OffreItem;
 
 import java.util.ArrayList;
@@ -28,7 +27,7 @@ public class CovoiturageService {
     }
 
     public Covoiturage createCovoiturage(String depart, String destination, LocalDate date, LocalTime heureDepart,
-                                         int availableSeats, float price) {
+                                         int availableSeats, float price, String marqueVoiture) {
         Utilisateur currentUser = userSession.getCurrentUser();
         if (currentUser == null) {
             throw new IllegalStateException("User not logged in");
@@ -42,6 +41,7 @@ public class CovoiturageService {
         trip.setNombrePlaces(availableSeats);
         trip.setPrixParPassager(price);
         trip.setConducteurId(currentUser.getId());
+        trip.setMarqueVoiture(marqueVoiture);
 
         covoiturageRepository.insert(trip);
 
