@@ -32,6 +32,7 @@ public class Covoiturage {
     private float prixParPassager;
     private int nombrePlaces;
     private long vehiculeId;
+    String marqueVoiture;
 
     @TypeConverters(CovoiturageConverter.class)
     private CovoiturageStatus statut;
@@ -147,5 +148,10 @@ public class Covoiturage {
         } else {
             System.out.println("Impossible de réserver : plus de places ou trajet non disponible.");
         }
+    }
+
+    public void setMarqueVoiture(String marqueVoiture) {
+        this.marqueVoiture = marqueVoiture;
+
     }
 }

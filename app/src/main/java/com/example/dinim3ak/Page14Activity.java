@@ -22,9 +22,7 @@ public class Page14Activity extends AppCompatActivity {
         });
 
         Button helpButton=findViewById(R.id.helpButton);
-        helpButton.setOnClickListener(v -> {
-            Toast.makeText(this, "Fonctionnalité indisponible", Toast.LENGTH_SHORT).show();
-        });
+        helpButton.setOnClickListener(v -> Toast.makeText(this, "Fonctionnalité indisponible", Toast.LENGTH_SHORT).show());
     }
 
     public void on_publier_covoiturage_click(View view){
