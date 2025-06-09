@@ -1,183 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:orientation="vertical"
+    android:background="#FFFFFF">
 
-    <!-- Bouton retour et titre -->
-    <ImageView
-        android:id="@+id/backButton"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:src="@drawable/ic_back"
-        android:contentDescription="Go back"
-        android:onClick="goBack"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Mes covoiturages"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@id/backButton"
-        app:layout_constraintTop_toTopOf="@id/backButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="16dp"/>
-
-    <!-- Onglets -->
+    <!-- Header with back button and title -->
     <LinearLayout
-        android:id="@+id/tabs"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp" />
+        android:gravity="center_vertical"
+        android:padding="16dp">
 
-    <!-- Carte principale -->
+        <ImageButton
+            android:id="@+id/backButton19"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="#FFFFFF"
+            android:contentDescription="Go back"
+            android:onClick="goBack"
+            android:src="@drawable/ic_back" />
 
-    <!-- Barre de navigation en bas -->
-
-    <TextView
-        android:id="@+id/tab_reservations"
-        android:layout_width="147dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="34dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text="RESERVATIONS"
-        android:textColor="#666666"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/card"
-        app:layout_constraintEnd_toStartOf="@+id/tab_offers"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
-
-    <TextView
-        android:id="@+id/tab_offers"
-        android:layout_width="141dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="34dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text="OFFRES"
-        android:textColor="#666666"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/card"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tab_reservations"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
-
-    <LinearLayout
-        android:id="@+id/card"
-        android:layout_width="394dp"
-        android:layout_height="455dp"
-        android:layout_marginTop="88dp"
-        android:background="#FFFFFF"
-        android:elevation="4dp"
-        android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tabs">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="344dp"
-                android:layout_height="366dp"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/naima"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHeight_percent="0.7"
-                app:layout_constraintHorizontal_bias="0.571"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="1.0" />
-
-            <Button
-                android:id="@+id/acceptButton"
-                android:layout_width="123dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="224dp"
-                android:layout_marginBottom="100dp"
-                android:backgroundTint="#FBFBFB"
-                android:text="refuser"
-                android:textColor="#050505"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="47dp"
-                android:layout_height="46dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="100dp"
-                android:src="@drawable/resource_true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/refuseButton" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="51dp"
-                android:layout_height="51dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="219dp"
-                android:layout_marginEnd="1dp"
-                android:layout_marginBottom="96dp"
-                android:src="@drawable/resource_false"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-                app:layout_constraintEnd_toStartOf="@+id/acceptButton"
-                app:layout_constraintStart_toEndOf="@+id/refuseButton"
-                app:layout_constraintTop_toTopOf="@+id/imageView2" />
-
-            <Button
-                android:id="@+id/refuseButton"
-                android:layout_width="119dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="227dp"
-                android:layout_marginBottom="100dp"
-                android:backgroundTint="#FBFBFB"
-                android:text="accepter"
-                android:textColor="#0B0B0B"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-                app:layout_constraintStart_toStartOf="@+id/imageView2"
-                app:layout_constraintTop_toTopOf="@+id/imageView2" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Mes covoiturages"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginStart="16dp" />
     </LinearLayout>
 
+    <!-- Tab Layout -->
     <LinearLayout
-        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/tab_reservations"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="2dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="goToReservation"
+            android:text="RESERVATIONS"
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tab_offers"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="OFFRES"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#666666"
+            android:layout_marginStart="2dp"
+            android:onClick="goToOffres" />
+    </LinearLayout>
+
+    <!-- ScrollView for content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
+
+            <!-- Current Reservation Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Réservation en cours"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Current Reservation Card (commenté) -->
+            <!--
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                android:backgroundTint="#F8F8F8"/>
+            -->
+
+            <!-- History Section -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="382dp"
+                android:layout_height="117dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- History Card -->
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:orientation="horizontal"
         android:background="#FFFFFF"
-        android:elevation="8dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:elevation="8dp">
 
         <!-- Passager -->
         <LinearLayout
@@ -185,18 +132,21 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:onClick="goToPassager">
+
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_passager" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="passager"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Conducteur -->
@@ -205,18 +155,21 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:onClick="goToConducteur">
+
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/outline_directions_car_24" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="conducteur"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Covoiturage -->
@@ -225,18 +178,21 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:onClick="goToCovoiturage">
+
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@mipmap/ic_icon1_round" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="covoiturage"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Wallet -->
@@ -245,18 +201,21 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:onClick="goToWallet">
+
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_account" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="wallet"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
