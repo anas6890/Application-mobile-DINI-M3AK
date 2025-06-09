@@ -6,10 +6,22 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/trajetTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="100dp"
+        android:textColor="#0B0101"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/mainTitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="30dp"
         android:text="Quand souhaites-tu partir ?"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="26sp"
@@ -17,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.172"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tripText2" />
+        app:layout_constraintTop_toBottomOf="@+id/trajetTextView" />
 
     <Button
         android:id="@+id/buttonNext"
@@ -43,22 +55,6 @@
         android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tripText2"
-        android:layout_width="191dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="211dp"
-        android:text="Casablanca > Rabat"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backButton" />
 
     <Button
         android:id="@+id/selectDate"

@@ -27,7 +27,7 @@ public class CovoiturageService {
         userSession = UtilisateurSession.getInstance(context);
     }
 
-    public Covoiturage createCovoiturage(String departure, String destination, LocalDate date, LocalTime heureDepart,
+    public Covoiturage createCovoiturage(String depart, String destination, LocalDate date, LocalTime heureDepart,
                                          int availableSeats, float price) {
         Utilisateur currentUser = userSession.getCurrentUser();
         if (currentUser == null) {
@@ -35,7 +35,7 @@ public class CovoiturageService {
         }
 
         Covoiturage trip = new Covoiturage();
-        trip.setVilleDepart(departure);
+        trip.setVilleDepart(depart);
         trip.setVilleArrivee(destination);
         trip.setHeureDepart(heureDepart);
         trip.setDateDepart(date);
