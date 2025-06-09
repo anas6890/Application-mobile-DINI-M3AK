@@ -6,4 +6,7 @@
     <item name="FesLayout" type="id"/>
     <item name="backIcon7" type="id"/>
     <item name="searchIcon2" type="id"/>
+    <item name="titreEvaluation" type="id" />
+    <item name="commentaireInput" type="id" />
+    <item name="btnSubmitEvaluation" type="id" />
 </resources>
