@@ -129,7 +129,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="56dp"
+            android:layout_marginTop="50dp"
             android:text="Rabat"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/dot2"
@@ -194,4 +194,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/nbplacesEdit"
+        android:layout_width="136dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Nombre places"
+        android:inputType="number"
+        android:textSize="16dp"
+        app:layout_constraintStart_toEndOf="@+id/nbplaces"
+        app:layout_constraintTop_toBottomOf="@+id/price_value" />
+
+    <TextView
+        android:id="@+id/nbplaces"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Places"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/price_value" />
 </androidx.constraintlayout.widget.ConstraintLayout>

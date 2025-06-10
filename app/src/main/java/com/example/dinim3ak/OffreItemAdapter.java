@@ -35,14 +35,14 @@ public class OffreItemAdapter extends RecyclerView.Adapter<OffreItemAdapter.Offr
     @Override
     public void onBindViewHolder(@NonNull OffreViewHolder holder, int position) {
         OffreItem ride = offreList.get(position);
-        holder.driverName.setText(ride.driverName);
-        holder.date.setText(ride.date);
-        holder.fromCity.setText(ride.fromCity);
-        holder.fromTime.setText(ride.fromTime);
-        holder.toCity.setText(ride.toCity);
-        holder.toTime.setText(ride.toTime);
-        holder.price.setText(ride.price);
-        holder.nbPassager.setText((ride.nbPassager));
+        holder.driverName.setText(ride.getDriverName());
+        holder.date.setText(ride.getDate());
+        holder.fromCity.setText(ride.getFromCity());
+        holder.fromTime.setText(ride.getFromTime());
+        holder.toCity.setText(ride.getToCity());
+        holder.toTime.setText(ride.getToTime());
+        holder.price.setText(ride.getPrice());
+        holder.nbPassager.setText((ride.getNbPassager()));
 
         holder.itemView.setOnClickListener(v -> listener.onItemClick(ride));
     }

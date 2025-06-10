@@ -5,6 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:id="@+id/user"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView20"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="46dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/circle_background"
+            android:contentDescription="Driver"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_person"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView20" />
+
+        <TextView
+            android:id="@+id/driver_name2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="user"
+            android:textColor="#888888"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/profile_image"
+            app:layout_constraintTop_toBottomOf="@+id/imageView20" />
+
+    </LinearLayout>
+
+
     <Button
         android:id="@+id/btnreserver10"
         style="@style/OrangeButton"
@@ -37,7 +71,7 @@
         tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/textView35"
+        android:id="@+id/placesTotales"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -47,14 +81,12 @@
         android:text="3 total"
         android:textColor="#757575"
         android:textSize="13sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView32"
-        app:layout_constraintEnd_toStartOf="@+id/imageView28"
         app:layout_constraintStart_toEndOf="@+id/imageView26"
-        app:layout_constraintTop_toBottomOf="@+id/textView31"
+        app:layout_constraintTop_toBottomOf="@+id/placesRestants"
         tools:ignore="HardcodedText,MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView36"
+        android:id="@+id/vehicleColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
@@ -63,10 +95,9 @@
         android:text="Black"
         android:textColor="#898484"
         android:textSize="13sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView34"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView28"
-        app:layout_constraintTop_toBottomOf="@+id/textView33"
+        app:layout_constraintTop_toBottomOf="@+id/vehicleName"
         tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck" />
 
     <ImageView
@@ -74,9 +105,9 @@
         android:layout_width="38dp"
         android:layout_height="34dp"
         android:layout_marginStart="11dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="56dp"
         android:src="@drawable/ic_location"
-        app:layout_constraintEnd_toStartOf="@+id/textView24"
+        app:layout_constraintEnd_toStartOf="@+id/villeDepart"
         app:layout_constraintStart_toEndOf="@+id/imageView24"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ContentDescription,MissingConstraints" />
@@ -88,7 +119,7 @@
         android:layout_marginStart="11dp"
         android:src="@drawable/ic_location"
         app:layout_constraintBottom_toTopOf="@+id/imageView23"
-        app:layout_constraintEnd_toStartOf="@+id/textView25"
+        app:layout_constraintEnd_toStartOf="@+id/villeArrivee"
         app:layout_constraintStart_toEndOf="@+id/imageView24"
         tools:ignore="ContentDescription,MissingConstraints" />
 
@@ -102,9 +133,10 @@
         android:layout_marginBottom="42dp"
         android:src="@drawable/img_18"
         app:layout_constraintBottom_toTopOf="@+id/imageView22"
-        app:layout_constraintEnd_toStartOf="@+id/textView26"
+        app:layout_constraintEnd_toStartOf="@+id/heureDepart"
         app:layout_constraintStart_toEndOf="@+id/imageView24"
         app:layout_constraintTop_toBottomOf="@+id/imageView12"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="ContentDescription,MissingConstraints" />
 
     <ImageView
@@ -117,13 +149,13 @@
         android:layout_marginBottom="595dp"
         android:src="@drawable/img_18"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView27"
+        app:layout_constraintEnd_toStartOf="@+id/heureArrivee"
         app:layout_constraintStart_toEndOf="@+id/imageView24"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ContentDescription,MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/villeDepart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -139,7 +171,7 @@
         tools:ignore="HardcodedText,MissingConstraints,VisualLintOverlap,TextSizeCheck" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/villeArrivee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -156,7 +188,7 @@
         tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck" />
 
     <TextView
-        android:id="@+id/textView26"
+        android:id="@+id/heureDepart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -168,11 +200,11 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView21"
-        app:layout_constraintTop_toBottomOf="@+id/textView24"
+        app:layout_constraintTop_toBottomOf="@+id/villeDepart"
         tools:ignore="HardcodedText,MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView27"
+        android:id="@+id/heureArrivee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -182,10 +214,10 @@
         android:textColor="#009688"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView31"
+        app:layout_constraintBottom_toTopOf="@+id/placesRestants"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView23"
-        app:layout_constraintTop_toTopOf="@+id/textView25"
+        app:layout_constraintTop_toTopOf="@+id/villeArrivee"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -199,7 +231,7 @@
         android:layout_marginBottom="40dp"
         android:src="@drawable/img_20"
         app:layout_constraintBottom_toTopOf="@+id/imageView27"
-        app:layout_constraintEnd_toStartOf="@+id/textView35"
+        app:layout_constraintEnd_toStartOf="@+id/placesTotales"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView23"
         tools:ignore="ContentDescription,MissingConstraints" />
@@ -209,11 +241,9 @@
         android:layout_width="52dp"
         android:layout_height="44dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="13dp"
-        android:layout_marginBottom="46dp"
         android:src="@drawable/img_21"
-        app:layout_constraintBottom_toTopOf="@+id/textView28"
         app:layout_constraintEnd_toStartOf="@+id/textView32"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView26"
@@ -223,106 +253,80 @@
         android:id="@+id/imageView28"
         android:layout_width="55dp"
         android:layout_height="48dp"
-        android:layout_marginTop="318dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="8dp"
         android:src="@drawable/img_22"
-        app:layout_constraintBottom_toTopOf="@+id/imageView29"
-        app:layout_constraintEnd_toStartOf="@+id/textView33"
-        app:layout_constraintStart_toEndOf="@+id/textView31"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/vehicleName"
+        app:layout_constraintTop_toBottomOf="@+id/imageView23"
         tools:ignore="ContentDescription,MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView29"
         android:layout_width="54dp"
         android:layout_height="45dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="45dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="64dp"
         android:src="@drawable/img_23"
-        app:layout_constraintBottom_toTopOf="@+id/textView28"
-        app:layout_constraintEnd_toStartOf="@+id/textView34"
+        app:layout_constraintEnd_toStartOf="@+id/typeCovoiturage"
+        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toEndOf="@+id/textView32"
         app:layout_constraintTop_toBottomOf="@+id/imageView28"
         tools:ignore="ContentDescription,MissingConstraints" />
 
-    <ImageView
-        android:id="@+id/imageView30"
-        android:layout_width="477dp"
-        android:layout_height="54dp"
-        android:layout_marginBottom="70dp"
-        android:src="@drawable/img_24"
-        app:layout_constraintBottom_toTopOf="@+id/btnreserver10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="ContentDescription,MissingConstraints,VisualLintBounds" />
-
     <TextView
-        android:id="@+id/textView31"
+        android:id="@+id/placesRestants"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="76dp"
         android:text="3 restant(s)"
         android:textColor="#1B1A1A"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView35"
-        app:layout_constraintEnd_toStartOf="@+id/imageView28"
         app:layout_constraintStart_toEndOf="@+id/imageView26"
         app:layout_constraintTop_toBottomOf="@+id/imageView23"
         tools:ignore="HardcodedText,MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView34"
+        android:id="@+id/typeCovoiturage"
         android:layout_width="103dp"
         android:layout_height="37dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="142dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="40dp"
         android:text="Covoiturage direct"
         android:textColor="#1B1A1A"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView20"
-        app:layout_constraintStart_toEndOf="@+id/imageView29"
-        app:layout_constraintTop_toBottomOf="@+id/textView36"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vehicleColor"
         tools:ignore="HardcodedText,MissingConstraints,TextSizeCheck" />
 
     <TextView
         android:id="@+id/textView32"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="57dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="80dp"
         android:text="Moyen"
         android:textColor="#1B1A1A"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView28"
         app:layout_constraintStart_toEndOf="@+id/imageView27"
-        app:layout_constraintTop_toBottomOf="@+id/textView35"
+        app:layout_constraintTop_toBottomOf="@+id/placesTotales"
         tools:ignore="HardcodedText,MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView33"
+        android:id="@+id/vehicleName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="318dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="44dp"
         android:text="VOLKSWAGEN"
         android:textColor="#1B1A1A"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView36"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView28"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView23"
         tools:ignore="HardcodedText,MissingConstraints" />
 
     <ImageView
@@ -331,10 +335,11 @@
         android:layout_height="25dp"
         android:layout_marginStart="88dp"
         android:layout_marginEnd="106dp"
+        android:layout_marginBottom="156dp"
         android:src="@drawable/img_8"
-        app:layout_constraintBottom_toTopOf="@+id/imageView30"
+        app:layout_constraintBottom_toTopOf="@+id/btnreserver10"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.41"
+        app:layout_constraintHorizontal_bias="0.415"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="ContentDescription,MissingConstraints,ImageContrastCheck" />
 
@@ -343,28 +348,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="178dp"
-        android:layout_marginBottom="7dp"
         android:text="Prix total pour 1 passager(s)"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView37"
+        app:layout_constraintBottom_toTopOf="@+id/prixPourUnPassager"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView27"
         tools:ignore="HardcodedText,MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView37"
+        android:id="@+id/prixPourUnPassager"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="308dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="16dp"
         android:text="35.84 Dhs"
         android:textColor="#141212"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView20"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="HardcodedText,MissingConstraints" />
 

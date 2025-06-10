@@ -28,9 +28,11 @@ public class Covoiturage {
     @TypeConverters(DateConverter.class)
     private LocalTime heureDepart;
 
-    private float dureeEstimee;
+    private int dureeEstimee; //en minutes
     private float prixParPassager;
     private int nombrePlaces;
+
+    private int nombrePlacesReservees;
     private long vehiculeId;
     String marqueVoiture;
 
@@ -46,10 +48,10 @@ public class Covoiturage {
     private List<Commentaire> commentaires = new ArrayList<>();
 
     // Constructors
-    public Covoiturage() {}
+    public Covoiturage() {this.nombrePlacesReservees = 0;}
 
     public Covoiturage(long conducteurId, String villeDepart, String villeArrivee, LocalDate dateDepart,
-                       LocalTime heureDepart, float dureeEstimee, float prixParPassager, int nombrePlaces,
+                       LocalTime heureDepart, int dureeEstimee, float prixParPassager, int nombrePlaces,
                        long vehiculeId, CovoiturageStatus statut, TypeCovoiturage type) {
         this.conducteurId = conducteurId;
         this.villeDepart = villeDepart;
@@ -62,6 +64,7 @@ public class Covoiturage {
         this.vehiculeId = vehiculeId;
         this.statut = statut;
         this.type = type;
+        this.nombrePlacesReservees = 0;
     }
 
     // Getters and Setters
@@ -83,14 +86,22 @@ public class Covoiturage {
     public LocalTime getHeureDepart() { return heureDepart; }
     public void setHeureDepart(LocalTime heureDepart) { this.heureDepart = heureDepart; }
 
-    public float getDureeEstimee() { return dureeEstimee; }
-    public void setDureeEstimee(float dureeEstimee) { this.dureeEstimee = dureeEstimee; }
+    public int getDureeEstimee() { return dureeEstimee; }
+    public void setDureeEstimee(int dureeEstimee) { this.dureeEstimee = dureeEstimee; }
 
     public float getPrixParPassager() { return prixParPassager; }
     public void setPrixParPassager(float prixParPassager) { this.prixParPassager = prixParPassager; }
 
     public int getNombrePlaces() { return nombrePlaces; }
     public void setNombrePlaces(int nombrePlaces) { this.nombrePlaces = nombrePlaces; }
+
+    public int getNombrePlacesReservees() {
+        return nombrePlacesReservees;
+    }
+
+    public void setNombrePlacesReservees(int nombrePlacesReservees) {
+        this.nombrePlacesReservees = nombrePlacesReservees;
+    }
 
     public long getVehiculeId() { return vehiculeId; }
     public void setVehiculeId(long vehiculeId) { this.vehiculeId = vehiculeId; }
