@@ -2,6 +2,7 @@ package com.dinim3ak.services.trip;
 
 import android.content.Context;
 import android.telecom.Call;
+import android.util.Log;
 
 import androidx.lifecycle.LifecycleOwner;
 
@@ -9,6 +10,7 @@ import com.dinim3ak.data.repositories.CovoiturageRepository;
 import com.dinim3ak.data.repositories.UtilisateurRepository;
 import com.dinim3ak.data.session.UtilisateurSession;
 import com.dinim3ak.model.Covoiturage;
+import com.dinim3ak.model.CovoiturageStatus;
 import com.dinim3ak.model.Utilisateur;
 import com.dinim3ak.services.Callback;
 import com.example.dinim3ak.OffreItem;
@@ -37,6 +39,7 @@ public class CovoiturageService {
         }
 
         Covoiturage trip = new Covoiturage();
+        trip.setConducteurId(currentUser.getId());
         trip.setVilleDepart(depart);
         trip.setVilleArrivee(destination);
         trip.setHeureDepart(heureDepart);
@@ -44,6 +47,7 @@ public class CovoiturageService {
         trip.setNombrePlaces(availableSeats);
         trip.setPrixParPassager(price);
         trip.setConducteurId(currentUser.getId());
+        trip.setStatut(CovoiturageStatus.Disponible);
 
         covoiturageRepository.insert(trip);
 
@@ -52,6 +56,8 @@ public class CovoiturageService {
 
     public void covoiturageToOffre(LifecycleOwner lifecycleOwner, Covoiturage covoiturage, Callback<OffreItem> callback){
         utilisateurRepository.findById(covoiturage.getConducteurId()).observe(lifecycleOwner, driver -> {
+            Log.i("COVOITURAGE_DATA", covoiturage.getConducteurId() + " " +
+                    userSession.getCurrentUser().getId());
             long id = covoiturage.getId();
             String driverName = driver.getNom() + " " + driver.getPrenom();
             String date = covoiturage.getDateDepart().toString();
@@ -78,15 +84,42 @@ public class CovoiturageService {
         });
     }
 
-    public void getMyTrips(LifecycleOwner lifecycleOwner, Callback<List<Covoiturage>> callback) {
+    public void getMyActiveTrips(LifecycleOwner lifecycleOwner, Callback<List<OffreItem>> callback) {
+        Utilisateur currentUser = userSession.getCurrentUser();
+        if (currentUser == null) {
+            throw new IllegalStateException("User not logged in");
+        }
+        Log.i("COVOITURAGE", "SEPERATOR");
+        covoiturageRepository.getCovoiturageByConducteurId(currentUser.getId()).observe(lifecycleOwner,
+                covoiturages -> {
+            for(Covoiturage c : covoiturages){
+                Log.i("COVOITURAGE", String.valueOf(c.getStatut()));
+            }
+            Log.i("COVOITURAGE", "SEPERATOR");
+            List<OffreItem> offreItems = new ArrayList<>();
+            for(Covoiturage covoiturage : covoiturages){
+                if(covoiturage.getStatut() == CovoiturageStatus.Disponible) {
+                    covoiturageToOffre(lifecycleOwner, covoiturage, offreItems::add);
+                }
+            }
+            callback.onResult(offreItems);
+        });
+    }
+
+    public void getMyNonActiveTrips(LifecycleOwner lifecycleOwner, Callback<List<OffreItem>> callback) {
         Utilisateur currentUser = userSession.getCurrentUser();
         if (currentUser == null) {
             throw new IllegalStateException("User not logged in");
         }
         covoiturageRepository.getCovoiturageByConducteurId(currentUser.getId()).observe(lifecycleOwner,
-                callback::onResult);
+                covoiturages -> {
+                    List<OffreItem> offreItems = new ArrayList<>();
+                    for(Covoiturage covoiturage : covoiturages){
+                        if(covoiturage.getStatut() != CovoiturageStatus.Disponible)
+                            covoiturageToOffre(lifecycleOwner, covoiturage, offreItems::add);
+                    }
+                    callback.onResult(offreItems);});
     }
-
     public void cancelTrip(LifecycleOwner lifecycleOwner, long tripId) {
         covoiturageRepository.findById(tripId).observe(lifecycleOwner, covoiturage -> {
             if (covoiturage == null) {
@@ -108,6 +141,7 @@ public class CovoiturageService {
     public static List<Utilisateur> getPassagersPourCovoiturage(long tripId) {
         return covoiturageRepository.getPassagersByCovoiturageId(tripId);
     }
+
 
 }
 

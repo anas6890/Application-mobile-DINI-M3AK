@@ -8,6 +8,7 @@ import androidx.room.Room;
 import com.dinim3ak.data.dao.UtilisateurDao;
 import com.dinim3ak.data.database.AppDatabase;
 import com.dinim3ak.model.Utilisateur;
+import com.dinim3ak.services.Callback;
 
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -21,10 +22,10 @@ public class UtilisateurRepository {
         utilisateurDao = db.utilisateurDao();
     }
 
-    public void insert(Utilisateur utilisateur) {
+    public void insert(Utilisateur utilisateur, Callback<Long> callback) {
         Executors.newSingleThreadExecutor().execute(() -> {
-            long generatedId = utilisateurDao.insert(utilisateur);
-            utilisateur.setId(generatedId);
+            long id = utilisateurDao.insert(utilisateur);
+            callback.onResult(id);
         });
     }
 

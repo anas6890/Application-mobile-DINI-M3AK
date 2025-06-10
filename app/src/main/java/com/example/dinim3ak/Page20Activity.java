@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,17 +43,6 @@ public class Page20Activity extends AppCompatActivity {
 
         covoiturageService = new CovoiturageService(this);
 
-        SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
-        currentDriverId = prefs.getLong("user_id", -1);
-        if (currentDriverId == -1) {
-            currentDriverId = getIntent().getLongExtra("user_id", -1);
-        }
-
-        if (currentDriverId == -1) {
-            Toast.makeText(this, "Erreur: Utilisateur non identifié", Toast.LENGTH_LONG).show();
-            return;
-        }
-
         // Setup UI
         setupRecyclerViews();
 
@@ -61,13 +51,26 @@ public class Page20Activity extends AppCompatActivity {
         rideList1 = new ArrayList<>();
 
         // Initialize adapters
-        adapter = new OffreItemAdapter(rideList, offre -> {});
-        recyclerView.setAdapter(adapter);
+        rideList.add(new OffreItem(0,"Hicham", "demain 17 janv.", "Casablanca", "14:00",
+                "Rabat", "15:04", "30.50", "4","1"));
+        rideList.add(new OffreItem(1,"Yassine", "vendredi 19 janv.", "Rabat", "08:30",
+                "Kenitra", "09:15", "41.30", "2", "2"));
+
+        loadDriverOffers();
+
 
         adapter1 = new OffreItemAdapter(rideList1, offre -> {});
         recyclerView1.setAdapter(adapter1);
 
-        loadDriverOffers();
+        TextView refresh_active = ((TextView) findViewById(R.id.refresh_button));
+        refresh_active.setOnClickListener(v -> {
+            adapter.notifyDataSetChanged();
+        });
+
+        TextView refresh_non_active = ((TextView) findViewById(R.id.refresh_button_2));
+        refresh_non_active.setOnClickListener(v -> {
+            adapter1.notifyDataSetChanged();
+        });
     }
 
     private void setupRecyclerViews() {
@@ -80,13 +83,33 @@ public class Page20Activity extends AppCompatActivity {
 
     private void loadDriverOffers() {
         try {
-            covoiturageService.getMyTrips(this, covoiturages -> {
-                if (covoiturages != null) {
-                    separateOffersByStatus(covoiturages);
-                } else {
+            covoiturageService.getMyActiveTrips(this, offreItems -> {
+                if (offreItems == null) {
                     runOnUiThread(() ->
                             Toast.makeText(this, "Aucune offre trouvée", Toast.LENGTH_SHORT).show()
                     );
+                }else{
+
+                    rideList = offreItems;
+                    runOnUiThread(() -> {
+                        adapter = new OffreItemAdapter(rideList, offre -> {});
+                        recyclerView.setAdapter(adapter);
+                    });
+
+                }
+            });
+
+            covoiturageService.getMyNonActiveTrips(this, offreItems -> {
+                if (offreItems == null) {
+                    runOnUiThread(() ->
+                            Toast.makeText(this, "Aucune offre trouvée", Toast.LENGTH_SHORT).show()
+                    );
+                }else{
+                    rideList1 = offreItems;
+                    runOnUiThread(() -> {
+                        adapter1 = new OffreItemAdapter(rideList1, offre -> {});
+                        recyclerView1.setAdapter(adapter1);
+                    });
                 }
             });
         } catch (Exception e) {
@@ -97,7 +120,7 @@ public class Page20Activity extends AppCompatActivity {
         }
     }
 
-    private void separateOffersByStatus(List<Covoiturage> covoiturages) {
+    /*private void separateOffersByStatus(List<Covoiturage> covoiturages) {
         rideList.clear();
         rideList1.clear();
 
@@ -144,18 +167,9 @@ public class Page20Activity extends AppCompatActivity {
                 }
             }
         }
-    }
+    }*/
 
-    private boolean isActiveOffer(Covoiturage covoiturage) {
-        CovoiturageStatus statut = covoiturage.getStatut();
 
-        if (statut == null) return true;
-
-        String statutStr = statut.toString();
-        return !statutStr.equals("TERMINE") &&
-                !statutStr.equals("ANNULE") &&
-                !statutStr.equals("EXPIRE");
-    }
 
     public void refreshOffers() {
         loadDriverOffers();
