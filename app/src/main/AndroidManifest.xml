@@ -18,7 +18,7 @@
         <activity
             android:name=".Page5Activity"
             android:exported="true"
-            android:label="@string/title_activity_page1"
+            android:label="@string/dini_m3ak"
             android:theme="@style/Theme.DiniM3ak">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

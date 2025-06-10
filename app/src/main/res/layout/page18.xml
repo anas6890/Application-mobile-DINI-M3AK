@@ -19,23 +19,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="21dp"
-            android:layout_marginEnd="47dp"
+            android:layout_marginEnd="28dp"
             android:layout_marginBottom="48dp"
             android:text="Définir l’heure de départ"
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/text_nombre_places"
             app:layout_constraintEnd_toStartOf="@+id/edit_heure_depart"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/backButton" />
+
+        <!-- Nombre de places -->
 
         <EditText
             android:id="@+id/edit_heure_depart"
             android:layout_width="119dp"
             android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/rounded_button"
             android:backgroundTint="#FDECCF"
-            android:hint="xx:yy"
+            android:hint="HH:MM"
             android:inputType="time"
             android:padding="8dp"
             android:textAlignment="center"
@@ -43,17 +45,16 @@
             app:layout_constraintBaseline_toBaselineOf="@id/text_heure_depart"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Nombre de places -->
-
         <TextView
             android:id="@+id/text_nombre_places"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
+            android:layout_marginEnd="7dp"
             android:text="Nombre de places disponibles"
             android:textColor="#000000"
             android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/edit_nombre_places"
             app:layout_constraintTop_toBottomOf="@id/text_heure_depart" />
 
         <EditText
@@ -93,41 +94,15 @@
             android:layout_marginStart="14dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="44dp"
-            android:layout_marginBottom="34dp"
             android:background="@drawable/rounded_button"
             android:backgroundTint="#FDECCF"
             android:hint="Dacia Duster"
             android:padding="16dp"
             android:textAlignment="center"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/text_covoiturage_direct"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView9"
             app:layout_constraintTop_toBottomOf="@+id/text_marque_voiture" />
-
-        <TextView
-            android:id="@+id/text_covoiturage_direct"
-            android:layout_width="183dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="34dp"
-            android:layout_marginEnd="196dp"
-            android:text="Covoiturage direct"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_marque_voiture" />
-
-        <RadioGroup
-            android:id="@+id/radio_group_covoiturage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/text_covoiturage_direct"
-            app:layout_constraintStart_toStartOf="parent">
-
-        </RadioGroup>
 
         <!-- Prix total -->
 
@@ -136,26 +111,29 @@
             android:id="@+id/text_prix"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="76dp"
+            android:layout_marginTop="55dp"
             android:text="Prix total pour un passager"
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/radio_group_covoiturage" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_marque_voiture" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="113dp"
-            android:layout_height="33dp"
+        <EditText
+            android:id="@+id/price"
+            android:layout_width="119dp"
+            android:layout_height="48dp"
             android:layout_marginStart="133dp"
             android:layout_marginTop="22dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="51dp"
             android:background="@drawable/rounded_button"
             android:backgroundTint="#FDECCF"
-            android:text="      45.82 "
+            android:gravity="center"
+
+            android:inputType="number|numberDecimal"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#757373"
+            android:textColor="#000000"
+            android:textColorHint="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/button_confirmer"
             app:layout_constraintEnd_toStartOf="@+id/textView3"
@@ -177,37 +155,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/price" />
 
-        <RadioButton
-            android:id="@+id/radio_non"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="86dp"
-            android:layout_marginEnd="102dp"
-            android:layout_marginBottom="16dp"
-            android:text="Non"
-            app:layout_constraintBottom_toTopOf="@+id/text_prix"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/radio_oui"
-            app:layout_constraintTop_toBottomOf="@+id/edit_marque_voiture" />
-
-        <RadioButton
-            android:id="@+id/radio_oui"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="147dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="16dp"
-            android:buttonTint="#9C27B0"
-            android:checked="true"
-            android:text="Oui"
-            app:layout_constraintBottom_toTopOf="@+id/text_prix"
-            app:layout_constraintEnd_toStartOf="@+id/radio_non"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_covoiturage_direct" />
 
         <ImageView
             android:id="@+id/imageView9"
@@ -216,9 +165,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="43dp"
             android:layout_marginEnd="14dp"
-            android:layout_marginBottom="43dp"
             android:src="@drawable/car"
-            app:layout_constraintBottom_toTopOf="@+id/text_covoiturage_direct"
             app:layout_constraintEnd_toStartOf="@+id/edit_marque_voiture"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_marque_voiture" />
@@ -228,22 +175,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="65dp"
+            android:layout_marginTop="22dp"
             android:layout_marginEnd="69dp"
             android:layout_marginBottom="105dp"
             android:text="MAD"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintBottom_toTopOf="@+id/button_confirmer"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/radio_non" />
+            app:layout_constraintStart_toEndOf="@+id/price"
+            app:layout_constraintTop_toBottomOf="@+id/text_prix" />
 
         <ImageView
             android:id="@+id/backButton"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
             android:contentDescription="Go back"
             android:src="@drawable/ic_back"
             app:layout_constraintStart_toStartOf="parent"

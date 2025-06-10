@@ -19,7 +19,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 public class CovoiturageService {
-    private CovoiturageRepository covoiturageRepository;
+    private static CovoiturageRepository covoiturageRepository;
     private UtilisateurRepository utilisateurRepository;
     private UtilisateurSession userSession;
 
@@ -29,21 +29,22 @@ public class CovoiturageService {
         userSession = UtilisateurSession.getInstance(context);
     }
 
-    public Covoiturage createCovoiturage(String departure, String destination, LocalDate date, LocalTime heureDepart,
-                                         int availableSeats, float price) {
+    public Covoiturage createCovoiturage(String depart, String destination, LocalDate date, LocalTime heureDepart,
+                                         int availableSeats, float price, String marqueVoiture) {
         Utilisateur currentUser = userSession.getCurrentUser();
         if (currentUser == null) {
             throw new IllegalStateException("User not logged in");
         }
 
         Covoiturage trip = new Covoiturage();
-        trip.setVilleDepart(departure);
+        trip.setVilleDepart(depart);
         trip.setVilleArrivee(destination);
         trip.setHeureDepart(heureDepart);
         trip.setDateDepart(date);
         trip.setNombrePlaces(availableSeats);
         trip.setPrixParPassager(price);
         trip.setConducteurId(currentUser.getId());
+        trip.setMarqueVoiture(marqueVoiture);
 
         covoiturageRepository.insert(trip);
 
@@ -105,6 +106,10 @@ public class CovoiturageService {
     public void findTripById(LifecycleOwner lifecycleOwner, long tripId, Callback<Covoiturage> callback) {
         covoiturageRepository.findById(tripId).observe(lifecycleOwner, callback::onResult);
     }
-
+    public static List<Utilisateur> getPassagersPourCovoiturage(long tripId) {
+        return covoiturageRepository.getPassagersByCovoiturageId(tripId);
+    }
 
 }
+
+
