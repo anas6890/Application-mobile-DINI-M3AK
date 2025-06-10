@@ -64,5 +64,4 @@ public class CovoiturageRepository {
 
     public List<Utilisateur> getPassagersByCovoiturageId(long tripId) { return null;
     }
-
 }
