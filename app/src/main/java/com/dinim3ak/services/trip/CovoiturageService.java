@@ -1,12 +1,16 @@
 package com.dinim3ak.services.trip;
 
 import android.content.Context;
+import android.telecom.Call;
+
+import androidx.lifecycle.LifecycleOwner;
 
 import com.dinim3ak.data.repositories.CovoiturageRepository;
 import com.dinim3ak.data.repositories.UtilisateurRepository;
 import com.dinim3ak.data.session.UtilisateurSession;
 import com.dinim3ak.model.Covoiturage;
 import com.dinim3ak.model.Utilisateur;
+import com.dinim3ak.services.Callback;
 import com.dinim3ak.services.user.UtilisateurService;
 import com.example.dinim3ak.OffreItem;
 
@@ -48,52 +52,60 @@ public class CovoiturageService {
         return trip;
     }
 
-    public OffreItem covoiturageToOffre(Covoiturage covoiturage){
-        //Utilisateur driver = utilisateurRepository.findById(covoiturage.getConducteurId());
-        //String driverName = driver.getNom() + " " + driver.getPrenom();
-
-        return null;
+    public void covoiturageToOffre(LifecycleOwner lifecycleOwner, Covoiturage covoiturage, Callback<OffreItem> callback){
+        utilisateurRepository.findById(covoiturage.getConducteurId()).observe(lifecycleOwner, driver -> {
+            long id = covoiturage.getId();
+            String driverName = driver.getNom() + " " + driver.getPrenom();
+            String date = covoiturage.getDateDepart().toString();
+            String villeDepart = covoiturage.getVilleDepart();
+            String heureDepart = covoiturage.getHeureDepart().toString();
+            String villeArrivee = covoiturage.getVilleArrivee();
+            String heureArrivee = (LocalTime.ofSecondOfDay(covoiturage.getHeureDepart().toSecondOfDay() +
+                    (int)(covoiturage.getDureeEstimee()*60))).toString();
+            String prix = String.valueOf(covoiturage.getPrixParPassager());
+            String nbPassager = String.valueOf(covoiturage.getNombrePlaces());
+            String nbPassagerRestants = String.valueOf(covoiturage.getNombrePlaces()-covoiturage.getNombrePlacesReservees());
+            callback.onResult(new OffreItem(id, driverName, date, villeDepart, villeArrivee,
+                    heureDepart, heureArrivee, prix, nbPassager, nbPassagerRestants));
+        });
     }
-    public List<OffreItem> searchTrips(String departure, String destination, Date date) {
-        List<Covoiturage> matchingCovoiturages = covoiturageRepository.searchCovoiturage(departure, destination, date);
-        List<OffreItem> matchingOffres = new ArrayList<>();
-        for(Covoiturage covoiturage : matchingCovoiturages){
-        }
-        return matchingOffres;
+    public void searchTrips(LifecycleOwner lifecycleOwner, String departure, String destination,
+                            LocalDate date, Callback<List<OffreItem>> callback) {
+        covoiturageRepository.searchCovoiturage(departure, destination, date).observe(lifecycleOwner, covoiturages -> {
+            List<OffreItem> offreItems = new ArrayList<>();
+            for(Covoiturage covoiturage : covoiturages){
+                covoiturageToOffre(lifecycleOwner, covoiturage, offreItems::add);
+            }
+            callback.onResult(offreItems);
+        });
     }
 
-    public List<Covoiturage> getMyTrips() {
+    public void getMyTrips(LifecycleOwner lifecycleOwner, Callback<List<Covoiturage>> callback) {
         Utilisateur currentUser = userSession.getCurrentUser();
         if (currentUser == null) {
             throw new IllegalStateException("User not logged in");
         }
-        return covoiturageRepository.getCovoiturageByConducteurId(currentUser.getId());
+        covoiturageRepository.getCovoiturageByConducteurId(currentUser.getId()).observe(lifecycleOwner,
+                callback::onResult);
     }
 
-    public List<Covoiturage> getMyBookedTrips() {
-        Utilisateur currentUser = userSession.getCurrentUser();
-        if (currentUser == null) {
-            throw new IllegalStateException("User not logged in");
-        }
-        return covoiturageRepository.getCovoiturageReserveByUserId(currentUser.getId());
+    public void cancelTrip(LifecycleOwner lifecycleOwner, long tripId) {
+        covoiturageRepository.findById(tripId).observe(lifecycleOwner, covoiturage -> {
+            if (covoiturage == null) {
+                throw new IllegalArgumentException("Trip not found");
+            }
+
+            Utilisateur currentUser = userSession.getCurrentUser();
+            if (currentUser == null || covoiturage.getConducteurId() != currentUser.getId()) {
+                throw new IllegalStateException("Unauthorized to cancel this trip");
+            }
+            covoiturageRepository.delete(covoiturage);
+        });
+
     }
 
-    public void cancelTrip(long tripId) {
-        Covoiturage trip = covoiturageRepository.findById(tripId);
-        if (trip == null) {
-            throw new IllegalArgumentException("Trip not found");
-        }
-
-        Utilisateur currentUser = userSession.getCurrentUser();
-        if (currentUser == null || trip.getConducteurId() != currentUser.getId()) {
-            throw new IllegalStateException("Unauthorized to cancel this trip");
-        }
-
-        covoiturageRepository.delete(tripId);
-    }
-
-    public Covoiturage findTripById(long tripId) {
-        return covoiturageRepository.findById(tripId);
+    public void findTripById(LifecycleOwner lifecycleOwner, long tripId, Callback<Covoiturage> callback) {
+        covoiturageRepository.findById(tripId).observe(lifecycleOwner, callback::onResult);
     }
 
 

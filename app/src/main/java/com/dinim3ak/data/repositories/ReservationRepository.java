@@ -23,7 +23,7 @@ public class ReservationRepository {
     public void insert(Reservation reservation) {
         Executors.newSingleThreadExecutor().execute(() -> {
             long generatedId = reservationDao.insert(reservation);
-        reservation.setId(generatedId);
+            reservation.setId(generatedId);
         });
     }
 
@@ -34,14 +34,17 @@ public class ReservationRepository {
     public void update(Reservation reservation) {
     }
 
-    public Reservation findById(long reservationId) {
-        return null;
+    public LiveData<Reservation> findById(long reservationId) {
+        return reservationDao.findById(reservationId);
     }
 
     public List<Reservation> getReservationsByCovoiturageId(long tripId) {
         return java.util.Collections.emptyList();
     }
 
-    public void delete(long reservationId) {
+    public void delete(Reservation reservation) {
+        Executors.newSingleThreadExecutor().execute(()->{
+            reservationDao.delete(reservation);
+        });
     }
 }

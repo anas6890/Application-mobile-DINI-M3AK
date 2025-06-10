@@ -19,6 +19,8 @@ public class Reservation {
 
     private long passagerId;
     private long trajetId;
+
+    private int nombrePlaces;
     private ReservationStatus statut;
 
     private LocalDate dateReservation;
@@ -60,6 +62,14 @@ public class Reservation {
 
     public void setTrajetId(long trajetId) {
         this.trajetId = trajetId;
+    }
+
+    public int getNombrePlaces() {
+        return nombrePlaces;
+    }
+
+    public void setNombrePlaces(int nombrePlaces) {
+        this.nombrePlaces = nombrePlaces;
     }
 
     public ReservationStatus getStatut() {

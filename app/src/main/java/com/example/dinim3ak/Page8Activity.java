@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.datepicker.MaterialDatePicker;
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.Locale;
 
@@ -31,8 +34,11 @@ public class Page8Activity extends AppCompatActivity {
 
             // Handle the result
             datePicker.addOnPositiveButtonClickListener(selection -> {
-                String selectedDate = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
-                        .format(new Date(selection));
+                //String selectedDate = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault()).format(new Date(selection));
+                LocalDate selectedDate = Instant.ofEpochMilli(selection)
+                        .atZone(ZoneId.systemDefault()) // Use the device's default time zone
+                        .toLocalDate();
+
                 Intent startingIntent = getIntent();
                 String ville1 = "", ville2 = "";
                 // Check if the intent has extras before trying to retrieve them
@@ -45,7 +51,7 @@ public class Page8Activity extends AppCompatActivity {
                 Intent i = new Intent(Page8Activity.this, Page9Activity.class);
                 i.putExtra("ville1", ville1);
                 i.putExtra("ville2", ville2);
-                i.putExtra("date", selectedDate);
+                i.putExtra("date", selectedDate.toString());
                 startActivity(i);
             });
         });

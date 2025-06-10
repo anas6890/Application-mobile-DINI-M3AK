@@ -1,9 +1,11 @@
 package com.dinim3ak.data.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.*;
 
 import com.dinim3ak.model.Covoiturage;
 
+import java.time.LocalDate;
 import java.util.List;
 @Dao
 public interface CovoiturageDao {
@@ -17,8 +19,12 @@ public interface CovoiturageDao {
     void delete(Covoiturage covoiturage);
 
     @Query("SELECT * FROM Covoiturage WHERE id = :id")
-    Covoiturage getById(int id);
+    LiveData<Covoiturage> getById(long id);
 
     @Query("SELECT * FROM Covoiturage")
-    List<Covoiturage> getAll();
+    LiveData<List<Covoiturage>> getAll();
+
+    @Query("SELECT * FROM Covoiturage WHERE villeDepart = :departure AND villeArrivee = :destination AND " +
+            "(:date IS NULL OR dateDepart = :date)")
+    LiveData<List<Covoiturage>> searchCovoiturage(String departure, String destination, LocalDate date);
 }
