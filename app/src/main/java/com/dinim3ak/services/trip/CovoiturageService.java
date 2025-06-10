@@ -30,7 +30,7 @@ public class CovoiturageService {
     }
 
     public Covoiturage createCovoiturage(String depart, String destination, LocalDate date, LocalTime heureDepart,
-                                         int availableSeats, float price, String marqueVoiture) {
+                                         int availableSeats, float price) {
         Utilisateur currentUser = userSession.getCurrentUser();
         if (currentUser == null) {
             throw new IllegalStateException("User not logged in");
@@ -44,7 +44,6 @@ public class CovoiturageService {
         trip.setNombrePlaces(availableSeats);
         trip.setPrixParPassager(price);
         trip.setConducteurId(currentUser.getId());
-        trip.setMarqueVoiture(marqueVoiture);
 
         covoiturageRepository.insert(trip);
 

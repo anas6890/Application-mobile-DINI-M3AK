@@ -40,18 +40,28 @@ public class DetailsCovoiturageActivity extends AppCompatActivity {
             return;
         }
 
-        covoiturage = covoiturageService.findTripById(tripId);
+        // Utilisation correcte de la méthode asynchrone
+        covoiturageService.findTripById(this, tripId, result -> {
+            if (result != null) {
+                covoiturage = result;
+                updateUI();
+            } else {
+                Toast.makeText(this, "Covoiturage introuvable", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
 
-        if (covoiturage != null) {
-            textViewDestination.setText("Destination : " + covoiturage.getVilleArrivee());
-            textViewPrix.setText("Prix : " + covoiturage.getPrixParPassager() + " MAD");
+    }
 
-            // Charge les passagers associés à ce covoiturage
-            List<Utilisateur> passagers = CovoiturageService.getPassagersPourCovoiturage(tripId); // À adapter selon ta structure
+    private void updateUI() {
+        textViewDestination.setText("Destination : " + covoiturage.getVilleArrivee());
+        textViewPrix.setText("Prix : " + covoiturage.getPrixParPassager() + " MAD");
 
-            // Initialise l’adapter
-            recyclerViewPassagers.setLayoutManager(new LinearLayoutManager(this));
-            recyclerViewPassagers.setAdapter(new PassagerAdapter(passagers, covoiturage.getId(), this));
-        }
+        // Charge les passagers associés à ce covoiturage
+        List<Utilisateur> passagers = CovoiturageService.getPassagersPourCovoiturage(covoiturage.getId());
+
+        // Initialise l'adapter
+        recyclerViewPassagers.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewPassagers.setAdapter(new PassagerAdapter(passagers, covoiturage.getId(), this));
     }
 }

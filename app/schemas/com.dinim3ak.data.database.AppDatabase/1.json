@@ -104,7 +104,7 @@
       },
       {
         "tableName": "Covoiturage",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `conducteurId` INTEGER NOT NULL, `villeDepart` TEXT, `villeArrivee` TEXT, `dateDepart` TEXT, `heureDepart` TEXT, `dureeEstimee` REAL NOT NULL, `prixParPassager` REAL NOT NULL, `nombrePlaces` INTEGER NOT NULL, `vehiculeId` INTEGER NOT NULL, `statut` TEXT, `type` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `conducteurId` INTEGER NOT NULL, `villeDepart` TEXT, `villeArrivee` TEXT, `dateDepart` TEXT, `heureDepart` TEXT, `dureeEstimee` INTEGER NOT NULL, `prixParPassager` REAL NOT NULL, `nombrePlaces` INTEGER NOT NULL, `nombrePlacesReservees` INTEGER NOT NULL, `vehiculeId` INTEGER NOT NULL, `marqueVoiture` TEXT, `statut` TEXT, `type` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -145,7 +145,7 @@
           {
             "fieldPath": "dureeEstimee",
             "columnName": "dureeEstimee",
-            "affinity": "REAL",
+            "affinity": "INTEGER",
             "notNull": true
           },
           {
@@ -161,10 +161,22 @@
             "notNull": true
           },
           {
+            "fieldPath": "nombrePlacesReservees",
+            "columnName": "nombrePlacesReservees",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
             "fieldPath": "vehiculeId",
             "columnName": "vehiculeId",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "marqueVoiture",
+            "columnName": "marqueVoiture",
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "statut",
@@ -246,7 +258,7 @@
       },
       {
         "tableName": "Reservation",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `passagerId` INTEGER NOT NULL, `trajetId` INTEGER NOT NULL, `statut` TEXT, `dateReservation` TEXT, `heureReservation` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `passagerId` INTEGER NOT NULL, `trajetId` INTEGER NOT NULL, `nombrePlaces` INTEGER NOT NULL, `statut` TEXT, `dateReservation` TEXT, `heureReservation` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -263,6 +275,12 @@
           {
             "fieldPath": "trajetId",
             "columnName": "trajetId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombrePlaces",
+            "columnName": "nombrePlaces",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -610,7 +628,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'cbc856471b7991bed48ea80fb0103a7c')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b95fa0cea3511fec3ec9874ffb0243ab')"
     ]
   }
 }
