@@ -11,13 +11,11 @@ import com.dinim3ak.data.session.UtilisateurSession;
 import com.dinim3ak.model.Covoiturage;
 import com.dinim3ak.model.Utilisateur;
 import com.dinim3ak.services.Callback;
-import com.dinim3ak.services.user.UtilisateurService;
 import com.example.dinim3ak.OffreItem;
 
 import java.util.ArrayList;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 import java.util.List;
 
 public class CovoiturageService {

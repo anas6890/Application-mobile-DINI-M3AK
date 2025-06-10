@@ -8,6 +8,7 @@ import androidx.room.Room;
 import com.dinim3ak.data.dao.CovoiturageDao;
 import com.dinim3ak.data.database.AppDatabase;
 import com.dinim3ak.model.Covoiturage;
+import com.dinim3ak.model.Utilisateur;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -58,5 +59,10 @@ public class CovoiturageRepository {
         return null;
     }
 
+    public void delete(long tripId) {
+    }
+
+    public List<Utilisateur> getPassagersByCovoiturageId(long tripId) { return null;
+    }
 
 }
