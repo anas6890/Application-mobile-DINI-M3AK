@@ -52,7 +52,7 @@ public class CovoiturageRepository {
     }
 
     public LiveData<List<Covoiturage>> getCovoiturageByConducteurId(long id) {
-        return null;
+        return covoiturageDao.getCovoiturageByConducteurId(id);
     }
 
     public LiveData<List<Covoiturage>> getCovoiturageReserveByUserId(long id) {

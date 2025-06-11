@@ -2,6 +2,7 @@ package com.dinim3ak.services.user;
 
 import android.content.Context;
 import android.util.Base64;
+import android.util.Log;
 
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
@@ -75,11 +76,12 @@ public class UtilisateurService {
                             newUser.setNumeroTelephone(tel);
                             newUser.setDateInscription(LocalDate.now());
 
-                            utilisateurRepository.insert(newUser);
-
-                            // Auto-login after registration
-                            utilisateurSession.setCurrentUser(newUser);
-                            callback.onResult(true);
+                            utilisateurRepository.insert(newUser, userId -> {
+                                newUser.setId(userId);
+                                Log.i("USERID", String.valueOf(userId));
+                                utilisateurSession.setCurrentUser(newUser);
+                                callback.onResult(true);
+                            });
                         }else{
                             callback.onResult(false);
                         }

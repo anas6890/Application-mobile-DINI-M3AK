@@ -34,7 +34,9 @@ public class Covoiturage {
 
     private int nombrePlacesReservees;
     private long vehiculeId;
-    String marqueVoiture;
+
+
+    public String marqueVoiture;
 
     @TypeConverters(CovoiturageConverter.class)
     private CovoiturageStatus statut;
