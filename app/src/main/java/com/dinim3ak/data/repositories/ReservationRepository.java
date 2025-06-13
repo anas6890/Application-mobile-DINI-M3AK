@@ -27,8 +27,8 @@ public class ReservationRepository {
         });
     }
 
-    public List<Reservation> getReservationsByUserId(long id) {
-        return java.util.Collections.emptyList();
+    public LiveData<List<Reservation>> getReservationsByUserId(long id) {
+        return reservationDao.getReservationsByUserID(id);
     }
 
     public void update(Reservation reservation) {

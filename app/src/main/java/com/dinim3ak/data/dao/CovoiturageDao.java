@@ -30,4 +30,7 @@ public interface CovoiturageDao {
 
     @Query("SELECT * FROM Covoiturage WHERE conducteurId = :id")
     LiveData<List<Covoiturage>> getCovoiturageByConducteurId(long id);
+
+    @Query("SELECT * FROM Covoiturage WHERE id IN (:covoiturageIds)")
+    LiveData<List<Covoiturage>> getCovoituragesByIds(List<Long> covoiturageIds);
 }

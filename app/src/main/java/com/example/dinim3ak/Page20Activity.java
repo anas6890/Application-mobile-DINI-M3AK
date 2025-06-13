@@ -3,6 +3,7 @@ package com.example.dinim3ak;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -22,7 +23,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Page20Activity extends AppCompatActivity {
 
-    private static final String TAG = "Page20Activity";
+    //private static final String TAG = "Page20Activity";
+    Handler handler = new Handler();
+    Runnable refresh_function = this::refreshRecyclers;
+
+    private void refreshRecyclers() {
+        Log.d("Page20Activity", "Item count: " + adapter.getItemCount());
+        Log.d("Page20Activity", "REFRESHING...");
+        adapter.notifyDataSetChanged();
+        adapter1.notifyDataSetChanged();
+    }
 
     RecyclerView recyclerView;
     RecyclerView recyclerView1;
@@ -32,14 +42,11 @@ public class Page20Activity extends AppCompatActivity {
     List<OffreItem> rideList1;
 
     private CovoiturageService covoiturageService;
-    private long currentDriverId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page20);
-
-        Log.d(TAG, "onCreate: Initialisation de Page20Activity");
 
         covoiturageService = new CovoiturageService(this);
 
@@ -51,25 +58,32 @@ public class Page20Activity extends AppCompatActivity {
         rideList1 = new ArrayList<>();
 
         // Initialize adapters
-        rideList.add(new OffreItem(0,"Hicham", "demain 17 janv.", "Casablanca", "14:00",
+        /*rideList.add(new OffreItem(0,"Hicham", "demain 17 janv.", "Casablanca", "14:00",
                 "Rabat", "15:04", "30.50", "4","1"));
+
         rideList.add(new OffreItem(1,"Yassine", "vendredi 19 janv.", "Rabat", "08:30",
                 "Kenitra", "09:15", "41.30", "2", "2"));
+        */
+
 
         loadDriverOffers();
 
 
-        adapter1 = new OffreItemAdapter(rideList1, offre -> {});
-        recyclerView1.setAdapter(adapter1);
-
         TextView refresh_active = ((TextView) findViewById(R.id.refresh_button));
         refresh_active.setOnClickListener(v -> {
+            Log.i("RESERVATION", "REFRESHING...");
             adapter.notifyDataSetChanged();
         });
 
         TextView refresh_non_active = ((TextView) findViewById(R.id.refresh_button_2));
         refresh_non_active.setOnClickListener(v -> {
             adapter1.notifyDataSetChanged();
+        });
+
+
+        TextView reservations_tab = ((TextView) findViewById(R.id.tab_reservations));
+        reservations_tab.setOnClickListener(v -> {
+            startActivity(new Intent(this, Page19Activity.class));
         });
     }
 
@@ -113,62 +127,12 @@ public class Page20Activity extends AppCompatActivity {
                 }
             });
         } catch (Exception e) {
-            Log.e(TAG, "Erreur lors du chargement des offres", e);
+            Log.e("page20", "Erreur lors du chargement des offres", e);
             runOnUiThread(() ->
                     Toast.makeText(this, "Erreur: " + e.getMessage(), Toast.LENGTH_LONG).show()
             );
         }
     }
-
-    /*private void separateOffersByStatus(List<Covoiturage> covoiturages) {
-        rideList.clear();
-        rideList1.clear();
-
-        if (covoiturages.isEmpty()) {
-            runOnUiThread(() -> {
-                adapter.notifyDataSetChanged();
-                adapter1.notifyDataSetChanged();
-                Toast.makeText(this, "Aucune offre à afficher", Toast.LENGTH_SHORT).show();
-            });
-            return;
-        }
-
-        AtomicInteger pendingConversions = new AtomicInteger(covoiturages.size());
-
-        for (Covoiturage covoiturage : covoiturages) {
-            try {
-                covoiturageService.covoiturageToOffre(this, covoiturage, offreItem -> {
-                    runOnUiThread(() -> {
-                        if (isActiveOffer(covoiturage)) {
-                            rideList.add(offreItem);
-                        } else {
-                            rideList1.add(offreItem);
-                        }
-
-                        int remaining = pendingConversions.decrementAndGet();
-                        if (remaining == 0) {
-                            adapter.notifyDataSetChanged();
-                            adapter1.notifyDataSetChanged();
-
-                            if (rideList.isEmpty() && rideList1.isEmpty()) {
-                                Toast.makeText(this, "Aucune offre à afficher après conversion", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                });
-            } catch (Exception e) {
-                Log.e(TAG, "Erreur lors de la conversion du covoiturage", e);
-                int remaining = pendingConversions.decrementAndGet();
-                if (remaining == 0) {
-                    runOnUiThread(() -> {
-                        adapter.notifyDataSetChanged();
-                        adapter1.notifyDataSetChanged();
-                    });
-                }
-            }
-        }
-    }*/
-
 
 
     public void refreshOffers() {
@@ -176,11 +140,18 @@ public class Page20Activity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
+    public void onResume(){
         super.onResume();
         refreshOffers();
+        long timeToRefresh = 1000; //ms
+        handler.postDelayed(refresh_function, timeToRefresh);
     }
 
+    @Override
+    public void onPause(){
+        super.onPause();
+        handler.removeCallbacks(refresh_function);
+    }
     // Navigation
     public void goBack(View view) {
         finish();
@@ -202,7 +173,4 @@ public class Page20Activity extends AppCompatActivity {
         startActivity(new Intent(this, Page22Activity.class));
     }
 
-    public void goToReservations(View view) {
-        startActivity(new Intent(this, Page19Activity.class));
-    }
 }

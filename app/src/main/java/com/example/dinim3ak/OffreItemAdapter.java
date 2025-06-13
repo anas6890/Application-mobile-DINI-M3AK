@@ -1,4 +1,5 @@
 package com.example.dinim3ak;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,8 @@ public class OffreItemAdapter extends RecyclerView.Adapter<OffreItemAdapter.Offr
         holder.nbPassager.setText((ride.getNbPassager()));
 
         holder.itemView.setOnClickListener(v -> listener.onItemClick(ride));
+        Log.d("Bind", "User: " + ride.getId()); // Add logging
+
     }
 
     @Override

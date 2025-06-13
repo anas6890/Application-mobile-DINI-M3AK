@@ -4,6 +4,8 @@ import androidx.room.*;
 
 import com.dinim3ak.model.Reservation;
 
+import java.util.List;
+
 @Dao
 public interface ReservationDao {
     @Insert
@@ -17,4 +19,7 @@ public interface ReservationDao {
 
     @Query("SELECT * FROM Reservation WHERE id = :id")
     LiveData<Reservation> findById(long id);
+
+    @Query("SELECT * FROM Reservation WHERE passagerId = :id")
+    LiveData<List<Reservation>> getReservationsByUserID(long id);
 }

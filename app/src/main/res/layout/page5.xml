@@ -71,7 +71,7 @@
 
         <!-- Texte principal -->
         <TextView
-            android:id="@+id/textView39"
+            android:id="@+id/user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -107,7 +107,7 @@
             app:layout_constraintBottom_toTopOf="@+id/textView40"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView39"
+            app:layout_constraintTop_toBottomOf="@+id/user_name"
             tools:ignore="VisualLintTextFieldSize" />
 
         <TextView
@@ -146,9 +146,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:layout_marginTop="753dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
         android:background="#FFFFFF"
-        android:baselineAligned="false"
         android:elevation="8dp"
         android:orientation="horizontal">
 

@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -39,6 +40,7 @@ public class Page5Activity extends AppCompatActivity {
         }
 
         // Initialisation des vues
+        TextView userName = ((TextView) findViewById(R.id.user_name));
         ImageView btn_profil = findViewById(R.id.btn_profil);
         EditText btn_rech = findViewById(R.id.btn_rech);
         LinearLayout btn_passager = findViewById(R.id.btn_passager);
@@ -47,6 +49,8 @@ public class Page5Activity extends AppCompatActivity {
         LinearLayout btn_wallet = findViewById(R.id.btn_wallet);
         Button btnHelp = findViewById(R.id.btnHelp);
         ImageView notification = findViewById(R.id.notification);
+
+        userName.setText(utilisateurService.getCurrentUser().getPrenom()+", où souhaite tu voyager?");
         // Désactiver le clavier pour l'EditText
         btn_rech.setFocusable(false);
         btn_rech.setOnClickListener(v -> {

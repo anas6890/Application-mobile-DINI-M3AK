@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import java.util.List;
 
 public class Page9Activity extends AppCompatActivity {
     RecyclerView recyclerView;
+    List<OffreItem> offreItems;
     OffreItemAdapter adapter;
     CovoiturageService covoiturageService;
 
@@ -40,6 +42,10 @@ public class Page9Activity extends AppCompatActivity {
         ImageView notification2 = findViewById(R.id.notification2);
         notification2.setOnClickListener(v -> Toast.makeText(this, "Fonctionnalité indisponible", Toast.LENGTH_SHORT).show());
 
+        TextView refresh = ((TextView) findViewById(R.id.refresh_button));
+        refresh.setOnClickListener(v -> {
+            adapter.notifyDataSetChanged();
+        });
         recyclerView = findViewById(R.id.offreView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -51,12 +57,13 @@ public class Page9Activity extends AppCompatActivity {
             ville2 = startingIntent.getStringExtra("ville2");
             date = startingIntent.getStringExtra("date");
             covoiturageService.searchTrips(this, ville1, ville2, date==null?null:LocalDate.parse(date), offreItems -> {
-                offreItems.add(new OffreItem(0,"Hicham", "demain 17 janv.", "Casablanca", "14:00",
+                this.offreItems = offreItems;
+                this.offreItems.add(new OffreItem(0,"Hicham", "demain 17 janv.", "Casablanca", "14:00",
                         "Rabat", "15:04", "30.50", "4","1"));
-                offreItems.add(new OffreItem(1,"Yassine", "vendredi 19 janv.", "Rabat", "08:30",
+                this.offreItems.add(new OffreItem(1,"Yassine", "vendredi 19 janv.", "Rabat", "08:30",
                         "Kenitra", "09:15", "41.30", "2", "2"));
 
-                adapter = new OffreItemAdapter(offreItems, offreItem -> {
+                adapter = new OffreItemAdapter(this.offreItems, offreItem -> {
                     Intent i = new Intent(Page9Activity.this, Page10Activity.class);
                     i.putExtra("offre_data", offreItem);
                     startActivity(i);

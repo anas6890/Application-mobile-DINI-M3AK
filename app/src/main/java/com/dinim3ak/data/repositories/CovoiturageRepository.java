@@ -64,4 +64,8 @@ public class CovoiturageRepository {
 
     public List<Utilisateur> getPassagersByCovoiturageId(long tripId) { return null;
     }
+
+    public LiveData<List<Covoiturage>> getCovoituragesByIds(List<Long> covoiturageIds) {
+        return covoiturageDao.getCovoituragesByIds(covoiturageIds);
+    }
 }

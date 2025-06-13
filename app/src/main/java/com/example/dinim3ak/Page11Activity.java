@@ -67,7 +67,13 @@ public class Page11Activity extends AppCompatActivity {
                 try {
                     int nbPlaces = Integer.parseInt(((EditText) findViewById(R.id.nbplacesEdit)).getText().toString());
                     long offreId = receivedOffer.getId();
-                    reservationService.reserver(this, offreId, nbPlaces);
+                    reservationService.reserver(this, offreId, nbPlaces, reservationSucceeded -> {
+                        if(!reservationSucceeded){
+                            Toast.makeText(this, "Places insuffisantes!", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(this, "Reservation realisée avec succès!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                     startActivity(intent);
                 }catch (Exception e){
                     Toast.makeText(this, "Veuillez entrer un nombre", Toast.LENGTH_SHORT).show();
