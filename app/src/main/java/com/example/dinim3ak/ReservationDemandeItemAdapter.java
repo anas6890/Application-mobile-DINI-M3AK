@@ -12,67 +12,74 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class ReservationDemandeItemAdapter extends RecyclerView.Adapter<ReservationDemandeItemAdapter.ReservationDemandeViewHolder> {
+public class ReservationDemandeItemAdapter extends RecyclerView.Adapter<ReservationDemandeItemAdapter.ViewHolder> {
 
-    private List<ReservationDemandeItem> demandesList;
-    private ReservationDemandeItemAdapter.OnActionButtonClickListener listener;
+    private List<ReservationDemandeItem> rideList;
+    private OnButtonClickListener buttonClickListener;
+    private boolean showButtons;
 
-    public interface  OnActionButtonClickListener{
-        public void onActionButtonClick(ReservationDemandeItem reservationDemandeItem, int position, boolean isDemandeAccepted);
+    public interface OnButtonClickListener {
+        void onButtonClick(ReservationDemandeItem item, int position, boolean isAccepted);
     }
 
-    public ReservationDemandeItemAdapter(List<ReservationDemandeItem> demandesList, ReservationDemandeItemAdapter.OnActionButtonClickListener listener) {
-        this.demandesList = demandesList;
-        this.listener = listener;
+    public ReservationDemandeItemAdapter(List<ReservationDemandeItem> rideList, boolean showButtons, OnButtonClickListener listener) {
+        this.rideList = rideList;
+        this.showButtons = showButtons;
+        this.buttonClickListener = listener;
     }
 
     @NonNull
     @Override
-    public ReservationDemandeItemAdapter.ReservationDemandeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.offre_item_layout, parent, false);
-        return new ReservationDemandeItemAdapter.ReservationDemandeViewHolder(view);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.demande_item_layout, parent, false);
+        return new ViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ReservationDemandeItemAdapter.ReservationDemandeViewHolder holder, int position) {
-        ReservationDemandeItem demande = demandesList.get(position);
-        holder.driverName.setText(demande.getDriverName());
-        holder.date.setText(demande.getDate());
-        holder.fromCity.setText(demande.getFromCity());
-        holder.fromTime.setText(demande.getFromTime());
-        holder.toCity.setText(demande.getToCity());
-        holder.toTime.setText(demande.getToTime());
-        holder.nbPassager.setText((demande.getNbPassager()));
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        ReservationDemandeItem item = rideList.get(position);
 
-        holder.accept.setOnClickListener(v -> listener.onActionButtonClick(demande, position, true));
-        holder.refuse.setOnClickListener(v -> listener.onActionButtonClick(demande, position, false));
+        holder.name.setText(item.getDriverName());
+        holder.date.setText(item.getDate());
+        holder.depart.setText(item.getFromCity());
+        holder.heureDepart.setText(item.getFromTime());
+        holder.destination.setText(item.getToTime());
+        holder.heureDestination.setText(item.getToTime());
+        holder.nbrPlaces.setText(item.getNbPassager());
+
+        if (showButtons) {
+            holder.btnAccepter.setVisibility(View.VISIBLE);
+            holder.btnRefuser.setVisibility(View.VISIBLE);
+
+            holder.btnAccepter.setOnClickListener(v -> buttonClickListener.onButtonClick(item, position, true));
+            holder.btnRefuser.setOnClickListener(v -> buttonClickListener.onButtonClick(item, position, false));
+        } else {
+            holder.btnAccepter.setVisibility(View.GONE);
+            holder.btnRefuser.setVisibility(View.GONE);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return demandesList.size();
+        return rideList.size();
     }
 
-    public static class ReservationDemandeViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView name, date, depart, heureDepart, destination, heureDestination, nbrPlaces;
+        Button btnAccepter, btnRefuser;
 
-        TextView driverName, date, fromCity, fromTime, toCity, toTime, price, nbPassager;
-        ImageView profileImage;
-
-        Button accept, refuse;
-        public ReservationDemandeViewHolder(@NonNull View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
-            driverName = itemView.findViewById(R.id.driver_name);
+            name = itemView.findViewById(R.id.driver_name);
             date = itemView.findViewById(R.id.ride_date);
-            fromCity = itemView.findViewById(R.id.from_city);
-            fromTime = itemView.findViewById(R.id.from_time);
-            toCity = itemView.findViewById(R.id.to_city);
-            toTime = itemView.findViewById(R.id.to_time);
-            price = itemView.findViewById(R.id.ride_price);
-            nbPassager = itemView.findViewById(R.id.passenger_count);
-            profileImage = itemView.findViewById(R.id.profile_image); // Optional: Set image if needed
-            accept = itemView.findViewById(R.id.accept_button);
-            refuse = itemView.findViewById(R.id.refuse_button);
+            depart = itemView.findViewById(R.id.from_city);
+            heureDepart = itemView.findViewById(R.id.from_time);
+            destination = itemView.findViewById(R.id.to_city);
+            heureDestination = itemView.findViewById(R.id.to_time);
+            nbrPlaces = itemView.findViewById(R.id.nbplaces);
+            btnAccepter = itemView.findViewById(R.id.accept_button);
+            btnRefuser = itemView.findViewById(R.id.refuse_button);
         }
     }
 }
