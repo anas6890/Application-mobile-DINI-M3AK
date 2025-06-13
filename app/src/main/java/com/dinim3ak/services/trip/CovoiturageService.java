@@ -56,10 +56,8 @@ public class CovoiturageService {
 
     public void covoiturageToOffre(LifecycleOwner lifecycleOwner, Covoiturage covoiturage, Callback<OffreItem> callback){
         utilisateurRepository.findById(covoiturage.getConducteurId()).observe(lifecycleOwner, driver -> {
-            Log.i("COVOITURAGE_DATA", covoiturage.getConducteurId() + " " +
-                    userSession.getCurrentUser().getId());
             long id = covoiturage.getId();
-            String driverName = driver.getNom() + " " + driver.getPrenom();
+            String driverName = driver.getPrenom();
             String date = covoiturage.getDateDepart().toString();
             String villeDepart = covoiturage.getVilleDepart();
             String heureDepart = covoiturage.getHeureDepart().toString();
@@ -69,8 +67,8 @@ public class CovoiturageService {
             String prix = String.valueOf(covoiturage.getPrixParPassager());
             String nbPassager = String.valueOf(covoiturage.getNombrePlaces());
             String nbPassagerRestants = String.valueOf(covoiturage.getNombrePlaces()-covoiturage.getNombrePlacesReservees());
-            callback.onResult(new OffreItem(id, driverName, date, villeDepart, villeArrivee,
-                    heureDepart, heureArrivee, prix, nbPassager, nbPassagerRestants));
+            callback.onResult(new OffreItem(id, driverName, date, villeDepart,
+                    heureDepart, villeArrivee, heureArrivee, prix, nbPassager, nbPassagerRestants));
         });
     }
     public void searchTrips(LifecycleOwner lifecycleOwner, String departure, String destination,
@@ -89,13 +87,8 @@ public class CovoiturageService {
         if (currentUser == null) {
             throw new IllegalStateException("User not logged in");
         }
-        Log.i("COVOITURAGE", "SEPERATOR");
         covoiturageRepository.getCovoiturageByConducteurId(currentUser.getId()).observe(lifecycleOwner,
                 covoiturages -> {
-            for(Covoiturage c : covoiturages){
-                Log.i("COVOITURAGE", String.valueOf(c.getStatut()));
-            }
-            Log.i("COVOITURAGE", "SEPERATOR");
             List<OffreItem> offreItems = new ArrayList<>();
             for(Covoiturage covoiturage : covoiturages){
                 if(covoiturage.getStatut() == CovoiturageStatus.Disponible) {

@@ -64,6 +64,7 @@ public class Page20Activity extends AppCompatActivity {
 
         TextView refresh_active = ((TextView) findViewById(R.id.refresh_button));
         refresh_active.setOnClickListener(v -> {
+            Log.i("RESERVATION", "REFRESHING...");
             adapter.notifyDataSetChanged();
         });
 

@@ -146,9 +146,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:layout_marginTop="753dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
         android:background="#FFFFFF"
-        android:baselineAligned="false"
         android:elevation="8dp"
         android:orientation="horizontal">
 
