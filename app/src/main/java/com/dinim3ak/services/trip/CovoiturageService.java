@@ -84,15 +84,22 @@ public class CovoiturageService {
 
     public void getMyActiveTrips(LifecycleOwner lifecycleOwner, Callback<List<OffreItem>> callback) {
         Utilisateur currentUser = userSession.getCurrentUser();
+        Log.i("CHECKING OFFERS", "My active Trips");
+
         if (currentUser == null) {
             throw new IllegalStateException("User not logged in");
         }
+
         covoiturageRepository.getCovoiturageByConducteurId(currentUser.getId()).observe(lifecycleOwner,
                 covoiturages -> {
+
             List<OffreItem> offreItems = new ArrayList<>();
             for(Covoiturage covoiturage : covoiturages){
                 if(covoiturage.getStatut() == CovoiturageStatus.Disponible) {
-                    covoiturageToOffre(lifecycleOwner, covoiturage, offreItems::add);
+                    covoiturageToOffre(lifecycleOwner, covoiturage, offreItem->{
+                        Log.i("CHECKING OFFERS", offreItem.getFromCity());
+                        offreItems.add(offreItem);
+                    });
                 }
             }
             callback.onResult(offreItems);

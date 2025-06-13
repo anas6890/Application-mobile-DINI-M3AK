@@ -85,7 +85,6 @@
 
             <!-- Current Reservation Section -->
             <LinearLayout
-                android:id="@+id/refresh_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -102,6 +101,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/refresh_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Actualiser"
@@ -114,13 +114,13 @@
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="252dp"
+                android:layout_weight="1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
-                android:id="@+id/refresh_button_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
@@ -137,6 +137,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/refresh_button_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Actualiser"

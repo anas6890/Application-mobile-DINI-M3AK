@@ -3,12 +3,14 @@ package com.example.dinim3ak;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,8 +24,8 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Page19Activity extends AppCompatActivity {
-
-    private static final String TAG = "Page20Activity";
+    Handler handler = new Handler();
+    Runnable refresh_function = this::refreshRecyclers;
 
     RecyclerView recyclerView;
     RecyclerView recyclerView1;
@@ -37,9 +39,7 @@ public class Page19Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page20);
-
-        Log.d(TAG, "onCreate: Initialisation de Page20Activity");
+        setContentView(R.layout.page19);
 
         reservationService = new ReservationService(this);
 
@@ -50,16 +50,20 @@ public class Page19Activity extends AppCompatActivity {
         reservationList = new ArrayList<>();
         reservationList1 = new ArrayList<>();
 
-        loadUserReservations();
-
-        adapter = new ReservationItemAdapter(reservationList);
+        adapter = new ReservationItemAdapter(reservationItem -> {
+            /*reservationService.cancelReservation(this, reservationItem.id);
+            loadUserReservations();*/
+            //refreshRecyclers();
+        });
         recyclerView.setAdapter(adapter);
-        adapter1 = new ReservationItemAdapter(reservationList1);
+
+        adapter1 = new ReservationItemAdapter(reservationItem -> {});
         recyclerView1.setAdapter(adapter1);
+
+        loadUserReservations();
 
         TextView refresh_active = ((TextView) findViewById(R.id.refresh_button));
         refresh_active.setOnClickListener(v -> {
-            Log.i("RESERVATION", "REFRESHING...");
             adapter.notifyDataSetChanged();
         });
 
@@ -67,6 +71,11 @@ public class Page19Activity extends AppCompatActivity {
         refresh_non_active.setOnClickListener(v -> {
             adapter1.notifyDataSetChanged();
         });
+    }
+
+    private void refreshRecyclers() {
+        adapter.notifyDataSetChanged();
+        adapter1.notifyDataSetChanged();
     }
 
     private void setupRecyclerViews() {
@@ -79,19 +88,18 @@ public class Page19Activity extends AppCompatActivity {
 
     private void loadUserReservations() {
         try {
-            reservationService.getUserActiveReservations(this, reservationItems -> {
-                if (reservationItems == null) {
-                    runOnUiThread(() ->
-                            Toast.makeText(this, "Aucune offre trouvée", Toast.LENGTH_SHORT).show()
-                    );
-                }else{
-
-                    reservationList = reservationItems;
-                    runOnUiThread(() -> {
-                        adapter = new ReservationItemAdapter(reservationList);
-                        recyclerView.setAdapter(adapter);
-                    });
-
+            reservationService.getUserActiveReservations().observe(this, new Observer<List<ReservationItem>>() {
+                @Override
+                public void onChanged(List<ReservationItem> reservationItems) {
+                    if (reservationItems == null) {
+                        runOnUiThread(() ->
+                                Toast.makeText(Page19Activity.this, "Aucune offre trouvée", Toast.LENGTH_SHORT).show()
+                        );
+                    } else {
+                        runOnUiThread(() -> {
+                            adapter.setReservationItemList(reservationItems);
+                        });
+                    }
                 }
             });
 
@@ -101,74 +109,32 @@ public class Page19Activity extends AppCompatActivity {
                             Toast.makeText(this, "Aucune offre trouvée", Toast.LENGTH_SHORT).show()
                     );
                 }else{
-
-                    reservationList1 = reservationItems;
                     runOnUiThread(() -> {
-                        adapter1 = new ReservationItemAdapter(reservationList1);
-                        recyclerView.setAdapter(adapter1);
+                        adapter1.setReservationItemList(reservationItems);
                     });
 
                 }
             });
         } catch (Exception e) {
-            Log.e(TAG, "Erreur lors du chargement des offres", e);
+            Log.e("Page19", "Erreur lors du chargement des offres", e);
             runOnUiThread(() ->
                     Toast.makeText(this, "Erreur: " + e.getMessage(), Toast.LENGTH_LONG).show()
             );
         }
     }
 
-    /*private void separateOffersByStatus(List<Covoiturage> covoiturages) {
-        rideList.clear();
-        rideList1.clear();
+    @Override
+    public void onResume(){
+        super.onResume();
+        long timeToRefresh = 1000; //ms
+        handler.postDelayed(refresh_function, timeToRefresh);
+    }
 
-        if (covoiturages.isEmpty()) {
-            runOnUiThread(() -> {
-                adapter.notifyDataSetChanged();
-                adapter1.notifyDataSetChanged();
-                Toast.makeText(this, "Aucune offre à afficher", Toast.LENGTH_SHORT).show();
-            });
-            return;
-        }
-
-        AtomicInteger pendingConversions = new AtomicInteger(covoiturages.size());
-
-        for (Covoiturage covoiturage : covoiturages) {
-            try {
-                covoiturageService.covoiturageToOffre(this, covoiturage, offreItem -> {
-                    runOnUiThread(() -> {
-                        if (isActiveOffer(covoiturage)) {
-                            rideList.add(offreItem);
-                        } else {
-                            rideList1.add(offreItem);
-                        }
-
-                        int remaining = pendingConversions.decrementAndGet();
-                        if (remaining == 0) {
-                            adapter.notifyDataSetChanged();
-                            adapter1.notifyDataSetChanged();
-
-                            if (rideList.isEmpty() && rideList1.isEmpty()) {
-                                Toast.makeText(this, "Aucune offre à afficher après conversion", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                });
-            } catch (Exception e) {
-                Log.e(TAG, "Erreur lors de la conversion du covoiturage", e);
-                int remaining = pendingConversions.decrementAndGet();
-                if (remaining == 0) {
-                    runOnUiThread(() -> {
-                        adapter.notifyDataSetChanged();
-                        adapter1.notifyDataSetChanged();
-                    });
-                }
-            }
-        }
-    }*/
-
-
-
+    @Override
+    public void onPause(){
+        super.onPause();
+        handler.removeCallbacks(refresh_function);
+    }
     // Navigation
     public void goBack(View view) {
         finish();
