@@ -9,7 +9,7 @@
         android:id="@+id/titreEvaluation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="252dp"
         android:text="Évaluez votre conducteur"
         android:textSize="18sp"
         android:textStyle="bold"
