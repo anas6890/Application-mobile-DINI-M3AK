@@ -23,6 +23,8 @@ public class Page10Activity extends AppCompatActivity {
         TextView placesRestantesTV = ((TextView) findViewById(R.id.placesRestants));
         TextView placesTotalesTV = ((TextView) findViewById(R.id.placesTotales));
         TextView prixUnitaireTV = ((TextView) findViewById(R.id.prixPourUnPassager));
+        TextView driverName = ((TextView) findViewById(R.id.driver_name2));
+        TextView vehicleNameTV = ((TextView) findViewById(R.id.vehicleName));
         LinearLayout user = ((LinearLayout) findViewById(R.id.user));
 
         if (startingintent != null) {
@@ -41,6 +43,9 @@ public class Page10Activity extends AppCompatActivity {
             prixUnitaireTV.setText(receivedOffer.getPrice());
             placesTotalesTV.setText(receivedOffer.getNbPassager());
             placesRestantesTV.setText(receivedOffer.getNbPassagerRestant());
+            driverName.setText(receivedOffer.getDriverName());
+            vehicleNameTV.setText("Dacia Duster");
+
         }
         ImageView backbutton10 = findViewById(R.id.backButton10);
         backbutton10.setOnClickListener(v -> {

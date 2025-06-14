@@ -41,6 +41,9 @@ public class CovoiturageRepository {
     }
 
     public void update(Covoiturage trip) {
+        Executors.newSingleThreadExecutor().execute(()->{
+            covoiturageDao.update(trip);
+        });
     }
 
     public LiveData<Covoiturage> findById(long trajetId) {

@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +16,7 @@ import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dinim3ak.services.trip.CovoiturageService;
 import com.dinim3ak.services.trip.ReservationService;
 
 import java.util.ArrayList;
@@ -34,6 +36,8 @@ public class DemandeActivity extends AppCompatActivity {
     List<ReservationDemandeItem> rideListConfirme = new ArrayList<>();
 
     ReservationService reservationService;
+    CovoiturageService covoiturageService;
+
 
     // Informations de l'offre sélectionnée
     private long offreId;
@@ -41,8 +45,9 @@ public class DemandeActivity extends AppCompatActivity {
     private String offreDate;
     private String offreFrom;
     private String offreTo;
-    private List<ReservationDemandeItem> demandesSelectionnees = new ArrayList<>();
+    private List<ReservationDemandeItem> demandesSelectionnees, demandesRefusees;
     private int nbPlacesDisponibles;
+    private boolean offre_overte;
 
     private boolean isHistory = false;
 
@@ -50,7 +55,10 @@ public class DemandeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.demandes_activity_layout);
+        demandesSelectionnees  = new ArrayList<>();
+        demandesRefusees = new ArrayList<>();
 
+        covoiturageService = new CovoiturageService(this);
         reservationService = new ReservationService(this);
         // Récupérer les données de l'offre depuis l'Intent
         Intent intent = getIntent();
@@ -62,8 +70,9 @@ public class DemandeActivity extends AppCompatActivity {
             offreTo = intent.getStringExtra("offre_to");
             isHistory = intent.getBooleanExtra("is_history", false);
             nbPlacesDisponibles = intent.getIntExtra("offre_places_disponibles", 0);
-
+            offre_overte = intent.getBooleanExtra("COVOITURAGE_OUVERT", false);
         }
+
 
         // Mettre à jour le titre avec les informations de l'offre
         updateTitle();
@@ -73,58 +82,91 @@ public class DemandeActivity extends AppCompatActivity {
 
         recyclerView1 = findViewById(R.id.recyclerView1);
         recyclerView1.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayout demandesTitle = ((LinearLayout) findViewById(R.id.demandes));
+
 
         // Charger les demandes pour cette offre spécifique
         loadDemandesForOffre();
 
         // Configuration des adapters
-        adapterDemande = new ReservationDemandeItemAdapter(rideListDemande, !isHistory, (item, position, isAccepted) -> {
-            if (isAccepted) {
-                demandesSelectionnees.add(item); // Ajouter à la sélection
-                Toast.makeText(this, "Demande marquée comme acceptée", Toast.LENGTH_SHORT).show();
-            } else {
-                demandesSelectionnees.remove(item); // Retirer de la sélection
-                Toast.makeText(this, "Demande refusée", Toast.LENGTH_SHORT).show();
-            }
-
+        adapterDemande = new ReservationDemandeItemAdapter(this, offre_overte, (item, position) -> {
+            item.setSelected(!item.isSelected());
+            rideListConfirme.add(item);// Ajouter à la sélection
+            Log.d("ACCEPTER", ""+rideListDemande.size());
             rideListDemande.remove(position);
-            adapterDemande.notifyItemRemoved(position);
+            Toast.makeText(this, "Demande marquée comme acceptée", Toast.LENGTH_SHORT).show();
+
+            adapterDemande.setDemandesList(rideListDemande);
+            adapterConfirme.setDemandesList(rideListConfirme);
+            adapterDemande.notifyDataSetChanged();
+            adapterConfirme.notifyDataSetChanged();
         });
+        adapterDemande.setDemandesList(rideListDemande);
 
 
         // Adapter sans boutons pour les demandes confirmées
-        adapterConfirme = new ReservationDemandeItemAdapter(rideListConfirme, false, null);
+        adapterConfirme = new ReservationDemandeItemAdapter(this, offre_overte, (item, position) -> {
+            item.setSelected(!item.isSelected());
+            rideListConfirme.remove(position);// Ajouter à la sélection
+            rideListDemande.add(item);
+            Toast.makeText(this, "Demande marquée comme refusee", Toast.LENGTH_SHORT).show();
 
+            adapterDemande.setDemandesList(rideListDemande);
+            adapterConfirme.setDemandesList(rideListConfirme);
+            adapterDemande.notifyDataSetChanged();
+            adapterConfirme.notifyDataSetChanged();
+        });
+        adapterConfirme.setDemandesList(rideListConfirme);
         recyclerView.setAdapter(adapterDemande);
         recyclerView1.setAdapter(adapterConfirme);
+        Button btn = findViewById(R.id.btn_confirmer_selection);
 
-        Button btnConfirmer = findViewById(R.id.btn_confirmer_selection);
-        btnConfirmer.setOnClickListener(v -> {
-            int totalPlacesDemandées = 0;
+        if(!offre_overte){
+            demandesTitle.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.GONE);
+            btn.setText("Terminer");
+        }
 
-            for (ReservationDemandeItem demande : demandesSelectionnees) {
-                totalPlacesDemandées += Integer.parseInt(demande.getNbPassager());
+        btn.setOnClickListener(v -> {
+            if(offre_overte){
+                int totalPlacesDemandées = 0;
+
+                for (ReservationDemandeItem demande : rideListConfirme) {
+                    totalPlacesDemandées += demande.getNbPassager().toCharArray()[0]-'0';
+                }
+
+                if (totalPlacesDemandées > nbPlacesDisponibles) {
+                    Log.d("ACCEPTER", ""+totalPlacesDemandées);
+
+                    Toast.makeText(this, "Le nombre total de passagers dépasse les places disponibles !", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                // Tout est OK : ajouter à la liste des confirmés
+                for (ReservationDemandeItem demande : rideListConfirme) {
+                    reservationService.accepterReservation(DemandeActivity.this, demande.getId());
+                }
+                for (ReservationDemandeItem demande : rideListDemande){
+                    reservationService.refuserReservation(DemandeActivity.this, demande.getId());
+                }
+                Toast.makeText(this, "Demandes confirmées avec succès", Toast.LENGTH_SHORT).show();
+                covoiturageService.fermerCovoiturage(DemandeActivity.this, offreId);
+                finish();
+            }else{
+                //Terminer covoiturage
+                covoiturageService.terminerCovoiturage(DemandeActivity.this, offreId);
+                for(ReservationDemandeItem demande : rideListConfirme){
+                    reservationService.finaliserReservation(DemandeActivity.this, demande.getId());
+                }
+                finish();
             }
-
-            if (totalPlacesDemandées > nbPlacesDisponibles) {
-                Toast.makeText(this, "Le nombre total de passagers dépasse les places disponibles !", Toast.LENGTH_LONG).show();
-                return;
-            }
-
-            // Tout est OK : ajouter à la liste des confirmés
-            for (ReservationDemandeItem demande : demandesSelectionnees) {
-                rideListConfirme.add(demande);
-
-                // Appel au service pour confirmer (si tu veux)
-                // confirmReservation(demande.getId(), true);
-            }
-
-            adapterConfirme.notifyDataSetChanged();
-            demandesSelectionnees.clear();
-
-            Toast.makeText(this, "Demandes confirmées avec succès", Toast.LENGTH_SHORT).show();
         });
 
+        Button annulerOffre = findViewById(R.id.btn_annuler_offre);
+        annulerOffre.setOnClickListener(v -> {
+            covoiturageService.cancelTrip(DemandeActivity.this, offreId);
+            finish();
+        });
     }
 
     private void updateTitle() {
@@ -149,7 +191,9 @@ public class DemandeActivity extends AppCompatActivity {
                         );
                     } else {
                         runOnUiThread(() -> {
-                            adapterDemande.setDemandesList(reservationDemandeItems);
+                            rideListDemande = reservationDemandeItems;
+                            adapterDemande.setDemandesList(rideListDemande);
+                            Log.d("ACCETPER", ""+adapterDemande.getItemCount());
                         });
                     }
                 }

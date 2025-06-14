@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dinim3ak.model.ReservationStatus;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,8 +60,12 @@ public class ReservationItemAdapter extends RecyclerView.Adapter<ReservationItem
         holder.toTime.setText(reservationItem.toTime);
         holder.status.setText(reservationItem.status);
         holder.nombrePlaces.setText(reservationItem.nombrePlaces);
-        holder.cancel.setOnClickListener(v -> {listener.onCancelClick(reservationItem);});
-        Log.d("Bind", "User: " + reservationItem.id); // Add logging
+        if(ReservationStatus.valueOf(reservationItem.status) == ReservationStatus.EN_ATTENTE){
+            holder.cancel.setVisibility(View.VISIBLE);
+            holder.cancel.setOnClickListener(v -> {listener.onCancelClick(reservationItem);});
+        }else{
+            holder.cancel.setVisibility(View.GONE);
+        }
 
     }
 

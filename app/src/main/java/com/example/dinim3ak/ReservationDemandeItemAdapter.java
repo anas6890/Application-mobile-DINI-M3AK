@@ -1,16 +1,23 @@
 package com.example.dinim3ak;
 
+import android.content.Context;
+import android.content.res.ColorStateList;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.button.MaterialButton;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReservationDemandeItemAdapter extends RecyclerView.Adapter<ReservationDemandeItemAdapter.ViewHolder> {
@@ -18,7 +25,7 @@ public class ReservationDemandeItemAdapter extends RecyclerView.Adapter<Reservat
     private List<ReservationDemandeItem> rideList;
     private OnButtonClickListener buttonClickListener;
     private boolean showButtons;
-
+    private Context context;
     public void setDemandesList(List<ReservationDemandeItem> reservationDemandeItems) {
         this.rideList.clear();
         this.rideList.addAll(reservationDemandeItems);
@@ -26,13 +33,15 @@ public class ReservationDemandeItemAdapter extends RecyclerView.Adapter<Reservat
     }
 
     public interface OnButtonClickListener {
-        void onButtonClick(ReservationDemandeItem item, int position, boolean isAccepted);
+        void onButtonClick(ReservationDemandeItem item, int position);
     }
 
-    public ReservationDemandeItemAdapter(List<ReservationDemandeItem> rideList, boolean showButtons, OnButtonClickListener listener) {
+    public ReservationDemandeItemAdapter(Context context, boolean showButtons, OnButtonClickListener listener) {
         this.rideList = rideList;
         this.showButtons = showButtons;
         this.buttonClickListener = listener;
+        this.context = context;
+        this.rideList = new ArrayList<>();
     }
 
     @NonNull
@@ -56,14 +65,26 @@ public class ReservationDemandeItemAdapter extends RecyclerView.Adapter<Reservat
         holder.nbrPlaces.setText(item.getNbPassager());
 
         if (showButtons) {
-            holder.btnAccepter.setVisibility(View.VISIBLE);
-            holder.btnRefuser.setVisibility(View.VISIBLE);
+            holder.btn.setVisibility(View.VISIBLE);
+            if(item.isSelected()){
+                holder.btn.setText("Refuser");
+                holder.btn.setIconResource(R.drawable.refuser_icon);
+                int color = ContextCompat.getColor(context, R.color.red);
+                ColorStateList colorStateList = ColorStateList.valueOf(color);
+                holder.btn.setIconTint(colorStateList);
+            }else{
+                holder.btn.setText("Accepter");
+                holder.btn.setIconResource(R.drawable.ic_verified);
+                int color = ContextCompat.getColor(context, R.color.green);
+                ColorStateList colorStateList = ColorStateList.valueOf(color);
+                holder.btn.setIconTint(colorStateList);
+            }
 
-            holder.btnAccepter.setOnClickListener(v -> buttonClickListener.onButtonClick(item, position, true));
-            holder.btnRefuser.setOnClickListener(v -> buttonClickListener.onButtonClick(item, position, false));
+            holder.btn.setOnClickListener(v -> {
+                buttonClickListener.onButtonClick(item, position);
+            });
         } else {
-            holder.btnAccepter.setVisibility(View.GONE);
-            holder.btnRefuser.setVisibility(View.GONE);
+            holder.btn.setVisibility(View.GONE);
         }
     }
 
@@ -74,7 +95,7 @@ public class ReservationDemandeItemAdapter extends RecyclerView.Adapter<Reservat
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView name, date, depart, heureDepart, destination, heureDestination, nbrPlaces;
-        Button btnAccepter, btnRefuser;
+        MaterialButton btn;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -85,8 +106,7 @@ public class ReservationDemandeItemAdapter extends RecyclerView.Adapter<Reservat
             destination = itemView.findViewById(R.id.to_city);
             heureDestination = itemView.findViewById(R.id.to_time);
             nbrPlaces = itemView.findViewById(R.id.nbplaces);
-            btnAccepter = itemView.findViewById(R.id.accept_button);
-            btnRefuser = itemView.findViewById(R.id.refuse_button);
+            btn = itemView.findViewById(R.id.refuse_button);
         }
     }
 }
