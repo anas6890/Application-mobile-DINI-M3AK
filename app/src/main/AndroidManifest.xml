@@ -93,6 +93,9 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".DemandeActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="false" /> <!-- META-DATA -->
         <meta-data
