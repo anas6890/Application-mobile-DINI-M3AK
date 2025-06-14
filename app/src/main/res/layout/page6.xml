@@ -24,6 +24,18 @@
         android:contentDescription="@string/goback"
         android:src="@drawable/ic_back" />
 
+
+    <Button
+        android:id="@+id/sauter"
+        android:layout_width="93dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="#FDFDFD"
+        android:text="@string/sauter"
+        android:textColor="#757575"
+        android:textSize="12sp" />
+
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"

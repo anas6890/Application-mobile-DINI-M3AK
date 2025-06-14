@@ -24,7 +24,8 @@ public interface CovoiturageDao {
     @Query("SELECT * FROM Covoiturage")
     LiveData<List<Covoiturage>> getAll();
 
-    @Query("SELECT * FROM Covoiturage WHERE villeDepart = :departure AND villeArrivee = :destination AND " +
+    @Query("SELECT * FROM Covoiturage WHERE (:departure = '' OR :departure IS NULL OR villeDepart = :departure) AND " +
+            "(:destination = '' OR :destination IS NULL OR villeArrivee = :destination) AND " +
             "(:date IS NULL OR dateDepart = :date)")
     LiveData<List<Covoiturage>> searchCovoiturage(String departure, String destination, LocalDate date);
 

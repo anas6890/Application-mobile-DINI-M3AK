@@ -7,6 +7,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -38,6 +39,12 @@ public class Page6Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page6);
 
+        Button sauter = ((Button) findViewById(R.id.sauter));
+        sauter.setOnClickListener(v ->{
+            Intent i = new Intent(Page6Activity.this, Page7Activity.class);
+            startActivity(i);
+        });
+
         try {
             initializeViews();
             setupClickListeners();
@@ -63,8 +70,7 @@ public class Page6Activity extends AppCompatActivity {
 
         // Bouton retour
         findViewById(R.id.backButton6).setOnClickListener(v -> {
-            Intent intent = new Intent(Page6Activity.this, Page5Activity.class);
-            startActivity(intent);
+            finish();
         });
 
         // Icône de recherche
@@ -207,10 +213,8 @@ public class Page6Activity extends AppCompatActivity {
         if (editText == null) return;
 
         String ville = editText.getText().toString().trim();
-        if (!ville.isEmpty()) {
-            navigateToPage7(ville);
-        } else {
-            Toast.makeText(this, "Veuillez entrer une ville", Toast.LENGTH_SHORT).show();
-        }
+
+        navigateToPage7(ville);
+
     }
 }
