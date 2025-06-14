@@ -108,14 +108,19 @@ public class Page20Activity extends AppCompatActivity {
                     runOnUiThread(() -> {
                         // Modifier ici pour ajouter le listener de clic
                         adapter = new OffreItemAdapter(rideList, offre -> {
-                            // Navigation vers DemandeActivity avec l'ID de l'offre
-                            Intent intent = new Intent(Page20Activity.this, DemandeActivity.class);
-                            intent.putExtra("offre_id", offre.getId());
-                            intent.putExtra("offre_driver", offre.getDriverName());
-                            intent.putExtra("offre_date", offre.getDate());
-                            intent.putExtra("offre_from", offre.getFromCity());
-                            intent.putExtra("offre_to", offre.getToCity());
-                            startActivity(intent);
+                            covoiturageService.isCovoiturageDisponible(offre.getId()).observe(Page20Activity.this, isDisponible ->{
+                                Intent intent = new Intent(Page20Activity.this, DemandeActivity.class);
+                                intent.putExtra("COVOITURAGE_OUVERT", isDisponible);
+                                Log.d("ACCEPTER", ""+isDisponible);
+                                intent.putExtra("offre_id", offre.getId());
+                                intent.putExtra("offre_driver", offre.getDriverName());
+                                intent.putExtra("offre_date", offre.getDate());
+                                intent.putExtra("offre_from", offre.getFromCity());
+                                intent.putExtra("offre_to", offre.getToCity());
+                                intent.putExtra("offre_places_disponibles", offre.getNbPassagerRestant().charAt(0)-'0');
+                                startActivity(intent);
+                            });
+
                         });
                         recyclerView.setAdapter(adapter);
                     });
@@ -132,17 +137,7 @@ public class Page20Activity extends AppCompatActivity {
                     rideList1 = offreItems;
                     runOnUiThread(() -> {
                         // Pour l'historique, on peut aussi ajouter la navigation ou la désactiver
-                        adapter1 = new OffreItemAdapter(rideList1, offre -> {
-                            // Optionnel : Navigation vers l'historique des demandes
-                            Intent intent = new Intent(Page20Activity.this, DemandeActivity.class);
-                            intent.putExtra("offre_id", offre.getId());
-                            intent.putExtra("offre_driver", offre.getDriverName());
-                            intent.putExtra("offre_date", offre.getDate());
-                            intent.putExtra("offre_from", offre.getFromCity());
-                            intent.putExtra("offre_to", offre.getToCity());
-                            intent.putExtra("is_history", true); // Pour distinguer l'historique
-                            startActivity(intent);
-                        });
+                        adapter1 = new OffreItemAdapter(rideList1, offre -> {});
                         recyclerView1.setAdapter(adapter1);
                     });
                 }

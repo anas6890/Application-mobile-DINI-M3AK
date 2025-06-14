@@ -5,6 +5,9 @@ import android.telecom.Call;
 import android.util.Log;
 
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Transformations;
 
 import com.dinim3ak.data.repositories.CovoiturageRepository;
 import com.dinim3ak.data.repositories.UtilisateurRepository;
@@ -13,6 +16,7 @@ import com.dinim3ak.model.Covoiturage;
 import com.dinim3ak.model.CovoiturageStatus;
 import com.dinim3ak.model.Utilisateur;
 import com.dinim3ak.services.Callback;
+import com.example.dinim3ak.DemandeActivity;
 import com.example.dinim3ak.OffreItem;
 
 import java.util.ArrayList;
@@ -95,7 +99,7 @@ public class CovoiturageService {
 
             List<OffreItem> offreItems = new ArrayList<>();
             for(Covoiturage covoiturage : covoiturages){
-                if(covoiturage.getStatut() == CovoiturageStatus.Disponible) {
+                if(covoiturage.getStatut() == CovoiturageStatus.Disponible ||  covoiturage.getStatut() == CovoiturageStatus.Confirme) {
                     covoiturageToOffre(lifecycleOwner, covoiturage, offreItem->{
                         Log.i("CHECKING OFFERS", offreItem.getFromCity());
                         offreItems.add(offreItem);
@@ -115,7 +119,7 @@ public class CovoiturageService {
                 covoiturages -> {
                     List<OffreItem> offreItems = new ArrayList<>();
                     for(Covoiturage covoiturage : covoiturages){
-                        if(covoiturage.getStatut() != CovoiturageStatus.Disponible)
+                        if(covoiturage.getStatut() != CovoiturageStatus.Disponible && covoiturage.getStatut() != CovoiturageStatus.Confirme)
                             covoiturageToOffre(lifecycleOwner, covoiturage, offreItems::add);
                     }
                     callback.onResult(offreItems);});
@@ -130,7 +134,8 @@ public class CovoiturageService {
             if (currentUser == null || covoiturage.getConducteurId() != currentUser.getId()) {
                 throw new IllegalStateException("Unauthorized to cancel this trip");
             }
-            covoiturageRepository.delete(covoiturage);
+            covoiturage.setStatut(CovoiturageStatus.annule);
+            covoiturageRepository.update(covoiturage);
         });
 
     }
@@ -142,7 +147,32 @@ public class CovoiturageService {
         return covoiturageRepository.getPassagersByCovoiturageId(tripId);
     }
 
+    public void fermerCovoiturage(LifecycleOwner lifecycleOwner, long covoiturageId){
+        covoiturageRepository.findById(covoiturageId).observe(lifecycleOwner, covoiturage -> {
+            if (covoiturage == null) {
+                throw new IllegalArgumentException("Trip not found");
+            }
+            covoiturage.setStatut(CovoiturageStatus.Confirme);
+            covoiturageRepository.update(covoiturage);
+        });
+    }
 
+    public LiveData<Boolean> isCovoiturageDisponible(long covoiturageId){
+        LiveData<Covoiturage> covoiturageLiveData = covoiturageRepository.findById(covoiturageId);
+        return Transformations.switchMap(covoiturageLiveData, covoiturage -> {
+            return new MutableLiveData<>(covoiturage.getStatut()==CovoiturageStatus.Disponible);
+        });
+    }
+
+    public void terminerCovoiturage(LifecycleOwner lifecycleOwner , long covoiturageId) {
+        covoiturageRepository.findById(covoiturageId).observe(lifecycleOwner, covoiturage -> {
+            if (covoiturage == null) {
+                throw new IllegalArgumentException("Trip not found");
+            }
+            covoiturage.setStatut(CovoiturageStatus.Complet);
+            covoiturageRepository.update(covoiturage);
+        });
+    }
 }
 
 

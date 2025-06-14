@@ -17,7 +17,8 @@ public class OffreItem implements Parcelable{
     private String nbPassager;
     private String nbPassagerRestant;
 
-    public OffreItem(long id, String driverName, String date, String fromCity, String fromTime, String toCity, String toTime, String price, String nbPassager, String nbPassagerRestant) {
+    public OffreItem(long id, String driverName, String date, String fromCity, String fromTime, String toCity, String toTime,
+                     String price, String nbPassager, String nbPassagerRestant) {
         this.id = id;
         this.driverName = driverName;
         this.date = date;
@@ -103,6 +104,13 @@ public class OffreItem implements Parcelable{
     public void setNbPassagerRestant(String nbPassagerRestant) {
         this.nbPassagerRestant = nbPassagerRestant;
     }
+    /*public String getVehicleName() {
+        return vehicleName;
+    }
+
+    public void setVehicleName(String vehicleName) {
+        this.vehicleName = vehicleName;
+    }*/
 
     public static final Creator<OffreItem> CREATOR = new Creator<OffreItem>() {
         @Override

@@ -1,3 +1,3 @@
 package com.dinim3ak.model;
 
-public enum CovoiturageStatus { Disponible, Complet, annule }
+public enum CovoiturageStatus { Disponible, Complet, Confirme, annule }

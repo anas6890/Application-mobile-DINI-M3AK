@@ -20,6 +20,7 @@ import com.dinim3ak.model.ReservationStatus;
 import com.dinim3ak.model.Utilisateur;
 import com.dinim3ak.services.Callback;
 import com.dinim3ak.services.user.UtilisateurService;
+import com.example.dinim3ak.DemandeActivity;
 import com.example.dinim3ak.OffreItem;
 import com.example.dinim3ak.ReservationDemandeItem;
 import com.example.dinim3ak.ReservationItem;
@@ -66,6 +67,7 @@ public class ReservationService {
                 reservation.setTrajetId(tripId);
                 reservation.setDateReservation(LocalDate.now());
                 reservation.setStatut(ReservationStatus.EN_ATTENTE);
+                reservation.setNombrePlaces(nbPlaces);
 
                 reservationRepository.insert(reservation);
                 callback.onResult(true);
@@ -192,7 +194,7 @@ public class ReservationService {
         String heureArrivee = (LocalTime.ofSecondOfDay(covoiturage.getHeureDepart().toSecondOfDay() +
                 (int)(covoiturage.getDureeEstimee()*60))).toString();
         String statut = reservation.getStatut().toString();
-        String nbPlaces = String.valueOf(covoiturage.getNombrePlaces());
+        String nbPlaces = String.valueOf(reservation.getNombrePlaces());
         return new ReservationItem(id, passagerPrenom, date, villeDepart,
                 heureDepart, villeArrivee, heureArrivee, statut, nbPlaces);
 
@@ -207,7 +209,7 @@ public class ReservationService {
         String heureArrivee = (LocalTime.ofSecondOfDay(covoiturage.getHeureDepart().toSecondOfDay() +
                 (int)(covoiturage.getDureeEstimee()*60))).toString();
         String statut = reservation.getStatut().toString();
-        String nbPlaces = String.valueOf(covoiturage.getNombrePlaces());
+        String nbPlaces = String.valueOf(reservation.getNombrePlaces());
         return new ReservationDemandeItem(id, passagerPrenom, date, villeDepart,
                 heureDepart, villeArrivee, heureArrivee, nbPlaces);
 
@@ -221,8 +223,7 @@ public class ReservationService {
 
                     List<ReservationItem> activeReservations = reservationItems.stream().filter(reservationItem ->
             {
-                return ReservationStatus.valueOf(reservationItem.status) == ReservationStatus.EN_ATTENTE ||
-                        ReservationStatus.valueOf(reservationItem.status) == ReservationStatus.ACCEPTEE;
+                return ReservationStatus.valueOf(reservationItem.status) == ReservationStatus.EN_ATTENTE;
             }).collect(Collectors.toList());
             return new MutableLiveData<>(activeReservations);
         });
@@ -231,8 +232,7 @@ public class ReservationService {
     public void getUserNonActiveReservations(LifecycleOwner lifecycleOwner, Callback<List<ReservationItem>> callback) {
         getMyReservationItems().observe(lifecycleOwner, reservationItems -> {
             List<ReservationItem> activeReservations = reservationItems.stream().filter(reservationItem ->
-            {return !(ReservationStatus.valueOf(reservationItem.status) == ReservationStatus.EN_ATTENTE ||
-                    ReservationStatus.valueOf(reservationItem.status) == ReservationStatus.ACCEPTEE);
+            {return !(ReservationStatus.valueOf(reservationItem.status) == ReservationStatus.EN_ATTENTE);
             }).collect(Collectors.toList());
             callback.onResult(activeReservations);
         });
@@ -312,4 +312,15 @@ public class ReservationService {
         targetLiveData.setValue(reservationItems);
     }
 
+    public void accepterReservation(LifecycleOwner lifecycleOwner, long reservationId){
+        updateReservationStatus(lifecycleOwner, reservationId, ReservationStatus.ACCEPTEE);
+    }
+
+    public void refuserReservation(LifecycleOwner lifecycleOwner, long reservationId){
+        updateReservationStatus(lifecycleOwner, reservationId, ReservationStatus.REFUSEE);
+    }
+
+    public void finaliserReservation(LifecycleOwner lifecycleOwner, long reservationId) {
+        updateReservationStatus(lifecycleOwner, reservationId, ReservationStatus.FINALISEE);
+    }
 }

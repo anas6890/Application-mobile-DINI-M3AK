@@ -14,6 +14,7 @@ public class ReservationDemandeItem{
     private String toCity;
     private String toTime;
     private String nbPassager;
+    private boolean selected;
 
     public ReservationDemandeItem(long id, String passengerName, String date, String fromCity, String fromTime, String toCity, String toTime, String nbPassager) {
         this.id = id;
@@ -24,8 +25,11 @@ public class ReservationDemandeItem{
         this.toCity = toCity;
         this.toTime = toTime;
         this.nbPassager = nbPassager + " passagers";
+        this.selected = false;
     }
 
+    public boolean isSelected(){return selected;}
+    public void setSelected(boolean selected){this.selected = selected;}
     public long getId() {
         return id;
     }
