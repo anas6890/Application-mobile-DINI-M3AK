@@ -106,7 +106,17 @@ public class Page20Activity extends AppCompatActivity {
 
                     rideList = offreItems;
                     runOnUiThread(() -> {
-                        adapter = new OffreItemAdapter(rideList, offre -> {});
+                        // Modifier ici pour ajouter le listener de clic
+                        adapter = new OffreItemAdapter(rideList, offre -> {
+                            // Navigation vers DemandeActivity avec l'ID de l'offre
+                            Intent intent = new Intent(Page20Activity.this, DemandeActivity.class);
+                            intent.putExtra("offre_id", offre.getId());
+                            intent.putExtra("offre_driver", offre.getDriverName());
+                            intent.putExtra("offre_date", offre.getDate());
+                            intent.putExtra("offre_from", offre.getFromCity());
+                            intent.putExtra("offre_to", offre.getToCity());
+                            startActivity(intent);
+                        });
                         recyclerView.setAdapter(adapter);
                     });
 
@@ -121,7 +131,18 @@ public class Page20Activity extends AppCompatActivity {
                 }else{
                     rideList1 = offreItems;
                     runOnUiThread(() -> {
-                        adapter1 = new OffreItemAdapter(rideList1, offre -> {});
+                        // Pour l'historique, on peut aussi ajouter la navigation ou la désactiver
+                        adapter1 = new OffreItemAdapter(rideList1, offre -> {
+                            // Optionnel : Navigation vers l'historique des demandes
+                            Intent intent = new Intent(Page20Activity.this, DemandeActivity.class);
+                            intent.putExtra("offre_id", offre.getId());
+                            intent.putExtra("offre_driver", offre.getDriverName());
+                            intent.putExtra("offre_date", offre.getDate());
+                            intent.putExtra("offre_from", offre.getFromCity());
+                            intent.putExtra("offre_to", offre.getToCity());
+                            intent.putExtra("is_history", true); // Pour distinguer l'historique
+                            startActivity(intent);
+                        });
                         recyclerView1.setAdapter(adapter1);
                     });
                 }
