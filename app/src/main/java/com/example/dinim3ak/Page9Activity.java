@@ -2,6 +2,7 @@ package com.example.dinim3ak;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,6 +20,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Page9Activity extends AppCompatActivity {
+
+    Handler handler = new Handler();
+    Runnable refersh_function = new Runnable() {
+        @Override
+        public void run() {
+            refresh_offres();
+        }
+    };
+
+    void refresh_offres(){
+        adapter.notifyDataSetChanged();
+    }
     RecyclerView recyclerView;
     List<OffreItem> offreItems;
     OffreItemAdapter adapter;
@@ -31,10 +44,9 @@ public class Page9Activity extends AppCompatActivity {
 
         covoiturageService = new CovoiturageService(this);
 
-        ImageView profil1 = findViewById(R.id.avatar10);
-        profil1.setOnClickListener(v -> {
-            Intent intent = new Intent(Page9Activity.this, Page22Activity.class);
-            startActivity(intent);
+        ImageView back_button = findViewById(R.id.backButton5);
+        back_button.setOnClickListener(v -> {
+            finish();
         });
 
         Button btnhelp2=findViewById(R.id.btnHelp2);
@@ -58,11 +70,6 @@ public class Page9Activity extends AppCompatActivity {
             date = startingIntent.getStringExtra("date");
             covoiturageService.searchTrips(this, ville1, ville2, date==null?null:LocalDate.parse(date), offreItems -> {
                 this.offreItems = offreItems;
-                this.offreItems.add(new OffreItem(0,"Hicham", "demain 17 janv.", "Casablanca", "14:00",
-                        "Rabat", "15:04", "30.50", "4","1"));
-                this.offreItems.add(new OffreItem(1,"Yassine", "vendredi 19 janv.", "Rabat", "08:30",
-                        "Kenitra", "09:15", "41.30", "2", "2"));
-
                 adapter = new OffreItemAdapter(this.offreItems, offreItem -> {
                     Intent i = new Intent(Page9Activity.this, Page10Activity.class);
                     i.putExtra("offre_data", offreItem);
@@ -74,6 +81,19 @@ public class Page9Activity extends AppCompatActivity {
             Toast.makeText(this, "No data received", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        long timeToRefresh = 1000; //ms
+        handler.postDelayed(refersh_function, timeToRefresh);
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        handler.removeCallbacks(refersh_function);
     }
 
     public void goToPassager(View view){

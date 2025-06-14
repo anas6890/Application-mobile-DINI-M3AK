@@ -28,6 +28,9 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
 public class ReservationService {
@@ -73,24 +76,45 @@ public class ReservationService {
     }
 
     @SuppressLint("CheckResult")
-    public void cancelReservation(LifecycleOwner lifecycleOwner, long reservationId) {
-        Utilisateur currentUser = userSession.getCurrentUser();
 
-        LiveData<Reservation> reservationLiveData = reservationRepository.findById(reservationId);
-        LiveData<Covoiturage> covoiturageLiveData = Transformations.switchMap(reservationLiveData, reservation -> {
-            return covoiturageRepository.findById(reservation.getTrajetId());
-        });
-        Transformations.switchMap(covoiturageLiveData, covoiturage -> {
-            Transformations.switchMap(reservationLiveData, reservation -> {
-                covoiturage.setNombrePlaces(covoiturage.getNombrePlaces() + reservation.getNombrePlaces());
-                covoiturageRepository.update(covoiturage);
-                reservation.setStatut(ReservationStatus.ANNULEE);
-                Log.i("CANCELING RESERVATION", reservation.getStatut().toString());
-                return new MutableLiveData<>(null);
+    public LiveData<Boolean> cancelReservation(LifecycleOwner lifecycleOwner, long reservationId) {
+        MutableLiveData<Boolean> result = new MutableLiveData<>();
+
+        reservationRepository.findById(reservationId).observe(lifecycleOwner, reservation -> {
+            if (reservation == null) {
+                Log.e("CANCELING", "Reservation not found.");
+                result.postValue(false);
+                return;
+            }
+
+            covoiturageRepository.findById(reservation.getTrajetId()).observe(lifecycleOwner, covoiturage -> {
+                if (covoiturage == null) {
+                    Log.e("CANCELING", "Covoiturage not found.");
+                    result.postValue(false);
+                    return;
+                }
+
+                Executors.newSingleThreadExecutor().execute(() -> {
+                    try {
+                        covoiturage.setNombrePlaces(covoiturage.getNombrePlaces() + reservation.getNombrePlaces());
+                        covoiturageRepository.update(covoiturage);
+                        reservation.setStatut(ReservationStatus.ANNULEE);
+                        reservationRepository.update(reservation);
+                        Log.i("CANCELING", "Reservation Status "+reservation.getStatut());
+
+                        Log.i("CANCELING", "Success");
+                        result.postValue(true);
+                    } catch (Exception e) {
+                        Log.e("CANCELING", "Error", e);
+                        result.postValue(false);
+                    }
+                });
             });
-            return new MutableLiveData<>(null);
         });
+
+        return result;
     }
+
 
     public LiveData<List<ReservationItem>> getMyReservationItems() {
         // Step 1: Get LiveData<List<Reservation>> for the current user
