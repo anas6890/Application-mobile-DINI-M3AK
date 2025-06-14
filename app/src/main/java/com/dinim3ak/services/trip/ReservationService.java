@@ -21,6 +21,7 @@ import com.dinim3ak.model.Utilisateur;
 import com.dinim3ak.services.Callback;
 import com.dinim3ak.services.user.UtilisateurService;
 import com.example.dinim3ak.OffreItem;
+import com.example.dinim3ak.ReservationDemandeItem;
 import com.example.dinim3ak.ReservationItem;
 
 import java.time.LocalDate;
@@ -183,17 +184,32 @@ public class ReservationService {
         targetLiveData.setValue(reservationItems);
     }
     public ReservationItem reservationToItem(Reservation reservation, Covoiturage covoiturage, String passagerPrenom){
-            long id = reservation.getId();
-            String date = covoiturage.getDateDepart().toString();
-            String villeDepart = covoiturage.getVilleDepart();
-            String heureDepart = covoiturage.getHeureDepart().toString();
-            String villeArrivee = covoiturage.getVilleArrivee();
-            String heureArrivee = (LocalTime.ofSecondOfDay(covoiturage.getHeureDepart().toSecondOfDay() +
-                    (int)(covoiturage.getDureeEstimee()*60))).toString();
-            String statut = reservation.getStatut().toString();
-            String nbPlaces = String.valueOf(covoiturage.getNombrePlaces());
-            return new ReservationItem(id, passagerPrenom, date, villeDepart,
-                    heureDepart, villeArrivee, heureArrivee, statut, nbPlaces);
+        long id = reservation.getId();
+        String date = covoiturage.getDateDepart().toString();
+        String villeDepart = covoiturage.getVilleDepart();
+        String heureDepart = covoiturage.getHeureDepart().toString();
+        String villeArrivee = covoiturage.getVilleArrivee();
+        String heureArrivee = (LocalTime.ofSecondOfDay(covoiturage.getHeureDepart().toSecondOfDay() +
+                (int)(covoiturage.getDureeEstimee()*60))).toString();
+        String statut = reservation.getStatut().toString();
+        String nbPlaces = String.valueOf(covoiturage.getNombrePlaces());
+        return new ReservationItem(id, passagerPrenom, date, villeDepart,
+                heureDepart, villeArrivee, heureArrivee, statut, nbPlaces);
+
+    }
+
+    public ReservationDemandeItem reservationToDemandeItem(Reservation reservation, Covoiturage covoiturage, String passagerPrenom){
+        long id = reservation.getId();
+        String date = covoiturage.getDateDepart().toString();
+        String villeDepart = covoiturage.getVilleDepart();
+        String heureDepart = covoiturage.getHeureDepart().toString();
+        String villeArrivee = covoiturage.getVilleArrivee();
+        String heureArrivee = (LocalTime.ofSecondOfDay(covoiturage.getHeureDepart().toSecondOfDay() +
+                (int)(covoiturage.getDureeEstimee()*60))).toString();
+        String statut = reservation.getStatut().toString();
+        String nbPlaces = String.valueOf(covoiturage.getNombrePlaces());
+        return new ReservationDemandeItem(id, passagerPrenom, date, villeDepart,
+                heureDepart, villeArrivee, heureArrivee, nbPlaces);
 
     }
 
@@ -233,7 +249,67 @@ public class ReservationService {
 
     }
 
-    public List<Reservation> getTripReservations(long tripId) {
-        return reservationRepository.getReservationsByCovoiturageId(tripId);
+    public LiveData<List<ReservationDemandeItem>> getTripReservations(LifecycleOwner lifecycleOwner, long tripId) {
+        LiveData<List<Reservation>> allReservationLiveData = reservationRepository.getReservationsByCovoiturageId(tripId);
+        LiveData<List<Reservation>> reservationLiveData = Transformations.switchMap(allReservationLiveData, allReservations -> {
+            List<Reservation> reservations = new ArrayList<>();
+            if (allReservations != null) {
+                for(Reservation reservation : allReservations){
+                    if(reservation.getStatut() == ReservationStatus.EN_ATTENTE){
+                        reservations.add(reservation);
+                    }
+                }
+            }
+            return new MutableLiveData<>(reservations);
+        });
+        LiveData<List<Utilisateur>> passagersLiveData = Transformations.switchMap(reservationLiveData, reservations -> {
+            List<Long> userIds = new ArrayList<>();
+            if (reservations != null) {
+                userIds = reservations.stream().map(Reservation::getPassagerId).collect(Collectors.toList());
+            }
+            return utilisateurRepository.findUtilisateursByIds(userIds);
+        });
+
+        LiveData<Covoiturage> covoiturageLiveData = covoiturageRepository.findById(tripId);
+
+        MediatorLiveData<List<ReservationDemandeItem>> mediatorLiveData = new MediatorLiveData<>();
+
+        mediatorLiveData.addSource(reservationLiveData, reservations -> {
+            combine(reservations, covoiturageLiveData.getValue(), passagersLiveData.getValue(), mediatorLiveData);
+        });
+
+        mediatorLiveData.addSource(covoiturageLiveData, covoiturage -> {
+            combine(reservationLiveData.getValue(), covoiturage, passagersLiveData.getValue(), mediatorLiveData);
+        });
+
+        mediatorLiveData.addSource(passagersLiveData, passagers -> {
+            combine(reservationLiveData.getValue(), covoiturageLiveData.getValue(), passagers, mediatorLiveData);
+        });
+
+        return mediatorLiveData;
     }
+
+    private void combine(
+            List<Reservation> reservations,
+            Covoiturage covoiturage,
+            List<Utilisateur> passagers,
+            MutableLiveData<List<ReservationDemandeItem>> targetLiveData) {
+
+        if (reservations == null || covoiturage == null || passagers == null) {
+            return;
+        }
+
+        Map<Long, Utilisateur> passagerMap = passagers.stream()
+                .collect(Collectors.toMap(Utilisateur::getId, passager -> passager));
+
+        List<ReservationDemandeItem> reservationItems = new ArrayList<>();
+        for (Reservation reservation : reservations) {
+            Utilisateur passager = passagerMap.get(reservation.getPassagerId());
+            if (passager != null) {
+                reservationItems.add(reservationToDemandeItem(reservation, covoiturage, passager.getPrenom()));
+            }
+        }
+        targetLiveData.setValue(reservationItems);
+    }
+
 }

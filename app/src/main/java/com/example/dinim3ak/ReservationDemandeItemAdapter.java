@@ -1,5 +1,6 @@
 package com.example.dinim3ak;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,12 @@ public class ReservationDemandeItemAdapter extends RecyclerView.Adapter<Reservat
     private List<ReservationDemandeItem> rideList;
     private OnButtonClickListener buttonClickListener;
     private boolean showButtons;
+
+    public void setDemandesList(List<ReservationDemandeItem> reservationDemandeItems) {
+        this.rideList.clear();
+        this.rideList.addAll(reservationDemandeItems);
+        notifyDataSetChanged();
+    }
 
     public interface OnButtonClickListener {
         void onButtonClick(ReservationDemandeItem item, int position, boolean isAccepted);
@@ -44,7 +51,7 @@ public class ReservationDemandeItemAdapter extends RecyclerView.Adapter<Reservat
         holder.date.setText(item.getDate());
         holder.depart.setText(item.getFromCity());
         holder.heureDepart.setText(item.getFromTime());
-        holder.destination.setText(item.getToTime());
+        holder.destination.setText(item.getToCity());
         holder.heureDestination.setText(item.getToTime());
         holder.nbrPlaces.setText(item.getNbPassager());
 

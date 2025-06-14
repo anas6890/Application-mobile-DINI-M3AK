@@ -22,4 +22,7 @@ public interface ReservationDao {
 
     @Query("SELECT * FROM Reservation WHERE passagerId = :id")
     LiveData<List<Reservation>> getReservationsByUserID(long id);
+
+    @Query("SELECT * FROM Reservation WHERE trajetId = :tripId")
+    LiveData<List<Reservation>> getReservationsByCovoiturageId(long tripId);
 }

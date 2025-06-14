@@ -42,4 +42,8 @@ public class UtilisateurRepository {
     public LiveData<List<Utilisateur>> getAll() {
         return utilisateurDao.getAll();
     }
+
+    public LiveData<List<Utilisateur>> findUtilisateursByIds(List<Long> userIds) {
+        return utilisateurDao.getUtilisateursByIds(userIds);
+    }
 }

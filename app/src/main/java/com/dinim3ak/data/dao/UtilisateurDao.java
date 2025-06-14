@@ -29,4 +29,7 @@ public interface UtilisateurDao {
 
     @Query("SELECT * FROM Utilisateur WHERE numeroTelephone = :tel")
     LiveData<Utilisateur> findByTel(String tel);
+
+    @Query("SELECT * FROM Utilisateur WHERE id IN (:userIds)")
+    LiveData<List<Utilisateur>> getUtilisateursByIds(List<Long> userIds);
 }
