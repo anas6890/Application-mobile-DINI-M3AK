@@ -41,8 +41,8 @@ public class ReservationRepository {
         return reservationDao.findById(reservationId);
     }
 
-    public List<Reservation> getReservationsByCovoiturageId(long tripId) {
-        return java.util.Collections.emptyList();
+    public LiveData<List<Reservation>> getReservationsByCovoiturageId(long tripId) {
+        return reservationDao.getReservationsByCovoiturageId(tripId);
     }
 
     public void delete(Reservation reservation) {

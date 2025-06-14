@@ -3,24 +3,37 @@ package com.example.dinim3ak;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.dinim3ak.services.trip.ReservationService;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DemandeActivity extends AppCompatActivity {
+    Handler handler = new Handler();
+    Runnable refresh_function = this::refreshRecyclers;
 
+    private void refreshRecyclers() {
+        Log.d("Page20Activity", "REFRESHING...");
+        adapterDemande.notifyDataSetChanged();
+    }
     RecyclerView recyclerView, recyclerView1;
     ReservationDemandeItemAdapter adapterDemande, adapterConfirme;
     List<ReservationDemandeItem> rideListDemande = new ArrayList<>();
     List<ReservationDemandeItem> rideListConfirme = new ArrayList<>();
+
+    ReservationService reservationService;
 
     // Informations de l'offre sélectionnée
     private long offreId;
@@ -38,6 +51,7 @@ public class DemandeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.demandes_activity_layout);
 
+        reservationService = new ReservationService(this);
         // Récupérer les données de l'offre depuis l'Intent
         Intent intent = getIntent();
         if (intent != null) {
@@ -125,18 +139,27 @@ public class DemandeActivity extends AppCompatActivity {
     }
 
     private void loadDemandesForOffre() {
-        // TODO: Remplacer par un appel à votre service pour récupérer les vraies demandes
-        // En attendant, on utilise des données de test basées sur l'offre sélectionnée
+        try {
+            reservationService.getTripReservations(this, offreId).observe(this, new Observer<List<ReservationDemandeItem>>() {
+                @Override
+                public void onChanged(List<ReservationDemandeItem> reservationDemandeItems) {
+                    if (reservationDemandeItems == null) {
+                        runOnUiThread(() ->
+                                Toast.makeText(DemandeActivity.this, "Aucune reservation trouvée", Toast.LENGTH_SHORT).show()
+                        );
+                    } else {
+                        runOnUiThread(() -> {
+                            adapterDemande.setDemandesList(reservationDemandeItems);
+                        });
+                    }
+                }
+            });
 
-        if (offreId != -1) {
-            // Simuler le chargement des demandes pour cette offre
-            loadTestDemandes();
-
-            // Ici vous devriez appeler votre service:
-            // reservationService.getDemandesForOffre(offreId, this::onDemandesLoaded);
-        } else {
-            // Données de test par défaut
-            loadTestDemandes();
+        } catch (Exception e) {
+            Log.e("Page19", "Erreur lors du chargement des offres", e);
+            runOnUiThread(() ->
+                    Toast.makeText(this, "Erreur: " + e.getMessage(), Toast.LENGTH_LONG).show()
+            );
         }
     }
 
@@ -176,6 +199,24 @@ public class DemandeActivity extends AppCompatActivity {
                 Toast.makeText(this, "Erreur: " + message, Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    public void refreshDemandes() {
+        loadDemandesForOffre();
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        refreshDemandes();
+        long timeToRefresh = 1000; //ms
+        handler.postDelayed(refresh_function, timeToRefresh);
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        handler.removeCallbacks(refresh_function);
     }
 
     // Méthode pour le bouton retour

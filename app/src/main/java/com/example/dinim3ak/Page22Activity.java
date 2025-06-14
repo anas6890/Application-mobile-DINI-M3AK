@@ -34,7 +34,7 @@ public class Page22Activity extends AppCompatActivity {
         TextView logout = ((TextView) findViewById(R.id.logout));
         logout.setOnClickListener(v -> {
             utilisateurService.logout();
-            startActivity(new Intent(Page22Activity.this, Page5Activity.class));
+            startActivity(new Intent(Page22Activity.this, Page1Activity.class));
         });
     }
 
