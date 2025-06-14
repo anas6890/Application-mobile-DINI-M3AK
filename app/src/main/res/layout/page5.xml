@@ -8,9 +8,6 @@
     tools:context=".MainActivity">
 
     <!-- Conteneur principal blanc -->
-
-    <!-- Barre de navigation inférieure -->
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -21,8 +18,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -73,8 +70,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Texte principal -->
-
-
         <TextView
             android:id="@+id/user_name"
             android:layout_width="wrap_content"
@@ -96,6 +91,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="28dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
             android:autofillHints=""
             android:background="@drawable/search_background"
             android:hint="@string/chercher_parmi_398_offres"

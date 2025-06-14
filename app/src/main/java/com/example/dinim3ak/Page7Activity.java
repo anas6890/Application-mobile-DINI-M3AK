@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 
 import android.widget.LinearLayout;
@@ -39,12 +41,20 @@ public class Page7Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page7);
+        Button sauter = ((Button) findViewById(R.id.sauter));
+        sauter.setOnClickListener(v ->{
+            Intent i = new Intent(Page7Activity.this, Page8Activity.class);
+            startActivity(i);
+        });
 
         try {
             // Récupérer la ville de départ depuis l'Intent
             villeDepartReceived = getIntent().getStringExtra("ville");
             if (villeDepartReceived == null) {
-                villeDepartReceived = ""; // Valeur par défaut si aucune ville n'est passée
+                villeDepartReceived = "";// Valeur par défaut si aucune ville n'est passée
+                Log.d("SEARCH page7", "Ville1 is null");
+            }else{
+                Log.d("SEARCH page7", villeDepartReceived);
             }
 
             initializeViews();
@@ -81,8 +91,7 @@ public class Page7Activity extends AppCompatActivity {
 
         // Bouton retour
         findViewById(R.id.backButton7).setOnClickListener(v -> {
-            Intent intent = new Intent(Page7Activity.this,Page15Activity.class);
-            startActivity(intent);
+            finish();
         });
 
         // Icône de recherche
@@ -237,10 +246,8 @@ public class Page7Activity extends AppCompatActivity {
         if (editText == null) return;
 
         String ville = editText.getText().toString().trim();
-        if (!ville.isEmpty()) {
-            navigateToPage8(ville);
-        } else {
-            Toast.makeText(this, "Veuillez entrer une ville", Toast.LENGTH_SHORT).show();
-        }
+
+        navigateToPage8(ville);
+
     }
 }

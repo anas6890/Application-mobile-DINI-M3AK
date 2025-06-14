@@ -3,6 +3,7 @@ package com.example.dinim3ak;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -68,8 +69,14 @@ public class Page9Activity extends AppCompatActivity {
             ville1 = startingIntent.getStringExtra("ville1");
             ville2 = startingIntent.getStringExtra("ville2");
             date = startingIntent.getStringExtra("date");
+            if(ville1!=null){
+                Log.d("SEARCH", ville1);
+            }else{
+                Log.d("SEARCH", "Ville1 is null");
+            }
             covoiturageService.searchTrips(this, ville1, ville2, date==null?null:LocalDate.parse(date), offreItems -> {
                 this.offreItems = offreItems;
+
                 adapter = new OffreItemAdapter(this.offreItems, offreItem -> {
                     Intent i = new Intent(Page9Activity.this, Page10Activity.class);
                     i.putExtra("offre_data", offreItem);
