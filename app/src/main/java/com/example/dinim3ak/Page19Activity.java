@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -51,8 +52,27 @@ public class Page19Activity extends AppCompatActivity {
         reservationList1 = new ArrayList<>();
 
         adapter = new ReservationItemAdapter(reservationItem -> {
-            /*reservationService.cancelReservation(this, reservationItem.id);
-            loadUserReservations();*/
+            Log.i("CANCELING", "Button clicked");
+            LiveData<Boolean> cancelReservationResultLiveData = reservationService.cancelReservation(Page19Activity.this,reservationItem.id);
+            Observer<Boolean> observer = new Observer<Boolean>() {
+                @Override
+                public void onChanged(Boolean isSuccess) {
+                        Log.i("CANCELING", "Observer Triggered");
+                        if(isSuccess != null){
+                            if(isSuccess){
+                                Toast.makeText(Page19Activity.this, "Réservation annulée avec succès!", Toast.LENGTH_SHORT).show();
+                                runOnUiThread(() -> loadUserReservations());
+
+                            } else {
+                                Toast.makeText(Page19Activity.this, "Échec de l'annulation de la réservation.", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        cancelReservationResultLiveData.removeObserver(this);
+                    };
+                };
+            cancelReservationResultLiveData.observeForever(observer);
+
+
             //refreshRecyclers();
         });
         recyclerView.setAdapter(adapter);
@@ -137,7 +157,7 @@ public class Page19Activity extends AppCompatActivity {
     }
     // Navigation
     public void goBack(View view) {
-        finish();
+        startActivity(new Intent(Page19Activity.this, Page5Activity.class));
     }
 
     public void goToPassager(View view) {
@@ -153,7 +173,7 @@ public class Page19Activity extends AppCompatActivity {
     }
 
     public void goToWallet(View view) {
-        startActivity(new Intent(this, Page22Activity.class));
+        startActivity(new Intent(this, Page21Activity.class));
     }
 
     public void goToOffres(View view) {

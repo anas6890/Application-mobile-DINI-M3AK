@@ -32,6 +32,9 @@ public class ReservationRepository {
     }
 
     public void update(Reservation reservation) {
+        Executors.newSingleThreadExecutor().execute(()->{
+            reservationDao.update(reservation);
+        });
     }
 
     public LiveData<Reservation> findById(long reservationId) {

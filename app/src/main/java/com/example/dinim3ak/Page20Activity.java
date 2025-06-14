@@ -154,7 +154,7 @@ public class Page20Activity extends AppCompatActivity {
     }
     // Navigation
     public void goBack(View view) {
-        finish();
+        startActivity(new Intent(Page20Activity.this, Page14Activity.class));
     }
 
     public void goToPassager(View view) {
@@ -170,7 +170,7 @@ public class Page20Activity extends AppCompatActivity {
     }
 
     public void goToWallet(View view) {
-        startActivity(new Intent(this, Page22Activity.class));
+        startActivity(new Intent(this, Page21Activity.class));
     }
 
 }

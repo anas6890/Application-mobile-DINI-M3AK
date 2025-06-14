@@ -6,6 +6,8 @@ import android.util.Log;
 
 import com.dinim3ak.model.Utilisateur;
 
+import java.time.LocalDate;
+
 public class UtilisateurSession {
     private static UtilisateurSession instance;
     private Utilisateur currentUser;
@@ -53,6 +55,7 @@ public class UtilisateurSession {
         editor.putString("user_name", user.getNom());
         editor.putString("user_first_name", user.getPrenom());
         editor.putString("user_phone", user.getNumeroTelephone());
+        editor.putString("date_inscription", user.getDateInscription().toString());
         // Add other necessary fields
         editor.apply();
     }
@@ -68,6 +71,8 @@ public class UtilisateurSession {
             user.setEmail(prefs.getString("user_email", ""));
             user.setNom(prefs.getString("user_name", ""));
             user.setPrenom(prefs.getString("user_first_name", ""));
+            user.setDateInscription(LocalDate.parse(prefs.getString("date_inscription", "")));
+            user.setNumeroTelephone(prefs.getString("user_phone", ""));
             return user;
         }
         return null;

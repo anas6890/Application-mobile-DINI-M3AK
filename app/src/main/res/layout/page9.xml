@@ -5,19 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/backButton5"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/goback"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/offres_disponibles"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/offreView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avatar10"
-        app:layout_constraintVertical_bias="0.81" />
+        app:layout_constraintTop_toBottomOf="@+id/backButton5"
+        app:layout_constraintVertical_bias="0.792" />
 
     <TextView
         android:id="@+id/refresh_button"
@@ -26,10 +38,10 @@
         android:text="Actualiser"
         app:layout_constraintBottom_toTopOf="@+id/offreView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.844"
+        app:layout_constraintHorizontal_bias="0.849"
         app:layout_constraintStart_toEndOf="@+id/textView29"
-        app:layout_constraintTop_toBottomOf="@+id/avatar10"
-        app:layout_constraintVertical_bias="0.818" />
+        app:layout_constraintTop_toBottomOf="@+id/btnHelp2"
+        app:layout_constraintVertical_bias="0.62" />
 
     <ImageView
         android:id="@+id/notification2"
@@ -47,26 +59,10 @@
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="UnknownIdInLayout" />
 
-    <ImageView
-        android:id="@+id/avatar10"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/circle_background"
-        android:padding="8dp"
-        android:src="@drawable/ic_person"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.027"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription" />
-
     <Button
         android:id="@+id/btnHelp2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="175dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/button_help_background"
         android:text="@string/aide"
@@ -74,8 +70,6 @@
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/notification2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/avatar10"
         app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -89,8 +83,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avatar10"
-        app:layout_constraintVertical_bias="1.0"
         tools:ignore="TextSizeCheck" />
 
     <LinearLayout

@@ -2,6 +2,7 @@ package com.dinim3ak.model;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 
 import com.dinim3ak.data.converter.DateConverter;
@@ -21,9 +22,14 @@ public class Reservation {
     private long trajetId;
 
     private int nombrePlaces;
+
+    @TypeConverters({ReservationStatusConverter.class})
     private ReservationStatus statut;
 
+    @TypeConverters({DateConverter.class})
     private LocalDate dateReservation;
+
+    @TypeConverters({DateConverter.class})
     private LocalTime heureReservation;
 
     // Constructeur sans argument

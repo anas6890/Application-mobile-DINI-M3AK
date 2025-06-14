@@ -43,8 +43,8 @@ public class Page8Activity extends AppCompatActivity {
                 String ville1 = "", ville2 = "";
                 // Check if the intent has extras before trying to retrieve them
                 if (startingIntent != null && startingIntent.getExtras() != null) {
-                    ville1 = startingIntent.getStringExtra("ville1");
-                    ville2 = startingIntent.getStringExtra("ville2");
+                    ville1 = startingIntent.getStringExtra("villeDepart");
+                    ville2 = startingIntent.getStringExtra("villeDestination");
                 } else {
                     Toast.makeText(this, "No data received", Toast.LENGTH_SHORT).show();
                 }
