@@ -138,15 +138,27 @@ public class ReservationService {
             return covoiturageRepository.getCovoituragesByIds(covoiturageIds);
         });
 
+        LiveData<List<Utilisateur>> allDriversLiveData = Transformations.switchMap(allCovoituragesLiveData, covoiturages -> {
+            if (covoiturages == null || covoiturages.isEmpty()) {
+                return new MutableLiveData<>(new ArrayList<>());
+            }
+            List<Long> driversIds = covoiturages.stream()
+                    .map(Covoiturage::getConducteurId)
+                    .collect(Collectors.toList());
+            return utilisateurRepository.findUtilisateursByIds(driversIds);
+        });
         // Step 3: Combine both sources using MediatorLiveData
         // No need to observe currentUserDetailsLiveData now
         MediatorLiveData<List<ReservationItem>> finalReservationItemsLiveData = new MediatorLiveData<>();
 
         finalReservationItemsLiveData.addSource(reservationsLiveData, reservations ->
-                combineAndEmit(reservations, allCovoituragesLiveData.getValue(), currentUser.getPrenom(), finalReservationItemsLiveData)
+                combineAndEmit(reservations, allCovoituragesLiveData.getValue(), allDriversLiveData.getValue(), finalReservationItemsLiveData)
         );
         finalReservationItemsLiveData.addSource(allCovoituragesLiveData, covoiturages ->
-                combineAndEmit(reservationsLiveData.getValue(), covoiturages, currentUser.getPrenom(), finalReservationItemsLiveData)
+                combineAndEmit(reservationsLiveData.getValue(), covoiturages, allDriversLiveData.getValue(), finalReservationItemsLiveData)
+        );
+        finalReservationItemsLiveData.addSource(allDriversLiveData, drivers ->
+                combineAndEmit(reservationsLiveData.getValue(), allCovoituragesLiveData.getValue(), drivers, finalReservationItemsLiveData)
         );
 
         return finalReservationItemsLiveData;
@@ -157,27 +169,29 @@ public class ReservationService {
     private void combineAndEmit(
             List<Reservation> reservations,
             List<Covoiturage> covoiturages,
-            String userName, // <-- Direct String, no User object
+            List<Utilisateur> drivers, // <-- Direct String, no User object
             MutableLiveData<List<ReservationItem>> targetLiveData) {
 
         // Ensure all required data has arrived before attempting to combine
         // No need to check for currentUser != null as userName is assumed present
-        if (reservations == null || covoiturages == null) {
+        if (reservations == null || covoiturages == null || drivers == null) {
             return;
         }
 
         // Create map for efficient Covoiturage lookup
         Map<Long, Covoiturage> covoiturageMap = covoiturages.stream()
                 .collect(Collectors.toMap(Covoiturage::getId, c -> c));
+        Map<Long, Utilisateur> driversMap = drivers.stream()
+                .collect(Collectors.toMap(Utilisateur::getId, u -> u));
 
         List<ReservationItem> reservationItems = new ArrayList<>();
         for (Reservation reservation : reservations) {
             Covoiturage matchedCovoiturage = covoiturageMap.get(reservation.getTrajetId());
-
+            String driverName = driversMap.get(matchedCovoiturage.getConducteurId()).getPrenom();
             // Create the ReservationItem only if the necessary Covoiturage component is found
             if (matchedCovoiturage != null) {
                 // Pass the currentUserName directly
-                reservationItems.add(reservationToItem(reservation, matchedCovoiturage, userName));
+                reservationItems.add(reservationToItem(reservation, matchedCovoiturage, driverName));
             } else {
                 // Handle cases where Covoiturage might be missing
                 System.out.println("Missing Covoiturage for reservation " + reservation.getId()); // Or Log.w()
@@ -185,7 +199,7 @@ public class ReservationService {
         }
         targetLiveData.setValue(reservationItems);
     }
-    public ReservationItem reservationToItem(Reservation reservation, Covoiturage covoiturage, String passagerPrenom){
+    public ReservationItem reservationToItem(Reservation reservation, Covoiturage covoiturage, String driverName){
         long id = reservation.getId();
         String date = covoiturage.getDateDepart().toString();
         String villeDepart = covoiturage.getVilleDepart();
@@ -195,7 +209,7 @@ public class ReservationService {
                 (int)(covoiturage.getDureeEstimee()*60))).toString();
         String statut = reservation.getStatut().toString();
         String nbPlaces = String.valueOf(reservation.getNombrePlaces());
-        return new ReservationItem(id, passagerPrenom, date, villeDepart,
+        return new ReservationItem(id, driverName, date, villeDepart,
                 heureDepart, villeArrivee, heureArrivee, statut, nbPlaces);
 
     }
