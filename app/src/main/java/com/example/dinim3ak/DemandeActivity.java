@@ -16,6 +16,7 @@ import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dinim3ak.model.ReservationStatus;
 import com.dinim3ak.services.trip.CovoiturageService;
 import com.dinim3ak.services.trip.ReservationService;
 
@@ -86,7 +87,10 @@ public class DemandeActivity extends AppCompatActivity {
 
 
         // Charger les demandes pour cette offre spécifique
-        loadDemandesForOffre();
+        if(offre_overte)
+            loadDemandesForOffre();
+        else
+            loadDemandesConfirmees();
 
         // Configuration des adapters
         adapterDemande = new ReservationDemandeItemAdapter(this, offre_overte, (item, position) -> {
@@ -182,7 +186,7 @@ public class DemandeActivity extends AppCompatActivity {
 
     private void loadDemandesForOffre() {
         try {
-            reservationService.getTripReservations(this, offreId).observe(this, new Observer<List<ReservationDemandeItem>>() {
+            reservationService.getTripReservations(this, offreId, ReservationStatus.EN_ATTENTE).observe(this, new Observer<List<ReservationDemandeItem>>() {
                 @Override
                 public void onChanged(List<ReservationDemandeItem> reservationDemandeItems) {
                     if (reservationDemandeItems == null) {
@@ -194,6 +198,34 @@ public class DemandeActivity extends AppCompatActivity {
                             rideListDemande = reservationDemandeItems;
                             adapterDemande.setDemandesList(rideListDemande);
                             Log.d("ACCETPER", ""+adapterDemande.getItemCount());
+                        });
+                    }
+                }
+            });
+
+        } catch (Exception e) {
+            Log.e("Page19", "Erreur lors du chargement des offres", e);
+            runOnUiThread(() ->
+                    Toast.makeText(this, "Erreur: " + e.getMessage(), Toast.LENGTH_LONG).show()
+            );
+        }
+    }
+
+
+    private void loadDemandesConfirmees() {
+        try {
+            reservationService.getTripReservations(this, offreId, ReservationStatus.ACCEPTEE).observe(this, new Observer<List<ReservationDemandeItem>>() {
+                @Override
+                public void onChanged(List<ReservationDemandeItem> reservationDemandeItems) {
+                    if (reservationDemandeItems == null) {
+                        runOnUiThread(() ->
+                                Toast.makeText(DemandeActivity.this, "Aucune reservation trouvée", Toast.LENGTH_SHORT).show()
+                        );
+                    } else {
+                        runOnUiThread(() -> {
+                            rideListConfirme = reservationDemandeItems;
+                            adapterConfirme.setDemandesList(rideListConfirme);
+                            Log.d("ACCETPER", ""+adapterConfirme.getItemCount());
                         });
                     }
                 }
@@ -246,7 +278,9 @@ public class DemandeActivity extends AppCompatActivity {
     }
 
     public void refreshDemandes() {
-        loadDemandesForOffre();
+
+        if(offre_overte) loadDemandesForOffre();
+        else loadDemandesConfirmees();
     }
 
     @Override

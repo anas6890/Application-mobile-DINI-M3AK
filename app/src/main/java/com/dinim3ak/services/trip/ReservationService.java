@@ -249,13 +249,13 @@ public class ReservationService {
 
     }
 
-    public LiveData<List<ReservationDemandeItem>> getTripReservations(LifecycleOwner lifecycleOwner, long tripId) {
+    public LiveData<List<ReservationDemandeItem>> getTripReservations(LifecycleOwner lifecycleOwner, long tripId, ReservationStatus status) {
         LiveData<List<Reservation>> allReservationLiveData = reservationRepository.getReservationsByCovoiturageId(tripId);
         LiveData<List<Reservation>> reservationLiveData = Transformations.switchMap(allReservationLiveData, allReservations -> {
             List<Reservation> reservations = new ArrayList<>();
             if (allReservations != null) {
                 for(Reservation reservation : allReservations){
-                    if(reservation.getStatut() == ReservationStatus.EN_ATTENTE){
+                    if(reservation.getStatut() == status){
                         reservations.add(reservation);
                     }
                 }
@@ -323,4 +323,5 @@ public class ReservationService {
     public void finaliserReservation(LifecycleOwner lifecycleOwner, long reservationId) {
         updateReservationStatus(lifecycleOwner, reservationId, ReservationStatus.FINALISEE);
     }
+
 }
