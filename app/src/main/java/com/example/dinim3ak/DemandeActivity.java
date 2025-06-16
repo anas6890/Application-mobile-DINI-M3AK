@@ -167,10 +167,16 @@ public class DemandeActivity extends AppCompatActivity {
         });
 
         Button annulerOffre = findViewById(R.id.btn_annuler_offre);
-        annulerOffre.setOnClickListener(v -> {
-            covoiturageService.cancelTrip(DemandeActivity.this, offreId);
-            finish();
-        });
+        if(offre_overte){
+            annulerOffre.setVisibility(View.VISIBLE);
+            annulerOffre.setOnClickListener(v -> {
+                covoiturageService.cancelTrip(DemandeActivity.this, offreId);
+                finish();
+            });
+        }else{
+            annulerOffre.setVisibility(View.GONE);
+        }
+
     }
 
     private void updateTitle() {
